@@ -10,12 +10,12 @@ Learning goals:
 - binding state to user interface controls
 - creating views in a loop
 
-## Project 2 - NAME
+## [Project 2 - NAME](Project%202)
 DESCRIPTION
 Learning goals:
 - 
 
-## Project 3 - NAME
+## [Project 3 - NAME](Project%203)
 DESCRIPTION
 Learning goals:
 - 
