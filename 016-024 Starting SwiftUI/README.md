@@ -10,12 +10,18 @@ Learning goals:
 - binding state to user interface controls
 - creating views in a loop
 
-## [Project 2 - NAME](Project%202)
-DESCRIPTION
+## [Project 2 - GuessTheFlag](Project%202)
+This project is a guessing game that helps the user learn some of the many flags of the world
 Learning goals:
-- 
+- using stacks to arrange views
+- colors and frames
+- gradients
+- buttons and images
+- showing alert messages
 
-## [Project 3 - NAME](Project%203)
-DESCRIPTION
+## [Project 3 - ViewsAndModifiers](Project%203)
+A technique project to explore certain SwiftUI features in detail
 Learning goals:
-- 
+- how do views and view modifiers work
+- why does SwiftUI use structs for its views
+- why is 'some View' used so much
