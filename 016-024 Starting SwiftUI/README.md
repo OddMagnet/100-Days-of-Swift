@@ -1,6 +1,6 @@
 # 100 Days of Swift - Day 16 to 24 - Starting SwiftUI
 
-## [Project 1 - WeSplit](project 1/)
+## [Project 1 - WeSplit](/project 1)
 This project is a check-sharing app that calculates how to split a check based on the number of people and how much tip you want to leave.
 Learning goals:
 - understanding basic SwiftUI app structure
