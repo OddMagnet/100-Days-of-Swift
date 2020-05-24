@@ -1,4 +1,4 @@
-#Wesplit
+# Wesplit
 
 ## Xcode
 - **AppDelegate.swift** contains code for  managing the app, it was common to add code there, but not anymore
