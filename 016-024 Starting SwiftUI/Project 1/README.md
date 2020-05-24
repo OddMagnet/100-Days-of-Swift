@@ -18,3 +18,9 @@ This project is a check-sharing app that calculates how to split a check based o
 - The **View protocol** requires that the conforming type has a computed property called _body_ that returns _some View_
 - **Text("Hello World")** creates a text view, a simple piece of static text that gets drawn onto the screen and will wrap across multiple lines if needed
 - **ContenView_Preview** conforms to the _PreviewProvider_ protocol and only exists so Xcode can show a preview of the UI alongside the code
+
+## Creating forms
+- **Form** is a dedicated view type for user input, _Forms_ are scrolling lists of static controls like text and images, but also include interactive controls like text fields, toggles, buttons and more
+- Each sub-view in a _Form_ gets his own row, unless something like a horizontal view is used to group multiple views in one row
+- SwiftUI only allows for 10 subviews in a view, when more are needed they need to be placed in groups to avoid problems
+- **Section** views can be used to split a _Form_ into multiple chunks
