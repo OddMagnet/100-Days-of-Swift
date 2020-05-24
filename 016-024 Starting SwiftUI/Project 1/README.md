@@ -43,4 +43,10 @@ This project is a check-sharing app that calculates how to split a check based o
 - why not use _classes_ instead? Because SwiftUI frequently destroys and recreate view structs as needed, so simple structs are important for performance
 - since _@State_ is designed for simple properties that are only stored in one view, it is recommended to use _private_ access control for them
 
+## Binding state to user interface controls
+- for some views, like a text field, a **two-way binding** is needed, the value from the property needs to be written and read by the view
+- any changes to the property will show up in the text field and any changes in the text field will update the property
+- to mark a _two-way binding_ the **$** symbol is used before the property when used inside a view
+- if the property only needs to be read, the _two-way binding_ is not needed
+
 
