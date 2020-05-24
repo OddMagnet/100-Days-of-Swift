@@ -9,16 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var name = ""
+    let students = ["Harry", "Hermione", "Ron"] // no need for @State since its a constant
+    @State private var selectedStudent = 0      // can change, so @State is needed
 
     var body: some View {
-        Form {
-            TextField("Enter your name", text: $name)
-            Text("Your name is \(name)")
+        VStack {
+            // Labels are important for clarity, but for Screenreaders too
+            Picker("Select your student", selection: $selectedStudent) {
+                ForEach(0 ..< students.count) {
+                    // create a text view for each student
+                    Text(self.students[$0]) // two-way binding so it updates the selection
+                }
+            }
+            Text("You chose: Student # \(students[selectedStudent])")
         }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

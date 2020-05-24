@@ -49,4 +49,10 @@ This project is a check-sharing app that calculates how to split a check based o
 - to mark a _two-way binding_ the **$** symbol is used before the property when used inside a view
 - if the property only needs to be read, the _two-way binding_ is not needed
 
+## Creating views in a loop
+- sometimes views are created from data from an array, e.g. a list of names
+- **ForEach** is the dedicated view type for this purpose, it can loop over arrays to create loops and isn't affected by the 10-view limit
+- _ForEach_ will run a closure once for every item in the array, passing the current item to the closure
+- it's particularly useful for the **Picker** view, which can show various options to select from
+- inside the _Picker_ view a _forEach_ view is placed, which loops over an array and creates _text_ views for the picker to use
 
