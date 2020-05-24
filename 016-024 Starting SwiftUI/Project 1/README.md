@@ -24,3 +24,13 @@ This project is a check-sharing app that calculates how to split a check based o
 - Each sub-view in a _Form_ gets his own row, unless something like a horizontal view is used to group multiple views in one row
 - SwiftUI only allows for 10 subviews in a view, when more are needed they need to be placed in groups to avoid problems
 - **Section** views can be used to split a _Form_ into multiple chunks
+
+## Adding navigation bars
+- By default SwiftUI ensures components are placed in the _safe area_, so they can't be covered by system UI or device corners
+- To stop content from being scrolled under the clock, navigation bars can be added
+- They can have titles and buttons, and in SwiftUI also have the ability to display new views when the user performs an action
+- The **NavigationView** type is used to add them, to add a title the **.navigationBarTitle()** modifier is added with a string for the titles text
+- **Modifiers** are like regular methods, but they always return a new instance of whatever they were used on, which means when using _modifiers_ Swift actually creates a new view that is then used
+- for a slightly smaller font the **displayMode** parameter can be added to the modifier call
+- a good example for larger and smaller titles used in a single app is the _Settings_ app
+
