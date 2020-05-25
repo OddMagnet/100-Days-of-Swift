@@ -19,15 +19,25 @@ struct ContentView: View {
     let tipPercentages = [10, 15, 20, 25, 0]    // holds values for the tip picker
     
     var body: some View {
-        Form {
-            Section {
-                // TextField view with a placeholder text and two-way binding to the state property
-                TextField("Amount", text: $checkAmount)
-                    .keyboardType(.decimalPad)  // only show a decimal keypad to avoid non-digits
+        NavigationView {
+            Form {
+                Section {
+                    // TextField view with a placeholder text and two-way binding to the state property
+                    TextField("Amount", text: $checkAmount)
+                        .keyboardType(.decimalPad)  // only show a decimal keypad to avoid non-digits
+                    
+                    // Picker view to choose the number of people splitting the check
+                    Picker("Number of people", selection: $numberOfPeople) {
+                        ForEach(2 ..< 20) {
+                            Text("\($0) people")
+                        }
+                    }
+                }
+                Section {
+                    Text("$\(checkAmount)")
+                }
             }
-            Section {
-                Text("$\(checkAmount)")
-            }
+            .navigationBarTitle("WeSplit")
         }
     }
 }
