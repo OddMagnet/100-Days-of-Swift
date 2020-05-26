@@ -12,22 +12,28 @@ struct ContentView: View {
     // State properties
     @State private var checkAmount = ""         // cost of the check
     // Double would be better for numbers, but SwiftUI only allows strings in text views
-    @State private var numberOfPeople = 2       // how many are sharing the cost
-    @State private var tipPercentage = 2            // how much of a tip will be left
+    @State private var numberOfPeople = ""      // how many are sharing the cost
+    @State private var tipPercentage = 2        // how much of a tip will be left
     
     // Constants
     let tipPercentages = [10, 15, 20, 25, 0]    // holds values for the tip picker
     
     // Computed properties
+    // calculates the grand total
+    var grandTotal: Double {
+        let tipSelection = Double(tipPercentages[tipPercentage])
+
+        let orderAmount = Double(checkAmount) ?? 0      // using nil coalescing to ensure a safe value
+        let tipValue = orderAmount / 100 * tipSelection
+        
+        return orderAmount + tipValue
+    }
+    
     // calculates the amount each person has to pay, tip included
     var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople+2)  // get correct people count, convert to double
-        let tipSelection = Double(tipPercentages[tipPercentage])
-        let orderAmount = Double(checkAmount) ?? 0  // using nil coalescing to ensure a safe value
+        let peopleCount = Int(numberOfPeople) ?? 1      // convert to int (whole people), ensure a safe value
         
-        let tipValue = orderAmount / 100 * tipSelection
-        let grandTotal = orderAmount + tipValue
-        let amountPerPerson = grandTotal / peopleCount
+        let amountPerPerson = grandTotal / Double(peopleCount)
         
         return amountPerPerson
     }
@@ -39,14 +45,10 @@ struct ContentView: View {
                     // TextField view with a placeholder text and two-way binding to the state property
                     TextField("Amount", text: $checkAmount)
                         .keyboardType(.decimalPad)  // only show a decimal keypad to avoid non-digits
+                                        
+                    TextField("Number of people", text: $numberOfPeople)
+                        .keyboardType(.numberPad)   // no decimals needed, only whole people
                     
-                    // Picker view for the number of people splitting the check
-                    Picker("Number of people", selection: $numberOfPeople) {
-                        ForEach(2 ..< 21) {
-                            // create a row up to 20 people
-                            Text("\($0) people")
-                        }
-                    }
                 }
                 
                 Section(header: Text("How much tip do you want to leave?")) {
@@ -60,7 +62,12 @@ struct ContentView: View {
                     .pickerStyle(SegmentedPickerStyle())    // best suited for fewer items
                 }
                 
-                Section {
+                Section(header: Text("Total amoount")) {
+                    // display the total amount of the check
+                    Text("$\(grandTotal, specifier: "%.2f")")
+                }
+                
+                Section(header: Text("Amount per person")) {
                     // display the total amount per person, specifier reduces digits after comma to 2
                     Text("$\(totalPerPerson, specifier: "%.2f")")
                 }

@@ -56,3 +56,8 @@ This project is a check-sharing app that calculates how to split a check based o
 - it's particularly useful for the **Picker** view, which can show various options to select from
 - inside the _Picker_ view a _forEach_ view is placed, which loops over an array and creates _text_ views for the picker to use
 
+## Wrap up - Challenges
+- Added a header to the third section, saying "Amount per person"
+- Added another section showing the total amount for the check (original + tip value)
+- Changed the "Number of people" picker to a text field
+
