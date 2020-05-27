@@ -1,6 +1,9 @@
 # Wesplit
 This project is a check-sharing app that calculates how to split a check based on the number of people and how much tip you want to leave.
 
+![App screenshot][WeSplit]
+
+
 ## Basic SwiftUI app structure
 ### Xcode
 - **AppDelegate.swift** contains code for  managing the app, it was common to add code there, but not anymore
