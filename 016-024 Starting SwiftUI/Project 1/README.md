@@ -1,7 +1,7 @@
 # Wesplit
 This project is a check-sharing app that calculates how to split a check based on the number of people and how much tip you want to leave.
 
-![App screenshot](https://github.com/OddMagnet/100-Days-of-Swift/blob/master/016-024%20Starting%20SwiftUI/Project%201/WeSplit.png)
+![App screenshot](https://github.com/OddMagnet/100-Days-of-Swift/blob/master/016-024%20Starting%20SwiftUI/Project%201/WeSplit.png | height=640)
 
 
 ## Basic SwiftUI app structure
