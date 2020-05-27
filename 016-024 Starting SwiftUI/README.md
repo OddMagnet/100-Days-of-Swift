@@ -10,6 +10,15 @@ Learning goals:
 - binding state to user interface controls
 - creating views in a loop
 
+## [Challenge Day](Challenge%20Day)
+This project is the first challenge to build an app based purely on requirements, some suggestions were:
+- Temperature conversion between Celsius, Fahrenheit or Kelvin
+- **Length conversion**
+- Time conversion
+- Volume conversion
+I chose _length conversion_ simply because that's what would be most useful to me personally since I often encounter non-metric measurements when browsing the web
+
+
 ## [Project 2 - GuessTheFlag](Project%202)
 This project is a guessing game that helps the user learn some of the many flags of the world
 Learning goals:
