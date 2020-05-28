@@ -29,4 +29,14 @@ This project is a guessing game that helps users learn some of the many flags of
 - if some content should go under the safe area, the **.edgesIgnoringSafeArea()** modifier can be used
 - this should be used sparely and if possible only for decorative things
 
-## 
+## Gradients
+- SwiftUI offers 3 kinds of gradients, all of which are made up of
+  - an array of colors to show
+  - size and direction information
+  - the type of gradient to use
+- **LinearGradient** goes in one direction, so it needs a start and end point
+- **RadialGradient** goes outward in a circle shape, so it needs a start and end radius
+- **AngularGradient** cycles colors around in a circle rather than radiating outward
+- they all can be used as stand alone views, part of a modifier or a background for a view
+
+##
