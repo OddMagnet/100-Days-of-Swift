@@ -39,4 +39,16 @@ This project is a guessing game that helps users learn some of the many flags of
 - **AngularGradient** cycles colors around in a circle rather than radiating outward
 - they all can be used as stand alone views, part of a modifier or a background for a view
 
-##
+## Buttons and images
+- can be made in two ways
+  - with a title and trailing closure of code that is executed on tapping it
+  - with the closure first and then any kind of view inside the button view
+- the **Image** type can be used in three main ways
+  - `Image("pencil")` loads the image called 'pencil' that was added to the project
+  - `Image(decorative: "pencil")` will load the same image, but won't read it for users with a screen reader
+  - `Image(systemName: "pencil")` will load the icon that is built into iOS, using Apple's SF Symbols icon collection
+- using the second way to create a button it is possible to create buttons with custom images
+- if an image becomes filled with a color, e.g. solid blue, that likely is SwiftUI trying to show they're tappable
+- to show the original image the **renderingMode(.original)** modifier can be used
+
+## 

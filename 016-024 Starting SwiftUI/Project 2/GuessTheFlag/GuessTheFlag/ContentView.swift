@@ -9,11 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var normalTapped = 0
+    @State private var customTapped = 0
+    
     var body: some View {
         VStack {
-            LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
-            RadialGradient(gradient: Gradient(colors: [.blue, .black]), center: .center, startRadius: 20, endRadius: 200)
-            AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center)
+            Button("Normal button") {
+                self.normalTapped += 1
+            }
+            Button(action: {
+                self.customTapped += 1
+            }) {
+                HStack(spacing: 10) {
+                    Image(systemName: "pencil")
+                    Text("Custom button")
+                }
+            }
+            Text("Normal taps: \(normalTapped), Custom taps: \(customTapped)")
         }
     }
 }
