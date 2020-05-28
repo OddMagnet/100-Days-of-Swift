@@ -58,3 +58,5 @@ This project is a guessing game that helps users learn some of the many flags of
   - the __isPresented__ parameter is given the state variable that tracks the alert as a two-way binding
   - the __content__ closure, used as a trailing closure__ contains the **Alert** view
 
+## Wrap up - Challenges
+- coming soon
