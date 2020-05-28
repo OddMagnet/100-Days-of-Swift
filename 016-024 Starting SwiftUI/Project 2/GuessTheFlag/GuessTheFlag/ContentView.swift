@@ -11,21 +11,16 @@ import SwiftUI
 struct ContentView: View {
     @State private var normalTapped = 0
     @State private var customTapped = 0
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
-            Button("Normal button") {
-                self.normalTapped += 1
+            Button("Show alert") {
+                self.showingAlert = true
             }
-            Button(action: {
-                self.customTapped += 1
-            }) {
-                HStack(spacing: 10) {
-                    Image(systemName: "pencil")
-                    Text("Custom button")
-                }
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("OK")))
             }
-            Text("Normal taps: \(normalTapped), Custom taps: \(customTapped)")
         }
     }
 }

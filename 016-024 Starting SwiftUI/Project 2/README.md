@@ -51,4 +51,10 @@ This project is a guessing game that helps users learn some of the many flags of
 - if an image becomes filled with a color, e.g. solid blue, that likely is SwiftUI trying to show they're tappable
 - to show the original image the **renderingMode(.original)** modifier can be used
 
-## 
+## Showing alert messages
+- **Alert**s are views and thus also a function of the program state
+- this means alerts are not called manually but are attached to a state property
+- to accomplish this, the **.alert** modifier is used
+  - the __isPresented__ parameter is given the state variable that tracks the alert as a two-way binding
+  - the __content__ closure, used as a trailing closure__ contains the **Alert** view
+
