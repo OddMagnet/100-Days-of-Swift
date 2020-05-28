@@ -9,19 +9,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var normalTapped = 0
-    @State private var customTapped = 0
-    @State private var showingAlert = false
     
     var body: some View {
-        VStack {
-            Button("Show alert") {
-                self.showingAlert = true
-            }
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Hello SwiftUI!"), message: Text("This is some detail message"), dismissButton: .default(Text("OK")))
-            }
-        }
+        Text("Hello World!")
     }
 }
 
