@@ -59,4 +59,6 @@ This project is a guessing game that helps users learn some of the many flags of
   - the __content__ closure, used as a trailing closure__ contains the **Alert** view
 
 ## Wrap up - Challenges
-- coming soon
+- Add state property for user score and display it in the alert
+- Show score below flags
+- Add message to the alert to show the user their mistake

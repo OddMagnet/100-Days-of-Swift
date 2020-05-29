@@ -10,8 +10,10 @@ import SwiftUI
 
 struct ContentView: View {
     // state
+    @State private var score = 0
     @State private var showingScore = false
     @State private var scoreTitle = ""
+    @State private var scoreMessage = ""
     @State private var countries = [
         "Estonia", "France", "Germany", "Ireland", "Italy",
         "Nigeria", "Poland", "Russia", "Spain", "UK", "US"
@@ -22,13 +24,14 @@ struct ContentView: View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
             VStack(spacing: 30) {
+                Spacer()
                 VStack {
                     Text("Tap the flag of")
                         .foregroundColor(.white)
                     Text(countries[correctAnswer])
+                        .foregroundColor(.white)
                         .font(.largeTitle)
                         .fontWeight(.black)
-                        .foregroundColor(.white)
                 }
                 ForEach(0 ..< 3) { number in        // create flag images as buttons
                     Button(action: {
@@ -41,11 +44,15 @@ struct ContentView: View {
                             .shadow(color: .black, radius: 2)
                     }
                 }
+                Text("Your score: \(score)")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                    .fontWeight(.black)
                 Spacer()
             }
         }
         .alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text("Your score is: ???"), dismissButton: .default(Text("Continue")) {
+            Alert(title: Text(scoreTitle), message: Text(scoreMessage), dismissButton: .default(Text("Continue")) {
                 self.askQuestion()
             })
         }
@@ -55,8 +62,12 @@ struct ContentView: View {
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
             self.scoreTitle = "Correct"
+            self.score += 2
+            self.scoreMessage = "That is the flag of \(countries[number]).\n Your score is: \(score)"
         } else {
             self.scoreTitle = "Wrong"
+            self.score -= 1
+            self.scoreMessage = "That was the flag of \(countries[number]).\n Your score is: \(score)"
         }
         showingScore = true
     }
