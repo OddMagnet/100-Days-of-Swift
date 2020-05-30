@@ -61,6 +61,21 @@ struct GridStack<Content: View>: View {
     }
 }
 
+// Wrap up - Challenge 1
+struct ProminentTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+            .shadow(radius: 2)
+    }
+}
+extension View {
+    func prominentTitle() -> some View {
+        self.modifier(ProminentTitle())
+    }
+}
+
 struct ContentView: View {
     @State private var buttonPressed = false
     
@@ -127,6 +142,12 @@ struct ContentView: View {
                     .frame(width: 100, height: 30)
                     .border(Color.black)
                 }
+            }
+            
+            VStack {
+                // Wrap up - Challenge 1
+                Text("Wrap up - Challenge 1")
+                .prominentTitle()
             }
         }
     }
