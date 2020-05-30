@@ -40,6 +40,9 @@ This is a technique project to explore certain SwiftUI features, namely **Views*
 - it's also possible to use if condition to return the same view type but with (or without) different modifiers
 
 ## Environment modifiers
+- modifiers applied to a container, e.g. a `VStack`, are called environment modifiers
+- they are used just like regular modifiers, but affect all child views
+- the same modifier applied to a child view overrides the environment modifer and takes priority`
 
 ## Views as properties
 
