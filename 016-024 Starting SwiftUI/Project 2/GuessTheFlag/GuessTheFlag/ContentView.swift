@@ -8,6 +8,19 @@
 
 import SwiftUI
 
+// Project 3 Wrap up - Challenge 3
+struct FlagImage: View {
+    let name: String
+    
+    var body: some View {
+        Image(name)
+            .renderingMode(.original)
+            .clipShape(Capsule())
+            .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
+            .shadow(color: .black, radius: 2)
+    }
+}
+
 struct ContentView: View {
     // state
     @State private var score = 0
@@ -37,11 +50,8 @@ struct ContentView: View {
                     Button(action: {
                         self.flagTapped(number)
                     }) {
-                        Image(self.countries[number])
-                            .renderingMode(.original)
-                            .clipShape(Capsule())
-                            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
-                            .shadow(color: .black, radius: 2)
+                        // Project 3 Wrap up - Challenge 3
+                        FlagImage(name: self.countries[number])
                     }
                 }
                 Text("Your score: \(score)")
