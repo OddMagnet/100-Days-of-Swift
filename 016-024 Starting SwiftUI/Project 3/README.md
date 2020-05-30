@@ -50,6 +50,9 @@ This is a technique project to explore certain SwiftUI features, namely **Views*
 - views stores as properties can't refer to other stored properties, but it's possible to create computed properties with views
 
 ## View composition
+- it's possible to break complext views down into smaller views, with little to no performance impact
+- for example, if many views use the same modifiers (e.g. styled text views), it would be useful to create a custom view representing this specific type of view
+- custom views are just structs that implement the `View` protocol and can be used like any other view, e.g. adding modifiers to them
 
 ## Custom modifiers
 
