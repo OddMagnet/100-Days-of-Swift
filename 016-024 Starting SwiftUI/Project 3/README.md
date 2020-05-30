@@ -60,4 +60,7 @@ This is a technique project to explore certain SwiftUI features, namely **Views*
 - alternatively the it's possible to use an extension on `View` to add the custom modifier as a function
 
 ## Custom containers
-
+- it's possible to create custom containers that can accept and hold any type of view
+- for this __generics__ are used, `struct GridStack<Content: View>: View {...}` 
+- `Content: View` means that it can accept anything that conforms to the `View` protocol
+- the following `: View` means that __GridStack__ itself conforms to the `View` protocol
