@@ -8,6 +8,18 @@
 
 import SwiftUI
 
+struct CapsuleText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.blue)
+            .clipShape(Capsule())
+    }
+}
+
 struct ContentView: View {
     @State private var buttonPressed = false
     
@@ -52,6 +64,10 @@ struct ContentView: View {
                 propertyView
             }
             
+            VStack {
+                // view composition example
+                CapsuleText(text: "View composition example")
+            }
         }
     }
 }
