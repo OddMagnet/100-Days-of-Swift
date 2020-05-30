@@ -11,8 +11,12 @@ import SwiftUI
 struct ContentView: View {
     @State private var buttonPressed = false
     
+    // view as property example
+    let propertyView = Text("I'm a property!")
+    
     var body: some View {
         VStack(spacing: 20) {
+            
             VStack {
                 // Example of why modifier order matters
                 Text("Background -> Frame")
@@ -22,6 +26,7 @@ struct ContentView: View {
                     .frame(width: 200, height: 30)
                     .background(Color.green)
             }
+            
             VStack {
                 // Example of conditional modifiers
                 Button("Conditional modifier example") {
@@ -31,6 +36,7 @@ struct ContentView: View {
                 .padding()
                 .background(buttonPressed ? Color.green : Color.red)
             }
+            
             VStack {
                 // Environment modifier example
                 Text("Environment")
@@ -40,6 +46,12 @@ struct ContentView: View {
             }
             .padding()
             .background(Color.blue)
+
+            VStack {
+                // view as property example
+                propertyView
+            }
+            
         }
     }
 }
