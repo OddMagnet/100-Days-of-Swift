@@ -1,6 +1,9 @@
 # 100 Days of Swift - Day 25 - Consolidation II
 Consolidation/Review of Days 16 to 24, notes in this readme, challenge completed in the project
 
+![App screenshot](RockPaperScissors.png)
+
+
 ## What I learned
 - building scrollable forms that mix text with controls like __Picker__
 - creating a __NavigationView__ with a title to avoid content going under the safe area
