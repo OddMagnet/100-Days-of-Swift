@@ -60,3 +60,8 @@ This is a technique project to explore certain SwiftUI features, namely **Views*
 - for this __generics__ are used, `struct GridStack<Content: View>: View {...}` 
 - `Content: View` means that it can accept anything that conforms to the `View` protocol
 - the following `: View` means that __GridStack__ itself conforms to the `View` protocol
+
+## Wrap up - Challenges
+- Create a custom view modifier (and extension) to give a view a large blue font
+- Change 'total amount' text view in project 1 to red if a 0% tip is selected
+- Create a custom `FlagImage()` view for the flags in project 2
