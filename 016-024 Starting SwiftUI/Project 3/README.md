@@ -42,9 +42,12 @@ This is a technique project to explore certain SwiftUI features, namely **Views*
 ## Environment modifiers
 - modifiers applied to a container, e.g. a `VStack`, are called environment modifiers
 - they are used just like regular modifiers, but affect all child views
-- the same modifier applied to a child view overrides the environment modifer and takes priority`
+- the same modifier applied to a child view overrides the environment modifer and takes priority
 
 ## Views as properties
+- it's possible to create views as properties, e.g. `let someText = Text("Hello World!")`
+- this is useful to avoid repition and move complex code out of the `body` property
+- views stores as properties can't refer to other stored properties, but it's possible to create computed properties with views
 
 ## View composition
 
