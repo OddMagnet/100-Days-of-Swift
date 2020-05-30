@@ -65,6 +65,7 @@ struct ContentView: View {
                 Section(header: Text("Total amoount")) {
                     // display the total amount of the check
                     Text("$\(grandTotal, specifier: "%.2f")")
+                        // Project 3 Wrap up - Challenge 2
                         .foregroundColor(tipPercentage == 4 ? .red : .primary)
                 }
                 
