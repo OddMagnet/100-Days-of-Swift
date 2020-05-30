@@ -42,6 +42,25 @@ extension View {
     }
 }
 
+// custom container example
+struct GridStack<Content: View>: View {
+    let rows: Int
+    let columns: Int
+    let content: (Int, Int) -> Content  // must be a closure that accepts 2 integers and return some content
+    
+    var body: some View {
+        VStack {
+            ForEach(0..<rows, id: \.self) { row in  // more about \.self in project 5
+                HStack {
+                    ForEach(0..<self.columns, id: \.self) { column in
+                        self.content(row, column)
+                    }
+                }
+            }
+        }
+    }
+}
+
 struct ContentView: View {
     @State private var buttonPressed = false
     
@@ -96,6 +115,18 @@ struct ContentView: View {
                 Color.blue
                     .frame(width: 200, height: 100)
                     .watermarked(with: "Custom modifier example")
+            }
+            
+            VStack {
+                // custom container example
+                GridStack(rows: 3, columns: 3) { row, col in    // closure must accept 2 ints and return some content
+                    HStack {
+                        Image(systemName: "\(row * 4 + col).circle")
+                        Text("R\(row) C\(col)")
+                    }
+                    .frame(width: 100, height: 30)
+                    .border(Color.black)
+                }
             }
         }
     }
