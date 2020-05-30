@@ -1,9 +1,5 @@
 # ViewsAndModifiers
-
 This is a technique project to explore certain SwiftUI features, namely **Views** and **modifiers**  in detail
-
-![App screenshot](ViewsAndModifiers.png)
-
 
 ## Why structs for views
 - **Performance**, structs are simpler and faster than classes
