@@ -9,15 +9,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var buttonPressed = false
+    
     var body: some View {
-        VStack {
-            // Example of why modifier order matters
-            Text("Background -> Frame")
-                .background(Color.red)
-                .frame(width: 200, height: 30)
-            Text("Frame -> Background")
-                .frame(width: 200, height: 30)
-                .background(Color.green)
+        VStack(spacing: 20) {
+            VStack {
+                // Example of why modifier order matters
+                Text("Background -> Frame")
+                    .background(Color.red)
+                    .frame(width: 200, height: 30)
+                Text("Frame -> Background")
+                    .frame(width: 200, height: 30)
+                    .background(Color.green)
+            }
+            // Example of conditional modifiers
+            Button("Conditional modifier example") {
+                self.buttonPressed.toggle()
+            }
+            .foregroundColor(.black)
+            .padding()
+            .background(buttonPressed ? Color.green : Color.red)
         }
     }
 }
