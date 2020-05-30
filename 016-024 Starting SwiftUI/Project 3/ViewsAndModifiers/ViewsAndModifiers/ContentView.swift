@@ -10,7 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            // Example of why modifier order matters
+            Text("Background -> Frame")
+                .background(Color.red)
+                .frame(width: 200, height: 30)
+            Text("Frame -> Background")
+                .frame(width: 200, height: 30)
+                .background(Color.green)
+        }
     }
 }
 
