@@ -22,13 +22,24 @@ struct ContentView: View {
                     .frame(width: 200, height: 30)
                     .background(Color.green)
             }
-            // Example of conditional modifiers
-            Button("Conditional modifier example") {
-                self.buttonPressed.toggle()
+            VStack {
+                // Example of conditional modifiers
+                Button("Conditional modifier example") {
+                    self.buttonPressed.toggle()
+                }
+                .foregroundColor(.black)
+                .padding()
+                .background(buttonPressed ? Color.green : Color.red)
             }
-            .foregroundColor(.black)
+            VStack {
+                // Environment modifier example
+                Text("Environment")
+                Text("Modifier")
+                    .background(Color.yellow)
+                Text("Example")
+            }
             .padding()
-            .background(buttonPressed ? Color.green : Color.red)
+            .background(Color.blue)
         }
     }
 }
