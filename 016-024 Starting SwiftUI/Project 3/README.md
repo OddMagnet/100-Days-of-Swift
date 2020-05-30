@@ -55,6 +55,9 @@ This is a technique project to explore certain SwiftUI features, namely **Views*
 - custom views are just structs that implement the `View` protocol and can be used like any other view, e.g. adding modifiers to them
 
 ## Custom modifiers
+- just like custom views it's also possible to create custom modifiers, by creating a struct that implements the `ViewModifier` protocol
+- to use custom modifiers the `.modifier()` modifier is used, with the custom modifier as the argument
+- alternatively the it's possible to use an extension on `View` to add the custom modifier as a function
 
 ## Custom containers
 
