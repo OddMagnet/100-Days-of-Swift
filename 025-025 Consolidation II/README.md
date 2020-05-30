@@ -39,4 +39,8 @@ Consolidation/Review of Days 16 to 24, notes in this readme, challenge completed
 - custom bindings also don't need the **$** sign for a two-way binding
 
 ## Challenge
-- 
+- create an app that challenges the player to win art rock, paper, scissors
+  - each turn the app randomly picks either rock, paper or scissors
+  - each turn the app prompts the player to either win or loose the game
+  - if they're correct, they score a point, otherwise lose a point
+  - the game ends after 10 questions and the score is shown
