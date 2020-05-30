@@ -26,9 +26,18 @@ This is a technique project to explore certain SwiftUI features, namely **Views*
 - the outer type would be `ModifiedContent<..., _FrameLayout>`
 
 ## Why __some view__ for the view type
-- 
+- SwiftUI relies heavily on a feature called __opaque return types__
+- **some View** is one of them, it means that one specific type that conforms to the **View** protocol will be returned
+- but it must be always the same type of view, else Swift would not be able to correctly update the UI
+- this also explains why SwiftUI can only stack up to 10 views in a stack
+- since the view type must always be the same, the 'stack-views' use **TupleView** under the hood
+- that means there exist __TupleViews__ from containing only 2 views up to 10 views
 
 ## Conditional modifiers
+- a common use of the ternary operator is to apply different modifiers based on a condition, e.g. make a button red or green
+- this is often used like this: `.modifier(condition ? option1 : option2)`
+- most of the time the condition is a state variable
+- it's also possible to use if condition to return the same view type but with (or without) different modifiers
 
 ## Environment modifiers
 
