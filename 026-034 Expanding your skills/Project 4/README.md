@@ -32,7 +32,20 @@ This project is an app designed to help coffee drinkers get a good night's sleep
 - finally, using the `string(from:)` on the formatter instance, a string is created from the given date 
 
 ## Training a model with Create ML
-- 
+- in general machine learning happens in two steps, training the model and then asking it for predictions
+- training is the process of the computer figuring out the relationship between all the values
+- prediction is then done on device, the model will use previous results to make predictions about new data
+- to train a model on mac the **Create ML** app is used
+- after selecting the right template the model is fed with data, e.g. by importing a `.csv` file under __Training Data__
+- next the target value (what should be optimized) and the features (other data that influences the target) need to be selected
+- finally, an algorithm needs to be chosen
+  - automatic
+  - **Linear Regression**, tries to estimate by considering variables as part of a liniar function, e.g. "drawing a straight line' through all data points
+  - **Decision Tree**, tries to narrow down, branching like a tree, e.g. the game "20 questions"
+  - **Boosted Tree**, a serious of decision trees where each tree is designed to correct errors in the previous tree, has only access to a subset of data
+  - **Random Forest**, similiar to boosted trees, but every decision in the tree is made with access to all available data
+- after training there will be an output file, the trained model, which can be used in a project
+- the **Root Mean Squared Error** shown after training is the average error of the models prediction
 
 ## Wrap up - Challenges
 - 
