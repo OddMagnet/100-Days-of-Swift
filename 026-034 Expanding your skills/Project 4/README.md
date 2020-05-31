@@ -21,7 +21,15 @@ This project is an app designed to help coffee drinkers get a good night's sleep
 - as with stepper, there is a `in` parameter that accepts a date range (also accepts one-sided ranges)
 
 ## Working with dates
-- 
+- the **DateComponents** type allows for reading/writing specific parts of a date
+- using the `date(from:)` method it's possible to create a __Date__ from __DateComponents__
+- this method returns an optional date and should be used with nil coalescing to have a default value
+- with the help of `Calendar.current.dateComponents(...)` it's possible to get components from a date value
+- the first parameter of this method is an array of the components wanted, the second the date to get those components from
+- the returned values are optionals again, so nil coalescing is advised
+- to format a date to a string,  an instance of **DateFormatter** can be used
+- after creating the instance, the `timeStyle` is set
+- finally, using the `string(from:)` on the formatter instance, a string is created from the given date 
 
 ## Training a model with Create ML
 - 
