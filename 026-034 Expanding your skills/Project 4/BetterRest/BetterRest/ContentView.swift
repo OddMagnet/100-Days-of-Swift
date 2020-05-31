@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    // state
+    @State private var sleepAmount = 8.0
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            // Stepper example
+            Stepper(value: $sleepAmount, in: 2...12, step: 0.25) {
+                Text("\(sleepAmount, specifier: "%g") hours")
+            }
+            .frame(width: 300, height: 40)
+        }
     }
 }
 
