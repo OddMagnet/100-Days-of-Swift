@@ -13,6 +13,7 @@
 		4C8A0F59248364270060A36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8A0F58248364270060A36C /* Assets.xcassets */; };
 		4C8A0F5C248364270060A36C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8A0F5B248364270060A36C /* Preview Assets.xcassets */; };
 		4C8A0F5F248364270060A36C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C8A0F5D248364270060A36C /* LaunchScreen.storyboard */; };
+		4CDA6E002484ADF900A350DD /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA6DFF2484ADF900A350DD /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4C8A0F5B248364270060A36C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C8A0F5E248364270060A36C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C8A0F60248364270060A36C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CDA6DFF2484ADF900A350DD /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SleepCalculator.mlmodel; path = ../../SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				4C8A0F58248364270060A36C /* Assets.xcassets */,
 				4C8A0F5D248364270060A36C /* LaunchScreen.storyboard */,
 				4C8A0F60248364270060A36C /* Info.plist */,
+				4CDA6DFF2484ADF900A350DD /* SleepCalculator.mlmodel */,
 				4C8A0F5A248364270060A36C /* Preview Content */,
 			);
 			path = BetterRest;
@@ -148,6 +151,7 @@
 			files = (
 				4C8A0F53248364240060A36C /* AppDelegate.swift in Sources */,
 				4C8A0F55248364240060A36C /* SceneDelegate.swift in Sources */,
+				4CDA6E002484ADF900A350DD /* SleepCalculator.mlmodel in Sources */,
 				4C8A0F57248364240060A36C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
