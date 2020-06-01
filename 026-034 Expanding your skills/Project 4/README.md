@@ -55,7 +55,11 @@ This project is an app designed to help coffee drinkers get a good night's sleep
 - parentheses would mean to call the function directly, but here it is just passed as an argument
 
 ## Connecting SwiftUI to Core ML
-- 
+- to use a trained model in a project, simply dragging it into the project navigator in Xcode is enough
+- Xcode will then automatically create a hidden class (only created as part of the build process) with the same name as the model
+- to use the model, simply creating an instance of it and calling it's `prediction()` method with the necessary arguments is enough
+- since this method can throw errors, it should be wrapped in a __do/catch__ block
+- after that the only thing left is to format and present the results
 
 ## Cleaning the user interface
 - 
