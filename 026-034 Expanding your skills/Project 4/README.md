@@ -62,7 +62,9 @@ This project is an app designed to help coffee drinkers get a good night's sleep
 - after that the only thing left is to format and present the results
 
 ## Cleaning the user interface
-- 
+- adding a (static) computed property that provides a default wake up time value
+- switch __VStack__ to __Form__
+- wrap each __Text__ view and control view pair into a VStack and style it, so each pair takes one row instead of two
 
 ## Wrap up - Challenges
 - 
