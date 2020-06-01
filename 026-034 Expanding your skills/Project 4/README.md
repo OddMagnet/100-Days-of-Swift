@@ -47,5 +47,18 @@ This project is an app designed to help coffee drinkers get a good night's sleep
 - after training there will be an output file, the trained model, which can be used in a project
 - the **Root Mean Squared Error** shown after training is the average error of the models prediction
 
+## Building a basic layout
+- using the `.navigationBarItems` modifer it's possible to add views to the navigation bar, like a **Button** view
+- in left-to-right locales the `trailing:` parameter will put the view on the right, the `leading:` parameter on the left
+- instead of using a trailing closure on the button view to call a function, it's possible to pass the function as an argument directly
+- `Button(action: functionName)`, note that the function argument is not followed by parentheses
+- parentheses would mean to call the function directly, but here it is just passed as an argument
+
+## Connecting SwiftUI to Core ML
+- 
+
+## Cleaning the user interface
+- 
+
 ## Wrap up - Challenges
 - 
