@@ -24,7 +24,18 @@ A simple wordgame, showing a random word and asking the player to make words fro
 - e.g. text into a string variable via the `String(contentsOf:)` initializer
 
 ## Working with strings
-- 
+- `components(seperatedBy:)` converts a single string into an array, broken up by the string provided
+- it's also possible to provide a special character sequence, like `\n`
+- `randomElement()` returns an optional value of a random element in the array
+- it's optional in case the array it was called on was empty
+- `trimmingCharacters(in:)` removes certain characters specified in the `in:` argument
+- the `in:` parameter expects a value of type **CharacterSet**
+- since removing whitespace and new lines is so common, its built right in `str.trimmingCharacters(in: .whitespacesAndNewlines)`
+- to check a string for misspelled words the **UITextChecker** class can be used
+- additionally an __Objective-C string range__ is needed `let range = NSRange(location: 0, length: str.utf16.count)`
+- to check for spelling errors, `rangeOfMisspelledWord(in:, range:, startingAt:, wrap:, language:)` is used
+- e.g. `let misspelledRange = checker.rangeOfMisspelledWord(in: str, range: range, startingAt: 0, wrap: false, language: "en")`
+- if no spelling errors were found, it will return a special value of `NSNotFound`
 
 ## Wrap up - Challenges
 - 
