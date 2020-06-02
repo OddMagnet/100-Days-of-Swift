@@ -16,7 +16,12 @@ A simple wordgame, showing a random word and asking the player to make words fro
 - to mix static views and uniquely identified views in a list, `ForEach` has to be used
 
 ## Loading resources from the app bundle
-- 
+- for **Image** views SwiftUI automatically looks in the app's asset catalog and adjusts the images size for the device
+- other data types are usually stored in the apps **Bundle** and accesses via the **URL** data type
+- to get the url for a file the `url(forResource:, withExtension:)` method is called on the bundle the file is in
+- e.g. `Bundle.main.url(forResource: "some-file", withExtension: "txt")`
+- then the content of the file needs to be loaded into a variable of fitting type
+- e.g. text into a string variable via the `String(contentsOf:)` initializer
 
 ## Working with strings
 - 
