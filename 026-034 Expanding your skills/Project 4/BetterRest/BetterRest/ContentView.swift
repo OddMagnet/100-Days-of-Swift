@@ -46,8 +46,10 @@ struct ContentView: View {
                 
                 Section(header: Text("Daily coffee intake")) {
                     
-                    Stepper(value: $coffeeAmount, in: 1...20) {
-                        Text("\(coffeeAmount) cup\(coffeeAmount == 1 ? "" : "s")")
+                    Picker("Daily coffee intake (cups)", selection: $coffeeAmount) {
+                        ForEach(0 ..< 21) {
+                            Text("\($0)")
+                        }
                     }
                 }
             }
