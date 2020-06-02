@@ -9,11 +9,15 @@ Learning goals:
 - working with dates
 - training a model with Create ML
 
-## [Project 5 - PROJECT_NAME](Project%205)
-SHORT DESCRIPTION
+## [Project 5 - WordScramble](Project%205)
+A simple wordgame, showing a random word and asking the player to make words from its letters.
 
 Learning goals:
-- 
+- more practice with @State, Alert and NavigationView
+- List views
+- loading resources from the app bundle
+- working with strings
+- `onAppeart()` and `fatalError()`
 
 ## [Project 6 - PROJECT_NAME](Project%206)
 SHORT DESCRIPTION
