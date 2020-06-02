@@ -67,4 +67,6 @@ This project is an app designed to help coffee drinkers get a good night's sleep
 - wrap each __Text__ view and control view pair into a VStack and style it, so each pair takes one row instead of two
 
 ## Wrap up - Challenges
-- 
+- replace `VStack` views with `Section` views
+- replace 'number of cups' `Stepper` with a `Picker`
+- change UI to always show the recommended bedtime, remove 'Calculate button'
