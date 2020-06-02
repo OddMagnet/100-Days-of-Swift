@@ -13,18 +13,38 @@ struct ContentView: View {
     @State private var wakeUp = defaultWakeTime
     @State private var sleepAmount = 8.0
     @State private var coffeeAmount = 1
-    
-    // alert properties
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
-    @State private var showingAlert = false
-    
+        
     // computed properties
     static var defaultWakeTime: Date {
         var components = DateComponents()
         components.hour = 7
         components.minute = 0
         return Calendar.current.date(from: components) ?? Date()
+    }
+    var idealBedtime: String {
+        let model = SleepCalculator()
+        let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
+        let hour = (components.hour ?? 0) * 60 * 60     // hours -> seconds
+        let minute = (components.minute ?? 0) * 60      // minutes -> seconds
+        
+        do {
+            // get a prediction for how much sleep is needed
+            let prediction = try model.prediction(
+                wake: Double(hour + minute),
+                estimatedSleep: sleepAmount,
+                coffee: Double(coffeeAmount)
+            )
+            // calculate when to go to bed (subtracting seconds from wakeUp)
+            let sleepTime = wakeUp - prediction.actualSleep
+            
+            // format sleepTime
+            let formatter = DateFormatter()
+            formatter.timeStyle = .short
+            return formatter.string(from: sleepTime)
+            
+        } catch {
+            return "Calculation error"
+        }
     }
     
     var body: some View {
@@ -52,49 +72,14 @@ struct ContentView: View {
                         }
                     }
                 }
+                
+                Section(header: Text("Ideal bedtime")) {
+                    Text(idealBedtime)
+                }
             }
             .navigationBarTitle("BetterRest")
-            .navigationBarItems(trailing:
-                Button(action: calculateBedtime) {
-                    Text("Calculate")
-                }
-            )
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("Ok")))
-            }
         }
-    }
-    
-    func calculateBedtime() {
-        let model = SleepCalculator()
-        let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
-        let hour = (components.hour ?? 0) * 60 * 60     // hours -> seconds
-        let minute = (components.minute ?? 0) * 60      // minutes -> seconds
-        
-        do {
-            // get a prediction for how much sleep is needed
-            let prediction = try model.prediction(
-                wake: Double(hour + minute),
-                estimatedSleep: sleepAmount,
-                coffee: Double(coffeeAmount)
-            )
-            // calculate when to go to bed (subtracting seconds from wakeUp)
-            let sleepTime = wakeUp - prediction.actualSleep
-            
-            // format sleepTime
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            alertTitle = "Your ideal bedtime is..."
-            alertMessage = formatter.string(from: sleepTime)
-            
-        } catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry, there was a problem calculating your bedtime."
-        }
-        
-        // finally, show the alert
-        showingAlert = true
-    }
+    }    
 }
 
 struct ContentView_Previews: PreviewProvider {
