@@ -37,5 +37,16 @@ A simple wordgame, showing a random word and asking the player to make words fro
 - e.g. `let misspelledRange = checker.rangeOfMisspelledWord(in: str, range: range, startingAt: 0, wrap: false, language: "en")`
 - if no spelling errors were found, it will return a special value of `NSNotFound`
 
+## Adding to a list of words
+- by giving a state variable array to a list view, it'll automatically update the list on any changes to the state
+- to act on user input in a textfield view the `onCommit` parameter can be given a closure to call when the user taps enter
+- alternatively, it's possible to pass a function that has no parameters and returns void
+
+## Running code when the app launches
+- 
+
+## Validating words with UITextChecker
+- 
+
 ## Wrap up - Challenges
 - 
