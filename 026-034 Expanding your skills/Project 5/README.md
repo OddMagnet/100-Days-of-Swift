@@ -31,11 +31,6 @@ A simple wordgame, showing a random word and asking the player to make words fro
 - `trimmingCharacters(in:)` removes certain characters specified in the `in:` argument
 - the `in:` parameter expects a value of type **CharacterSet**
 - since removing whitespace and new lines is so common, its built right in `str.trimmingCharacters(in: .whitespacesAndNewlines)`
-- to check a string for misspelled words the **UITextChecker** class can be used
-- additionally an __Objective-C string range__ is needed `let range = NSRange(location: 0, length: str.utf16.count)`
-- to check for spelling errors, `rangeOfMisspelledWord(in:, range:, startingAt:, wrap:, language:)` is used
-- e.g. `let misspelledRange = checker.rangeOfMisspelledWord(in: str, range: range, startingAt: 0, wrap: false, language: "en")`
-- if no spelling errors were found, it will return a special value of `NSNotFound`
 
 ## Adding to a list of words
 - by giving a state variable array to a list view, it'll automatically update the list on any changes to the state
@@ -48,7 +43,11 @@ A simple wordgame, showing a random word and asking the player to make words fro
 - this is useful if data that is absolutely critical for the app to function is missing
 
 ## Validating words with UITextChecker
-- 
+- to check a string for misspelled words the **UITextChecker** class can be used
+- additionally an __Objective-C string range__ is needed `let range = NSRange(location: 0, length: str.utf16.count)`
+- to check for spelling errors, `rangeOfMisspelledWord(in:, range:, startingAt:, wrap:, language:)` is used
+- e.g. `let misspelledRange = checker.rangeOfMisspelledWord(in: str, range: range, startingAt: 0, wrap: false, language: "en")`
+- if no spelling errors were found, it will return a special value of `NSNotFound`
 
 ## Wrap up - Challenges
 - 
