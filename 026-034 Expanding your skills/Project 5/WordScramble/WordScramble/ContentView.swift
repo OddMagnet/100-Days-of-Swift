@@ -27,7 +27,8 @@ struct ContentView: View {
                     Text($0)
                 }
             }
-            .navigationBarTitle("WordScramble")//rootWord)
+            .navigationBarTitle(rootWord)
+            .onAppear(perform: startGame)
         }
     }
     
@@ -45,6 +46,25 @@ struct ContentView: View {
         // append at the beginning so new words are at the top of the list
         usedWords.insert(answer, at: 0)
         newWord = ""
+    }
+    
+    func startGame() {
+        // find URL for start.txt in the app bundle
+        if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
+            // load content into a string
+            if let startWords = try? String(contentsOf: startWordsURL) {
+                // split string into an array of strings (on line breaks)
+                let allWords = startWords.components(separatedBy: "\n")
+
+                // pick a random word, or use "silkworm" as a default
+                rootWord = allWords.randomElement() ?? "silkworm"
+
+                return
+            }
+        }
+
+        // trigger a crash and report the error if data could not be loaded
+        fatalError("Could not load start.txt from bundle.")
     }
 }
 
