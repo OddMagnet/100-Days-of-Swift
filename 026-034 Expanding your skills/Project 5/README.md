@@ -43,7 +43,9 @@ A simple wordgame, showing a random word and asking the player to make words fro
 - alternatively, it's possible to pass a function that has no parameters and returns void
 
 ## Running code when the app launches
-- 
+- often some setup is necessary when an app launches, for this the `.onAppear` modifier can be used
+- if some data the app needs could not be loaded, the `fatalError()` method can be used
+- this is useful if data that is absolutely critical for the app to function is missing
 
 ## Validating words with UITextChecker
 - 
