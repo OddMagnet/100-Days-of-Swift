@@ -57,20 +57,20 @@ struct ContentView: View {
 
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original")
-            score -= 1
+            score -= 4
             return
         }
         
         // Challenge 1 - check that input is not just the beginning of the root word
         guard isNotRootWordBeginning(word: answer) else {
             wordError(title: "Don't be lazy", message: "You can't use the beginning of the root word")
-            score -= 1
+            score -= 3
             return
         }
 
         guard isPossible(word: answer) else {
             wordError(title: "Word not possible", message: "Your word contains letters not found in the root word")
-            score -= 1
+            score -= 2
             return
         }
 
@@ -83,7 +83,11 @@ struct ContentView: View {
         // append at the beginning so new words are at the top of the list
         usedWords.insert(answer, at: 0)
         // Challenge 3 - add and show user score
-        score += answer.count
+        if usedWords.count > 10 {       // bonus points when finding more than 10 words
+            score += answer.count * 2
+        } else {
+            score += answer.count
+        }
         newWord = ""
     }
     
