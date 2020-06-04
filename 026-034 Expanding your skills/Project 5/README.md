@@ -50,4 +50,6 @@ A simple wordgame, showing a random word and asking the player to make words fro
 - if no spelling errors were found, it will return a special value of `NSNotFound`
 
 ## Wrap up - Challenges
-- 
+- disallow answers shorter than 3 letters or just the start of the start word
+- add a button so users can get a new word
+- add text view for player score
