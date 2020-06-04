@@ -102,6 +102,9 @@ struct ContentView: View {
 
                 // pick a random word, or use "silkworm" as a default
                 rootWord = allWords.randomElement() ?? "silkworm"
+                
+                // make sure the list is empty
+                usedWords = [String]()
 
                 return
             }
