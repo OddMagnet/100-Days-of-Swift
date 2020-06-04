@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var usedWords = [String]()
     @State private var rootWord = ""
     @State private var newWord = ""
+    @State private var score = 0
     
     // alert
     @State private var errorTitle = ""
@@ -31,6 +32,7 @@ struct ContentView: View {
                     Image(systemName: "\($0.count).circle") // show length of each word
                     Text($0)
                 }
+                Text("Score: \(score)")     // Challenge 3 - add and show user score
             }
             .navigationBarTitle(rootWord)
             .navigationBarItems(leading:    // Challenge 2 - allow the user to request a new word
@@ -55,27 +57,33 @@ struct ContentView: View {
 
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original")
+            score -= 1
             return
         }
         
         // Challenge 1 - check that input is not just the beginning of the root word
         guard isNotRootWordBeginning(word: answer) else {
             wordError(title: "Don't be lazy", message: "You can't use the beginning of the root word")
+            score -= 1
             return
         }
 
         guard isPossible(word: answer) else {
-            wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
+            wordError(title: "Word not possible", message: "Your word contains letters not found in the root word")
+            score -= 1
             return
         }
 
         guard isReal(word: answer) else {
-            wordError(title: "Word not possible", message: "That isn't a real word or it's too short.")
+            wordError(title: "Word not recognized", message: "That isn't a real word or it's too short.")
+            score -= 1
             return
         }
         
         // append at the beginning so new words are at the top of the list
         usedWords.insert(answer, at: 0)
+        // Challenge 3 - add and show user score
+        score += answer.count
         newWord = ""
     }
     
