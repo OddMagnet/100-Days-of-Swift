@@ -54,6 +54,12 @@ struct ContentView: View {
             wordError(title: "Word used already", message: "Be more original")
             return
         }
+        
+        // Challenge 1 - check that input is not just the beginning of the root word
+        guard isNotRootWordBeginning(word: answer) else {
+            wordError(title: "Don't be lazy", message: "You can't use the beginning of the root word")
+            return
+        }
 
         guard isPossible(word: answer) else {
             wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
@@ -61,7 +67,7 @@ struct ContentView: View {
         }
 
         guard isReal(word: answer) else {
-            wordError(title: "Word not possible", message: "That isn't a real word.")
+            wordError(title: "Word not possible", message: "That isn't a real word or it's too short.")
             return
         }
         
@@ -95,6 +101,11 @@ struct ContentView: View {
         !usedWords.contains(word)
     }
     
+    // Challenge 1 - check that input is not just the beginning of the root word
+    func isNotRootWordBeginning(word: String) -> Bool {
+        rootWord.prefix(word.count) != word
+    }
+    
     // check that  user input is possible
     func isPossible(word: String) -> Bool {
         var tempWord = rootWord
@@ -116,7 +127,8 @@ struct ContentView: View {
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
 
-        return misspelledRange.location == NSNotFound
+        // Challenge 1 - check that words are more than 2 letters
+        return misspelledRange.location == NSNotFound && word.count > 2
     }
     
     // sets alert title and message, reset user input, then shows the alert
