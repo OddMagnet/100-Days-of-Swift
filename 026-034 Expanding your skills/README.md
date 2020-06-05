@@ -19,8 +19,11 @@ Learning goals:
 - working with strings
 - `onAppeart()` and `fatalError()`
 
-## [Project 6 - PROJECT_NAME](Project%206)
-SHORT DESCRIPTION
+## [Project 6 - Animations](Project%206)
+A technique project to learn more about animations in SwiftUI
 
 Learning goals:
-- 
+- implicit animations
+- explicit animations
+- customizing animations
+- animating bindings
