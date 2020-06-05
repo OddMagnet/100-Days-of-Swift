@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var animationAmount2: CGFloat = 1
     @State private var animationAmount3: CGFloat = 1
     @State private var animationAmount4: CGFloat = 1
-
+    
     var body: some View {
         Form {
             Section(header: Text("Implicit animation example")) {
@@ -50,6 +50,20 @@ struct ContentView: View {
                     .onAppear {
                         self.animationAmount2 = 1.2
                 }
+                .padding(10)
+            }
+            
+            Section(header: Text("Animating bindings example")) {
+                Stepper("Scale amount", value: $animationAmount3.animation(), in: 1...1.5, step: 0.1)
+                Button("Steps") {
+                    //self.animationAmount3 += 0.2
+                }
+                .padding(40)
+                .background(Color.red)
+                .foregroundColor(.white)
+                .clipShape(Circle())
+                .scaleEffect(animationAmount3)
+                .padding(25)
             }
         }
     }
