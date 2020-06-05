@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var animationAmount1: CGFloat = 1
     @State private var animationAmount2: CGFloat = 1
     @State private var animationAmount3: CGFloat = 1
-    @State private var animationAmount4: CGFloat = 1
+    @State private var animationAmount4: Double = 0.0
     
     var body: some View {
         Form {
@@ -21,7 +21,7 @@ struct ContentView: View {
                 Button("Tap Me") {
                     self.animationAmount1 += 0.25
                 }
-                .padding(50)
+                .padding(40)
                 .background(Color.red)
                 .foregroundColor(.white)
                 .clipShape(Circle())
@@ -33,7 +33,7 @@ struct ContentView: View {
             Section(header: Text("Customized implicit animation example")) {
                 Button("See me") {
                 }
-                .padding(50)
+                .padding(40)
                 .background(Color.red)
                 .foregroundColor(.white)
                 .clipShape(Circle())
@@ -44,7 +44,7 @@ struct ContentView: View {
                         .opacity(Double(2 - animationAmount2))
                         .animation(
                             Animation.easeOut(duration: 1)
-                                .repeatForever(autoreverses: false)
+                                .repeatForever(autoreverses: true)
                     )
                 )
                     .onAppear {
@@ -63,7 +63,20 @@ struct ContentView: View {
                 .foregroundColor(.white)
                 .clipShape(Circle())
                 .scaleEffect(animationAmount3)
-                .padding(25)
+                .padding(22)
+            }
+            
+            Section(header: Text("Explicit animation example")) {
+                Button("Tap Me") {
+                    withAnimation {
+                        self.animationAmount4 += 360
+                    }
+                }
+                .padding(40)
+                .background(Color.red)
+                .foregroundColor(.white)
+                .clipShape(Circle())
+                .rotation3DEffect(.degrees(animationAmount4), axis: (x: 0, y: 1, z: 0))
             }
         }
     }
