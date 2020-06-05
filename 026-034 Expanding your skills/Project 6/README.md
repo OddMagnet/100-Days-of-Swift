@@ -26,9 +26,22 @@ A technique project to learn more about animation in SwiftUI.
 - some modifiers that can be used for the animation values are `delay()`, `repeatCount(, autoreverse:)`, `repeatForever(autoreverse:)` and many more
 
 ## Animating bindings
-- 
+- the `animation()` modifier can be applied to any SwiftUI binding, even things booleans, using the `.animation()` modifier
+- e.g. `Stepper("Scale amount", value: $animationAmount.animation(), in: 1...10)`
+- SwiftUI examines the state before the binding changes and the target state after the binding changed, then applies animation to get from A to B
+- binding animations use the same `.animation()` modifier that normal views use, so they can have additional modifiers too
+
+    ``` swift
+    Stepper("Scale amount", value: $animationAmount.animation(
+        Animation.easeInOut(duration: 1)
+            .repeatCount(3, autoreverse: true)
+    ), in: 1...10)
+    ```
 
 ## Creating explicit animations
+- 
+
+## Summary
 - 
 
 ## Wrap up - Challenges
