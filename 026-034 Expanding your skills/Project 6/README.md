@@ -39,10 +39,19 @@ A technique project to learn more about animation in SwiftUI.
     ```
 
 ## Creating explicit animations
-- 
+- using a `withAnimation()` closure will animate every state change that happens inside of it
+- it's possible to use the same animation parameters that can be used elswhere too
+
+    ``` swift
+    withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
+        self.animationAmount += 360
+    }
+    ```
 
 ## Summary
-- 
+- implicit animations: view modifiers change on a view with the  `.animation()` modifier
+- animated bindings: a binding with the `.animation()` modifier changes its value
+- explicit animations: explicitely asking SwiftUI to animate something, useing `withAnimation()` closure
 
 ## Wrap up - Challenges
 - 
