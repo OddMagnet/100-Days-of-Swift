@@ -53,5 +53,11 @@ A technique project to learn more about animation in SwiftUI.
 - animated bindings: a binding with the `.animation()` modifier changes its value
 - explicit animations: explicitely asking SwiftUI to animate something, useing `withAnimation()` closure
 
+## Controlling the animation stack
+- just like with normal modifiers, it's possible to apply multiple `.animation()` modifiers to a view
+- every `.animation()` modifier controls all the state changes before it
+- this makes it possible to have different animations for state changes instead of one uniform way to all properties
+- it's also possible to pass `nil` to a `.animation()` modifier so that the changes before it happen immediately
+
 ## Wrap up - Challenges
 - 
