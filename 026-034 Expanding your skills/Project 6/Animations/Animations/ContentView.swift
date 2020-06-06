@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var enabled = false
     @State private var animationAmount1: CGFloat = 1
     @State private var animationAmount2: CGFloat = 1
-    @State private var animationAmount3: Double = 0.0
+    @State private var isShowingRed = false
     @State private var dragAmount = CGSize.zero
     
     let letters = Array("Hello SwiftUI")
@@ -70,16 +70,26 @@ struct ContentView: View {
             }
             
             Section(header: Text("Explicit animation example")) {
-                Button("Tap Me") {
-                    withAnimation { // explicit animation
-                        self.animationAmount3 += 360
+                HStack {
+                    Button("Show Me") {
+                        withAnimation { // explicit animation
+                            self.isShowingRed.toggle()
+                        }
+                    }
+                    .padding(40)
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+                
+                    Spacer()
+                    
+                    if isShowingRed {
+                        Rectangle()
+                            .fill(Color.red)
+                            .frame(width: 100, height: 100)
+                            .transition(.asymmetric(insertion: .scale, removal: .opacity))
                     }
                 }
-                .padding(40)
-                .background(Color.red)
-                .foregroundColor(.white)
-                .clipShape(Circle())
-                .rotation3DEffect(.degrees(animationAmount3), axis: (x: 1, y: 1, z: 1))
             }
             
             Section(header: Text("Animating gestures (drag me)")) {
