@@ -72,5 +72,21 @@ A technique project to learn more about animation in SwiftUI.
 - to customize this animation, the `.transition()` modifier is used
 - it's possible to pass an `asymmetric(insertion:, removal)` to have different animations for appearing and disappearing
 
+## Building custom transitions using ViewModifier
+- just like with normal modifiers, it's possible to build custom transitions too
+- first a custom `ViewModifier` needs to be created, which contains the effects of the transition
+- next `AnyTransition` needs to be extended to add a new transition
+
+    ``` swift
+    extension AnyTransition {
+        static var transitionName: AnyTransition {
+            .modifier(
+                active: CustomViewModifier(parameters),
+                identity: CustomViewModifier(parameters)
+            )
+        }
+    }
+    ```
+
 ## Wrap up - Challenges
 - 
