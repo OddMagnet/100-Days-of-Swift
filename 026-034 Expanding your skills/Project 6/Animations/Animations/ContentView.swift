@@ -14,20 +14,20 @@ struct ContentView: View {
     @State private var animationAmount2: CGFloat = 1
     @State private var animationAmount3: CGFloat = 1
     @State private var animationAmount4: Double = 0.0
+    @State private var enabled = false
     
     var body: some View {
         Form {
             Section(header: Text("Implicit animation example")) {
                 Button("Tap Me") {
-                    self.animationAmount1 += 0.25
+                    self.enabled.toggle()   // implicit animation
                 }
-                .padding(40)
-                .background(Color.red)
-                .foregroundColor(.white)
-                .clipShape(Circle())
-                .scaleEffect(animationAmount1)
-                .blur(radius: (animationAmount1 - 1) * 2)
+                .frame(width: 100, height: 100)
+                .background(enabled ? Color.blue : Color.red)
                 .animation(.default)
+                .foregroundColor(.white)
+                .clipShape(RoundedRectangle(cornerRadius: enabled ? 60 : 0))
+                .animation(.interpolatingSpring(stiffness: 10, damping: 1))
             }
             
             Section(header: Text("Customized implicit animation example")) {
@@ -42,7 +42,7 @@ struct ContentView: View {
                         .stroke(Color.red)
                         .scaleEffect(animationAmount2)
                         .opacity(Double(2 - animationAmount2))
-                        .animation(
+                        .animation( // customized part
                             Animation.easeOut(duration: 1)
                                 .repeatForever(autoreverses: true)
                     )
