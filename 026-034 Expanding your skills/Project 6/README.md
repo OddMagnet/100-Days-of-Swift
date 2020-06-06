@@ -59,5 +59,12 @@ A technique project to learn more about animation in SwiftUI.
 - this makes it possible to have different animations for state changes instead of one uniform way to all properties
 - it's also possible to pass `nil` to a `.animation()` modifier so that the changes before it happen immediately
 
+## Animating gestures
+- gestures can be attached to any view, via the `.gesture()` modifier, gestures will be covered in depth later
+- using a `DragGesture()` and its two modifiers `.onChanged` and `.onEnded()` it's possible to use the input for an animation
+- both modifiers are used to run a closure whenever the user moves their finger or lifts it off the screen respectively
+- they are given a single parameter, which can be used to read the __translation__ - how far it's moved - of the drag
+- using that value to change a state variable makes it possible to animate a gesture
+
 ## Wrap up - Challenges
 - 
