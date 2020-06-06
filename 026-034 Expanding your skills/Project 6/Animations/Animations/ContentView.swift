@@ -18,57 +18,58 @@ struct ContentView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Implicit animation example")) {
-                Button("Tap Me") {
-                    self.enabled.toggle()   // implicit animation
-                }
-                .frame(width: 100, height: 100)
-                .background(enabled ? Color.blue : Color.red)
-                .animation(.default)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: enabled ? 60 : 0))
-                .animation(.interpolatingSpring(stiffness: 10, damping: 1))
-            }
-            
-            Section(header: Text("Customized implicit animation example")) {
-                Button("See me") {
-                }
-                .padding(40)
-                .background(Color.red)
-                .foregroundColor(.white)
-                .clipShape(Circle())
-                .overlay(
-                    Circle()
-                        .stroke(Color.red)
-                        .scaleEffect(animationAmount2)
-                        .opacity(Double(2 - animationAmount2))
-                        .animation( // customized part
-                            Animation.easeOut(duration: 1)
-                                .repeatForever(autoreverses: true)
+            Section(header: Text("Implicit animation examples")) {
+                HStack {
+                    Button("Tap Me") {
+                        self.enabled.toggle()   // implicit animation
+                    }
+                    .frame(width: 100, height: 100)
+                    .background(enabled ? Color.blue : Color.red)
+                    .animation(.default)
+                    .foregroundColor(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: enabled ? 60 : 0))
+                    .animation(.interpolatingSpring(stiffness: 10, damping: 1))
+                    
+                    Spacer()
+                    
+                    Button("Custom") {
+                    }
+                    .padding(40)
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(Color.red)
+                            .scaleEffect(animationAmount2)
+                            .opacity(Double(2 - animationAmount2))
+                            .animation( // customized part
+                                Animation.easeOut(duration: 1)
+                                    .repeatForever(autoreverses: true)
+                        )
                     )
-                )
-                    .onAppear {
-                        self.animationAmount2 = 1.2
+                        .onAppear {
+                            self.animationAmount2 = 1.2
+                    }
+                    .padding(10)
                 }
-                .padding(10)
             }
             
             Section(header: Text("Animating bindings example")) {
-                Stepper("Scale amount", value: $animationAmount3.animation(), in: 1...1.5, step: 0.1)
+                Stepper("Scale amount", value: $animationAmount3.animation(), in: 1...3, step: 0.3)
                 Button("Steps") {
                     //self.animationAmount3 += 0.2
                 }
                 .padding(40)
                 .background(Color.red)
                 .foregroundColor(.white)
-                .clipShape(Circle())
-                .scaleEffect(animationAmount3)
-                .padding(22)
+                .clipShape(Rectangle())
+                .scaleEffect(x: animationAmount3, y: 1, anchor: .leading)
             }
             
             Section(header: Text("Explicit animation example")) {
                 Button("Tap Me") {
-                    withAnimation {
+                    withAnimation { // explicit animation
                         self.animationAmount4 += 360
                     }
                 }
@@ -76,7 +77,7 @@ struct ContentView: View {
                 .background(Color.red)
                 .foregroundColor(.white)
                 .clipShape(Circle())
-                .rotation3DEffect(.degrees(animationAmount4), axis: (x: 0, y: 1, z: 0))
+                .rotation3DEffect(.degrees(animationAmount4), axis: (x: 1, y: 1, z: 1))
             }
         }
     }
