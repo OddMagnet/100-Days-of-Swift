@@ -66,5 +66,11 @@ A technique project to learn more about animation in SwiftUI.
 - they are given a single parameter, which can be used to read the __translation__ - how far it's moved - of the drag
 - using that value to change a state variable makes it possible to animate a gesture
 
+## Showing and hiding views with transitions
+- to customize the way views are shown and hidden, transistions can be used
+- views are often hidden with a conditional `if`, wrapping the state change of its condition with `withAnimation` will animate the appearance of the view
+- to customize this animation, the `.transition()` modifier is used
+- it's possible to pass an `asymmetric(insertion:, removal)` to have different animations for appearing and disappearing
+
 ## Wrap up - Challenges
 - 
