@@ -8,12 +8,31 @@
 
 import SwiftUI
 
+struct CornerRotateModifier: ViewModifier {
+    let amount: Double
+    let anchor: UnitPoint
+
+    func body(content: Content) -> some View {
+        content.rotationEffect(.degrees(amount), anchor: anchor).clipped()
+    }
+}
+
+extension AnyTransition {
+    static var pivot: AnyTransition {
+        .modifier(
+            active: CornerRotateModifier(amount: -90, anchor: .topLeading),
+            identity: CornerRotateModifier(amount: 0, anchor: .topLeading)
+        )
+    }
+}
+
 struct ContentView: View {
     // state
     @State private var enabled = false
     @State private var animationAmount1: CGFloat = 1
     @State private var animationAmount2: CGFloat = 1
     @State private var isShowingRed = false
+    @State private var isShowingBlue = false
     @State private var dragAmount = CGSize.zero
     
     let letters = Array("Hello SwiftUI")
@@ -31,10 +50,10 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .clipShape(RoundedRectangle(cornerRadius: enabled ? 60 : 0))
                     .animation(.interpolatingSpring(stiffness: 10, damping: 1))
-                    
+
                     Spacer()
                     
-                    Button("Custom") {
+                    Button("o") {
                     }
                     .padding(40)
                     .background(Color.red)
@@ -111,6 +130,29 @@ struct ContentView: View {
                             self.enabled.toggle()
                     }
                 )
+            }
+            
+            Section(header: Text("Custom transition")) {
+                HStack {
+                    Button("Show Me") {
+                        withAnimation { // explicit animation
+                            self.isShowingBlue.toggle()
+                        }
+                    }
+                    .padding(40)
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+                
+                    Spacer()
+                    
+                    if isShowingBlue {
+                        Rectangle()
+                            .fill(Color.blue)
+                            .frame(width: 100, height: 100)
+                            .transition(.pivot)
+                    }
+                }
             }
         }
     }
