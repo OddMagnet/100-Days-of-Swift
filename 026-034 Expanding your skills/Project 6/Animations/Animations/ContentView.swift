@@ -10,11 +10,10 @@ import SwiftUI
 
 struct ContentView: View {
     // state
+    @State private var enabled = false
     @State private var animationAmount1: CGFloat = 1
     @State private var animationAmount2: CGFloat = 1
-    @State private var animationAmount3: CGFloat = 1
-    @State private var animationAmount4: Double = 0.0
-    @State private var enabled = false
+    @State private var animationAmount3: Double = 0.0
     
     var body: some View {
         Form {
@@ -41,22 +40,22 @@ struct ContentView: View {
                     .overlay(
                         Circle()
                             .stroke(Color.red)
-                            .scaleEffect(animationAmount2)
-                            .opacity(Double(2 - animationAmount2))
+                            .scaleEffect(animationAmount1)
+                            .opacity(Double(2 - animationAmount1))
                             .animation( // customized part
                                 Animation.easeOut(duration: 1)
                                     .repeatForever(autoreverses: true)
                         )
                     )
                         .onAppear {
-                            self.animationAmount2 = 1.2
+                            self.animationAmount1 = 1.2
                     }
                     .padding(10)
                 }
             }
             
             Section(header: Text("Animating bindings example")) {
-                Stepper("Scale amount", value: $animationAmount3.animation(), in: 1...3, step: 0.3)
+                Stepper("Scale amount", value: $animationAmount2.animation(), in: 1...3, step: 0.3)
                 Button("Steps") {
                     //self.animationAmount3 += 0.2
                 }
@@ -64,20 +63,20 @@ struct ContentView: View {
                 .background(Color.red)
                 .foregroundColor(.white)
                 .clipShape(Rectangle())
-                .scaleEffect(x: animationAmount3, y: 1, anchor: .leading)
+                .scaleEffect(x: animationAmount2, y: 1, anchor: .leading)
             }
             
             Section(header: Text("Explicit animation example")) {
                 Button("Tap Me") {
                     withAnimation { // explicit animation
-                        self.animationAmount4 += 360
+                        self.animationAmount3 += 360
                     }
                 }
                 .padding(40)
                 .background(Color.red)
                 .foregroundColor(.white)
                 .clipShape(Circle())
-                .rotation3DEffect(.degrees(animationAmount4), axis: (x: 1, y: 1, z: 1))
+                .rotation3DEffect(.degrees(animationAmount3), axis: (x: 1, y: 1, z: 1))
             }
         }
     }
