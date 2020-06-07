@@ -1,9 +1,6 @@
 # Animations
 A technique project to learn more about animation in SwiftUI.
 
-![App screenshot](Animations.png)
-
-
 ## Creating implicit animations
 - are the simplest type of animation, they just tell the view how to respond if something tries to animate it
 - this can be achieved by giving the view the `.animation()` modifier
@@ -89,7 +86,7 @@ A technique project to learn more about animation in SwiftUI.
     ```
 
 ## Wrap up - Challenges
-In the GuessTheFlag Project, add the following animations
+In the [GuessTheFlag](https://github.com/OddMagnet/100-Days-of-Swift/tree/master/016-024%20Starting%20SwiftUI/Project%202) Project, add the following animations
 - When tapping the correct flag, make it spin around 360° on the Y axis
 - Make the other two buttons fade out to 25% opacity
 - Add some animation when the wrong flag is tapped
