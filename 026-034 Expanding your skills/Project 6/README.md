@@ -89,4 +89,7 @@ A technique project to learn more about animation in SwiftUI.
     ```
 
 ## Wrap up - Challenges
-- 
+In the GuessTheFlag Project, add the following animations
+- When tapping the correct flag, make it spin around 360° on the Y axis
+- Make the other two buttons fade out to 25% opacity
+- Add some animation when the wrong flag is tapped
