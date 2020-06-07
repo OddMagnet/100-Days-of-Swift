@@ -33,6 +33,10 @@ struct ContentView: View {
         ].shuffled()                                            // randomize flag order
     @State private var correctAnswer = Int.random(in: 0...2)    // correct flag is chosen randomly
     
+    // Project 6 - Wrap up challenge variables
+    @State private var rotationAngle: Double = 0.0
+    @State private var wrongFlagTapped = false
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
@@ -53,6 +57,20 @@ struct ContentView: View {
                         // Project 3 Wrap up - Challenge 3
                         FlagImage(name: self.countries[number])
                     }
+                    // Project 6 - Challenge 1 - spin the correct flag when tapped
+                    .rotation3DEffect(
+                        .degrees(number == self.correctAnswer ? self.rotationAngle : 0),
+                        axis: (x: 0, y: 1, z: 0)
+                    )
+                    // Project 6 - Challenge 2 - lower opacity of wrong flags
+                    .opacity(self.showingScore && number != self.correctAnswer ? 0.25 : 1)
+                    // Project 6 - Challenge 3 - scale down wrong flags when one is tapped
+                    .scaleEffect(
+                        self.showingScore && self.wrongFlagTapped && number != self.correctAnswer
+                            ? 0.5
+                            : 1.0
+                    )
+                    .animation(.easeInOut(duration: 1.25))
                 }
                 Text("Your score: \(score)")
                     .foregroundColor(.white)
@@ -71,10 +89,12 @@ struct ContentView: View {
     // set alert title after flag was tapped, then show it
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
+            rotationAngle += 360
             self.scoreTitle = "Correct"
             self.score += 2
             self.scoreMessage = "That is the flag of \(countries[number]).\n Your score is: \(score)"
         } else {
+            wrongFlagTapped = true
             self.scoreTitle = "Wrong"
             self.score -= 1
             self.scoreMessage = "That was the flag of \(countries[number]).\n Your score is: \(score)"
@@ -84,6 +104,11 @@ struct ContentView: View {
     
     // randomize for the next question
     func askQuestion() {
+        // reset states used for animations
+        rotationAngle = 0
+        wrongFlagTapped = false
+        
+        // reset the game
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
