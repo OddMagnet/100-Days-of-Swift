@@ -13,6 +13,8 @@
 		4C40EB34248E8B0C000612ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C40EB33248E8B0C000612ED /* Assets.xcassets */; };
 		4C40EB37248E8B0C000612ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C40EB36248E8B0C000612ED /* Preview Assets.xcassets */; };
 		4C40EB3A248E8B0C000612ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C40EB38248E8B0C000612ED /* LaunchScreen.storyboard */; };
+		4C7DD3DC248ECF990078AC9F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7DD3DB248ECF990078AC9F /* SettingsView.swift */; };
+		4C7DD3DE248ED0CE0078AC9F /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7DD3DD248ED0CE0078AC9F /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4C40EB36248E8B0C000612ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C40EB39248E8B0C000612ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C40EB3B248E8B0C000612ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C7DD3DB248ECF990078AC9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4C7DD3DD248ED0CE0078AC9F /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				4C40EB2D248E8B09000612ED /* AppDelegate.swift */,
 				4C40EB2F248E8B09000612ED /* SceneDelegate.swift */,
 				4C40EB31248E8B09000612ED /* ContentView.swift */,
+				4C7DD3DD248ED0CE0078AC9F /* GameView.swift */,
+				4C7DD3DB248ECF990078AC9F /* SettingsView.swift */,
 				4C40EB33248E8B0C000612ED /* Assets.xcassets */,
 				4C40EB38248E8B0C000612ED /* LaunchScreen.storyboard */,
 				4C40EB3B248E8B0C000612ED /* Info.plist */,
@@ -147,8 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C40EB2E248E8B09000612ED /* AppDelegate.swift in Sources */,
+				4C7DD3DC248ECF990078AC9F /* SettingsView.swift in Sources */,
 				4C40EB30248E8B09000612ED /* SceneDelegate.swift in Sources */,
 				4C40EB32248E8B09000612ED /* ContentView.swift in Sources */,
+				4C7DD3DE248ED0CE0078AC9F /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
