@@ -1,6 +1,6 @@
 # 100 Days of Swift - Day 36 to 46 - Scaling up to bigger apps
 
-## [PROJECT 7 - iExpense](Project%207)
+## [Project 7 - iExpense](Project%207)
 An expense tracking app that seperates personal costs from business costs
 
 Learning goals:
@@ -11,13 +11,13 @@ Learning goals:
 - storing user settings with **UserDefaults**
 - archiving objects with **Codable**
 
-## [PROJECT 8 - PROJECT_NAME](Project%208)
+## [Project 8 - Project_NAME](Project%208)
 SHORT DESCRIPTION
 
 Learning goals:
 - 
 
-## [PROJECT 9 - PROJECT_NAME](Project%209)
+## [Project 9 - Project_NAME](Project%209)
 SHORT DESCRIPTION
 
 Learning goals:
