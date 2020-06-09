@@ -19,34 +19,40 @@ struct SettingsView: View {
     
     
     var body: some View {
-        VStack {
-            Spacer()
-            Spacer()
-            
-            Text("Multiplication tables")
-                .font(.title)
-            Stepper("Up to... \(Int(tablesUpTo))", value: $tablesUpTo, in: 4...20)
-                .padding()
-            
-            Spacer()
-            
-            Text("How many questions?")
-                .font(.title)
-            Picker("Questions", selection: $selectedAmount) {
-                ForEach(0 ..< questionAmounts.count) {
-                    Text("\(self.questionAmounts[$0])")
+        ZStack {
+            Color.green
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Spacer()
+                Spacer()
+                
+                Text("Multiplication tables")
+                    .font(.title)
+                Stepper("Up to... \(Int(tablesUpTo))", value: $tablesUpTo, in: 4...20)
+                    .padding()
+                
+                Spacer()
+                
+                Text("How many questions?")
+                    .font(.title)
+                Picker("Questions", selection: $selectedAmount) {
+                    ForEach(0 ..< questionAmounts.count) {
+                        Text("\(self.questionAmounts[$0])")
+                    }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                Spacer()
+                Spacer()
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
-            
-            Spacer()
-            Spacer()
+            .navigationBarTitle("Settings")
+            .navigationBarItems(trailing: Button("Start") {
+                self.gameRunning.toggle()
+            }
+            .foregroundColor(.blue)
+            )
         }
-        .navigationBarTitle("Settings")
-        .navigationBarItems(trailing: Button("START") {
-            self.gameRunning.toggle()
-        })
     }
 }
 

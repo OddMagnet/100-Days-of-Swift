@@ -33,9 +33,9 @@ struct ContentView: View {
                         gameRunning: $gameRunning,
                         questions: $questions
                     )
-                    .transition(.slide)
-                    .animation(.default)
-                    .onAppear(perform: startGame)
+                        .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .top)))
+                        .animation(.default)
+                        .onAppear(perform: startGame)
                 } else {
                     SettingsView(
                         gameRunning: $gameRunning,
@@ -44,11 +44,10 @@ struct ContentView: View {
                         questions: $questions,
                         questionAmounts: questionAmounts
                     )
-                    .transition(.slide)
-                    .animation(.default)
+                        .transition(.move(edge: .bottom))
+                        .animation(.default)
                 }
             }
-            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
         }
     }
     

@@ -20,30 +20,36 @@ struct GameView: View {
     @State private var gameOver = false     // show alert after last question
     
     var body: some View {
-        VStack(spacing: 20) {
-            Spacer()
-            Text("Question \(currentQuestion + 1)/\(questions.count)")
-                .font(.headline)
-            Text(questions[currentQuestion].question)
-                .font(.largeTitle)
-            TextField("Your answer", text: $userAnswer, onCommit: checkAnswer)
-                .frame(width: 300, height: 40, alignment: .center)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.numberPad)
-            Spacer()
-            Text("Score \(score)")
-                .font(.title)
-        }
-        .navigationBarTitle("iMultiply")
-        .navigationBarItems(trailing: Button("Settings") {
-            self.gameRunning.toggle()
-        })
-        .alert(isPresented: $gameOver) {
-            Alert(title: Text("Game Over"),
-                  message: Text("You answered all the questions"),
-                  dismissButton: .cancel(Text("Menu")){
-                    self.gameRunning = false
-                })
+        ZStack {
+            Color.blue
+                .edgesIgnoringSafeArea(.all)
+            VStack(spacing: 20) {
+                Spacer()
+                Text("Question \(currentQuestion + 1)/\(questions.count)")
+                    .font(.headline)
+                Text(questions[currentQuestion].question)
+                    .font(.largeTitle)
+                TextField("Your answer", text: $userAnswer, onCommit: checkAnswer)
+                    .frame(width: 300, height: 40, alignment: .center)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.numberPad)
+                Spacer()
+                Text("Score \(score)")
+                    .font(.title)
+            }
+            .navigationBarTitle("iMultiply")
+            .navigationBarItems(trailing: Button("Settings") {
+                self.gameRunning.toggle()
+            }
+            .foregroundColor(.green)
+            )
+                .alert(isPresented: $gameOver) {
+                    Alert(title: Text("Game Over"),
+                          message: Text("You answered all the questions"),
+                          dismissButton: .cancel(Text("Menu")){
+                            self.gameRunning = false
+                        })
+            }
         }
     }
     
