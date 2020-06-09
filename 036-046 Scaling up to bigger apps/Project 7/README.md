@@ -61,7 +61,28 @@ An expense tracking app that seperates personal costs from business costs
 - to load a value, `@State private var value = UserDefaults.standard.type(forKey: "Key")` is used, where `type` is the type of the data
 
 ## Archiving Swift objects with Codable
-- 
+- in order to save more complex custom data types with Codable, they must conform to the **Codable** protocol
+- to convert data the `encode()` method of **JSONEncoder** is used, it takes data that conforms to codable and sends back an object in 'Javascript Object Notation'
+- since the encoding might throw errors it needs to be called with `try` or `try?`
+- while Codable doesn't require the use of JSON, it is by far the most common format
+- after converting the data, it can be saved, for example to the UserDefaults
+- to decode data, the `decode()` method of **JSONDecoder** is used, which takes the target type and the data from which to decode from
+
+    ``` swift
+    Button("Save User") {
+        let encoder = JSONEncoder()
+
+        if let data = try? encoder.encode(self.user) {
+            UserDefaults.standard.set(data, forKey: "UserData")
+        }
+    }
+    Button("Load User") {
+        let decoder = JSONDecoder()
+
+        let data = UserDefaults.standard.data(forKey: "UserData")
+        let decoded = try? decoder.decode(User.self, from data!)
+    }
+    ```
 
 ## Wrap up - Challenges
 - 
