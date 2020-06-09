@@ -52,7 +52,13 @@ An expense tracking app that seperates personal costs from business costs
 - to allow the user to delete several rows at once, simply adding a `EditButton()` to the navigationbar is enough
 
 ## Storing user settings with UserDefaults
-- 
+- **UserDefaults** allows for storing a small amount of data that is loaded automatically when the app is launched
+- it should be used to store user settings and other important data
+- to store a value, `UserDefaults.standard.set(value, forKey: "Key")` is used
+- __standard__ is the built-in instanceof UserDefaults, but it is also possible to create custom instances (e.g. for sharing between apps)
+- the `set()` method accepts any kind of data
+- the `forKey:` parameter is used to uniquely identify a value, so it can be loaded later on
+- to load a value, `@State private var value = UserDefaults.standard.type(forKey: "Key")` is used, where `type` is the type of the data
 
 ## Archiving Swift objects with Codable
 - 
