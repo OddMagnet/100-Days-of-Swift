@@ -1,13 +1,45 @@
-# PROJECT NAME
-SHORT DESCRIPTION
+# iExpense 
+An expense tracking app that seperates personal costs from business costs
 
-![App screenshot](PROJECT_NAME.png)
+![App screenshot](iExpense.png)
 
 
-## OVERVIEW_NAME
+## Why @State only works with structs
+- when a property in a **struct** changes, the whole struct changes, causing the SwiftUI to update the UI
+- this is not the case for **classes**, so SwiftUI doesn't update the UI when a property in a class changes
+- since structs always have unique owners, sending a struct to two views will actually give each view a unique copy
+- this means, if one changes, the other won't, which is bad for sharing state
+- sending a class to two views will have both of them point to the same data, but won't reflect changes in state
+- to share data between views **@ObservedObject** can be used
+
+## Sharing SwiftUI state with @ObservedObject
+- to share data between two views a class and either **@ObservedObject** or @EnvironmentObject are needed
+- for now, and in this project, the focus will be on @ObservedObject
+- to make use of @ObservedObject, the properties that should be watched by SwiftUI need to be marked with **@Published**
+- additionally the class needs to conform to the **ObservableObject** protocol
+- the state variable in the view then simply uses **@ObservedObject** instead of @State
+
+    ``` swift
+    class User: ObservableObject {
+        @Published var firstName = "Odd"
+        @Published var lastName = "Magnet"    
+    }
+    struct ContentView: View {
+        @ObservedObject var user = User()
+        ...
+    }
+    ```
+
+## Showing and hiding views
 - 
 
-## REPEAT_H2_FOR_EVERY_STEP
+## Deleting items using onDelete()
+- 
+
+## Storing user settings with UserDefaults
+- 
+
+## Archiving Swift objects with Codable
 - 
 
 ## Wrap up - Challenges
