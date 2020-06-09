@@ -21,7 +21,7 @@ struct GameView: View {
     
     var body: some View {
         ZStack {
-            Color.blue
+            LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 20) {
                 Spacer()

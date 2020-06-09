@@ -20,7 +20,7 @@ struct SettingsView: View {
     
     var body: some View {
         ZStack {
-            Color.green
+            LinearGradient(gradient: Gradient(colors: [.green, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
