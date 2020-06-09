@@ -45,7 +45,9 @@ struct GameView: View {
             )
                 .alert(isPresented: $gameOver) {
                     Alert(title: Text("Game Over"),
-                          message: Text("You answered all the questions"),
+                          message: Text(score == (questions.count * 2)
+                            ? "You got a perfect score: \(score)!"
+                            : "Your score is \(score)"),
                           dismissButton: .cancel(Text("Menu")){
                             self.gameRunning = false
                         })
