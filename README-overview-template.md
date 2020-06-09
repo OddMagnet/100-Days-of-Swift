@@ -2,19 +2,19 @@
 
 // ADD CHALLENGE DAY IF NEEDED
 
-## [PROJECT # - PROJECT_NAME](PROJECT%20#)
+## [Project # - Project_NAME](Project%20#)
 SHORT DESCRIPTION
 
 Learning goals:
 - 
 
-## [PROJECT # - PROJECT_NAME](PROJECT%20#)
+## [Project # - Project_NAME](Project%20#)
 SHORT DESCRIPTION
 
 Learning goals:
 - 
 
-## [PROJECT # - PROJECT_NAME](PROJECT%20#)
+## [Project # - Project_NAME](Project%20#)
 SHORT DESCRIPTION
 
 Learning goals:
