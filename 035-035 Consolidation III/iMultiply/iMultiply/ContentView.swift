@@ -33,6 +33,7 @@ struct ContentView: View {
                         gameRunning: $gameRunning,
                         questions: $questions
                     )
+                    .onAppear(perform: startGame)
                 } else {
                     SettingsView(
                         gameRunning: $gameRunning,
@@ -45,6 +46,18 @@ struct ContentView: View {
             }
         }
     }
+    
+    func startGame() {
+        // reset questions array
+        questions = [Question]()
+        // then create new ones
+        for _ in 0 ..< questionAmounts[selectedAmount] {
+            let x = Int.random(in: 1...tablesUpTo)
+            let y = Int.random(in: 1...tablesUpTo)
+            questions.append(Question(question: "What is \(x) x \(y)?", answer: x*y))
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

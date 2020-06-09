@@ -34,7 +34,7 @@ struct GameView: View {
             Text("Score \(score)")
                 .font(.title)
         }
-        .navigationBarTitle("MathFun")
+        .navigationBarTitle("iMultiply")
         .navigationBarItems(trailing: Button("Settings") {
             self.gameRunning.toggle()
         })

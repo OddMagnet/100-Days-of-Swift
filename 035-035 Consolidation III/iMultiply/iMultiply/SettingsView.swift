@@ -20,44 +20,34 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            Form {
-                Section(header: Text("Multiplication tables")) {
-                    Stepper("Up to... \(Int(tablesUpTo))", value: $tablesUpTo, in: 4...20)
+            Spacer()
+            Spacer()
+            
+            Text("Multiplication tables")
+                .font(.title)
+            Stepper("Up to... \(Int(tablesUpTo))", value: $tablesUpTo, in: 4...20)
+                .padding()
+            
+            Spacer()
+            
+            Text("How many questions?")
+                .font(.title)
+            Picker("Questions", selection: $selectedAmount) {
+                ForEach(0 ..< questionAmounts.count) {
+                    Text("\(self.questionAmounts[$0])")
                 }
-                Section(header: Text("How many questions?")) {
-                    Picker("Questions", selection: $selectedAmount) {
-                        ForEach(0 ..< questionAmounts.count) {
-                            Text("\(self.questionAmounts[$0])")
-                        }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    
-                }
-                Section(header: Text("Summary")) {
-                    Text("\(questionAmounts[selectedAmount]) questions with a range of up to \(tablesUpTo)")
-                }
-                
             }
-            .navigationBarTitle("Settings")
-            .navigationBarItems(trailing: Button("START") {
-                self.startGame()
-            })
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+            
+            Spacer()
+            Spacer()
         }
+        .navigationBarTitle("Settings")
+        .navigationBarItems(trailing: Button("START") {
+            self.gameRunning.toggle()
+        })
     }
-    
-    func startGame() {
-        // reset questions array
-        questions = [Question]()
-        // then create new ones
-        for _ in 0 ..< questionAmounts[selectedAmount] {
-            let x = Int.random(in: 1...tablesUpTo)
-            let y = Int.random(in: 1...tablesUpTo)
-            questions.append(Question(question: "What is \(x) x \(y)?", answer: x*y))
-        }
-        // and start the game
-        self.gameRunning.toggle()
-    }
-    
 }
 
 struct SettingsView_Previews: PreviewProvider {
