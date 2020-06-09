@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C40EB2A248E8B09000612ED /* MathFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C40EB2A248E8B09000612ED /* iMultiply.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMultiply.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C40EB2D248E8B09000612ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C40EB2F248E8B09000612ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4C40EB31248E8B09000612ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		4C40EB2B248E8B09000612ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4C40EB2A248E8B09000612ED /* MathFun.app */,
+				4C40EB2A248E8B09000612ED /* iMultiply.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,9 +84,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4C40EB29248E8B09000612ED /* MathFun */ = {
+		4C40EB29248E8B09000612ED /* iMultiply */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C40EB3E248E8B0C000612ED /* Build configuration list for PBXNativeTarget "MathFun" */;
+			buildConfigurationList = 4C40EB3E248E8B0C000612ED /* Build configuration list for PBXNativeTarget "iMultiply" */;
 			buildPhases = (
 				4C40EB26248E8B09000612ED /* Sources */,
 				4C40EB27248E8B09000612ED /* Frameworks */,
@@ -96,9 +96,9 @@
 			);
 			dependencies = (
 			);
-			name = MathFun;
+			name = iMultiply;
 			productName = MathFun;
-			productReference = 4C40EB2A248E8B09000612ED /* MathFun.app */;
+			productReference = 4C40EB2A248E8B09000612ED /* iMultiply.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -116,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4C40EB25248E8B09000612ED /* Build configuration list for PBXProject "MathFun" */;
+			buildConfigurationList = 4C40EB25248E8B09000612ED /* Build configuration list for PBXProject "iMultiply" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -129,7 +129,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4C40EB29248E8B09000612ED /* MathFun */,
+				4C40EB29248E8B09000612ED /* iMultiply */,
 			);
 		};
 /* End PBXProject section */
@@ -329,7 +329,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4C40EB25248E8B09000612ED /* Build configuration list for PBXProject "MathFun" */ = {
+		4C40EB25248E8B09000612ED /* Build configuration list for PBXProject "iMultiply" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4C40EB3C248E8B0C000612ED /* Debug */,
@@ -338,7 +338,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C40EB3E248E8B0C000612ED /* Build configuration list for PBXNativeTarget "MathFun" */ = {
+		4C40EB3E248E8B0C000612ED /* Build configuration list for PBXNativeTarget "iMultiply" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4C40EB3F248E8B0C000612ED /* Debug */,
