@@ -1,0 +1,21 @@
+# 100 Days of Swift - Day XX to XX - NAME
+
+// ADD CHALLENGE DAY IF NEEDED
+
+## [PROJECT # - PROJECT_NAME](PROJECT%20#)
+SHORT DESCRIPTION
+
+Learning goals:
+- 
+
+## [PROJECT # - PROJECT_NAME](PROJECT%20#)
+SHORT DESCRIPTION
+
+Learning goals:
+- 
+
+## [PROJECT # - PROJECT_NAME](PROJECT%20#)
+SHORT DESCRIPTION
+
+Learning goals:
+- 
