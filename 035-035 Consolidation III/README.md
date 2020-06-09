@@ -1,7 +1,7 @@
 # 100 Days of Swift - Day 35 - Consolidation III
 Consolidation/Review of Days 26 to 34, notes in this readme, challenge completed in the project
 
-![App screenshot](NAME.png)
+![App screenshot](iMultiply1.png) ![App screenshot](iMultiply2.png)
 
 
 ## What I learned
