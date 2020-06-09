@@ -1,6 +1,6 @@
 //
 //  GameView.swift
-//  MathFun
+//  iMultiply
 //
 //  Created by Michael Brünen on 08.06.20.
 //  Copyright © 2020 Michael Brünen. All rights reserved.

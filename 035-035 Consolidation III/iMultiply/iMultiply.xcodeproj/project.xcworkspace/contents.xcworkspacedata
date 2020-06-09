@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/michael/Projects/Swift/Hacking with Swift/100 Days of Swift/035-035 Consolidation III/MathFun/iMultiply.xcodeproj">
+      location = "self:iMultiply.xcodeproj">
    </FileRef>
 </Workspace>
