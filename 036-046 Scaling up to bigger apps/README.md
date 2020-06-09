@@ -1,4 +1,4 @@
-# 100 Days of Swift - Day XX to XX - NAME
+# 100 Days of Swift - Day 36 to 46 - Scaling up to bigger apps
 
 ## [PROJECT 7 - iExpense](PROJECT%207)
 An expense tracking app that seperates personal costs from business costs
