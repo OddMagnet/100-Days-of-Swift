@@ -31,7 +31,17 @@ An expense tracking app that seperates personal costs from business costs
     ```
 
 ## Showing and hiding views
-- 
+- one of the most basic ways of showing a view in SwiftUI are **Sheets**
+- they present a new view on top of the existing one in a card-like presentation
+- similiar to __Alerts__ they work based on conditions, which determine if they are presented or dismissed
+- to show a new view in a sheet, a state variable is needed to track whether or not the sheet is showing, usually that is a boolean
+- like alerts a modifier is used to attach the sheet to the view hierachy: `.sheet(isPresented:)`
+- lastly, the sheet needs to contain a view to show when it's being presented
+- to dismiss a sheet view programmatically (e.g. when user pressed a button), **@Environment** can be used
+- it allows for creation of properties that store provided values externally, e.g. light/dark mode, font size, timezone
+- to make use of this `@Environment(\.presentationMode) var presentationMode` needs to be added to the view that is displayed in a sheet
+- to dismiss the sheet, `self.presentationMode.wrappedValue.dismiss()` is called
+- __wrappedValue__ is needed since __presentationMode__ is actually a binding, so it can be updated automatically by the system
 
 ## Deleting items using onDelete()
 - 
