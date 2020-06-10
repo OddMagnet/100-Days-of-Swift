@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C388F8E2490BB7D00283155 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C388F8D2490BB7D00283155 /* Examples.swift */; };
+		4C388F902490BC4D00283155 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C388F8F2490BC4D00283155 /* ExpenseItem.swift */; };
+		4C388F922490BCF400283155 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C388F912490BCF400283155 /* Expenses.swift */; };
 		4CA23F652490356B005FEC78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA23F642490356B005FEC78 /* AppDelegate.swift */; };
 		4CA23F672490356B005FEC78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA23F662490356B005FEC78 /* SceneDelegate.swift */; };
 		4CA23F692490356B005FEC78 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA23F682490356B005FEC78 /* ContentView.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		4C388F8D2490BB7D00283155 /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
+		4C388F8F2490BC4D00283155 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
+		4C388F912490BCF400283155 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		4CA23F612490356B005FEC78 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CA23F642490356B005FEC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CA23F662490356B005FEC78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 			children = (
 				4CA23F642490356B005FEC78 /* AppDelegate.swift */,
 				4CA23F662490356B005FEC78 /* SceneDelegate.swift */,
+				4C388F8F2490BC4D00283155 /* ExpenseItem.swift */,
+				4C388F912490BCF400283155 /* Expenses.swift */,
 				4CA23F682490356B005FEC78 /* ContentView.swift */,
 				4C388F8D2490BB7D00283155 /* Examples.swift */,
 				4CA23F6A2490356D005FEC78 /* Assets.xcassets */,
@@ -149,8 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C388F922490BCF400283155 /* Expenses.swift in Sources */,
 				4C388F8E2490BB7D00283155 /* Examples.swift in Sources */,
 				4CA23F652490356B005FEC78 /* AppDelegate.swift in Sources */,
+				4C388F902490BC4D00283155 /* ExpenseItem.swift in Sources */,
 				4CA23F672490356B005FEC78 /* SceneDelegate.swift in Sources */,
 				4CA23F692490356B005FEC78 /* ContentView.swift in Sources */,
 			);
