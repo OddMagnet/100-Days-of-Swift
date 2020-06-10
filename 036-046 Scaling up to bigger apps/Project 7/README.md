@@ -84,5 +84,12 @@ An expense tracking app that seperates personal costs from business costs
     }
     ```
 
+## Working with Identifiable items in SwiftUI
+- in dynamic views, like Lists and ForEach, SwiftUI needs to be able to identify each item uniquely so it can compare view hierachies
+- that means, when using arrays, there needs to be a value that is certain to be unique, so it can be used to identy the items
+- for this, Swift offers **UUID**, 'universally unique identifiers', long hexadecimal strings
+- to use this, the class/struct should conform to the **Identifiable** protocol and implement an id variable: `let id = UUID()`
+- while the protocol is not strictly necessary, it removes the need to tell ForEach which property it should use as the identifier
+
 ## Wrap up - Challenges
 - 
