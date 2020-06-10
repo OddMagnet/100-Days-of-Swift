@@ -13,6 +13,7 @@ struct AddView: View {
     @State private var type = "Personal"
     @State private var cost = ""
     @ObservedObject var expenses: Expenses
+    @Environment(\.presentationMode) var presentationMode
     
     static let types = ["Business", "Personal"]
     
@@ -33,6 +34,7 @@ struct AddView: View {
             if let actualCost = Int(self.cost) {
                 let item = ExpenseItem(name: self.name, type: self.type, cost: actualCost)
                 self.expenses.items.append(item)
+                self.presentationMode.wrappedValue.dismiss()
             }
         })
         }
