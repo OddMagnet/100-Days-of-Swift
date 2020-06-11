@@ -12,6 +12,8 @@ struct AddView: View {
     @State private var name = ""
     @State private var type = "Personal"
     @State private var cost = ""
+    // Wrap up - Challenge 3 - validate cost field input
+    @State private var showingNotIntegerAlert = false
     @ObservedObject var expenses: Expenses
     @Environment(\.presentationMode) var presentationMode
     
@@ -29,14 +31,25 @@ struct AddView: View {
                 TextField("Cost", text: $cost)
                     .keyboardType(.numberPad)
             }
-        .navigationBarTitle("Add new expense")
-        .navigationBarItems(trailing: Button("Save") {
-            if let actualCost = Int(self.cost) {
-                let item = ExpenseItem(name: self.name, type: self.type, cost: actualCost)
-                self.expenses.items.append(item)
-                self.presentationMode.wrappedValue.dismiss()
+            .navigationBarTitle("Add new expense")
+            .navigationBarItems(trailing: Button("Save") {
+                if let actualCost = Int(self.cost) {
+                    let item = ExpenseItem(name: self.name, type: self.type, cost: actualCost)
+                    self.expenses.items.append(item)
+                    self.presentationMode.wrappedValue.dismiss()
+                } else {
+                    self.showingNotIntegerAlert = true
+                }
+            })
+            // Wrap up - Challenge 3 - validate cost field input
+            .alert(isPresented: $showingNotIntegerAlert) {
+                Alert(
+                    title: Text("Not a number"),
+                    message: Text("Only numbers can be entered as the cost"),
+                    dismissButton: .cancel(Text("Okay")) {
+                        self.cost = ""
+                    })
             }
-        })
         }
     }
 }
