@@ -92,4 +92,6 @@ An expense tracking app that seperates personal costs from business costs
 - while the protocol is not strictly necessary, it removes the need to tell ForEach which property it should use as the identifier
 
 ## Wrap up - Challenges
-- 
+- add an Edit/Done button to ContentView
+- style the expense amounts in ContentView, less than $10, less than $100 and more than $100
+- add validation to the Save button in AddView when non-integers are added
