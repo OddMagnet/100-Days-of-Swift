@@ -24,6 +24,8 @@ struct ContentView: View {
                         }
                         Spacer()
                         Text("$\(item.cost)")
+                            // Wrap up - Challenge 2 - Style the expense cost
+                            .foregroundColor(self.getColor(for: item.cost))
                     }
                 }
                 .onDelete(perform: removeItems)
@@ -45,6 +47,18 @@ struct ContentView: View {
     
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
+    }
+    
+    // Wrap up - Challenge 2 - Style the expense cost
+    func getColor(for value: Int) -> Color {
+        switch value {
+        case 0..<10:
+            return .green
+        case 10..<100:
+            return .orange
+        default:
+            return .red
+        }
     }
 }
 
