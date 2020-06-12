@@ -11,11 +11,14 @@ Learning goals:
 - storing user settings with **UserDefaults**
 - archiving objects with **Codable**
 
-## [Project 8 - Project_NAME](Project%208)
-SHORT DESCRIPTION
+## [Project 8 - Moonshot](Project%208)
+An app detailing some of the history behind NASA's Apollo space program
 
 Learning goals:
-- 
+- resizing images using **GeometryReader**
+- how **ScrollView** works with scrolling data
+- pushing new views onto the stack using **NavigationLink**
+- working with hierachical Codable data
 
 ## [Project 9 - Project_NAME](Project%209)
 SHORT DESCRIPTION
