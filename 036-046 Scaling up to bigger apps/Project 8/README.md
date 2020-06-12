@@ -20,7 +20,10 @@ An app detailing some of the history behind NASA's Apollo space program
 - this is usually not a problem, but should be kept in mind when creating lots of 'heavy' views
 
 ## Pushing new views onto the stack using NavigationLink
-- 
+- NavigationViews allow for pushing new views onto a view stack, this is done via **NavigationLink**'s
+- they need a destination and something that can be tapped
+- tapping the label/button will then slide in the new view and change the NavigationView's title to a back button
+- **NavigationLink** should be used for showing details of something, while **sheet()** is better for unrelated content, like settings or getting user input
 
 ## Working with hierachical Codable data
 - 
