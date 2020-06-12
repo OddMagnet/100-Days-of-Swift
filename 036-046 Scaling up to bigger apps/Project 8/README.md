@@ -27,7 +27,9 @@ An app detailing some of the history behind NASA's Apollo space program
 - **NavigationLink** should be used for showing details of something, while **sheet()** is better for unrelated content, like settings or getting user input
 
 ## Working with hierachical Codable data
-- 
+- to decode hierachical data, there must be seperate types for each level of the data
+- e.g. their might be a __User__ struct that has an address property, which needs an __Address__ struct
+- as long as the data matches the hierachy of the types, Codable can decode/encode it
 
 ## Wrap up - Challenges
 - 
