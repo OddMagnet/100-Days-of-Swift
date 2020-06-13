@@ -63,7 +63,7 @@ struct MissionView: View {
                                 .resizable()
                                 .frame(width: 83, height: 60)
                                 .clipShape(Capsule())
-                                .overlay(getStyleForRole(crewMember.role))
+                                .overlay(self.getStyleForRole(crewMember.role))
                                 
                             
                             VStack(alignment: .leading) {
