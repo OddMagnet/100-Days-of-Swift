@@ -71,6 +71,7 @@ struct MissionView: View {
                                     .font(.headline)
                                 
                                 Text(crewMember.role)
+                                    .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
                             
