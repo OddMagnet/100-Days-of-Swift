@@ -13,7 +13,24 @@ struct ContentView: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
     var body: some View {
-        Text("Astronauts: \(astronauts.count), Missions: \(missions.count)")
+        NavigationView {
+            List {
+                ForEach(missions) { mission in
+                    NavigationLink(destination: Text("Detail View")) {
+                        Image(mission.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 44, height: 44)
+                        VStack {
+                            Text(mission.displayName)
+                                .font(.headline)
+                            Text(mission.launchDate ?? "N/A")
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Moonshot")
+        }
     }
 }
 
