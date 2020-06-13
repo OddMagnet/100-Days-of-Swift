@@ -44,5 +44,10 @@ An app detailing some of the history behind NASA's Apollo space program
     }
     ```
 
+## Finding the first match to a predicate in an array
+- when matching multiple types, often a search for the first item matching something, e.g. an id, is needed
+- this can be accomplished by using the `first(where:)` method on the array
+- the `where` parameter expects a closure that contains the predicate for matching, e.g. `array.first(where: { $0.id == otherArray.id  })`
+
 ## Wrap up - Challenges
 - 
