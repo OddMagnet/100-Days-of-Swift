@@ -37,6 +37,13 @@ struct MissionView: View {
         self.astronaus = matches
     }
     
+    func getStyleForRole(_ role: String) -> some View {
+        let color = role == "Commander" ? Color.yellow : Color.primary
+        let lineWidth: CGFloat = role == "Commander" ? 3 : 1
+        
+        return Capsule().stroke(color, lineWidth: lineWidth)
+    }
+    
     var body: some View {
         GeometryReader { geo in
             ScrollView(.vertical) {
@@ -56,7 +63,8 @@ struct MissionView: View {
                                 .resizable()
                                 .frame(width: 83, height: 60)
                                 .clipShape(Capsule())
-                                .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
+                                .overlay(getStyleForRole(crewMember.role))
+                                
                             
                             VStack(alignment: .leading) {
                                 Text(crewMember.astronaut.name)
