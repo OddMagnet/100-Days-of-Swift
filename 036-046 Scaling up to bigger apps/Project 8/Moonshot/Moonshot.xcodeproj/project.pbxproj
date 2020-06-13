@@ -19,6 +19,7 @@
 		4C7D44B124939EC90069A030 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7D44B024939EC90069A030 /* Preview Assets.xcassets */; };
 		4C7D44B424939EC90069A030 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7D44B224939EC90069A030 /* LaunchScreen.storyboard */; };
 		4C7D44BC24939EDE0069A030 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7D44BB24939EDE0069A030 /* Examples.swift */; };
+		4CE85FF72494EE3200BEC291 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE85FF62494EE3200BEC291 /* MissionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4C7D44B324939EC90069A030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C7D44B524939EC90069A030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C7D44BB24939EDE0069A030 /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
+		4CE85FF62494EE3200BEC291 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				4C197E552494B80F00A38C6B /* Mission.swift */,
 				4C197E532494B64500A38C6B /* Bundle-Decodable.swift */,
 				4C7D44AB24939EC80069A030 /* ContentView.swift */,
+				4CE85FF62494EE3200BEC291 /* MissionView.swift */,
 				4C7D44BB24939EDE0069A030 /* Examples.swift */,
 				4C7D44AD24939EC90069A030 /* Assets.xcassets */,
 				4C197E4E2494B40700A38C6B /* astronauts.json */,
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C7D44BC24939EDE0069A030 /* Examples.swift in Sources */,
+				4CE85FF72494EE3200BEC291 /* MissionView.swift in Sources */,
 				4C7D44A824939EC80069A030 /* AppDelegate.swift in Sources */,
 				4C197E522494B5BD00A38C6B /* Astronaut.swift in Sources */,
 				4C7D44AA24939EC80069A030 /* SceneDelegate.swift in Sources */,
