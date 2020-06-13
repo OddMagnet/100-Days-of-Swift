@@ -31,5 +31,18 @@ An app detailing some of the history behind NASA's Apollo space program
 - e.g. their might be a __User__ struct that has an address property, which needs an __Address__ struct
 - as long as the data matches the hierachy of the types, Codable can decode/encode it
 
+## Using generics
+- **Generics** are used to write code that can work with more than one type, e.g. decoding multiple different Types from different JSON files
+- to write a generic method, a placeholder for the type - conventionally 'T' - is placed in angle brackets after the function name: `func decode<T>(...)`
+- inside the function, whenever a type would be used, the placeholder must instead be used, this is also true for the return type
+
+    ``` swift
+    func decode<T>(_ file: String) -> T {
+        // decoder instancing and data loading code skipped
+        guard let decoded = try? decoder.decode(T.self, from: data) else { ... }
+        return decoded
+    }
+    ```
+
 ## Wrap up - Challenges
 - 
