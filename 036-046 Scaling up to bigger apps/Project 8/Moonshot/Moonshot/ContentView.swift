@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    let astronauts = Bundle.main.decode("astronauts.json")
+    let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
+    let missions: [Mission] = Bundle.main.decode("missions.json")
     
     var body: some View {
-        Text("Astronauts: \(astronauts.count)")
+        Text("Astronauts: \(astronauts.count), Missions: \(missions.count)")
     }
 }
 
