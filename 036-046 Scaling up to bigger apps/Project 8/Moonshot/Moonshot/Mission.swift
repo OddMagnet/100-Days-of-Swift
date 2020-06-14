@@ -36,4 +36,10 @@ struct Mission: Codable, Identifiable {
             return "N/A"
         }
     }
+    
+    // Wrap up - Challenge 3 - Add toggle between launch date and crew list in ContentView
+    var crewList: String {
+        let list = crew.map({ $0.name.capitalized })
+        return list.joined(separator: ", ")
+    }
 }

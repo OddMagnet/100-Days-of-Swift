@@ -12,6 +12,9 @@ struct ContentView: View {
     let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
+    // Wrap up - Challenge 3 - Add toggle between launch date and crew list in ContentView
+    @State private var showCrewInsteadOfLaunchDate = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -21,15 +24,26 @@ struct ContentView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 44, height: 44)
-                        VStack {
+                        VStack(alignment: .leading) {
                             Text(mission.displayName)
                                 .font(.headline)
-                            Text(mission.formattedLaunchDate)
+                            // Wrap up - Challenge 3 - Add toggle between launch date and crew list in ContentView
+                            if self.showCrewInsteadOfLaunchDate {
+                                Text(mission.crewList)
+                            } else {
+                                Text(mission.formattedLaunchDate)
+                            }
                         }
                     }
                 }
             }
             .navigationBarTitle("Moonshot")
+            // Wrap up - Challenge 3 - Add toggle between launch date and crew list in ContentView
+            .navigationBarItems(trailing: Button(action: {
+                self.showCrewInsteadOfLaunchDate.toggle()
+            }) {
+                Text(showCrewInsteadOfLaunchDate ? "Launch" : "Crew")
+            })
         }
     }
 }
