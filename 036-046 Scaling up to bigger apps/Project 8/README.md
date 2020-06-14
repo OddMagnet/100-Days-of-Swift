@@ -54,4 +54,6 @@ An app detailing some of the history behind NASA's Apollo space program
 - this can be problematic, especially for images, to change this the `.buttonStyle(PlainButtonStyle())` modifier is used
 
 ## Wrap up - Challenges
-- 
+- add the launch date to MissionView
+- show all missions an astronaut flew on in AstronautView
+- add a bar button that toggles between launch dates and crew names in ContentView
