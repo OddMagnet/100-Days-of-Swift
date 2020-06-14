@@ -57,3 +57,6 @@ An app detailing some of the history behind NASA's Apollo space program
 - add the launch date to MissionView
 - show all missions an astronaut flew on in AstronautView
 - add a bar button that toggles between launch dates and crew names in ContentView
+
+## Credits
+Astronaut descriptions are taken from their respective wikipedia articles and used under the [CC-BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/)
