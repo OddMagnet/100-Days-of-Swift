@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AstronautView: View {
     let astronaut: Astronaut
+    let missions: [Mission] = Bundle.main.decode("missions.json")
     
     var body: some View {
         GeometryReader { geo in
@@ -23,10 +24,28 @@ struct AstronautView: View {
                     Text(self.astronaut.description)
                         .padding()
                         .layoutPriority(1)
+                    
+                    // Wrap up - Challenge 2 - Show missions the astronaut was part of
+                    Text("Missions")
+                        .font(.headline)
+                    Text(self.getMissionsFor(self.astronaut))
                 }
             }
         }
         .navigationBarTitle(Text(self.astronaut.name), displayMode: .inline)
+    }
+    
+    // Wrap up - Challenge 2 - Show missions the astronaut was part of
+    func getMissionsFor(_ astronaut: Astronaut) -> String {
+        var missionList = [String]()
+        
+        for mission in missions {
+            if mission.crew.contains(where: { $0.name == astronaut.id} ) {
+                missionList.append(mission.displayName)
+            }
+        }
+                
+        return missionList.joined(separator: ", ")
     }
 }
 
