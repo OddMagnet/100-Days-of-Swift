@@ -1,7 +1,7 @@
 # Moonshot
 An app detailing some of the history behind NASA's Apollo space program
 
-![App screenshot](Moonshot.png)
+![App screenshot](Moonshot1.png) ![App screenshot](Moonshot2.png) ![App screenshot](Moonshot3.png)
 
 
 ## Resizing images using GeometryReader
