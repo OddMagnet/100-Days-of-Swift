@@ -49,5 +49,9 @@ An app detailing some of the history behind NASA's Apollo space program
 - this can be accomplished by using the `first(where:)` method on the array
 - the `where` parameter expects a closure that contains the predicate for matching, e.g. `array.first(where: { $0.id == otherArray.id  })`
 
+## NavigationLink and ButtonStyle
+- to signal to the user that there is a link to some other view, NavigationLink will tint it's content blue
+- this can be problematic, especially for images, to change this the `.buttonStyle(PlainButtonStyle())` modifier is used
+
 ## Wrap up - Challenges
 - 
