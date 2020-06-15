@@ -90,10 +90,8 @@ struct Examples: View {
                 Spacer()
                                 
                 Section(header: Text("StrokeBorder support with InsettableShape").font(.headline)) {
-                    Spacer(minLength: 5)
                     InsettableArc(startAngle: .degrees(180), endAngle: .degrees(90), clockwise: true)
-                    .inset(by: 20)
-                    .stroke(Color.red, lineWidth: 120)
+                    .strokeBorder(Color.red, lineWidth: 40)
                     .frame(width: 200, height: 200)
                 }
                 
