@@ -21,7 +21,9 @@ Learning goals:
 - working with hierachical Codable data
 
 ## [Project 9 - Project_NAME](Project%209)
-SHORT DESCRIPTION
+A technique project focused on drawing custom paths and shapes in SwiftUI and animate them
 
 Learning goals:
-- 
+- creating **custom paths** with SwiftUI
+- **Paths** vs **Shapes** in SwiftUI
+- adding **strokeBorder()** support with **Insettable Shape**
