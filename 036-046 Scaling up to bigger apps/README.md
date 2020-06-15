@@ -20,7 +20,7 @@ Learning goals:
 - pushing new views onto the stack using **NavigationLink**
 - working with hierachical Codable data
 
-## [Project 9 - Project_NAME](Project%209)
+## [Project 9 - Drawing](Project%209)
 A technique project focused on drawing custom paths and shapes in SwiftUI and animate them
 
 Learning goals:
