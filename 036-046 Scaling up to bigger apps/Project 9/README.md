@@ -21,5 +21,12 @@ A technique project focused on drawing custom paths and shapes in SwiftUI and an
 - after creating a shape struct, it can be drawn by simply using it as a View and using the `frame(width:, height:)` modifier on it
 - in summary, the key difference is reusability, paths do one specific thing while shapes are flexible in terms of their drawing space
 
+## Adding strokeBorder() support with InsettableShape
+- the difference between `.stroke()` and `.strokeBorder()` is that stroke draws on the line, while strokeBorder draws inside of it
+- to add support for `strokeBorder()` to a custom shape, it needs to conform to the **InsettableShape** protocol
+- it needs variable for the inset and the `path(in rect:)` method needs to use the inset
+- the required `inset(by amount:)` is then used to set the inset variable
+- once all requirements are fullfilled, `.strokeBorder()` can be called on the custom shape
+
 ## Wrap up - Challenges
 - 
