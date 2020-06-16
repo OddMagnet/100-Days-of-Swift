@@ -43,7 +43,12 @@ A technique project focused on drawing custom paths and shapes in SwiftUI and an
 - to only fill each second path, `FillStyle()` can be used as a parameter for the `fill()` modifier 
 
 ## Creative borders and fills using ImagePaint
-- 
+- while Color can be used as a view, but also in shapes, Image can not
+- this is because of the protocols the types conform to, Color conforms to `ShapeStyle` while Image does not
+- it's possible to use an image in a shape with `ImagePaint(image:, scale:)`
+- aside from the self-explanatory parameters in the example above, it's also possible to use the `sourceRect` parameter
+- `sourceRect` expects a CGRect where `x` and `y` are the starting points and `width` and `height`have a value between 0 and 1
+- 0 would be the 'start' of the image and 1 would be the 'end' of it
 
 ## Enabling high performance Metal rendering with drawingGroup()
 - 
