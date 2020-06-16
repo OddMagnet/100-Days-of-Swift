@@ -51,7 +51,9 @@ A technique project focused on drawing custom paths and shapes in SwiftUI and an
 - 0 would be the 'start' of the image and 1 would be the 'end' of it
 
 ## Enabling high performance Metal rendering with drawingGroup()
-- 
+- in Core Animation the FPS might drop below 60 (120 for newer devices) for complex renders, in that case **Metal** should be used 
+- this can be achieved by simply `.drawingGroup()` modifier on the view containing the complex render
+- SwiftUI will then render the contents of the view into an off-screen image with Metal, before putting it back onto the screen
 
 ## Wrap up - Challenges
 - 
