@@ -27,3 +27,6 @@ Learning goals:
 - creating **custom paths** with SwiftUI
 - **Paths** vs **Shapes** in SwiftUI
 - adding **strokeBorder()** support with **Insettable Shape**
+- transforming shapes with **CGAffineTransform** and even-odd fills
+- creative borders and fills using **ImagePaint**
+- high-performance **Metal** rendering with **drawingGroup()**
