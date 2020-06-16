@@ -28,5 +28,25 @@ A technique project focused on drawing custom paths and shapes in SwiftUI and an
 - the required `inset(by amount:)` is then used to set the inset variable
 - once all requirements are fullfilled, `.strokeBorder()` can be called on the custom shape
 
+## Transforming shapes using CGAffineTransforms
+- **CGAffineTransform** describes how a path or view is rotated, scaled or sheared
+- different from shapes which mostly use degrees, CGAffineTransform uses radians
+- it's important to remember that the order of operations matters
+- to apply the transformations to a path, it's best to first create them as variables, then use them on the path
+- to create a transformation `CGAffineTransform(...)` is used, with whatever parameters are needed for the transformation
+- to append another transformation `transform2 = transform1.concatenating(CGAffineTransform(...))` is used
+- using the `.applying()` method of a path will apply the transformation to it
+
+## Filling paths using even-odd
+- it's possible to add multiple paths to a 'main-path'
+- when filling that main-path, all paths get filled
+- to only fill each second path, `FillStyle()` can be used as a parameter for the `fill()` modifier 
+
+## Creative borders and fills using ImagePaint
+- 
+
+## Enabling high performance Metal rendering with drawingGroup()
+- 
+
 ## Wrap up - Challenges
 - 
