@@ -14,21 +14,21 @@ struct Arc: Shape {
     var clockwise: Bool
     
     // Version 1
-//    func path(in rect: CGRect) -> Path {
-//        var path = Path()
-//        path.addArc(center: CGPoint(x: rect.midX, y: rect.maxY), radius: rect.width / 2, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
-//
-//        return path
-//    }
+    //    func path(in rect: CGRect) -> Path {
+    //        var path = Path()
+    //        path.addArc(center: CGPoint(x: rect.midX, y: rect.maxY), radius: rect.width / 2, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
+    //
+    //        return path
+    //    }
     
     func path(in rect: CGRect) -> Path {
         let rotationAdjustment = Angle.degrees(90)
         let modifiedStart = startAngle - rotationAdjustment
         let modifiedEnd = endAngle - rotationAdjustment
-
+        
         var path = Path()
         path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.width / 2, startAngle: modifiedStart, endAngle: modifiedEnd, clockwise: !clockwise)
-
+        
         return path
     }
 }
@@ -43,7 +43,7 @@ struct InsettableArc: InsettableShape {
         let rotationAdjustment = Angle.degrees(90)
         let modifiedStart = startAngle - rotationAdjustment
         let modifiedEnd = endAngle - rotationAdjustment
-
+        
         var path = Path()
         path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.width / 2 - insetAmount, startAngle: modifiedStart, endAngle: modifiedEnd, clockwise: !clockwise)
         
@@ -64,36 +64,37 @@ struct Examples: View {
             VStack(spacing: 10) {
                 Spacer()
                 
-                Section(header: Text("Creating custom paths with SwiftUI").font(.headline)) {
-                    GeometryReader { geo in
-                        Path { path in
-                            let centerX = geo.size.width / 2
-                            let maxY = geo.size.height
-                            path.move(to: CGPoint(x: centerX, y: 0))
-                            path.addLine(to: CGPoint(x: centerX - 60, y: maxY))
-                            path.addLine(to: CGPoint(x: centerX + 60, y: maxY))
-                            path.addLine(to: CGPoint(x: centerX, y: 0))
-                        }
-                        .stroke(Color.blue, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                NavigationLink(destination: GeometryReader { geo in
+                    Path { path in
+                        let centerX = geo.size.width / 2
+                        let centerY = geo.size.height / 2
+                        path.move(to: CGPoint(x: centerX, y: centerY - 60))
+                        path.addLine(to: CGPoint(x: centerX - 60, y: centerY + 60))
+                        path.addLine(to: CGPoint(x: centerX + 60, y: centerY + 60))
+                        path.addLine(to: CGPoint(x: centerX, y: centerY - 60))
                     }
-                    .frame(width: 100, height: 100)
+                    .stroke(Color.blue, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                }) {
+                    Text("Creating custom paths with SwiftUI")
                 }
                 
                 Spacer()
-                                
-                Section(header: Text("Paths vs Shapes").font(.headline)) {
-                    Arc(startAngle: .degrees(-90), endAngle: .degrees(180), clockwise: true)
-                        .stroke(Color.blue, lineWidth: 10)
-                        .frame(width: 100, height: 100)
-                }
+                
+                NavigationLink("Paths vs Shapes",
+                               destination: Arc(startAngle: .degrees(-90),
+                                                endAngle: .degrees(180),
+                                                clockwise: true)
+                                .stroke(Color.blue, lineWidth: 40)
+                )
                 
                 Spacer()
-                                
-                Section(header: Text("StrokeBorder support with InsettableShape").font(.headline)) {
-                    InsettableArc(startAngle: .degrees(180), endAngle: .degrees(90), clockwise: true)
-                    .strokeBorder(Color.red, lineWidth: 40)
-                    .frame(width: 200, height: 200)
-                }
+                
+                NavigationLink("StrokeBorder support with InsettableShape",
+                               destination: InsettableArc(startAngle: .degrees(180),
+                                                          endAngle: .degrees(90),
+                                                          clockwise: true)
+                                .strokeBorder(Color.red, lineWidth: 40)
+                )
                 
                 Spacer()
                 
