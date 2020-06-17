@@ -76,5 +76,8 @@ A technique project focused on drawing custom paths and shapes in SwiftUI and an
 - to use more than 2 properties another AnimatablePair is needed: `AnimatablePair<First, AnimatablePair<First, Second>>`
 - this can be repeated as often as necessary, though accessing values becomes less straight forward the more properties need to be animated
 
+## Bonus - Spirograph
+just a nice little animation, no real notes here since no new things (in terms of programming) were learned
+
 ## Wrap up - Challenges
 - 
