@@ -55,5 +55,13 @@ A technique project focused on drawing custom paths and shapes in SwiftUI and an
 - this can be achieved by simply `.drawingGroup()` modifier on the view containing the complex render
 - SwiftUI will then render the contents of the view into an off-screen image with Metal, before putting it back onto the screen
 
+## Special eddects in SwiftUI
+- SwiftUI has a lot of modifiers who control rendering, a few of them are `.blendMode()`, `.saturation()` and `blur()`
+- depening on the mode passed to the `.blendMode()` modifier it will change how overlayed views interact
+- by default they just 'paint over' the other view, e.g. `.multiply` multiplies the pixel colors of the overlaying views
+- since it's so common to multiply with a simple color SwiftUI also offer the `.colorMultiply()` modifier, so no extra Color views need to be created
+- passing `.screen` to the `.blendMode()` modifier will invert the colors, multiply and invert again, basically a `.multiply` but lighter
+- both `.blur()` and `.saturation()` are quite self explanatory, they take a value between 0 and 1 where 0 is blurred / unsaturared and 1 is unblurred / saturated
+
 ## Wrap up - Challenges
 - 
