@@ -129,7 +129,7 @@ struct Part2: View {
         //NavigationView {
             Section(header: Text("Part 2")) {
                                                                                                 
-                NavigationLink("Transforming shapes with CGAffineTransform",
+                NavigationLink("Transforming shapes using CGAffineTransform and even-odd fills",
                                destination: VStack {
                                 Text("Transforming shapes").font(.headline)
                                 Text("using CGAffineTransform and even-odd fills")
