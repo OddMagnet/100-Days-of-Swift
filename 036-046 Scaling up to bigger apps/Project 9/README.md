@@ -63,5 +63,10 @@ A technique project focused on drawing custom paths and shapes in SwiftUI and an
 - passing `.screen` to the `.blendMode()` modifier will invert the colors, multiply and invert again, basically a `.multiply` but lighter
 - both `.blur()` and `.saturation()` are quite self explanatory, they take a value between 0 and 1 where 0 is blurred / unsaturared and 1 is unblurred / saturated
 
+## Animating simple shapes with animatableData
+- to animate a simple shape, they need a computed property `var animatableData: CGFloat { get set  }`
+- inside the closure, there need to be getter and setter for the data that should be animated on change
+- finally there the actual change of the data must be wrapped with `withAnimation { /* data change here */  }`
+
 ## Wrap up - Challenges
 - 
