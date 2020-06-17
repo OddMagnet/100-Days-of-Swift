@@ -30,3 +30,7 @@ Learning goals:
 - transforming shapes with **CGAffineTransform** and even-odd fills
 - creative borders and fills using **ImagePaint**
 - high-performance **Metal** rendering with **drawingGroup()**
+- special effects in SwiftUI: **blurs, blending and more**
+- animating simple shapes with **animatableData**
+- animating complex shapes with **AnimatablePair**
+- Bonus: creating a spirograph
