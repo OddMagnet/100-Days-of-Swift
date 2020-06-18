@@ -80,4 +80,6 @@ A technique project focused on drawing custom paths and shapes in SwiftUI and an
 just a nice little animation, no real notes here since no new things (in terms of programming) were learned
 
 ## Wrap up - Challenges
-- 
+- create an arrow shape from a rectangle and triangle
+- make line thickness of the arrow animatable
+- create a ColorCyclingRectangle with control of the gradient position
