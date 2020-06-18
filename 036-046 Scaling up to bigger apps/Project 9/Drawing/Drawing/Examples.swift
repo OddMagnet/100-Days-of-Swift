@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Examples: View {    
     var body: some View {
-        NavigationView {
+        //NavigationView {
             List() {
                 // Example code is in the files for each day
                 Part1()
@@ -22,7 +22,7 @@ struct Examples: View {
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Examples")
-        }
+        //}
     }
 }
 
