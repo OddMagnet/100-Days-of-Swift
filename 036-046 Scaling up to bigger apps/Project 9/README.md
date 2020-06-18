@@ -1,9 +1,6 @@
 # Drawing
 A technique project focused on drawing custom paths and shapes in SwiftUI and animate them
 
-![App screenshot](Drawing.png)
-
-
 ## Creating custom paths with SwiftUI
 - like most other things in SwiftUI, **Path** is also a view
 - the path view accepts a closure that needs a single parameter, the path that will be drawn into
