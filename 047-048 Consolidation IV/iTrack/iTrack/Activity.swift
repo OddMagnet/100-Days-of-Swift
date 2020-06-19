@@ -22,3 +22,15 @@ class Activities: ObservableObject {
         self.activities = activities
     }
 }
+
+func loadData() -> [Activity]{
+    let defaults = UserDefaults.standard
+    let decoder = JSONDecoder()
+    
+    if let data = defaults.data(forKey: "ActivityData") {
+        let decodedActivities = try? decoder.decode([Activity].self, from: data)
+        return decodedActivities ?? [Activity]()
+    } else {
+        return [Activity]()
+    }
+}
