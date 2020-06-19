@@ -30,10 +30,11 @@ struct ContentView: View {
                             }
                         }
                     }
+                    .onDelete(perform: removeActivity)
                 }
             }
             .navigationBarTitle("iTrack")
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading: EditButton(), trailing:
                 Button("Add") {
                     self.showingActivityForm = true
                 }
@@ -42,6 +43,10 @@ struct ContentView: View {
                 AddActivityView(activities: self.activities)
             }
         }
+    }
+    
+    func removeActivity(at offsets: IndexSet) {
+        activities.items.remove(atOffsets: offsets)
     }
 }
 
