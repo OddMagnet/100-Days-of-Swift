@@ -14,24 +14,22 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(activities.items.indices, id: \.self) { index in
-                        NavigationLink(destination: ActivityDetailView(index: index).environmentObject(self.activities)) {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(self.activities.items[index].name)
-                                        .font(.headline)
-                                    Text(self.activities.items[index].type.rawValue)
-                                        .font(.subheadline)
-                                }
-                                Spacer()
-                                Text("Completed \(self.activities.items[index].timesCompleted) times")
+            List {
+                ForEach(activities.items.indices, id: \.self) { index in
+                    NavigationLink(destination: ActivityDetailView(activities: self.activities, index: index)) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(self.activities.items[index].name)
+                                    .font(.headline)
+                                Text(self.activities.items[index].type.rawValue)
+                                    .font(.subheadline)
                             }
+                            Spacer()
+                            Text("Completed \(self.activities.items[index].timesCompleted) times")
                         }
                     }
-                    .onDelete(perform: removeActivity)
                 }
+                .onDelete(perform: removeActivity)
             }
             .navigationBarTitle("iTrack")
             .navigationBarItems(leading: EditButton(), trailing:
@@ -39,8 +37,8 @@ struct ContentView: View {
                     self.showingActivityForm = true
                 }
             )
-            .sheet(isPresented: $showingActivityForm) {
-                AddActivityView(activities: self.activities)
+                .sheet(isPresented: $showingActivityForm) {
+                    AddActivityView(activities: self.activities)
             }
         }
     }
