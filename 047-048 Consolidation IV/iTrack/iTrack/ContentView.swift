@@ -9,8 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var activities: Activities = Activities(activities: [Activity]())
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            Text("Hello, World!")
+        }
+    .onAppear(perform: loadData)
+    }
+    
+    func loadData() {
+        let defaults = UserDefaults.standard
+        let decoder = JSONDecoder()
+        
+        if let data = defaults.data(forKey: "ActivityData") {
+            let decodedActivities = try? decoder.decode([Activity].self, from: data)
+            activities.activities = decodedActivities ?? [Activity]()
+        }
     }
 }
 
