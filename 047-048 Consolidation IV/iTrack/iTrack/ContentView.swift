@@ -16,8 +16,15 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(activities.activities) { activity in
-                        Text(activity.name)
+                    ForEach(activities.items.indices, id: \.self) { index in
+                        NavigationLink(destination: ActivityDetailView(index: index).environmentObject(self.activities)) {
+                            HStack {
+                                Text(self.activities.items[index].name)
+                                    .font(.headline)
+                                Spacer()
+                                Text("\(self.activities.items[index].timesCompleted) ✅")
+                            }
+                        }
                     }
                 }
             }
@@ -36,6 +43,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(activities: Activities(activities: loadData()))
+        ContentView(activities: Activities())
     }
 }
