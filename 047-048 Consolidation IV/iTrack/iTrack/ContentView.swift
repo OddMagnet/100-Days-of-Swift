@@ -19,10 +19,14 @@ struct ContentView: View {
                     ForEach(activities.items.indices, id: \.self) { index in
                         NavigationLink(destination: ActivityDetailView(index: index).environmentObject(self.activities)) {
                             HStack {
-                                Text(self.activities.items[index].name)
-                                    .font(.headline)
+                                VStack(alignment: .leading) {
+                                    Text(self.activities.items[index].name)
+                                        .font(.headline)
+                                    Text(self.activities.items[index].type.rawValue)
+                                        .font(.subheadline)
+                                }
                                 Spacer()
-                                Text("\(self.activities.items[index].timesCompleted) ✅")
+                                Text("Completed \(self.activities.items[index].timesCompleted) times")
                             }
                         }
                     }

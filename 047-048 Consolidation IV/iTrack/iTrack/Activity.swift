@@ -8,9 +8,18 @@
 
 import Foundation
 
+enum ActivityType: String, Codable, Equatable, CaseIterable {
+    case sport = "🎽 Sport"
+    case work = "💼 Work"
+    case learning = "🎓 Learning"
+    case hobby = "✨ Hobby"
+}
+
 struct Activity: Codable, Identifiable {
+    
     var id = UUID()
     var name: String
+    var type: ActivityType
     var description: String
     var timesCompleted: Int = 0
     

@@ -16,12 +16,13 @@ struct ActivityDetailView: View {
         VStack {
             Text(activities.items[index].name)
             Text(activities.items[index].description)
+            Text(activities.items[index].type.rawValue)
             Text("Times completed: \(activities.items[index].timesCompleted)")
             Button("Completed") {
                 self.activities.items[self.index].completed()
             }
         }
-    .navigationBarTitle("Activity Overview")
+        .navigationBarTitle("Activity Overview")
     }
 }
 

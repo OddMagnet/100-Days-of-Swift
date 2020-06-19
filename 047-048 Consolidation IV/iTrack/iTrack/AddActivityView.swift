@@ -13,16 +13,23 @@ struct AddActivityView: View {
     @ObservedObject var activities: Activities
     @State private var activityName = ""
     @State private var activityDescription = ""
+    @State private var selectedActivityType: ActivityType = .work
     
     var body: some View {
         NavigationView {
             Form {
                 TextField("Name", text: $activityName)
                 TextField("Description", text: $activityDescription)
+                Picker(selection: $selectedActivityType, label: Text("Activity type")) {
+                    ForEach(ActivityType.allCases, id: \.self) { aType in
+                        Text(aType.rawValue)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
             }
             .navigationBarTitle("Add new activity")
             .navigationBarItems(trailing: Button("Save") {
-                let activity = Activity(name: self.activityName, description: self.activityDescription)
+                let activity = Activity(name: self.activityName, type: self.selectedActivityType, description: self.activityDescription)
                 self.activities.items.append(activity)
                 self.presentationMode.wrappedValue.dismiss()
             })
