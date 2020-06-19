@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var activities: Activities
+    @ObservedObject var data: Activities
     @State private var showingActivityForm = false
     
     var body: some View {
@@ -24,7 +24,7 @@ struct ContentView: View {
                 }
             )
             .sheet(isPresented: $showingActivityForm) {
-                AddActivityView()
+                AddActivityView(data: self.data)
             }
         }
     }
@@ -32,6 +32,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(activities: Activities(activities: loadData()))
+        ContentView(data: Activities(activities: loadData()))
     }
 }

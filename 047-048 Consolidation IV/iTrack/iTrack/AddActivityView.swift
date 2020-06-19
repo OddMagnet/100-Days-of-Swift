@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AddActivityView: View {
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var data: Activities
     @State private var activityName = ""
     @State private var activityDescription = ""
     
@@ -21,6 +22,8 @@ struct AddActivityView: View {
             }
             .navigationBarTitle("Add new activity")
             .navigationBarItems(trailing: Button("Save") {
+                let activity = Activity(name: self.activityName, description: self.activityDescription)
+                self.data.activities.append(activity)
                 self.presentationMode.wrappedValue.dismiss()
             })
         }
@@ -28,7 +31,8 @@ struct AddActivityView: View {
 }
 
 struct AddActivityView_Previews: PreviewProvider {
+    static var activities = Activities(activities: loadData())
     static var previews: some View {
-        AddActivityView()
+        AddActivityView(data: activities)
     }
 }
