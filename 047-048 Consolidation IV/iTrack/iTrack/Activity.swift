@@ -12,7 +12,7 @@ struct Activity: Codable, Identifiable {
     var id = UUID()
     var name: String
     var description: String
-    var timesCompleted: Int
+    var timesCompleted: Int = 0
 }
 
 class Activities: ObservableObject {
