@@ -16,10 +16,10 @@ struct Activity: Codable, Identifiable {
 }
 
 class Activities: ObservableObject {
-    @Published var activities: [Activity]
+    @Published var items: [Activity]
     
     init(activities: [Activity]) {
-        self.activities = activities
+        self.items = activities
     }
 }
 
