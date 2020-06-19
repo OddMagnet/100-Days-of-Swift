@@ -9,13 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var data: Activities
+    @ObservedObject var activities: Activities
     @State private var showingActivityForm = false
     
     var body: some View {
         NavigationView {
             VStack {
-                Text("Hello, World!")
+                List {
+                    ForEach(activities.activities) { activity in
+                        Text(activity.name)
+                    }
+                }
             }
             .navigationBarTitle("iTrack")
             .navigationBarItems(trailing:
@@ -24,7 +28,7 @@ struct ContentView: View {
                 }
             )
             .sheet(isPresented: $showingActivityForm) {
-                AddActivityView(data: self.data)
+                AddActivityView(activities: self.activities)
             }
         }
     }
@@ -32,6 +36,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(data: Activities(activities: loadData()))
+        ContentView(activities: Activities(activities: loadData()))
     }
 }
