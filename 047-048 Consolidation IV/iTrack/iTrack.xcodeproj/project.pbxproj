@@ -14,6 +14,7 @@
 		4C821BF9249CF6E6002F8BD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C821BF8249CF6E6002F8BD4 /* Preview Assets.xcassets */; };
 		4C821BFC249CF6E6002F8BD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C821BFA249CF6E6002F8BD4 /* LaunchScreen.storyboard */; };
 		4C821C04249CF720002F8BD4 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C821C03249CF720002F8BD4 /* Activity.swift */; };
+		4C821C06249CFD90002F8BD4 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C821C05249CFD90002F8BD4 /* AddActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4C821BFB249CF6E6002F8BD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C821BFD249CF6E6002F8BD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C821C03249CF720002F8BD4 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		4C821C05249CFD90002F8BD4 /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				4C821BEF249CF6E5002F8BD4 /* AppDelegate.swift */,
 				4C821BF1249CF6E5002F8BD4 /* SceneDelegate.swift */,
 				4C821C03249CF720002F8BD4 /* Activity.swift */,
+				4C821C05249CFD90002F8BD4 /* AddActivityView.swift */,
 				4C821BF3249CF6E5002F8BD4 /* ContentView.swift */,
 				4C821BF5249CF6E6002F8BD4 /* Assets.xcassets */,
 				4C821BFA249CF6E6002F8BD4 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				4C821BF2249CF6E5002F8BD4 /* SceneDelegate.swift in Sources */,
 				4C821C04249CF720002F8BD4 /* Activity.swift in Sources */,
 				4C821BF4249CF6E5002F8BD4 /* ContentView.swift in Sources */,
+				4C821C06249CFD90002F8BD4 /* AddActivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -293,6 +297,7 @@
 				DEVELOPMENT_TEAM = K5ZJLTFVCL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iTrack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +318,7 @@
 				DEVELOPMENT_TEAM = K5ZJLTFVCL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iTrack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

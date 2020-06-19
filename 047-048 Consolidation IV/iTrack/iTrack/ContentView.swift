@@ -10,10 +10,22 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var activities: Activities
+    @State private var showingActivityForm = false
     
     var body: some View {
         NavigationView {
-            Text("Hello, World!")
+            VStack {
+                Text("Hello, World!")
+            }
+            .navigationBarTitle("iTrack")
+            .navigationBarItems(trailing:
+                Button("Add") {
+                    self.showingActivityForm = true
+                }
+            )
+            .sheet(isPresented: $showingActivityForm) {
+                AddActivityView()
+            }
         }
     }
 }
