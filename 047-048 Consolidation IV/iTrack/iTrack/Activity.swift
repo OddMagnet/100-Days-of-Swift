@@ -13,24 +13,35 @@ struct Activity: Codable, Identifiable {
     var name: String
     var description: String
     var timesCompleted: Int = 0
-}
-
-class Activities: ObservableObject {
-    @Published var items: [Activity]
     
-    init(activities: [Activity]) {
-        self.items = activities
+    mutating func completed() {
+        timesCompleted += 1
     }
 }
 
-func loadData() -> [Activity]{
-    let defaults = UserDefaults.standard
-    let decoder = JSONDecoder()
+class Activities: ObservableObject {
+    @Published var items: [Activity] {
+        // save every time something changes
+        didSet {
+            let encoder = JSONEncoder()
+            if let data = try? encoder.encode(self.items) {
+                UserDefaults.standard.set(data, forKey: "ActivityData")
+            }
+        }
+    }
     
-    if let data = defaults.data(forKey: "ActivityData") {
-        let decodedActivities = try? decoder.decode([Activity].self, from: data)
-        return decodedActivities ?? [Activity]()
-    } else {
-        return [Activity]()
+    init() {
+        // create empty activity array
+        items = [Activity]()
+
+        let decoder = JSONDecoder()
+        
+        // try to load from UserDefaults
+        if let data = UserDefaults.standard.data(forKey: "ActivityData") {
+            // on successfull decode, assign the loaded activities to the items array
+            if let decodedActivities = try? decoder.decode([Activity].self, from: data) {
+                items = decodedActivities
+            }
+        }
     }
 }
