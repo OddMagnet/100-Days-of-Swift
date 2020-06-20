@@ -32,7 +32,10 @@ A multi-screen app for ordering cupcakes
 - if the data was nil the error needs to be handled
 
 ## Validating and disabling forms
-- 
+- disabling a view for user input is as simple as using a modifier on it, in this case `.disabled()`
+- the modifier expects a condition to check, and if the condition is true will disable the view it's attached to
+- to validate user input a computed property can be used as the condition inside the `.disabled()` modifier
+- the actual validation happens in the computed property
 
 ## Wrap up - Challenges
 - 
