@@ -17,7 +17,19 @@ A multi-screen app for ordering cupcakes
 - this is done via `propertyName = container.decode(Type.self, forKey: .propertyName)` and `try container.encode(propertyName, forKey: .propertyName)`
 
 ## Sending and receiving Codable data with URLSession and SwiftUI
-- 
+- to receive data from a URLSession a few steps need to be taken
+- first the URL from which to receive data needs to be created using `guard let url = URL(string: "the url string here")`
+- next that url needs to be wrapped in an **URLRequest**: `let request = URLRequest(url: url)`
+- after that the networking task needs to be created and started
+- using the shared session: `URLSession.shared.dataTask(with: request) { data, response, error in ... }`
+- **URLSession** manages the network request based on a the `with:` argument and runs a closure which is supplied with 3 variables
+- `data` holds the data that was returned, `response` holds a description of the data (e.g. type, size, status code, etc) and `error` the error if any occured
+- it's noteworthy that `data` and `error` are mutually exclusive, only one of them will be set
+- **IMPORTANT** without calling `resume()` on the networking task (after the trailing closures '}') nothing will be run
+- finally, the result of the networking task needs to be handled
+- inside the closure the data needs to non-nil `if let data = data { ...  }`
+- then the response needs to be decoded using `JSONDecoder` and the decoded data sent back to the main thread to update the UI `DispatchQueue.main.async { /* Update UI */ }`
+- if the data was nil the error needs to be handled
 
 ## Validating and disabling forms
 - 
