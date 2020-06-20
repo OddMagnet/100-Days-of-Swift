@@ -1,20 +1,18 @@
-# 100 Days of Swift - Day XX to XX - NAME
+# 100 Days of Swift - Day 49 to 59 - Focus on data
 
-// ADD CHALLENGE DAY IF NEEDED
-
-## [Project # - Project_NAME](Project%20#)
+## [Project 10 - Cupcake Corner](Project%2010)
 SHORT DESCRIPTION
 
 Learning goals:
 - 
 
-## [Project # - Project_NAME](Project%20#)
+## [Project 11 - Project_NAME](Project%2011)
 SHORT DESCRIPTION
 
 Learning goals:
 - 
 
-## [Project # - Project_NAME](Project%20#)
+## [Project 12 - Project_NAME](Project%2012)
 SHORT DESCRIPTION
 
 Learning goals:
