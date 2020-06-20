@@ -56,6 +56,11 @@ struct Result: Codable {
 struct Part1: View {
     @State private var userName = ""
     @State private var results = [Result]()
+    @State private var email = ""
+    
+    var disableForm: Bool {
+        userName.count < 5 || email.count < 5
+    }
     
     var body: some View {
         NavigationView {
@@ -103,8 +108,21 @@ struct Part1: View {
                 .padding()
             )
 
-            NavigationLink("Test", destination:
-                Text("LinkedView")
+            NavigationLink("Validating and disabling forms", destination:
+                        Form {
+                    Section {
+                        TextField("Username", text: $userName)
+                        TextField("Email", text: $email)
+                    }
+
+                    Section {
+                        Button("Create account") {
+                            print("Creating account…")
+                        }
+                    }
+                    .disabled(disableForm)
+
+                }
             )
             
         }
