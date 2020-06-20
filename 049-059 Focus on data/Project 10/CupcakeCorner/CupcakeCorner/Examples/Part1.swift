@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// Adding Codable conformance for @Published properties
 class User: ObservableObject, Codable {
     // properties wrapped in the @Published wrapper don't automatically conform to Codable
     @Published var name = "Odd Magnet"
@@ -42,8 +43,19 @@ class User: ObservableObject, Codable {
     }
 }
 
+// Sending and receiving Codable data with URLSession and SwiftUI
+struct Response: Codable {
+    var results: [Result]
+}
+struct Result: Codable {
+    var trackId: Int
+    var trackName: String
+    var collectionName: String
+}
+
 struct Part1: View {
     @State private var userName = ""
+    @State private var results = [Result]()
     
     var body: some View {
         NavigationView {
@@ -77,8 +89,18 @@ struct Part1: View {
                 .padding()
             )
             
-            NavigationLink("Test", destination:
-                Text("LinkedView")
+            NavigationLink("Sending and receiving Codable data with URLSession and SwiftUI", destination:
+                VStack {
+                    List(results, id: \.trackId) { item in
+                        VStack(alignment: .leading) {
+                            Text(item.trackName)
+                                .font(.headline)
+                            Text(item.collectionName)
+                        }
+                    }
+                    .onAppear(perform: loadData)
+                }
+                .padding()
             )
 
             NavigationLink("Test", destination:
@@ -87,6 +109,47 @@ struct Part1: View {
             
         }
         }
+    }
+    
+    func loadData() {
+        // create URL to load data from
+        guard let url = URL(string: "https://itunes.apple.com/search?term=metallica&entity=song") else {
+            print("Invalid url")
+            return
+        }
+        
+        // create a request based on the URL
+        let request = URLRequest(url: url)
+        
+        // it's posssible to create a custom session instead of using the provided 'shared' session
+        // the call to dataTask(with:) on the shared session creates the networking task from the specified request
+        // and requires a closure that is run on completion and is provided with:
+        // - data : whatever data was returned from the request
+        // - response : a description of the data, e.g. type, size, status code, etc
+        // - error : the error that occured, if any
+        // data and error are mutually exclusive, only one of them will be set
+        // the call to resume() is needed to actually start the call, without it nothing will happen
+        // since this task runs on a background thread, the resulting data needs to be sent back to the
+        // main thread, since that's where SwiftUI's UI runs
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            // check that data is set
+            if let data = data {
+                let decoder = JSONDecoder()
+                // decode the response
+                if let decodedResponse = try? decoder.decode(Response.self, from: data){
+                    // on success, send the data back to the main thread, this will be run asynchronous
+                    DispatchQueue.main.async {
+                        // update the UI
+                        self.results = decodedResponse.results
+                    }
+                    // everything is done -> exit
+                    return
+                }
+            }
+            
+            // if we're still here it means there was a problem
+            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
+        }.resume()
     }
 }
 
