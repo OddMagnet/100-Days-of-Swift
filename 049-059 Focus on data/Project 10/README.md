@@ -1,13 +1,16 @@
-# PROJECT NAME
-SHORT DESCRIPTION
+# CupcakeCorner
+A multi-screen app for ordering cupcakes
 
-![App screenshot](PROJECT_NAME.png)
+![App screenshot](CupcakeCorner.png)
 
 
-## OVERVIEW_NAME
+## Adding Codable conformance for @Published properties
 - 
 
-## REPEAT_H2_FOR_EVERY_STEP
+## Sending and receiving Codable data with URLSession and SwiftUI
+- 
+
+## Validating and disabling forms
 - 
 
 ## Wrap up - Challenges
