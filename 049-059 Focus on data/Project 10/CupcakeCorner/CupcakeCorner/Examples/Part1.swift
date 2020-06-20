@@ -63,9 +63,7 @@ struct Part1: View {
     }
     
     var body: some View {
-        NavigationView {
-        //Section(header: Text("Part 1")) {
-        List {
+        Section(header: Text("Part 1")) {
             
             NavigationLink("Adding Codable conformance for @Published properties", destination:
                 VStack(alignment: .leading) {
@@ -125,7 +123,6 @@ struct Part1: View {
                 }
             )
             
-        }
         }
     }
     
