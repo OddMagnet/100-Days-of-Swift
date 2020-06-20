@@ -50,7 +50,7 @@ struct Part1: View {
         //Section(header: Text("Part 1")) {
         List {
             
-            NavigationLink("Test", destination:
+            NavigationLink("Adding Codable conformance for @Published properties", destination:
                 VStack(alignment: .leading) {
                     TextField("Name", text: $userName)
                     Button("Save name") {
