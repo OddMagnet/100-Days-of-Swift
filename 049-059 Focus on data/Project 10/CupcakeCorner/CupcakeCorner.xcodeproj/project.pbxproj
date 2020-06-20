@@ -13,6 +13,8 @@
 		4CCBC306249E31E80038723D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCBC305249E31E80038723D /* Assets.xcassets */; };
 		4CCBC309249E31E80038723D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CCBC308249E31E80038723D /* Preview Assets.xcassets */; };
 		4CCBC30C249E31E80038723D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCBC30A249E31E80038723D /* LaunchScreen.storyboard */; };
+		4CCBC315249E32D80038723D /* Part1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBC314249E32D80038723D /* Part1.swift */; };
+		4CCBC317249E32E20038723D /* ExamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBC316249E32E20038723D /* ExamplesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4CCBC308249E31E80038723D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4CCBC30B249E31E80038723D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CCBC30D249E31E90038723D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CCBC314249E32D80038723D /* Part1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part1.swift; sourceTree = "<group>"; };
+		4CCBC316249E32E20038723D /* ExamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		4CCBC313249E31FC0038723D /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				4CCBC316249E32E20038723D /* ExamplesView.swift */,
+				4CCBC314249E32D80038723D /* Part1.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 			files = (
 				4CCBC300249E31E70038723D /* AppDelegate.swift in Sources */,
 				4CCBC302249E31E70038723D /* SceneDelegate.swift in Sources */,
+				4CCBC315249E32D80038723D /* Part1.swift in Sources */,
+				4CCBC317249E32E20038723D /* ExamplesView.swift in Sources */,
 				4CCBC304249E31E70038723D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
