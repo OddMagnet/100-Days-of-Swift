@@ -15,7 +15,7 @@ struct ExamplesView: View {
                 // Example code is in the files for each day
                 Part1()
                 
-                //Part2()
+                Part2()
                 
                 //Part3()
                 
