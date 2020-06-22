@@ -47,6 +47,9 @@ class Order: ObservableObject, Codable {
         zip = try container.decode(String.self, forKey: .zip)
     }
     
+    // empty initializer to create new orders
+    init() { }
+    
     // Cupcake types
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
     
