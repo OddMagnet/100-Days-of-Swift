@@ -37,5 +37,13 @@ A multi-screen app for ordering cupcakes
 - to validate user input a computed property can be used as the condition inside the `.disabled()` modifier
 - the actual validation happens in the computed property
 
+## Sending and receiving orders over the Internet
+- to send an order, first it needs to be encoded to JSON, this is trivial once the order class conforms to `Codable`
+- next a URLRequest needs to be created and configured to send JSON data using a HTTP post, then the data is attached
+- to test sending data without creating a web server for it, [Req | Res](https://reqres.in) will be used
+- using the `setValue(value:, forHTTPHeaderField)` method the value type for the specified header field is set, e.g. `request.setValue("application/json", forHTTPHeaderField: "Content-Type")`
+- with the `httpMethod` and `httpBody` properties the method is then set to "Post" and the body to the encoded data
+- finally the request needs to be send and handled
+
 ## Wrap up - Challenges
 - 
