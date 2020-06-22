@@ -17,7 +17,7 @@ struct ExamplesView: View {
                 
                 Part2()
                 
-                //Part3()
+                Part3()
                 
             }
             .listStyle(GroupedListStyle())
