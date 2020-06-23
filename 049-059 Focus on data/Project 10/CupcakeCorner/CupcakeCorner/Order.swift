@@ -75,13 +75,41 @@ class Order: ObservableObject, Codable {
     @Published var city = ""
     @Published var zip = ""
     
+    // Wrap up - Challenge 1 - Improve address validation
     // Address validation
     var hasValidAddress: Bool {
+
+        // check for empty fields
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+            return false
+        }
+        // check each field
+        if !hasValidStreetAddress || !hasValidCity || !hasValidZip {
             return false
         }
 
         return true
+    }
+    
+    // Wrap up - Challenge 1 - Improve address validation
+    var hasValidStreetAddress: Bool {
+        // matches words with whitespaces and special characters with 5+ letters, followed by an optional '.' a space and one or more numbers
+        let streetRegex = try! NSRegularExpression(pattern: "[A-zßäöü ]{5,}.*\\d+")
+        return streetRegex.firstMatch(in: streetAddress, options: [], range: NSRange(location: 0, length: streetAddress.utf16.count)) != nil
+    }
+    
+    // Wrap up - Challenge 1 - Improve address validation
+    var hasValidCity: Bool {
+        // matches words with normal and special characters with 4+ letters
+        let cityRegex = try! NSRegularExpression(pattern: "[A-zßäöü]{4,}")
+        return cityRegex.firstMatch(in: city, options: [], range: NSRange(location: 0, length: city.utf16.count)) != nil
+    }
+    
+    // Wrap up - Challenge 1 - Improve address validation
+    var hasValidZip: Bool {
+        // matches 5 digits
+        let zipRegex = try! NSRegularExpression(pattern: "\\d{5}")
+        return zipRegex.firstMatch(in: zip, options: [], range: NSRange(location: 0, length: zip.utf16.count)) != nil
     }
     
     // Pricing

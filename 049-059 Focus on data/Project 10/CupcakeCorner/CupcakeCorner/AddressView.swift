@@ -15,10 +15,15 @@ struct AddressView: View {
         Form {
             Section {
                 TextField("Name", text: $order.name)
+                    .foregroundColor(.green)
                 TextField("Street Address", text: $order.streetAddress)
+                    .foregroundColor(order.hasValidStreetAddress ? .green : .red)
                 TextField("City", text: $order.city)
+                    .foregroundColor(order.hasValidCity ? .green : .red)
                 TextField("Zip", text: $order.zip)
+                    .foregroundColor(order.hasValidZip ? .green : .red)
             }
+            .disableAutocorrection(true)
 
             Section {
                 NavigationLink("Check out", destination:
