@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CheckoutView: View {
     @ObservedObject var order: Order
+    @State private var confirmationTitle = ""
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
     
@@ -34,7 +35,7 @@ struct CheckoutView: View {
         }
         .navigationBarTitle("Check out", displayMode: .inline)
         .alert(isPresented: $showingConfirmation) {
-            Alert(title: Text("Thank you!"), message: Text(confirmationMessage), dismissButton: .default(Text("OK")))
+            Alert(title: Text(confirmationTitle), message: Text(confirmationMessage), dismissButton: .default(Text("OK")))
         }
     }
     
@@ -59,12 +60,16 @@ struct CheckoutView: View {
             // handle the response
             // ensure data was returned
             guard let data = data else {
-                print("No data in response: \(error?.localizedDescription ?? "Unknown error").")
+                // Wrap up - Challenge 2 - Improve error message
+                self.confirmationTitle = "Error!"
+                self.confirmationMessage = "The server could not be reached. Please check your connection."
+                self.showingConfirmation = true
                 return
             }
             // decode the returned data and display it in an alert
             let decoder = JSONDecoder()
             if let decodedOrder = try? decoder.decode(Order.self, from: data) {
+                self.confirmationTitle = "Thank you!"
                 self.confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
                 self.showingConfirmation = true
             } else {
