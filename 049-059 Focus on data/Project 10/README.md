@@ -1,7 +1,7 @@
 # CupcakeCorner
 A multi-screen app for ordering cupcakes
 
-![App screenshot](CupcakeCorner.png)
+![App screenshot](CupcakeCorner1.png) ![App screenshot](CupcakeCorner2.png) ![App screenshot](CupcakeCorner3.png)
 
 
 ## Adding Codable conformance for @Published properties
