@@ -8,8 +8,18 @@
 
 import SwiftUI
 
-class Order: ObservableObject, Codable {
+class Model: ObservableObject {
+    @Published var order: Order
+    
+    init(order: Order) {
+        self.order = order
+    }
+}
+
+// Wrap up - Challenge 3 - change model from class to struct
+struct Order: Codable {
     // enum for de- and encoding support
+    /*
     enum CodingKeys: CodingKey {
         case type, quantity, extraFrosting, addSprinkles, name, streetAddress, city, zip
     }
@@ -49,16 +59,17 @@ class Order: ObservableObject, Codable {
     
     // empty initializer to create new orders
     init() { }
+     */
     
     // Cupcake types
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
     
     // Order Details
-    @Published var type = 0
-    @Published var quantity = 3
+    var type = 0
+    var quantity = 3
     
     // Extra options
-    @Published var specialRequestEnabled = false {
+    var specialRequestEnabled = false {
         didSet {
             if specialRequestEnabled {
                 extraFrosting = false
@@ -66,14 +77,14 @@ class Order: ObservableObject, Codable {
             }
         }
     }
-    @Published var extraFrosting = false
-    @Published var addSprinkles = false
+    var extraFrosting = false
+    var addSprinkles = false
     
     // Customer address
-    @Published var name = ""
-    @Published var streetAddress = ""
-    @Published var city = ""
-    @Published var zip = ""
+    var name = ""
+    var streetAddress = ""
+    var city = ""
+    var zip = ""
     
     // Wrap up - Challenge 1 - Improve address validation
     // Address validation

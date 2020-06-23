@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CheckoutView: View {
-    @ObservedObject var order: Order
+    @ObservedObject var model: Model
     @State private var confirmationTitle = ""
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
@@ -23,7 +23,7 @@ struct CheckoutView: View {
                         .scaledToFit()
                         .frame(width: geometry.size.width)
                     
-                    Text("Your total is $\(self.order.cost, specifier: "%.2f")")
+                    Text("Your total is $\(self.model.order.cost, specifier: "%.2f")")
                         .font(.title)
                     
                     Button("Place Order") {
@@ -42,7 +42,7 @@ struct CheckoutView: View {
     func placeOrder() {
         // Convert current order object into JSON data
         let encoder = JSONEncoder()
-        guard let encodedData = try? encoder.encode(order) else {
+        guard let encodedData = try? encoder.encode(model.order) else {
             print("Failed to encode order data")
             return
         }
@@ -82,6 +82,6 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(order: Order())
+        CheckoutView(model: Model(order: Order()))
     }
 }
