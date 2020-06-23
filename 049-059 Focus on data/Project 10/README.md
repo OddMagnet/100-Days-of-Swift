@@ -46,4 +46,6 @@ A multi-screen app for ordering cupcakes
 - finally the request needs to be send and handled
 
 ## Wrap up - Challenges
-- 
+- improve validation of textfields
+- show an informative alert when `placeOrder()` fails
+- convert the data model from class to struct
