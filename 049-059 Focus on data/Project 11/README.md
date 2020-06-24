@@ -21,7 +21,21 @@ An app that tracks which books a user has read and his thoughts on them
 - this comes with the downside of SwiftUI not being able to only re.render small parts of the UI
 
 ## How to combine Core Data and SwiftUI
--
+- **Core Data** is used to define objects and properties of those objects and allow for reading/writing them from/to permanent storage
+- it is similiar to __Codable__ and __UserDefaults__ but also allows for sorting and filtering data, and can handle much larger data
+- additionally it offers data validation, lazy loading of data, undo/redo and more
+- when using **Core Data** Xcode will generate a `ProjectName.xcdatamodeld` file that describes the data model (= classes and their properties)
+- Xcode also sets up `AppDelegate.swift` and `SceneDelegate.swift` with the necessary code to use Core Data
+- to actually use Core Data a **persistent container** which loads and saves data to storage is needed and it needs to be injected into the environment
+- both of these things are setup automatically by Xcode when the checkbox for using CoreData was checked at project creation
+- inside the `xcdatamodeld` file **Entities** (classes) and **Attributes** (properties) can be created
+- these can then be accessed via the `@FetchRequest` wrapper: `@FetchRequest(entity: EntityName.entity(), sortDescriptors: []) var entity: FetchedResults<EntityName>`
+- this creates a fetch request for 'EntityName' (without any sorting) and places it into the `entity` property of type `FetchedResults<EntityName>`
+- the attributes of the entity can then be accessed via that property
+- what Core Data automaticlly creates based on the given Entity is a class that inherits from its own `NSManagedObject` class
+- these are also called __managed objects__, all managed objects are managed by the **managed object contect**, which is what actually does the fetching and saving of changes
+- since Xcode already created this automatically, only a property from the environment needs to be created to use it: `@Environment(\.managedObjectContext) var moc`
+- from that new objects can be created `let object = Entity(context: self.moc)`, changed/filled with data `object.id = UUID()` and saved `try? self.moc.save()`
 
 ## Wrap up - Challenges
 - 
