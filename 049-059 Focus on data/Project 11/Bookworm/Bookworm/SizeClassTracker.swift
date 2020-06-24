@@ -13,17 +13,17 @@ struct SizeClassTracker: View {
     
     var body: some View {
         if sizeClass == .compact {
-            return HStack {
+            return AnyView(VStack {
                 Text("Active size class:")
                 Text("COMPACT")
             }
-            .font(.largeTitle)
+            .font(.largeTitle))
         } else {
-            return HStack {
+            return AnyView(HStack {
                 Text("Active size class:")
                 Text("REGULAR")
             }
-            .font(.largeTitle)
+            .font(.largeTitle))
         }
     }
 }
