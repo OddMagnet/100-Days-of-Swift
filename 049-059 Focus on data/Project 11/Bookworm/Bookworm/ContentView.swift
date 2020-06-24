@@ -15,6 +15,7 @@ struct ContentView: View {
         VStack {
             PushButton(title: "Remember me", isOn: $rememberMe)
             Text(rememberMe ? "On" : "Off")
+            SizeClassTracker()
         }
     }
 }
