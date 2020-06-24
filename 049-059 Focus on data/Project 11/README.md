@@ -37,5 +37,11 @@ An app that tracks which books a user has read and his thoughts on them
 - since Xcode already created this automatically, only a property from the environment needs to be created to use it: `@Environment(\.managedObjectContext) var moc`
 - from that new objects can be created `let object = Entity(context: self.moc)`, changed/filled with data `object.id = UUID()` and saved `try? self.moc.save()`
 
+## H2s for the coming parts
+- building lists with **@FetchRequest**
+- sorting fetch requests with **NSSortDescriptor**
+- deleting from a Core Data fetch request
+- poping a Navigationink programmatically
+
 ## Wrap up - Challenges
 - 
