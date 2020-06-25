@@ -43,5 +43,9 @@ An app that tracks which books a user has read and his thoughts on them
 - deleting from a Core Data fetch request
 - poping a Navigationink programmatically
 
+## Miscellaneous
+- for view not presented with an ancestor view, e.g. via `sheet()` an environment object must be passed by calling `.(environment(...)` on the view
+- to provide bindings for the previews in SwiftUI, __constant bindings__ can be used. e.g. inside the preview view `SomeView(someBinding: .constant(/* value here */))`
+
 ## Wrap up - Challenges
 - 
