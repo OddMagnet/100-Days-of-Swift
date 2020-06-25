@@ -38,7 +38,6 @@ An app that tracks which books a user has read and his thoughts on them
 - from that new objects can be created `let object = Entity(context: self.moc)`, changed/filled with data `object.id = UUID()` and saved `try? self.moc.save()`
 
 ## H2s for the coming parts
-- building lists with **@FetchRequest**
 - sorting fetch requests with **NSSortDescriptor**
 - deleting from a Core Data fetch request
 - poping a Navigationink programmatically
@@ -46,6 +45,6 @@ An app that tracks which books a user has read and his thoughts on them
 ## Miscellaneous
 - for view not presented with an ancestor view, e.g. via `sheet()` an environment object must be passed by calling `.(environment(...)` on the view
 - to provide bindings for the previews in SwiftUI, __constant bindings__ can be used. e.g. inside the preview view `SomeView(someBinding: .constant(/* value here */))`
-
+- variables wrapped by `@FetchRequest` can be used in ForEach just like arrays
 ## Wrap up - Challenges
 - 
