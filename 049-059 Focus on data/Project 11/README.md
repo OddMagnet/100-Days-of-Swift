@@ -37,14 +37,25 @@ An app that tracks which books a user has read and his thoughts on them
 - since Xcode already created this automatically, only a property from the environment needs to be created to use it: `@Environment(\.managedObjectContext) var moc`
 - from that new objects can be created `let object = Entity(context: self.moc)`, changed/filled with data `object.id = UUID()` and saved `try? self.moc.save()`
 
-## H2s for the coming parts
-- sorting fetch requests with **NSSortDescriptor**
-- deleting from a Core Data fetch request
-- poping a Navigationink programmatically
-
 ## Miscellaneous
+### Creating books with Core Data
 - for view not presented with an ancestor view, e.g. via `sheet()` an environment object must be passed by calling `.(environment(...)` on the view
+### Adding a custom star rating component
 - to provide bindings for the previews in SwiftUI, __constant bindings__ can be used. e.g. inside the preview view `SomeView(someBinding: .constant(/* value here */))`
+### Building a list with @FetchRequest
 - variables wrapped by `@FetchRequest` can be used in ForEach just like arrays
+### Showing book details
+- when creating a view that uses a Core Data entity, the preview needs a __temporary__ managed object context to create an instance of the needed entity
+- this is done with an **NSManagedObjectContext**: `static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)`
+- to use a view that requires a binding without enabling it to actually change anything, `.constant(/* binding property value here */)` can be used
+### Sorting fetch requests with NSSortDescriptor
+- sorting the data that of a __@FetchRequest__ wrapped property is done by supplying `NSSortDescriptor(keyPath:, ascending)` to the `sortDescriptors` argument of the wrapper
+- it's possible to supply multiple sort descriptors, e.g. sorting by Author and Book Titles. A keypath would look something like this `keyPath \Entity.attribute`
+### Deleting from a Core Data fetch request
+- just like with lists of arrays, lists of data from fetch request can also be used to delete data from Core Data
+- inside the from `.onDelete(perform:)` called function `moc.delete(objectToDelete)` is called and the context is saved: `try? moc.save()`
+## Using an alert to pop a NavigationLink programmatically
+- when presenting an alert to confirm the deletion (or change) of some data, the confirming button in the alert should be of type `.destructive()`
+
 ## Wrap up - Challenges
 - 
