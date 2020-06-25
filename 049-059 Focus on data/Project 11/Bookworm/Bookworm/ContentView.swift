@@ -9,36 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var rememberMe = false
-    
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Student.entity(), sortDescriptors: []) var students: FetchedResults<Student>
+    @FetchRequest(entity: Book.entity(), sortDescriptors: []) var books: FetchedResults<Book>
+    
+    @State private var showingAddBookScreen = false
     
     var body: some View {
-        VStack {
-            PushButton(title: "Remember me", isOn: $rememberMe)
-            Text(rememberMe ? "On" : "Off")
-            SizeClassTracker()
-            VStack {
-                List {
-                    ForEach(students, id: \.id) { student in
-                        Text(student.name ?? "Unknown")
-                    }
+        NavigationView {
+            Text("Book \(self.books.count)")
+                .navigationBarTitle("Bookworm")
+                .navigationBarItems(trailing: Button(action: {
+                    self.showingAddBookScreen.toggle()
+                }) {
+                    Image(systemName: "plus")
+                })
+                .sheet(isPresented: $showingAddBookScreen) {
+                    AddBookView().environment(\.managedObjectContext, self.moc)
                 }
-                Button("Add") {
-                    let firstNames = ["Ginny", "Harry", "Hermione", "Luna", "Ron"]
-                    let lastNames = ["Granger", "Lovegood", "Potter", "Weasley"]
-
-                    let chosenFirstName = firstNames.randomElement()!
-                    let chosenLastName = lastNames.randomElement()!
-
-                    let student = Student(context: self.moc)
-                    student.id = UUID()
-                    student.name = "\(chosenFirstName) \(chosenLastName)"
-                    
-                    try? self.moc.save()
-                }
-            }
         }
     }
 }
