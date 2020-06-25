@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C84733B24A4CF0600A14146 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84733A24A4CF0600A14146 /* AddBookView.swift */; };
 		4CD0D55224A3927F00ABA674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0D55124A3927F00ABA674 /* AppDelegate.swift */; };
 		4CD0D55424A3927F00ABA674 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0D55324A3927F00ABA674 /* SceneDelegate.swift */; };
 		4CD0D55724A3927F00ABA674 /* Bookworm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CD0D55524A3927F00ABA674 /* Bookworm.xcdatamodeld */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C84733A24A4CF0600A14146 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		4CD0D54E24A3927F00ABA674 /* Bookworm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookworm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD0D55124A3927F00ABA674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CD0D55324A3927F00ABA674 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				4CD0D55124A3927F00ABA674 /* AppDelegate.swift */,
 				4CD0D55324A3927F00ABA674 /* SceneDelegate.swift */,
 				4CD0D55824A3927F00ABA674 /* ContentView.swift */,
+				4C84733A24A4CF0600A14146 /* AddBookView.swift */,
 				4C84733924A4CE4500A14146 /* Examples */,
 				4CD0D55A24A3928100ABA674 /* Assets.xcassets */,
 				4CD0D55F24A3928100ABA674 /* LaunchScreen.storyboard */,
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C84733B24A4CF0600A14146 /* AddBookView.swift in Sources */,
 				4CD0D55224A3927F00ABA674 /* AppDelegate.swift in Sources */,
 				4CD0D56924A3930A00ABA674 /* PushButton.swift in Sources */,
 				4CD0D55724A3927F00ABA674 /* Bookworm.xcdatamodeld in Sources */,
