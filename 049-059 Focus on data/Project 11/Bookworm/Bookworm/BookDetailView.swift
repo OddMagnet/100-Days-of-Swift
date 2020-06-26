@@ -16,6 +16,18 @@ struct BookDetailView: View {
     
     let book: Book
     
+    // Wrap up - Challenge 3 - Add a date to the book entity
+    var dateString: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        
+        if let date = book.date {
+            return formatter.string(from: date)
+        } else {
+            return "Unknown"
+        }
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -36,6 +48,10 @@ struct BookDetailView: View {
                 Text(self.book.author ?? "Unknown Author")
                     .font(.title)
                     .foregroundColor(.secondary)
+                
+                // Wrap up - Challenge 3 - Add a date to the book entity
+                Text("Reviewed on \(self.dateString)")
+                    .font(.footnote)
                 
                 Text(self.book.review ?? "No review")
                     .padding()

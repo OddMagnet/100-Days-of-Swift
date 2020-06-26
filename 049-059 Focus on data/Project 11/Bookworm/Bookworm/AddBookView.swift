@@ -48,6 +48,9 @@ struct AddBookView: View {
                         newBook.rating = Int16(self.rating)
                         newBook.genre = self.genre
                         newBook.review = self.review
+                        // Wrap up - Challenge 3 - Add a date to the book entity
+                        newBook.date = Date()
+
                         
                         try? self.moc.save()
                         self.presentationMode.wrappedValue.dismiss()
