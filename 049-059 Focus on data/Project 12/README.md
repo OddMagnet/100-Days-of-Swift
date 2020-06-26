@@ -26,7 +26,11 @@ A technique project to explore how Core Data and SwiftUI work together
 - this way unnecessary performance impact can be avoided
 
 ## Ensuring Core Data objects are unique by using constraints
-- 
+- to stop users from saving multiple identical objects in Core Data, constraints can be used
+- in the data model inspector constraints can be added by clicking the '+' below **Constraints** and adding the constrained properties as a comma seperated list
+- when trying to save multiple objects with the same constrained property the `save()` method of the context will now throw an error that needs to be handled
+- to make Core Data still write the changes, the context can be given a **mergePolicy** inside the SceneDelegate.swift file
+- for this an `import CoreData` is needed and then the contect can be added just below its creation like this `context.mergePolicy = /* the desired policy here */`
 
 ## Filtering @FetchRequest using NSPredicate
 -

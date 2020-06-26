@@ -16,6 +16,7 @@ struct ContentView: View {
     let students = [Student(name: "Harry Potter"), Student(name: "Hermione Granger")]
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Movie.entity(), sortDescriptors: []) var movies: FetchedResults<Movie>
+    @FetchRequest(entity: Wizard.entity(), sortDescriptors: []) var wizards: FetchedResults<Wizard>
     
     @State private var neededSaving = false
     
@@ -77,6 +78,27 @@ This only works with data that conforms to the Hashable protocol.
                             .padding()
                             
                             Text("Last save actually wrote data?: \(neededSaving ? "Yes" : "No")")
+                        }
+                    )
+                    
+                    NavigationLink("Ensuring Core Data objects are unique using constraints", destination:
+                        VStack {
+                            List(wizards, id: \.self) { wizard in
+                                Text(wizard.name ?? "Unknown")
+                            }
+                            
+                            Button("Add") {
+                                let wizard = Wizard(context: self.moc)
+                                wizard.name = "Harry Potter"
+                            }
+                            
+                            Button("Save") {
+                                do {
+                                    try self.moc.save()
+                                } catch {
+                                    print(error.localizedDescription)
+                                }
+                            }
                         }
                     )
                     
