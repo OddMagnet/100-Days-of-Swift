@@ -58,4 +58,6 @@ An app that tracks which books a user has read and his thoughts on them
 - when presenting an alert to confirm the deletion (or change) of some data, the confirming button in the alert should be of type `.destructive()`
 
 ## Wrap up - Challenges
-- 
+- validate the form to ensure a genre was selected
+- show the name of books rated at 1 star in red
+- add a date attribute to the Book entity, assign the current date when adding the book and display it in the DetailView
