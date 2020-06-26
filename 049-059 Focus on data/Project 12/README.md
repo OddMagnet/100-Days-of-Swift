@@ -1,13 +1,25 @@
-# PROJECT NAME
-SHORT DESCRIPTION
+# Core Data
+A technique project to explore how Core Data and SwiftUI work together
 
-![App screenshot](PROJECT_NAME.png)
-
-
-## OVERVIEW_NAME
+## Why does \.self work for ForEach
 - 
 
-## REPEAT_H2_FOR_EVERY_STEP
+## Creating NSManagedObject subclasses
+- 
+
+## Conditional saving of NSManagedObjectContext
+- 
+
+## Ensuring Core Data objects are unique by using constraints
+- 
+
+## Filtering @FetchRequest using NSPredicate
+-
+
+## Dynamically filtering @FetchRequest with SwiftUI
+-
+
+## One-to-many relationships with Core Data, SwiftUI and @FetchRequest
 - 
 
 ## Wrap up - Challenges
