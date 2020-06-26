@@ -20,7 +20,10 @@ A technique project to explore how Core Data and SwiftUI work together
 - since Core Data loads its data lazily (only when needed), just removing the '?' can lead to problems when data without values is saved
 
 ## Conditional saving of NSManagedObjectContext
-- 
+- the recommended way of using the `save()` method of `NSManagedObjectContext` is by checking if there any changes first
+- this can be accomplished by using either the `hasChanged` property of an object
+- or calling `self.moc.hasChanges` to check if the entire context has any changes
+- this way unnecessary performance impact can be avoided
 
 ## Ensuring Core Data objects are unique by using constraints
 - 

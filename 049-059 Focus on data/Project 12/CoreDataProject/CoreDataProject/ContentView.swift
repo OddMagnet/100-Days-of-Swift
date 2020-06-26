@@ -17,6 +17,8 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Movie.entity(), sortDescriptors: []) var movies: FetchedResults<Movie>
     
+    @State private var neededSaving = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -51,7 +53,30 @@ This only works with data that conforms to the Hashable protocol.
                                     Text(movie.wrappedDirector)
                                 }
                             }
+                        }
+                    )
+                    
+                    NavigationLink("Conditional saving of NSManagedObjectContext", destination:
+                        VStack {
+                            Button("Change something") {
+                                let newMovie = Movie(context: self.moc)
+                                newMovie.title = "New"
+                                newMovie.director = "Old"
+                                newMovie.year = 1992
+                            }
+                            .padding()
                             
+                            Button("Save") {
+                                if self.moc.hasChanges {
+                                    self.neededSaving = true
+                                    try? self.moc.save()
+                                } else {
+                                    self.neededSaving = false
+                                }
+                            }
+                            .padding()
+                            
+                            Text("Last save actually wrote data?: \(neededSaving ? "Yes" : "No")")
                         }
                     )
                     
