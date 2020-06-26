@@ -14,23 +14,50 @@ struct Student: Hashable {
 
 struct ContentView: View {
     let students = [Student(name: "Harry Potter"), Student(name: "Hermione Granger")]
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Movie.entity(), sortDescriptors: []) var movies: FetchedResults<Movie>
     
     var body: some View {
         NavigationView {
-            
-            NavigationLink("Why does \\.self work for ForEach", destination:
-                VStack {
-                    Text("""
+            List {
+                Section(header: Text("Part 1")) {
+                    
+                    NavigationLink("Why does \\.self work for ForEach", destination:
+                        VStack {
+                            Text("""
 When using \\.self as the id in a List or ForEach, Swift uses the hash of the object.
 A hash is a unique string calculated based on the content of an object.
 This only works with data that conforms to the Hashable protocol.
 """)
-                    List(students, id: \.self) { student in
-                        Text(student.name)
-                    }
+                            List(students, id: \.self) { student in
+                                Text(student.name)
+                            }
+                        }
+                    )
+                    
+                    NavigationLink("Creating NSManagedObject subclasses", destination:
+                        VStack {
+                            Button("Create empty movie object") {
+                                let _ = Movie(context: self.moc)
+                                try? self.moc.save()
+                            }
+                            
+                            List(movies, id: \.self) { movie in
+                                HStack {
+                                    Text(movie.wrappedTitle)
+                                    Spacer()
+                                    Text("by")
+                                    Spacer()
+                                    Text(movie.wrappedDirector)
+                                }
+                            }
+                            
+                        }
+                    )
+                    
                 }
-            )
-            
+            }
+            .navigationBarTitle("CoreDataProject")
         }
     }
 }
