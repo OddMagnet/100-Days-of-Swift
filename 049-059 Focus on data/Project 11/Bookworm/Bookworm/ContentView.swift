@@ -31,6 +31,8 @@ struct ContentView: View {
                         VStack(alignment: .leading) {
                             Text(book.title ?? "Unkown title")
                                 .font(.headline)
+                            // Wrap up - Challenge 2 - display book name in red when it has a bad rating
+                                .foregroundColor(book.rating < 2 ? .red : .primary)
                             Text(book.author ?? "Unknown Author")
                                 .foregroundColor(.secondary)
                         }
