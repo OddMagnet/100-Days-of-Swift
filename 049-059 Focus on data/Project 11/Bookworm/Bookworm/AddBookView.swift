@@ -53,10 +53,20 @@ struct AddBookView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
+                .disabled(formIsValid() == false)
 
             }
             .navigationBarTitle("Add Book")
         }
+    }
+    
+    // Wrap up - Challenge 1 - Validate the form
+    func formIsValid() -> Bool {
+        // empty reviews are allowed
+        if title.isEmpty || author.isEmpty || genre.isEmpty {
+            return false
+        }
+        return true
     }
 }
 
