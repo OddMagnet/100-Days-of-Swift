@@ -1,7 +1,7 @@
 # Bookworm
 An app that tracks which books a user has read and his thoughts on them
 
-![App screenshot](PROJECT_NAME.png)
+![App screenshot](Bookworm1.png) ![App screenshot](Bookworm2.png) ![App screenshot](Bookworm3.png) 
 
 
 ## Creating a custom component with @Binding
