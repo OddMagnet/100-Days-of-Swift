@@ -21,8 +21,14 @@ Learning goals:
 - deleting from a Core Data fetch request
 - poping a Navigationink programmatically
 
-## [Project 12 - Project_NAME](Project%2012)
-SHORT DESCRIPTION
+## [Project 12 - CoreDataProject](Project%2012)
+A technique project to explore how Core Data and SwiftUI work together
 
 Learning goals:
-- 
+- why \.self works for ForEach
+- **NSManagedObject** subclasses
+- conditional saving of NSManagedObjectContext
+- ensuring Core Data objects are unique using constraints
+- filtering @FetchRequests using **NSPredicate**
+- dynamically filtering @FetchRequests
+- one-to-many relationshipes with Core Data, SwiftUI and @FetchRequest
