@@ -41,7 +41,19 @@ A technique project to explore how Core Data and SwiftUI work together
 - for even more precise predicates it's possible to use `AND` or create a `NSCompoundPredicate`
 
 ## Dynamically filtering @FetchRequest with SwiftUI
--
+- to dynamically filter a __@FetchRequest__ a seperate view is needed
+- this view needs `FetchRequest<T>` variable that is created in a custom initializer
+- this initializer is then given a string which will be used to filter the results
+- then the view only needs to return an appropriate body that displays the filtered results
+- to avoid using `fetchRequest.wrappedValue` to access the results, a computed property can be added to the view: `var results: FetchedResults<T> { fetchRequest.wrappedValue }`
+- it's possible to go even further and make the view generic: `struct ViewName<T: NSManagedObject, Content: View>: View { ... }`
+- inside the view the properties for the fetchRequest and result then simply make use of the generic type
+- additionally a content closure needs to be provided so the results can be displayed: `let content: (T) -> Content`
+- the custom initializer can also be expanded to use not only a filterValue, but also a filterKey; and of course it needs the content closure
+- `init(filterKey: String, filterValue: String, @ViewBuilder content: @escaping (T) -> Content)`
+- `@ViewBuilder` lets the view containing the generic filter view send in multiple views to create a list with an implicit HStack
+- `@escaping` just tells Swift that the closure needs to be stored and will be used later
+- to use the filterKey inside the NSPredicate a special symbol is used: `%K`: `NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue)`
 
 ## One-to-many relationships with Core Data, SwiftUI and @FetchRequest
 - 
