@@ -56,7 +56,24 @@ A technique project to explore how Core Data and SwiftUI work together
 - to use the filterKey inside the NSPredicate a special symbol is used: `%K`: `NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue)`
 
 ## One-to-many relationships with Core Data, SwiftUI and @FetchRequest
-- 
+- it's possible to for Core Data entities to have relationships (being linked by properties), @FetchRequest will then return all needed data
+- Types of relationships
+    - one to one: one entity object links to exactly one object in another entity
+    - one to many: one entity object links to many objects of another entity
+    - many to one: many entity objects link to exactly one object in another entity
+    - many to many: many entity objects link to many objects of another entity
+- to add a relationship the __Data Model Inspector__ is used
+- with the entity selected, pressing the '+' under the **Relationships** table will add a new relationship
+- after naming the relationship (ideally to which other entity it is) it is possible to set it's destination and type
+- the other (linked) entity then needs a relationship to, conventionally named 'origin' which has the first entity as a destination and it's inverse set to the relationship from the first entity
+- **NOTE**: unique attributes should have restraints
+### Using Swift's Set instead of NSSet
+- the __many__ part of relationships is usually a property of type `NSSet`
+- this can't be used easily in SwiftUI and should be fixed by creating custom __NSManagedObject Subclasses__
+- just like the computed properties that can be used ot handle the optional nature of other properties, the NSSet property needs a wrapper too
+- inside the wrapper a set needs to be created like this `let set = nsSetProperty as? Set<EntityName> ?? []`
+- this can then be returned as an array of the entity type which is then usable by SwiftUI: `return set.sorted { /* sorting condition here */ }`
+- now the array of the entity that was the __many__ part can be easily accessed from a FetchRequest property of the __one__ part entity
 
 ## Wrap up - Challenges
 - 
