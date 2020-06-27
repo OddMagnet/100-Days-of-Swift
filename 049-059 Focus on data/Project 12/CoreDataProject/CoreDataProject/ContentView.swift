@@ -18,6 +18,8 @@ struct ContentView: View {
         NavigationView {
             List {
                 Part1()
+                
+                Part2()
             }
             .navigationBarTitle("CoreDataProject")
         }
