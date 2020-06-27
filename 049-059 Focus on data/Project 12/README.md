@@ -33,7 +33,12 @@ A technique project to explore how Core Data and SwiftUI work together
 - for this an `import CoreData` is needed and then the contect can be added just below its creation like this `context.mergePolicy = /* the desired policy here */`
 
 ## Filtering @FetchRequest using NSPredicate
--
+- to filter a FetcRequest an **NSPredicate** is supploed: `NSPredicate(format: "universe == 'Star Wars'")`
+- the more common syntax is to use `%@` instead of just quote marks, where data will be inserted `NSPredicate(format: "universe == %@", "Star Wars")`
+- it's also possible to use `<` and `>` for filtering `NSPredicate(format: "name < %@", "F")`
+- `%@` also converts native Swift types to their Core Data equivalents, like `IN`, `BEGINSWITH`, `CONTAINS` and even negating with `NOT`
+- both `BEGINSWITH` and `CONTAINS` are case sensitive, but can ignore case by addding a `[c]` at the end: `NSPredicate(format: "name BEGINSWITH[c] %@", "e")`
+- for even more precise predicates it's possible to use `AND` or create a `NSCompoundPredicate`
 
 ## Dynamically filtering @FetchRequest with SwiftUI
 -
