@@ -20,6 +20,8 @@ struct ContentView: View {
                 Part1()
                 
                 Part2()
+                
+                Challenges()
             }
             .navigationBarTitle("CoreDataProject")
         }

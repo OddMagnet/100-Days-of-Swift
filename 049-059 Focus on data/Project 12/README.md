@@ -76,4 +76,7 @@ A technique project to explore how Core Data and SwiftUI work together
 - now the array of the entity that was the __many__ part can be easily accessed from a FetchRequest property of the __one__ part entity
 
 ## Wrap up - Challenges
-- 
+All challenges are about a FilteredList view created in the examples
+- make it accept an array of `NSSortDescriptor`
+- make it accept a string parameter that controls the predicate applied
+- modify the predicate string parameter to be an enum and resolve the enum inside the initializer
