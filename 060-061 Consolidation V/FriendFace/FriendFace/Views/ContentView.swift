@@ -15,7 +15,8 @@ struct ContentView: View {
         NavigationView {
             List(users) { user in
                 NavigationLink(destination:
-                    UserDetail(user: user, friends: self.getFriendsFor(user))
+                    Text(user.name)
+                    //UserDetail(user: user, friends: self.getFriendsFor(user))
                 ) {
                     Text("\(user.name) (\(user.age))")
                         .foregroundColor(user.isActive ? .green : .primary)

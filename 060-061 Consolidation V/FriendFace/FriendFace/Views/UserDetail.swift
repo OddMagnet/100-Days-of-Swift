@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+/*
 struct UserDetail: View {
     var user: User
     var friends: [User]
@@ -89,3 +89,5 @@ struct UserDetail_Previews: PreviewProvider {
         }
     }
 }
+
+*/
