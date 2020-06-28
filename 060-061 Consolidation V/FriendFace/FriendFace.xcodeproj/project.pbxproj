@@ -62,7 +62,6 @@
 			children = (
 				4CD41A0E24A8CDC6007239CF /* AppDelegate.swift */,
 				4CD41A1024A8CDC6007239CF /* SceneDelegate.swift */,
-				4CD41A1224A8CDC6007239CF /* ContentView.swift */,
 				4CD41A2324A8CE1D007239CF /* Views */,
 				4CD41A2224A8CE0F007239CF /* Models */,
 				4CD41A1424A8CDC8007239CF /* Assets.xcassets */,
@@ -93,6 +92,7 @@
 		4CD41A2324A8CE1D007239CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4CD41A1224A8CDC6007239CF /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
