@@ -15,7 +15,7 @@ public class User: NSManagedObject, Identifiable, Codable {
 
     enum CodingKeys: CodingKey {
         case id
-        //    @NSManaged public var isActive: Bool
+        case isActive
         case name
         //    @NSManaged public var age: Int16
         //    @NSManaged public var company: String
@@ -32,6 +32,7 @@ public class User: NSManagedObject, Identifiable, Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(id, forKey: .id)
+        try container.encode(isActive, forKey: .isActive)
         try container.encode(name, forKey: .name)
     }
     
@@ -48,6 +49,7 @@ public class User: NSManagedObject, Identifiable, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         // and start decoding
         self.id = try container.decode(UUID.self, forKey: .id)
+        self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.name = try container.decode(String.self, forKey: .name)
         
     }
