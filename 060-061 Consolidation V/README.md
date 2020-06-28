@@ -4,6 +4,20 @@ Consolidation/Review of Days 49 to 59, notes in this readme, challenge completed
 ![App screenshot](App1.png) ![App screenshot](App2.png) ![App screenshot](App3.png)
 
 
+## Special Notes (REVISIT)
+This project was a __insertSwearWordHere__. Up to adding Core Data everything was fine.
+I tried for a few hours to make my Core Data entities conform to codable to no avail.
+So I googled it, found a few articles and repos that implemented the articles code.
+Instead of trying to replicate I just downloaded the projects and tried to run them.
+None of them worked... So I tried implementing the articles myself.
+Of course I couldn't get it to run either, maybe too tired..
+Or maybe aiming for an 'elegant' solution isn't the way to go.
+Checking if the managed object is empty and if so loading data into structs and then filling the managed object context is the way to go.
+Maybe Core Data will get an update to work easier with Codable.
+Maybe the next days will teach me something that helps to make this work.
+But as long as that isn't the case I'll just aim for a working project.
+And revisit this project in the future.
+
 ## What I learned
 - custom **Codable** conformance
 - sending and receiving with **URLSession**
