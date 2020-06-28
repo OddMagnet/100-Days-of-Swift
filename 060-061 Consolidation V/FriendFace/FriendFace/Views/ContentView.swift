@@ -14,7 +14,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(users) { user in
-                NavigationLink(destination: UserDetail(user: user)) {
+                NavigationLink(destination:
+                    UserDetail(user: user, friends: self.getFriendsFor(user))
+                ) {
                     Text("\(user.name) (\(user.age))")
                         .foregroundColor(user.isActive ? .green : .primary)
                 }
@@ -50,6 +52,20 @@ struct ContentView: View {
             // if we're still here it means there was a problem
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
+    }
+    
+    func getFriendsFor(_ user: User) -> [User] {
+        // create array for the results
+        var friends = [User]()
+        
+        // add all friends to the result array
+        for friend in user.friends {
+            if let user = users.first(where: { $0.id == friend.id }) {
+                friends.append(user)
+            }
+        }
+        
+        return friends
     }
 }
 
