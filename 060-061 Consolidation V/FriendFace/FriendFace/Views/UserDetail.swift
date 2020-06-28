@@ -12,14 +12,41 @@ struct UserDetail: View {
     var user: User
     
     var body: some View {
-        VStack(alignment: .leading) {
+        List {
+            Text("since: \(user.registeredShortDate), currently \(user.isActive ? "online" : "offline")")
+                .font(.subheadline)
+                .foregroundColor(user.isActive ? .green : .primary)
             
-            Text("Age: \(user.age)")
+            Section(header: Text("General")) {
+                detailItem(title: "Age", description: String(user.age))
+                detailItem(title: "Address", description: user.address)
+                detailItem(title: "Company", description: user.company)
+                detailItem(title: "Email", description: user.email)
+                detailItem(title: "Interests", description: user.tags.joined(separator: ", "))
+            }
             
-            Text("Company: \(user.company)")
+            Section(header: Text("About")) {
+                Text(user.about)
+            }
+            
+            Section(header: Text("Friends")) {
+                ForEach(user.friends) { friend in
+                    Text(friend.name)
+                }
+            }
+            
         }
-        .padding()
+        .listStyle(GroupedListStyle())
         .navigationBarTitle(user.name)
+    }
+    
+    private func detailItem(title: String, description: String) -> some View {
+        HStack {
+            Text(title)
+                .font(.headline)
+            Spacer()
+            Text(description)
+        }
     }
 }
 
