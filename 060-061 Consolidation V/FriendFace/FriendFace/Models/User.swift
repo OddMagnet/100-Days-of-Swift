@@ -20,6 +20,12 @@ struct User: Codable, Identifiable {
     let registered: Date
     let tags: [String]
     let friends: [Friend]
+    
+    var registeredShortDate: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter.string(from: self.registered)
+    }
 }
 
 // Example data
