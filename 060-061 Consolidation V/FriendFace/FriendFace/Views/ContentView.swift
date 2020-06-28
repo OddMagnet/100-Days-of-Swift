@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var users = [User]()
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            List(users) { user in
+                Text(user.name)
+            }
+            .navigationBarTitle("FriendFace")
+        }
     }
 }
 
