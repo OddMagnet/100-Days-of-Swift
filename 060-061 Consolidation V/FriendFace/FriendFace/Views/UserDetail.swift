@@ -10,6 +10,7 @@ import SwiftUI
 
 struct UserDetail: View {
     var user: User
+    var friends: [User]
     
     var body: some View {
         List {
@@ -29,9 +30,22 @@ struct UserDetail: View {
                 Text(user.about)
             }
             
-            Section(header: Text("Friends")) {
-                ForEach(user.friends) { friend in
-                    Text(friend.name)
+            // only show friends on the first detail view
+            // the next one won't be passed a full array of friends
+            // this avoids the user hoping into thousands of detail-view
+            // and not being able to go back to the main content view
+            if friends.count > 0 {
+                Section(header: Text("Friends")) {
+                    ForEach(friends) { friend in
+                        NavigationLink(destination: UserDetail(user: friend, friends: [])) {
+                            HStack {
+                                Text("\(friend.name) (\(friend.age))")
+                                Spacer()
+                                Text(friend.company)
+                            }
+                            .foregroundColor(friend.isActive ? .green : .primary)
+                        }
+                    }
                 }
             }
             
@@ -63,14 +77,14 @@ struct UserDetail_Previews: PreviewProvider {
                                   about: "Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. ",
                                   registered: Date(),
                                   tags: ["Test", "estT", "stTe", "tTes", "Test"],
-                                  friends: [
-                                    Friend(id: UUID(), name: "Test FriendA"),
-                                    Friend(id: UUID(), name: "Test FriendE"),
-                                    Friend(id: UUID(), name: "Test FriendI"),
-                                    Friend(id: UUID(), name: "Test FriendO"),
-                                    Friend(id: UUID(), name: "Test FriendU")
+                                  friends: []
+                ),
+                       friends: [
+                        User(id: UUID(), isActive: true, name: "ABC", age: 12, company: "", email: "1", address: "", about: "", registered: Date(), tags: [], friends: []),
+                        User(id: UUID(), isActive: false, name: "DEF", age: 23, company: "", email: "2", address: "", about: "", registered: Date(), tags: [], friends: []),
+                        User(id: UUID(), isActive: true, name: "GHI", age: 34, company: "", email: "3", address: "", about: "", registered: Date(), tags: [], friends: [])
+                        
                 ]
-                )
             )
         }
     }
