@@ -14,8 +14,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(users) { user in
-                Text("\(user.name) (\(user.age))")
-                    .foregroundColor(user.isActive ? .green : .black)
+                NavigationLink(destination: UserDetail(user: user)) {
+                    Text("\(user.name) (\(user.age))")
+                        .foregroundColor(user.isActive ? .green : .primary)
+                }
             }
             .navigationBarTitle("FriendFace")
             .onAppear(perform: loadData)
