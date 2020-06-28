@@ -44,7 +44,11 @@ While `Group` should in theory always be faster - since it doesn't hide informat
     ```
 
 ### Codable Keys
-
+A few things not mentioned before on `Codable`:
+- When the JSON uses a different naming convention, it's possible to just use the `keyDecodingStrategy` property of the decoder.
+- `decoder.keyDecodingStrategy = .converFromSnakeCase` for example, after that the decoder will automatically decode the JSON from snake- to camel-case
+- When the JSON uses different names for its properties, CodingKeys can help by adding raw value strings to their cases
+- `case firstName = "first"` in the __CodingKeys__ enum would match the 'first' property of the JSON data to the 'firstName' property in the Swift code
 
 ## Challenge
 
