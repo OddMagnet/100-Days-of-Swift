@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		4C4AF15C24A8DBEF0038C2CE /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4AF15B24A8DBEF0038C2CE /* UserDetail.swift */; };
 		4C62811924A95A9F0084CF24 /* FriendFace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C62811724A95A9E0084CF24 /* FriendFace.xcdatamodeld */; };
+		4C62811E24A95C730084CF24 /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62811A24A95C730084CF24 /* Friend+CoreDataClass.swift */; };
+		4C62811F24A95C730084CF24 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62811B24A95C730084CF24 /* Friend+CoreDataProperties.swift */; };
+		4C62812024A95C730084CF24 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62811C24A95C730084CF24 /* User+CoreDataClass.swift */; };
+		4C62812124A95C730084CF24 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62811D24A95C730084CF24 /* User+CoreDataProperties.swift */; };
 		4CD41A0F24A8CDC6007239CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD41A0E24A8CDC6007239CF /* AppDelegate.swift */; };
 		4CD41A1124A8CDC6007239CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD41A1024A8CDC6007239CF /* SceneDelegate.swift */; };
 		4CD41A1324A8CDC6007239CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD41A1224A8CDC6007239CF /* ContentView.swift */; };
 		4CD41A1524A8CDC8007239CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD41A1424A8CDC8007239CF /* Assets.xcassets */; };
 		4CD41A1824A8CDC8007239CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD41A1724A8CDC8007239CF /* Preview Assets.xcassets */; };
 		4CD41A1B24A8CDC8007239CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD41A1924A8CDC8007239CF /* LaunchScreen.storyboard */; };
-		4CD41A2524A8CE38007239CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD41A2424A8CE38007239CF /* User.swift */; };
-		4CD41A2724A8CE44007239CF /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD41A2624A8CE44007239CF /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C4AF15B24A8DBEF0038C2CE /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 		4C62811824A95A9E0084CF24 /* FriendFace.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FriendFace.xcdatamodel; sourceTree = "<group>"; };
+		4C62811A24A95C730084CF24 /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4C62811B24A95C730084CF24 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4C62811C24A95C730084CF24 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4C62811D24A95C730084CF24 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4CD41A0B24A8CDC6007239CF /* FriendFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD41A0E24A8CDC6007239CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CD41A1024A8CDC6007239CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,8 +36,6 @@
 		4CD41A1724A8CDC8007239CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4CD41A1A24A8CDC8007239CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CD41A1C24A8CDC8007239CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CD41A2424A8CE38007239CF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		4CD41A2624A8CE44007239CF /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +91,11 @@
 		4CD41A2224A8CE0F007239CF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4CD41A2424A8CE38007239CF /* User.swift */,
-				4CD41A2624A8CE44007239CF /* Friend.swift */,
 				4C62811724A95A9E0084CF24 /* FriendFace.xcdatamodeld */,
+				4C62811A24A95C730084CF24 /* Friend+CoreDataClass.swift */,
+				4C62811B24A95C730084CF24 /* Friend+CoreDataProperties.swift */,
+				4C62811C24A95C730084CF24 /* User+CoreDataClass.swift */,
+				4C62811D24A95C730084CF24 /* User+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,11 +180,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CD41A2524A8CE38007239CF /* User.swift in Sources */,
+				4C62811E24A95C730084CF24 /* Friend+CoreDataClass.swift in Sources */,
+				4C62811F24A95C730084CF24 /* Friend+CoreDataProperties.swift in Sources */,
 				4C4AF15C24A8DBEF0038C2CE /* UserDetail.swift in Sources */,
+				4C62812024A95C730084CF24 /* User+CoreDataClass.swift in Sources */,
 				4CD41A0F24A8CDC6007239CF /* AppDelegate.swift in Sources */,
 				4C62811924A95A9F0084CF24 /* FriendFace.xcdatamodeld in Sources */,
-				4CD41A2724A8CE44007239CF /* Friend.swift in Sources */,
+				4C62812124A95C730084CF24 /* User+CoreDataProperties.swift in Sources */,
 				4CD41A1124A8CDC6007239CF /* SceneDelegate.swift in Sources */,
 				4CD41A1324A8CDC6007239CF /* ContentView.swift in Sources */,
 			);
