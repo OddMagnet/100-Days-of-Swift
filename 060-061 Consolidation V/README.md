@@ -51,4 +51,11 @@ A few things not mentioned before on `Codable`:
 - `case firstName = "first"` in the __CodingKeys__ enum would match the 'first' property of the JSON data to the 'firstName' property in the Swift code
 
 ## Challenge
-
+Create an app that downloads JSON data, converts it to Swift types and displays it to the user
+- fetch the data and parse it into `User` and `Friend` structs
+- display a list of users with a bit of information about them
+- create a detail view that presents more information about a tapped user
+**Bonus**
+- show a users friends on the detail screen
+- show some information about the users friends on the detail screen
+- make the friends tappable to show their detail view
