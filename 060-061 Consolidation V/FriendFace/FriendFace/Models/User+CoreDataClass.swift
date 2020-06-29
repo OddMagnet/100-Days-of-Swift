@@ -40,7 +40,7 @@ public class User: NSManagedObject, Identifiable, Codable {
     required convenience public init(from decoder: Decoder) throws {
         // get the context and the entity in the context
         guard let context = decoder.userInfo[CodingUserInfoKey.context!] as? NSManagedObjectContext else { fatalError("Could not get context") }
-        guard let entity = NSEntityDescription.entity(forEntityName: "FriendFace", in: context) else { fatalError("Could not get entity") }
+        guard let entity = NSEntityDescription.entity(forEntityName: "User", in: context) else { fatalError("Could not get entity") }
         
         // init self
         self.init(entity: entity, insertInto: context)
