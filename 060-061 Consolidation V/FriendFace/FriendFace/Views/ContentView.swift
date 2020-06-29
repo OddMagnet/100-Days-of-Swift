@@ -23,32 +23,7 @@ struct ContentView: View {
         NavigationView {
             List(users) { user in
                 NavigationLink(destination:
-                    VStack {
-                        VStack {
-                            Text("\(user.id)")
-                            Text(user.isActive ? "Active" : "Not Active")
-                            Text(user.name)
-                            Text("\(user.age)")
-                            Text(user.company)
-                        }
-                        VStack {
-                            Text(user.email)
-                            Text(user.address)
-                            Text(user.about)
-                            Text(user.registeredShortDate)
-                            Text(user.tags)
-                            Text("Friends")
-                            ForEach(user.wrappedFriends) { friend in
-                                Text(friend.name)
-                            }
-                        }
-                    }
-                    
-                    /*
-                     //    @NSManaged public var friends: NSSet
-                     */
-                    
-                    //UserDetail(user: user, friends: self.getFriendsFor(user))
+                    UserDetail(user: user, friends: self.getFriendsFor(user))
                 ) {
                     Text("\(user.name) (\(user.age))")
                         .foregroundColor(user.isActive ? .green : .primary)
@@ -92,19 +67,19 @@ struct ContentView: View {
         }
     }
     
-//    func getFriendsFor(_ user: User) -> [User] {
-//        // create array for the results
-//        var friends = [User]()
-//
-//        // add all friends to the result array
-//        for friend in user.friends {
-//            if let user = users.first(where: { $0.id == friend.id }) {
-//                friends.append(user)
-//            }
-//        }
-//
-//        return friends
-//    }
+    func getFriendsFor(_ user: User) -> [User] {
+        // create array for the results
+        var friends = [User]()
+
+        // add all friends to the result array
+        for friend in user.wrappedFriends {
+            if let user = users.first(where: { $0.id == friend.id }) {
+                friends.append(user)
+            }
+        }
+
+        return friends
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

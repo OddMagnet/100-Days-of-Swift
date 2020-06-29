@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-/*
+
 struct UserDetail: View {
     var user: User
     var friends: [User]
@@ -23,7 +23,7 @@ struct UserDetail: View {
                 detailItem(title: "Address", description: user.address)
                 detailItem(title: "Company", description: user.company)
                 detailItem(title: "Email", description: user.email)
-                detailItem(title: "Interests", description: user.tags.joined(separator: ", "))
+                detailItem(title: "Interests", description: user.tags)
             }
             
             Section(header: Text("About")) {
@@ -64,30 +64,10 @@ struct UserDetail: View {
     }
 }
 
-struct UserDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            UserDetail(user: User(id: UUID(),
-                                  isActive: true,
-                                  name: "Test User",
-                                  age: 22,
-                                  company: "None",
-                                  email: "test@test.test",
-                                  address: "Testing Street 123, TestCity",
-                                  about: "Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. Lorem ipsum repeatum. ",
-                                  registered: Date(),
-                                  tags: ["Test", "estT", "stTe", "tTes", "Test"],
-                                  friends: []
-                ),
-                       friends: [
-                        User(id: UUID(), isActive: true, name: "ABC", age: 12, company: "", email: "1", address: "", about: "", registered: Date(), tags: [], friends: []),
-                        User(id: UUID(), isActive: false, name: "DEF", age: 23, company: "", email: "2", address: "", about: "", registered: Date(), tags: [], friends: []),
-                        User(id: UUID(), isActive: true, name: "GHI", age: 34, company: "", email: "3", address: "", about: "", registered: Date(), tags: [], friends: [])
-                        
-                ]
-            )
-        }
-    }
-}
-
-*/
+//struct UserDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            UserDetail()
+//        }
+//    }
+//}
