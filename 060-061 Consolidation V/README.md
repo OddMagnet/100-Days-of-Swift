@@ -70,3 +70,7 @@ Create an app that downloads JSON data, converts it to Swift types and displays 
 - show a users friends on the detail screen
 - show some information about the users friends on the detail screen
 - make the friends tappable to show their detail view
+
+## Day 61 Challenge
+- make the whole app work with Core Date
+- **Bonus** make Core Data conform to Codable rather than loading into struts and then into Core Data
