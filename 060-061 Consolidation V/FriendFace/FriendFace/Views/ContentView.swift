@@ -9,7 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var users = [User]()
+    // Core Data context
+    @Environment(\.managedObjectContext) var moc
+//    @State private var users = [User]()
+    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
     
     var body: some View {
         NavigationView {
@@ -18,7 +21,7 @@ struct ContentView: View {
                     Text(user.name)
                     //UserDetail(user: user, friends: self.getFriendsFor(user))
                 ) {
-                    Text("\(user.name) (\(user.age))")
+                    Text("\(user.name)")// (\(user.age))")
                         .foregroundColor(user.isActive ? .green : .primary)
                 }
             }
@@ -40,34 +43,32 @@ struct ContentView: View {
             if let data = data {
                 // if so, handle it
                 let decoder = JSONDecoder()
+                // add context to the decoder
+                decoder.userInfo[CodingUserInfoKey.context!] = self.moc
                 decoder.dateDecodingStrategy = .iso8601
-                if let decodedResponse = try? decoder.decode([User].self, from: data) {
-                    // on success, update the main queue with new data
-                    DispatchQueue.main.async {
-                        self.users = decodedResponse
-                    }
-                    // everything done
-                    return
-                }
+                
+                // decode it, the result is not needed since a FetchRequest will be used
+                _ = try? decoder.decode([User].self, from: data)
+                return
             }
             // if we're still here it means there was a problem
             print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
     }
     
-    func getFriendsFor(_ user: User) -> [User] {
-        // create array for the results
-        var friends = [User]()
-        
-        // add all friends to the result array
-        for friend in user.friends {
-            if let user = users.first(where: { $0.id == friend.id }) {
-                friends.append(user)
-            }
-        }
-        
-        return friends
-    }
+//    func getFriendsFor(_ user: User) -> [User] {
+//        // create array for the results
+//        var friends = [User]()
+//
+//        // add all friends to the result array
+//        for friend in user.friends {
+//            if let user = users.first(where: { $0.id == friend.id }) {
+//                friends.append(user)
+//            }
+//        }
+//
+//        return friends
+//    }
 }
 
 struct ContentView_Previews: PreviewProvider {
