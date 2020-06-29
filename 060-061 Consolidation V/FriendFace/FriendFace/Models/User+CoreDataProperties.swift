@@ -17,17 +17,17 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var id: UUID?
+    @NSManaged public var id: UUID
     @NSManaged public var isActive: Bool
-    @NSManaged public var name: String?
-    @NSManaged public var age: Int16
-    @NSManaged public var company: String?
-    @NSManaged public var email: String?
-    @NSManaged public var address: String?
-    @NSManaged public var about: String?
-    @NSManaged public var registered: Date?
-    @NSManaged public var tags: String?
-    @NSManaged public var friends: NSSet?
+    @NSManaged public var name: String
+//    @NSManaged public var age: Int16
+//    @NSManaged public var company: String
+//    @NSManaged public var email: String
+//    @NSManaged public var address: String
+//    @NSManaged public var about: String
+//    @NSManaged public var registered: Date
+//    @NSManaged public var tags: String
+//    @NSManaged public var friends: NSSet
 
 }
 
