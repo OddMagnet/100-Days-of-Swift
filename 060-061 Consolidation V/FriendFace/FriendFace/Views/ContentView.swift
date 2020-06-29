@@ -12,16 +12,45 @@ struct ContentView: View {
     // Core Data context
     @Environment(\.managedObjectContext) var moc
 //    @State private var users = [User]()
-    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
+    @FetchRequest(
+        entity: User.entity(),
+        sortDescriptors: [
+            //NSSortDescriptor(key: "name", ascending: true)
+        ]
+    ) var users: FetchedResults<User>
     
     var body: some View {
         NavigationView {
             List(users) { user in
                 NavigationLink(destination:
-                    Text(user.name)
+                    VStack {
+                        VStack {
+                            Text("\(user.id)")
+                            Text(user.isActive ? "Active" : "Not Active")
+                            Text(user.name)
+                            Text("\(user.age)")
+                            Text(user.company)
+                        }
+                        VStack {
+                            Text(user.email)
+                            Text(user.address)
+                            Text(user.about)
+                            Text(user.registeredShortDate)
+                            Text(user.tags)
+                            Text("Friends")
+                            ForEach(user.wrappedFriends) { friend in
+                                Text(friend.name)
+                            }
+                        }
+                    }
+                    
+                    /*
+                     //    @NSManaged public var friends: NSSet
+                     */
+                    
                     //UserDetail(user: user, friends: self.getFriendsFor(user))
                 ) {
-                    Text("\(user.name)")// (\(user.age))")
+                    Text("\(user.name) (\(user.age))")
                         .foregroundColor(user.isActive ? .green : .primary)
                 }
             }
@@ -31,29 +60,36 @@ struct ContentView: View {
     }
     
     func loadData() {
-        // prepare the request for data
-        guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
-            fatalError("Failed to create data url")
-        }
-        let request = URLRequest(url: url)
-        
-        // request the data
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            // check if data is present
-            if let data = data {
-                // if so, handle it
-                let decoder = JSONDecoder()
-                // add context to the decoder
-                decoder.userInfo[CodingUserInfoKey.context!] = self.moc
-                decoder.dateDecodingStrategy = .iso8601
-                
-                // decode it, the result is not needed since a FetchRequest will be used
-                _ = try? decoder.decode([User].self, from: data)
-                return
+        // only load date the first time
+        if users.isEmpty {
+            print("LOADING...!")
+            // prepare the request for data
+            guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
+                fatalError("Failed to create data url")
             }
-            // if we're still here it means there was a problem
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
-        }.resume()
+            let request = URLRequest(url: url)
+            
+            // request the data
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                // check if data is present
+                if let data = data {
+                    // if so, handle it
+                    let decoder = JSONDecoder()
+                    // add context to the decoder
+                    decoder.userInfo[CodingUserInfoKey.context!] = self.moc
+                    decoder.dateDecodingStrategy = .iso8601
+                    
+                    // decode it, the result is not needed since a FetchRequest will be used
+                    _ = try? decoder.decode([User].self, from: data)
+                    // save the context
+                    // COMMENT THIS BACK IN!
+                    //try? self.moc.save()
+                    return
+                }
+                // if we're still here it means there was a problem
+                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
+            }.resume()
+        }
     }
     
 //    func getFriendsFor(_ user: User) -> [User] {
