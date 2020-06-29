@@ -20,15 +20,26 @@ extension User {
     @NSManaged public var id: UUID
     @NSManaged public var isActive: Bool
     @NSManaged public var name: String
-//    @NSManaged public var age: Int16
-//    @NSManaged public var company: String
-//    @NSManaged public var email: String
-//    @NSManaged public var address: String
-//    @NSManaged public var about: String
-//    @NSManaged public var registered: Date
-//    @NSManaged public var tags: String
-//    @NSManaged public var friends: NSSet
+    @NSManaged public var age: Int16
+    @NSManaged public var company: String
+    @NSManaged public var email: String
+    @NSManaged public var address: String
+    @NSManaged public var about: String
+    @NSManaged public var registered: Date
+    @NSManaged public var tags: String
+    @NSManaged public var friends: NSSet
 
+    public var registeredShortDate: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter.string(from: registered)
+    }
+    public var wrappedFriends: [Friend] {
+        let set = friends as? Set<Friend> ?? []
+        return set.sorted {
+            $0.name < $1.name
+        }
+    }
 }
 
 // MARK: Generated accessors for friends

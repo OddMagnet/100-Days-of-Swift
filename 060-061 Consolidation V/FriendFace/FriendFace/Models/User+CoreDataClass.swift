@@ -17,13 +17,14 @@ public class User: NSManagedObject, Identifiable, Codable {
         case id
         case isActive
         case name
-        //    @NSManaged public var age: Int16
-        //    @NSManaged public var company: String
-        //    @NSManaged public var email: String
-        //    @NSManaged public var address: String
-        //    @NSManaged public var about: String
-        //    @NSManaged public var registered: Date
-        //    @NSManaged public var tags: String
+        case age
+        case company
+        case email
+        case address
+        case about
+        case registered
+        case tags
+        case friends
         //    @NSManaged public var friends: NSSet
     }
     
@@ -34,13 +35,23 @@ public class User: NSManagedObject, Identifiable, Codable {
         try container.encode(id, forKey: .id)
         try container.encode(isActive, forKey: .isActive)
         try container.encode(name, forKey: .name)
+        try container.encode(age, forKey: .age)
+        try container.encode(company, forKey: .company)
+        try container.encode(email, forKey: .email)
+        try container.encode(address, forKey: .address)
+        try container.encode(about, forKey: .about)
+        try container.encode(registered, forKey: .registered)
+        try container.encode(tags, forKey: .tags)
+        let friendSet = friends as? Set<Friend> ?? []
+        let friendArray = friendSet.sorted { $0.name < $1.name }
+        try container.encode(friendArray, forKey: .friends)
     }
     
     // MARK: - Decodable conformance
     required convenience public init(from decoder: Decoder) throws {
         // get the context and the entity in the context
-        guard let context = decoder.userInfo[CodingUserInfoKey.context!] as? NSManagedObjectContext else { fatalError("Could not get context") }
-        guard let entity = NSEntityDescription.entity(forEntityName: "User", in: context) else { fatalError("Could not get entity") }
+        guard let context = decoder.userInfo[CodingUserInfoKey.context!] as? NSManagedObjectContext else { fatalError("Could not get context [for entity User]") }
+        guard let entity = NSEntityDescription.entity(forEntityName: "User", in: context) else { fatalError("Could not get entity [for entity User]") }
         
         // init self
         self.init(entity: entity, insertInto: context)
@@ -51,6 +62,15 @@ public class User: NSManagedObject, Identifiable, Codable {
         self.id = try container.decode(UUID.self, forKey: .id)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.name = try container.decode(String.self, forKey: .name)
-        
+        self.age = try container.decode(Int16.self, forKey: .age)
+        self.company = try container.decode(String.self, forKey: .company)
+        self.email = try container.decode(String.self, forKey: .email)
+        self.address = try container.decode(String.self, forKey: .address)
+        self.about = try container.decode(String.self, forKey: .about)
+        self.registered = try container.decode(Date.self, forKey: .registered)
+        let tagArray = try container.decode([String].self, forKey: .tags)       // decode tags
+        self.tags = tagArray.joined(separator: ", ")                            // and join them
+        let friendArray = try container.decode([Friend].self, forKey: .friends) // get friends
+        self.friends = NSSet(array: friendArray)                                // and convert to NSSet
     }
 }
