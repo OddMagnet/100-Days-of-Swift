@@ -14,9 +14,11 @@ struct UserDetail: View {
     
     var body: some View {
         List {
-            Text("since: \(user.registeredShortDate), currently \(user.isActive ? "online" : "offline")")
-                .font(.subheadline)
-                .foregroundColor(user.isActive ? .green : .primary)
+            HStack {
+                OnlineIndicator(isActive: user.isActive)
+                Text("joined on: \(user.registeredShortDate)")
+            }
+            .font(.subheadline)
             
             Section(header: Text("General")) {
                 detailItem(title: "Age", description: String(user.age))
@@ -32,7 +34,7 @@ struct UserDetail: View {
             
             // only show friends on the first detail view
             // the next one won't be passed a full array of friends
-            // this avoids the user hoping into thousands of detail-view
+            // this avoids the user hoping into thousands of detail-views
             // and not being able to go back to the main content view
             if friends.count > 0 {
                 Section(header: Text("Friends")) {
@@ -60,6 +62,9 @@ struct UserDetail: View {
                 .font(.headline)
             Spacer()
             Text(description)
+                .font(.callout)
+                .lineLimit(2)
+                .multilineTextAlignment(.trailing)
         }
     }
 }

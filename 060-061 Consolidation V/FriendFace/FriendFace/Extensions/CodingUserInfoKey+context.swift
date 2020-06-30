@@ -8,6 +8,7 @@
 
 import Foundation
 
+// add property to save the context so it can be set on the decoder and used in the init() of the decoding class
 extension CodingUserInfoKey {
    static let context = CodingUserInfoKey(rawValue: "context")
 }

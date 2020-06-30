@@ -11,11 +11,11 @@ import SwiftUI
 struct ContentView: View {
     // Core Data context
     @Environment(\.managedObjectContext) var moc
-//    @State private var users = [User]()
     @FetchRequest(
         entity: User.entity(),
         sortDescriptors: [
-            //NSSortDescriptor(key: "name", ascending: true)
+            NSSortDescriptor(key: "isActive", ascending: false),    // online users first
+            NSSortDescriptor(key: "name", ascending: true)          // then sort by name
         ]
     ) var users: FetchedResults<User>
     
@@ -25,8 +25,12 @@ struct ContentView: View {
                 NavigationLink(destination:
                     UserDetail(user: user, friends: self.getFriendsFor(user))
                 ) {
-                    Text("\(user.name) (\(user.age))")
-                        .foregroundColor(user.isActive ? .green : .primary)
+                    HStack {
+                        OnlineIndicator(isActive: user.isActive)
+                        Text(user.name)
+                            .font(.headline)
+                        Text("(\(user.age))")
+                    }
                 }
             }
             .navigationBarTitle("FriendFace")
@@ -37,7 +41,7 @@ struct ContentView: View {
     func loadData() {
         // only load date the first time
         if users.isEmpty {
-            print("LOADING...!")
+            print("Loading user data...")
             // prepare the request for data
             guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
                 fatalError("Failed to create data url")
@@ -50,15 +54,15 @@ struct ContentView: View {
                 if let data = data {
                     // if so, handle it
                     let decoder = JSONDecoder()
-                    // add context to the decoder
+                    // add context to the decoder so the data can decode itself into Core Data
                     decoder.userInfo[CodingUserInfoKey.context!] = self.moc
+                    // set date format for the decoder
                     decoder.dateDecodingStrategy = .iso8601
                     
                     // decode it, the result is not needed since a FetchRequest will be used
                     _ = try? decoder.decode([User].self, from: data)
                     // save the context
-                    // COMMENT THIS BACK IN!
-                    //try? self.moc.save()
+                    try? self.moc.save()
                     return
                 }
                 // if we're still here it means there was a problem

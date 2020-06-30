@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 @objc(User)
-public class User: NSManagedObject, Identifiable, Codable {
+public class User: NSManagedObject, Identifiable, Decodable {
 
     enum CodingKeys: CodingKey {
         case id
@@ -25,27 +25,26 @@ public class User: NSManagedObject, Identifiable, Codable {
         case registered
         case tags
         case friends
-        //    @NSManaged public var friends: NSSet
     }
     
     // MARK: - Encodable conformance
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        try container.encode(id, forKey: .id)
-        try container.encode(isActive, forKey: .isActive)
-        try container.encode(name, forKey: .name)
-        try container.encode(age, forKey: .age)
-        try container.encode(company, forKey: .company)
-        try container.encode(email, forKey: .email)
-        try container.encode(address, forKey: .address)
-        try container.encode(about, forKey: .about)
-        try container.encode(registered, forKey: .registered)
-        try container.encode(tags, forKey: .tags)
-        let friendSet = friends as? Set<Friend> ?? []
-        let friendArray = friendSet.sorted { $0.name < $1.name }
-        try container.encode(friendArray, forKey: .friends)
-    }
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//
+//        try container.encode(id, forKey: .id)
+//        try container.encode(isActive, forKey: .isActive)
+//        try container.encode(name, forKey: .name)
+//        try container.encode(age, forKey: .age)
+//        try container.encode(company, forKey: .company)
+//        try container.encode(email, forKey: .email)
+//        try container.encode(address, forKey: .address)
+//        try container.encode(about, forKey: .about)
+//        try container.encode(registered, forKey: .registered)
+//        try container.encode(tags, forKey: .tags)
+//        let friendSet = friends as? Set<Friend> ?? []
+//        let friendArray = friendSet.sorted { $0.name < $1.name }
+//        try container.encode(friendArray, forKey: .friends)
+//    }
     
     // MARK: - Decodable conformance
     required convenience public init(from decoder: Decoder) throws {

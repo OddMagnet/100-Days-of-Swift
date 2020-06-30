@@ -11,25 +11,20 @@ import Foundation
 import CoreData
 
 @objc(Friend)
-public class Friend: NSManagedObject, Identifiable, Codable {
+public class Friend: NSManagedObject, Identifiable, Decodable {
 
     enum CodingKeys: CodingKey {
         case id
         case name
     }
-    /*
-     @NSManaged public var id: UUID
-     @NSManaged public var name: String
-     @NSManaged public var friendOf: User?
-     */
     
     // MARK: - Encodable conformance
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        try container.encode(id, forKey: .id)
-        try container.encode(name, forKey: .name)
-    }
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        
+//        try container.encode(id, forKey: .id)
+//        try container.encode(name, forKey: .name)
+//    }
     
     // MARK: - Decodable conformance
     required convenience public init(from decoder: Decoder) throws {
