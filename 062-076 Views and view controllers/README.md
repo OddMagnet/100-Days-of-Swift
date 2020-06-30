@@ -13,7 +13,7 @@ Learning goals:
 - saving images to the photo library
 - importing images in SwiftUI using **UIImagePickerController**
 - filter images using **Core Image**
-- customizing filters using **ActionSheets*
+- customizing filters using **ActionSheets**
 
 ## [Project 14 - Bucket List](Project%2014)
 SHORT DESCRIPTION
