@@ -50,6 +50,13 @@
 - this requires a lot of converting, but the actual use of filters is quite simply, aside from a few specific filters it's easy to interchange them
 
 ## Wrapping a UIViewController in a SwiftUI View
+- to display an `UIView` in Swift, a struct is needed that conforms to the `UIViewControllerRepresentable` protocol
+- the easiest way to add the needed conformance is to add a typealias and use Xcode to 'fix' the missing functions
+- the typealias tells Xcode exactly what functions would be needed for the controller type that the struct is wrapping
+- `typealias UIViewControllerType = UIImagePickerController` for example would let Xcode add the conformance needed for an UIImagePickerController
+- the `makeUIViewController()` is then used to create the needed UIView and return it, e.g. `return UIImagePickerController()`
+- `updateUIViewController` can be used to update the view controller when some state in SwiftUI changes
+- after properly wrapping the UIView the wrapping View can be used like any other
 
 ## Using coordinators to manage SwiftUI view controllers
 ## Saving images to the photo library

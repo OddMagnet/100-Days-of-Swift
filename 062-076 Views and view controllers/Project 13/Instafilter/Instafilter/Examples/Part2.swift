@@ -12,6 +12,7 @@ import CoreImage.CIFilterBuiltins
 
 struct Part2: View {
     @State private var image: Image?
+    @State private var showingImagePicker = false
     
     var body: some View {
         Section(header: Text("Part 2")) {
@@ -26,7 +27,18 @@ struct Part2: View {
             )
             
             NavigationLink("Wrapping a UIViewController in a SwiftUI view", destination:
-                Text("1")
+                VStack {
+                    image?
+                        .resizable()
+                        .scaledToFit()
+                    
+                    Button("Select Image") {
+                        self.showingImagePicker = true
+                    }
+                }
+                .sheet(isPresented: $showingImagePicker) {
+                    ImagePicker()
+                }
             )
 
         }
