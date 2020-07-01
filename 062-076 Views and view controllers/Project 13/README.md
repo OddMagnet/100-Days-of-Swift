@@ -35,6 +35,20 @@
 - all can be given a title and either a normal closure as an argument or a trailing closure
 
 ## Integrating Core Image with SwiftUI
+- `Image` is just a view used to display images in SwiftUI, but can't actually manipulate them
+- for this puprose `CIImage`, the image type of **Core Image** is used
+- the easiest way to load an Image for manipulation is by loading it into an `UIImage`then convert to `CIImage`
+- to make use of Core Image an import is needed: `import CoreImage`, for easier use `CoreImage.CIFilterBuiltins` should be imported too
+- a context variable is needed to create the image from an applied filter `let context = CIContext()`
+- and a variable for the filter that should be used `let filter = CIFilter.sepiaTone()` for example
+- then the filter is configured by setting its `inputImage` property and the necessary properties for the filter, e.g. `intensity`
+- to convert back and display the Image in SwiftUI:
+    - first the output is read, this returns an optional CIImage `guard let outputImage = filter.outputImage else { ...  }`
+    - next a CGImage is create from the context, this also returns an optional `if let cgImage = context.createCGImage(outputImage, from outputImage.extent)`
+    - then it's converted to an UIImage `let uiImage = UIImage(cgImage: cgImage)`
+    - and finally to the Image view of SwiftUI `let image = Image(uiImage: uiImage)`
+- this requires a lot of converting, but the actual use of filters is quite simply, aside from a few specific filters it's easy to interchange them
+
 ## Wrapping a UIViewController in a SwiftUI View
 
 ## Using coordinators to manage SwiftUI view controllers
