@@ -14,7 +14,7 @@ struct Part3: View {
     @State private var showingImagePicker = false
     
     var body: some View {
-        Section(header: Text("Part 2")) {
+        Section(header: Text("Part 3")) {
             
             NavigationLink("Using coordinators to manage SwiftUI view controllers", destination:
                 VStack {
@@ -31,8 +31,19 @@ struct Part3: View {
                 }
             )
             
-            NavigationLink("How to save images to the user’s photo library", destination:
-                Text("1")
+            NavigationLink("How to save images to the photo library", destination:
+                VStack {
+                    image?
+                        .resizable()
+                        .scaledToFit()
+
+                    Button("Select Image") {
+                        self.showingImagePicker = true
+                    }
+                }
+                .sheet(isPresented: $showingImagePicker, onDismiss: loadAndSaveImage) {
+                    ImagePicker(image: self.$inputImage)
+                }
             )
             
         }
@@ -41,6 +52,25 @@ struct Part3: View {
     func loadImage() {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
+    }
+    
+    func loadAndSaveImage() {
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
+        
+        let imageSaver = ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: inputImage)
+
+    }
+}
+
+class ImageSaver: NSObject {
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
+    }
+    
+    @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        print("Save finished")
     }
 }
 
