@@ -89,10 +89,6 @@
 - the method being called must be marked with the `@objc` attribute, which tells Swift to generate code that's readable by Objective-C
 - the fourth parameter accepts any kind of data - since it's of type `UnsafeRawPointer`- and is passed back to the completion method
 
-## Building a basic UI
-## Importing images into SwiftUI using UIImagePickerController
-## Filtering images using Core Image
-
 ## Customizing via ActionSheet
 ## Saving images using UIImageWriteToSavedPhotosAlbum
 
