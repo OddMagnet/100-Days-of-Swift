@@ -27,7 +27,7 @@ struct Part3: View {
                     }
                 }
                 .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-                    ImagePicker(image: self.$inputImage)
+                    ImagePickerExample(image: self.$inputImage)
                 }
             )
             
@@ -42,7 +42,7 @@ struct Part3: View {
                     }
                 }
                 .sheet(isPresented: $showingImagePicker, onDismiss: loadAndSaveImage) {
-                    ImagePicker(image: self.$inputImage)
+                    ImagePickerExample(image: self.$inputImage)
                 }
             )
             

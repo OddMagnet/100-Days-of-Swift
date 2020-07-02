@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ImagePicker: UIViewControllerRepresentable {
+struct ImagePickerExample: UIViewControllerRepresentable {
     // After adding the protocol the first fix Xcode suggests adds the following:
     // typealias UIViewControllerType = 'Type'
     // adding the type this struct should represent is enough information for Xcode
@@ -31,9 +31,9 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        var parent: ImagePicker
+        var parent: ImagePickerExample
         
-        init(_ parent: ImagePicker) {
+        init(_ parent: ImagePickerExample) {
             self.parent = parent
         }
         
@@ -54,6 +54,6 @@ struct ImagePicker: UIViewControllerRepresentable {
 
 struct ImagePicker_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePicker(image: .constant(UIImage()))
+        ImagePickerExample(image: .constant(UIImage()))
     }
 }
