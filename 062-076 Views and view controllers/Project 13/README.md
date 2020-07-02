@@ -59,6 +59,23 @@
 - after properly wrapping the UIView the wrapping View can be used like any other
 
 ## Using coordinators to manage SwiftUI view controllers
+- to respond to events that occur in a wrapped SwiftUI view, **coordinators** are used
+- for this a `Coordinator` class is added to the wrapping struct, which conforms to `NSObject`, `UIImagePickerControllerDelegate` and `UINavigationControllerDelegate`
+- `NSObject` allows Objective-C to check which functionality the object supports at runtime
+- `UIImagePickerControllerDelegate` adds functionality to detect when the user has selected an image
+- `UINavigationControllerDelegate` enables detection of when the user moves between screens
+- depending on the UIView being wrapped the protocols needed are different of course, in this example a UIImagePickerView is being wrapped
+- additionally a `makeCoordinator() -> Coordinator` class is needed for SwiftUI to automatically get an instance of the coordinator
+- in the `makeUIViewController()` function the coordinator can then be set as the delegate, e.g. `picker.delegate = context.coordinator`
+- when handling data between a parent view and a wrapped UIVIew, a binding inside the wrapping struct enable the data being stored inside the parent view
+- for the UIView to be able to set a value to that binding it needs a connection to the wrapping view
+- inside the coordinator class a property is added: `var parent: WrappingStruct` and assigned on the init `init(_ parent: WrappingStruct) { self.parent = parent }`
+- finally, the methods of the wrapped UIViews delegate protocol need to be implemented to enable some functionality
+- for example: `func imagePickerController(picker:, didFinishPickingMediaWithInfo info:)`
+- inside of that function the selected image can be saved to the parent `if let img = info[.originalImage] as? UIImage { parent.image = img }`
+- to programmatically dismiss the wrapped UIView the __presentationMode__ environment variable can be added to the struct and called when needed `parent.presentationMode.wrappedValue.dismiss()`
+- when presenting the wrapped UIView, e.g. in sheet, the `onDismiss` argument should be added to handle the data being returned
+
 ## Saving images to the photo library
 
 ## Building a basic UI
