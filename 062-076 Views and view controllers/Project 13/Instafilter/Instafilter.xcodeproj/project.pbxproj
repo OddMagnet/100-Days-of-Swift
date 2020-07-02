@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C55A17E24ADC2E300A8ABB9 /* Part3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C55A17D24ADC2E300A8ABB9 /* Part3.swift */; };
+		4C61AB1824AE2BBF000B195F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C61AB1724AE2BBF000B195F /* ImagePicker.swift */; };
 		4C7A6BCB24ACD46900C12867 /* Part2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A6BCA24ACD46900C12867 /* Part2.swift */; };
 		4C7A6BCD24ACF6C500C12867 /* ImagePickerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A6BCC24ACF6C500C12867 /* ImagePickerExample.swift */; };
 		4C7E1AB724AB857D00BC0520 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E1AB624AB857D00BC0520 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		4C55A17D24ADC2E300A8ABB9 /* Part3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3.swift; sourceTree = "<group>"; };
+		4C61AB1724AE2BBF000B195F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4C7A6BCA24ACD46900C12867 /* Part2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part2.swift; sourceTree = "<group>"; };
 		4C7A6BCC24ACF6C500C12867 /* ImagePickerExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerExample.swift; sourceTree = "<group>"; };
 		4C7E1AB324AB857D00BC0520 /* Instafilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instafilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				4C7E1AB624AB857D00BC0520 /* AppDelegate.swift */,
 				4C7E1AB824AB857D00BC0520 /* SceneDelegate.swift */,
 				4C7E1ABA24AB857D00BC0520 /* ContentView.swift */,
+				4C61AB1724AE2BBF000B195F /* ImagePicker.swift */,
 				4C7E1ACA24AB85A200BC0520 /* Examples */,
 				4C7E1ABC24AB857F00BC0520 /* Assets.xcassets */,
 				4C7E1AC124AB857F00BC0520 /* LaunchScreen.storyboard */,
@@ -172,6 +175,7 @@
 				4C55A17E24ADC2E300A8ABB9 /* Part3.swift in Sources */,
 				4C7E1ACC24AB85B300BC0520 /* Examples.swift in Sources */,
 				4C7E1ACE24AB85CE00BC0520 /* Part1.swift in Sources */,
+				4C61AB1824AE2BBF000B195F /* ImagePicker.swift in Sources */,
 				4C7E1AB724AB857D00BC0520 /* AppDelegate.swift in Sources */,
 				4C7A6BCD24ACF6C500C12867 /* ImagePickerExample.swift in Sources */,
 				4C7A6BCB24ACD46900C12867 /* Part2.swift in Sources */,
