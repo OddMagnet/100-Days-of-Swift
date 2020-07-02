@@ -89,8 +89,5 @@
 - the method being called must be marked with the `@objc` attribute, which tells Swift to generate code that's readable by Objective-C
 - the fourth parameter accepts any kind of data - since it's of type `UnsafeRawPointer`- and is passed back to the completion method
 
-## Customizing via ActionSheet
-## Saving images using UIImageWriteToSavedPhotosAlbum
-
 ## Wrap up - Challenges
 - 
