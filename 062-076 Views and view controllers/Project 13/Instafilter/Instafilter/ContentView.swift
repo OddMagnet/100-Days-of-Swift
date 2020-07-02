@@ -7,15 +7,34 @@
 //
 
 import SwiftUI
+import CoreImage
+import CoreImage.CIFilterBuiltins
 
 struct ContentView: View {
+    // MARK: - State
     @State private var image: Image?
     @State private var inputImage: UIImage?
+    @State private var currentFiler = CIFilter.sepiaTone()
     @State private var filterIntensity = 0.5
     @State private var showingImagePicker = false
     
+    // MARK: - Constants
+    let context = CIContext()
+    
+    // MARK: - UI
     var body: some View {
-        NavigationView {
+        
+        let intensity = Binding<Double>(
+            get: {
+                self.filterIntensity
+            },
+            set: {
+                self.filterIntensity = $0
+                self.applyProcessing()
+            }
+        )
+        
+        return NavigationView {
             VStack {
                 ZStack {
                     Rectangle()
@@ -38,7 +57,7 @@ struct ContentView: View {
                 
                 HStack {
                     Text("Intensity")
-                    Slider(value: self.$filterIntensity)
+                    Slider(value: intensity)
                 }
                 .padding(.vertical)
                 
@@ -60,12 +79,28 @@ struct ContentView: View {
         }
     }
     
+    // MARK: - Functions
     func loadImage() {
         guard let inputImage = inputImage else { return }
-        image = Image(uiImage: inputImage)
+        
+        let beginImage = CIImage(image: inputImage)
+        currentFiler.setValue(beginImage, forKey: kCIInputImageKey)
+        applyProcessing()
+    }
+    
+    func applyProcessing() {
+        currentFiler.intensity = Float(filterIntensity)
+        
+        guard let outputImage = currentFiler.outputImage else { return }
+        
+        if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
+            let uiImage = UIImage(cgImage: cgImage)
+            image = Image(uiImage: uiImage)
+        }
     }
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
