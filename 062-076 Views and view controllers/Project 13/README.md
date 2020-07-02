@@ -77,6 +77,17 @@
 - when presenting the wrapped UIView, e.g. in sheet, the `onDismiss` argument should be added to handle the data being returned
 
 ## Saving images to the photo library
+- to actually save an image to the user's photo library, permission is needed, while this is handled by iOS, a string in the `info.plist` file is needed
+- this string will be the message that iOS displays to the user when asking for permission, simply adding a row with a key of `Privacy - Photo Library Additions Usage Description` and a message is enough
+- the simplest way to save an image would be to just call `UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)`, but it's good practice to not just ignore the other 3 parameters
+- the 2nd and 3rd parameter tell Swift what method should be called once the saving is complete, which is useful to know if the saving actually succeeded
+- why two parameters? the first of those two points to an object and the second of those two to the name of the method that should be called
+- this is because the code for that UIKit function is very old, pre-Objective-C's equivalent of closures
+- the object provided must be a class that inherits from `NSObject`
+- the method is provided not by the actual method, but it's name, which Objective-C will look up at runtime
+- inside the `UIImageWriteToSavedPhotosAlbum` call the method name is wrapped by a selector `#selector(methodName)` which tells Swift to make sure the name exists
+- the method being called must be marked with the `@objc` attribute, which tells Swift to generate code that's readable by Objective-C
+- the fourth parameter accepts any kind of data - since it's of type `UnsafeRawPointer`- and is passed back to the completion method
 
 ## Building a basic UI
 ## Importing images into SwiftUI using UIImagePickerController
