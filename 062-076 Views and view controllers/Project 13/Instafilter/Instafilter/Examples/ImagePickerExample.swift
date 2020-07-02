@@ -52,7 +52,7 @@ struct ImagePickerExample: UIViewControllerRepresentable {
     
 }
 
-struct ImagePicker_Previews: PreviewProvider {
+struct ImagePickerExample_Previews: PreviewProvider {
     static var previews: some View {
         ImagePickerExample(image: .constant(UIImage()))
     }
