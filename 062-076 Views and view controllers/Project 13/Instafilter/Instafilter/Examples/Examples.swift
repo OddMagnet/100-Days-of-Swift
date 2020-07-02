@@ -17,6 +17,8 @@ struct Examples: View {
                 
                 Part2()
                 
+                Part3()
+                
             }
             .navigationBarTitle("Instafilter Examples")
         }

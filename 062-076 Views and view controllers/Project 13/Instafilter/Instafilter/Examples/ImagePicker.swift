@@ -15,17 +15,45 @@ struct ImagePicker: UIViewControllerRepresentable {
     // so that the next fix can add the needed functions to conform to the protocol
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
+        // Part 2 Code
         let picker = UIImagePickerController()
+        picker.delegate = context.coordinator // Part 3
         return picker
     }
     
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
         // not needed for this example
     }
+    
+    
+    // Part 3 Code
+    @Binding var image: UIImage?
+    @Environment(\.presentationMode) var presentationMode
+    
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        var parent: ImagePicker
+        
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let uiImage = info[.originalImage] as? UIImage {
+                parent.image = uiImage
+            }
+            
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
 }
 
 struct ImagePicker_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePicker()
+        ImagePicker(image: .constant(UIImage()))
     }
 }

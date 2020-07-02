@@ -37,7 +37,7 @@ struct Part2: View {
                     }
                 }
                 .sheet(isPresented: $showingImagePicker) {
-                    ImagePicker()
+                    ImagePicker(image: .constant(UIImage()))
                 }
             )
 
