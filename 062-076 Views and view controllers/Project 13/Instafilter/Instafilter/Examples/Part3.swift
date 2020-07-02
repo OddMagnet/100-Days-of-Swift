@@ -58,13 +58,13 @@ struct Part3: View {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
         
-        let imageSaver = ImageSaver()
+        let imageSaver = ImageSaverExample()
         imageSaver.writeToPhotoAlbum(image: inputImage)
 
     }
 }
 
-class ImageSaver: NSObject {
+class ImageSaverExample: NSObject {
     func writeToPhotoAlbum(image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
     }
