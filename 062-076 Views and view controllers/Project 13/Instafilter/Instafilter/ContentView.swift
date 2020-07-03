@@ -71,7 +71,7 @@ struct ContentView: View {
             VStack {
                 ZStack {
                     Rectangle()
-                        .fill(Color.secondary)
+                        .fill(image == nil ? Color.secondary : Color(hue: 0, saturation: 0, brightness: 0, opacity: 0))
                     
                     // display the image if not nil, else text
                     if image != nil {   // if let not possible, only simple conditions
