@@ -1,7 +1,8 @@
 # Instafilter
  An app that lets users import photos from their library and modify them using multiple image effects.
 
-![App screenshot](Instafilter.png)
+![App screenshot](Instafilter1.png) ![App screenshot](Instafilter2.png) ![App screenshot](Instafilter3.png)
+
 
 
 ## How property wrappers become structs
