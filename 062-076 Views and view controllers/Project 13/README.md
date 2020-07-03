@@ -90,4 +90,6 @@
 - the fourth parameter accepts any kind of data - since it's of type `UnsafeRawPointer`- and is passed back to the completion method
 
 ## Wrap up - Challenges
-- 
+- show an error when the user taps 'Save' without an image in the image view
+- show the currently selected filter as the title of the change filter button
+- add more sliders for all input keys
