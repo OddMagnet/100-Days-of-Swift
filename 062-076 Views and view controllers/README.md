@@ -16,10 +16,21 @@ Learning goals:
 - customizing filters using **ActionSheets**
 
 ## [Project 14 - Bucket List](Project%2014)
-SHORT DESCRIPTION
+An app that lets the user track places to visit
 
 Learning goals:
-- 
+- adding conformance to **Comparable** for custom types
+- writing data to the **documents** directory
+- switching view states with enums
+- integrating **MapKit** with SwiftUI
+- communicating with a MapKit coordinator
+- using Touch/Face ID with SwiftUI
+- advanced MKMapView with SwiftUI
+- customizing MKMapView annotations
+- extending __existing types__ to support **Observable Object**
+- downloading data from Wikipedia & sorting the results
+- adding conformance to Codable for a third party class
+- locking UI behind Touch/Face ID
 
 ## [Project 15 - Accessibility](Project%2015)
 SHORT DESCRIPTION
