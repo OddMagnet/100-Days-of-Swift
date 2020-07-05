@@ -15,6 +15,8 @@ struct Examples: View {
                 
                 Part1()
                 
+                Part2()
+                
             }
             .navigationBarTitle("Bucket List Examples")
         }

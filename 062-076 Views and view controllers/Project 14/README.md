@@ -44,10 +44,20 @@ An app that lets the user track places to visit
     }
     ```
 
+## Integrating MapKit with SwiftUI
+- wrapping a **MKMapView** works similarly to a __UIImagePickerController__, but uses the `UIViewRepresentable` protocol instead
+- it still requires a __make__ and an __update__ function, `makeUIView(context:)` and `updateUIView(view:, context:)` respectively
+- the `context` for both of them is `UIViewRepresentableContext<MapView>`
+- `UIViewRepresentable` uses a typealias for context that makes use of a generic type, passed via the arguments `typealias Context = UIViewRepresentableContext<Self>`
+- this allows for just writing `Context` instead of `UIViewRepresentableContext<MapView>` every time
+
+## Communicating with a MapKit coordinator
+-
+
+## Using Touch/Face ID with SwiftUI
+-
+
 ## Later parts
- - integrating **MapKit** with SwiftUI
- - communicating with a MapKit coordinator
- - using Touch/Face ID with SwiftUI
  - advanced MKMapView with SwiftUI
  - customizing MKMapView annotations
  - extending __existing types__ to support **Observable Object**
