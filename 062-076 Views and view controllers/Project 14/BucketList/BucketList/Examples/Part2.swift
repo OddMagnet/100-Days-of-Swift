@@ -7,8 +7,11 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 struct Part2: View {
+    @State private var isUnlocked = false
+    
     var body: some View {
         
         Section(header: Text("Part 2")) {
@@ -24,9 +27,43 @@ struct Part2: View {
             )
             
             NavigationLink("Using Touch ID and Face ID with SwiftUI", destination:
-                Text("1")
+                VStack {
+                    if self.isUnlocked {
+                        Text("Unlocked")
+                    } else {
+                        Text("Locked")
+                    }
+                }
+                .onAppear(perform: authenticate)
             )
             
+        }
+    }
+    
+    func authenticate() {
+        // Create instance of LAContext to query biometric status and perform the authentication
+        let context = LAContext()
+        var error: NSError?
+        
+        // check if device has Touch or Face ID, pass a pointer to error variable
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            // do the request for authentication, with completion closure
+            context.evaluatePolicy(
+                .deviceOwnerAuthenticationWithBiometrics,
+                localizedReason: "We need to unlock your data"  // message for Touch ID gets passed, Face ID in plist
+            ) { success, authenticationError in
+                // dispatch the completion status
+                DispatchQueue.main.async {
+                    if success {
+                        self.isUnlocked = true
+                    } else {
+                        // a problem happened
+                    }
+                }
+            }
+            context.eva
+        } else {
+            // no biometrics
         }
     }
 }

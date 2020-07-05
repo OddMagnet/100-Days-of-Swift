@@ -54,7 +54,7 @@ An app that lets the user track places to visit
 ## Communicating with a MapKit coordinator
 - like before a `Coordinator`class is needed, this time conforming to `NSObject` and `MKMapViewDelegate`
 - again initializing its parent property of type `MapView`, the wrapping struct
-- the wrapping struct needs to have a `makeCoordinator()` function again
+- the wrapping struct needs to have a `makeCoordinator()` function
 - and assign the coordinator as a delegate in the `makeUIView()` method: `mapView.delegate = context.coordinator`
 - **MapKit** will automatically examine the coordinator class and notify it based on the functions the class implements, e.g. `mapViewDidChangeVisibleRegion(mapView:)`
 - **Annotations** are create by using `MKPointAnnotation()`, after that the annotations properties should be set `title`, `subtitle` and `coordinate`
@@ -63,7 +63,14 @@ An app that lets the user track places to visit
 - insite it a view of type `MKPintAnnotationView` needs to be created, configured and returned
 
 ## Using Touch/Face ID with SwiftUI
--
+- when using biometric authentication a key has to be added to the info.plist file 'Privacy - Face ID Usage Description'
+- this is given a reason, as a string, on why the app needs Face ID, the reason for Touch ID is given in code
+- an import to `LocalAuthentication` is needed to make use of Face/Touch ID
+- after creating an instance of `LAContext` the `canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)` can check if the device has Face/Touch ID
+- the first argument is the authentication policy that is checked for, the second is a pointer to a `NSError` variable, which will be filled if there is an error
+- if the device has Face/Touch ID, `evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Touch ID reason")` starts the authentication
+- it expects a completion closure which is given a `Bool`, which indicates the success, and a `Error?`, which has a value when there was an error
+- inside the closure the success/failure is handled, e.g. with @State variables
 
 ## Later parts
  - advanced MKMapView with SwiftUI
