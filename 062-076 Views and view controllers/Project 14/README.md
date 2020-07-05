@@ -52,7 +52,15 @@ An app that lets the user track places to visit
 - this allows for just writing `Context` instead of `UIViewRepresentableContext<MapView>` every time
 
 ## Communicating with a MapKit coordinator
--
+- like before a `Coordinator`class is needed, this time conforming to `NSObject` and `MKMapViewDelegate`
+- again initializing its parent property of type `MapView`, the wrapping struct
+- the wrapping struct needs to have a `makeCoordinator()` function again
+- and assign the coordinator as a delegate in the `makeUIView()` method: `mapView.delegate = context.coordinator`
+- **MapKit** will automatically examine the coordinator class and notify it based on the functions the class implements, e.g. `mapViewDidChangeVisibleRegion(mapView:)`
+- **Annotations** are create by using `MKPointAnnotation()`, after that the annotations properties should be set `title`, `subtitle` and `coordinate`
+- to assign an Annotation to a MapView `addAnnotation()` is called on the MapView and the annotation is passed
+- to customize the way annotations look the `mapView(_:viewFor:)` method can be added to the coordinator class
+- insite it a view of type `MKPintAnnotationView` needs to be created, configured and returned
 
 ## Using Touch/Face ID with SwiftUI
 -

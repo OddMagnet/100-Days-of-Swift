@@ -19,7 +19,8 @@ struct Part2: View {
             )
             
             NavigationLink("Communicating with a MapKit coordinator", destination:
-                Text("1")
+                MapView()
+                    .edgesIgnoringSafeArea(.all)
             )
             
             NavigationLink("Using Touch ID and Face ID with SwiftUI", destination:
