@@ -61,7 +61,6 @@ struct Part2: View {
                     }
                 }
             }
-            context.eva
         } else {
             // no biometrics
         }
