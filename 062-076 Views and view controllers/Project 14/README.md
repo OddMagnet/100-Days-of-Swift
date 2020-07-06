@@ -80,7 +80,16 @@ An app that lets the user track places to visit
 - it's best to check if the amount of annotations has checked beforehand `if annotations.count != view.annotations.count { ... }`
 
 ## Customizing MKMapView annotations
-- 
+- to customize annotations the `mapView(_:viewFor:)` method is used inside the coordinator class
+- for the best performance annotation views should be reused, which is possible by calling `dequeueReusableAnnotationView(withIdentifier:)` inside the above function
+- the identifier passed is a string that can be freely assigned to annotations when creating them
+- if there is no reusable annotation available, a new one needs to be created (and should get an identifier for reuse)
+- to allow the annotation to show pop-up information the `canShowCallout` property of it is set to true
+- adding a button to it can be accomplished by setting the `rightCalloutAccessoryView` with e.g. `UIButton(type: .detailDisclosure)`
+- callouts will only show for annotations that have their title property set
+- to set the detail informations bindings for the selected annotation and a boolean for whether or not the detail is showing can be used
+- inside the parent view the state variables for those are passed to the MapView and an alert is shown when boolean binding is true, with the info from the selected annotation
+- updating those bindings should be done in the `mapView(_:annotationView:calloutAccessoryControlTapped)` function inside the coordinator class
 
 ## Later parts
  - extending __existing types__ to support **Observable Object**
