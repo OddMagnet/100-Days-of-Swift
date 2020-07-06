@@ -72,9 +72,17 @@ An app that lets the user track places to visit
 - it expects a completion closure which is given a `Bool`, which indicates the success, and a `Error?`, which has a value when there was an error
 - inside the closure the success/failure is handled, e.g. with @State variables
 
+## Advanced MKMapView with SwiftUI
+- to communicate with a MKMapView bindings in it's wrapper are used
+- every time the map is moved `mapViewDidChangeVisibleRegion()` is called, in there the binding can be updated
+- to display annotations on the map a simple array of `[MKPointAnnotation]` in the wrapper is sufficient
+- in `updateUIView(view:,context:)` the annotations can be updated by calling `removeAnnotations()` and `addAnnotations()` on the view
+- it's best to check if the amount of annotations has checked beforehand `if annotations.count != view.annotations.count { ... }`
+
+## Customizing MKMapView annotations
+- 
+
 ## Later parts
- - advanced MKMapView with SwiftUI
- - customizing MKMapView annotations
  - extending __existing types__ to support **Observable Object**
  - downloading data from Wikipedia & sorting the results
  - adding conformance to Codable for a third party class
