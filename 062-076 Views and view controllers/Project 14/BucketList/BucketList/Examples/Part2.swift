@@ -8,6 +8,7 @@
 
 import SwiftUI
 import LocalAuthentication
+import MapKit
 
 struct Part2: View {
     @State private var isUnlocked = false
@@ -17,12 +18,14 @@ struct Part2: View {
         Section(header: Text("Part 2")) {
             
             NavigationLink("Integrating MapKit with SwiftUI", destination:
-                MapView()
+                MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate),
+                        annotations: [MKPointAnnotation.example])
                     .edgesIgnoringSafeArea(.all)
             )
             
             NavigationLink("Communicating with a MapKit coordinator", destination:
-                MapView()
+                MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate),
+                        annotations: [MKPointAnnotation.example])
                     .edgesIgnoringSafeArea(.all)
             )
             
