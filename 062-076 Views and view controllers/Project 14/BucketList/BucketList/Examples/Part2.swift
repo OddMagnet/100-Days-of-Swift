@@ -19,12 +19,16 @@ struct Part2: View {
             
             NavigationLink("Integrating MapKit with SwiftUI", destination:
                 MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate),
+                        selectedPlace: .constant(MKPointAnnotation.example),
+                        showingPlaceDetails: .constant(false),
                         annotations: [MKPointAnnotation.example])
                     .edgesIgnoringSafeArea(.all)
             )
             
             NavigationLink("Communicating with a MapKit coordinator", destination:
                 MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate),
+                        selectedPlace: .constant(MKPointAnnotation.example),
+                        showingPlaceDetails: .constant(false),
                         annotations: [MKPointAnnotation.example])
                     .edgesIgnoringSafeArea(.all)
             )
