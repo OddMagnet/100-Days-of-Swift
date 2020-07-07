@@ -96,13 +96,11 @@ An app that lets the user track places to visit
 - the solution to make them observable is adding an Extension to `MKPointAnnotation` and make it conform to `ObservableObject`
 - all that is needed is a computed property for each with a getter and setter, where the getter uses nil-coalescing
 
-## Downloading data from Wikipedia & sorting the results
-- 
-
-## Adding conformance to Codable for a third party class
+## Sorting downloaded data
 - 
 
 ## Later parts
+ - Adding conformance to Codable for a third party class
  - locking UI behind Touch/Face ID
 
 ## Wrap up - Challenges
