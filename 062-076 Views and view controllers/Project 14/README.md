@@ -91,10 +91,18 @@ An app that lets the user track places to visit
 - inside the parent view the state variables for those are passed to the MapView and an alert is shown when boolean binding is true, with the info from the selected annotation
 - updating those bindings should be done in the `mapView(_:annotationView:calloutAccessoryControlTapped)` function inside the coordinator class
 
+## Extending existing types to support Observable Object
+- since MKPointAnnotations `title` and `subtitle` properties are both optional, they can not be observed
+- the solution to make them observable is adding an Extension to `MKPointAnnotation` and make it conform to `ObservableObject`
+- all that is needed is a computed property for each with a getter and setter, where the getter uses nil-coalescing
+
+## Downloading data from Wikipedia & sorting the results
+- 
+
+## Adding conformance to Codable for a third party class
+- 
+
 ## Later parts
- - extending __existing types__ to support **Observable Object**
- - downloading data from Wikipedia & sorting the results
- - adding conformance to Codable for a third party class
  - locking UI behind Touch/Face ID
 
 ## Wrap up - Challenges
