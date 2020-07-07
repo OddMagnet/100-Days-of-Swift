@@ -97,7 +97,10 @@ An app that lets the user track places to visit
 - all that is needed is a computed property for each with a getter and setter, where the getter uses nil-coalescing
 
 ## Sorting downloaded data
-- 
+- to sort downloaded data, the model simply has to conform to the `Comparable` protocol
+- that means implementing a `static func < (lhs: Type, rhs: Type) -> Bool { ... }` function
+- this function compared whatever is deemed relevant to sorting and returns a boolean based on whether the `lhs` value is smaller than the `rhs` value
+- after adding conformance the `sorted()` method can be called on an array of the models type
 
 ## Later parts
  - Adding conformance to Codable for a third party class
