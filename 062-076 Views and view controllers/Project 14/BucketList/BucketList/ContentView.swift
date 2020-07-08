@@ -42,14 +42,23 @@ struct ContentView: View {
                             self.selectedPlace = newLocation
                             self.showingEditScreen = true
                         }) {
+                            // Wrap up - Challenge 1 - Increase the tapable area of the button
+                            // everything in here will be the tapable area, so moving the modifiers in
+                            // will increase the tapable are of the '+'
                             Image(systemName: "plus")
+                                .padding()
+                                .background(Color.black.opacity(0.75))
+                                .foregroundColor(.white)
+                                .font(.title)
+                                .clipShape(Circle())
+                                .padding(.trailing)
                         }
-                        .padding()
-                        .background(Color.black.opacity(0.75))
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .clipShape(Circle())
-                        .padding(.trailing)
+//                        .padding()
+//                        .background(Color.black.opacity(0.75))
+//                        .foregroundColor(.white)
+//                        .font(.title)
+//                        .clipShape(Circle())
+//                        .padding(.trailing)
                     }
                 }
             } else {
