@@ -108,4 +108,6 @@ An app that lets the user track places to visit
 - since a subclass can mostly be used whereever it's parent was used too, the only places where the type needs to be explicitely changed is for loading & saving
 
 ## Wrap up - Challenges
-- 
+- increase the tap-able area of the '+' button
+- refactor main UI, extract the views inside the 'if' into their own view 
+- show alerts when the authentication fails
