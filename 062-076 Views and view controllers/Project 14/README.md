@@ -1,7 +1,7 @@
 # Bucket List 
 An app that lets the user track places to visit
 
-![App screenshot](PROJECT_NAME.png)
+![App screenshot](BucketList1.png) ![App screenshot](BucketList2.png) ![App screenshot](BucketList3.png)
 
 
 ## Adding conformance to Comparable for custom types
