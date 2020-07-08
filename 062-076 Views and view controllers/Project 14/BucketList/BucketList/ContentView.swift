@@ -17,6 +17,9 @@ struct ContentView: View {
     @State private var showingEditScreen = false
     @State private var locations = [CodableMKPointAnnotation]()
     @State private var isUnlocked = false
+    @State private var errorTitle = ""
+    @State private var errorMsg = ""
+    @State private var showingErrorMessage = false
     
     var body: some View {
         ZStack {
@@ -27,6 +30,16 @@ struct ContentView: View {
                            showingPlaceDetails: $showingPlaceDetails,
                            showingEditScreen: $showingEditScreen,
                            locations: $locations)
+                // Wrap up - Challenge 3 - Show errors when authentication fails
+                // refactor place details alert since a view can only have one alert modifier
+                .alert(isPresented: $showingPlaceDetails) {
+                    Alert(title: Text(selectedPlace?.title ?? "Unknown"),
+                          message: Text(selectedPlace?.subtitle ?? "Missing place information"),
+                          primaryButton: .default(Text("Ok")),
+                          secondaryButton: .default(Text("Edit")) {
+                            self.showingEditScreen = true
+                    })
+                }
             } else {
                 Button("Unlock Places") {
                     self.authenticate()
@@ -35,17 +48,13 @@ struct ContentView: View {
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .clipShape(Capsule())
+                // Wrap up - Challenge 3 - Show errors when authentication fails
+                .alert(isPresented: $showingErrorMessage) {
+                    Alert(title: Text(errorTitle), message: Text(errorMsg), dismissButton: .default(Text("Ok")))
+                }
             }
         }
         .onAppear(perform: loadData)
-        .alert(isPresented: $showingPlaceDetails) {
-            Alert(title: Text(selectedPlace?.title ?? "Unknown"),
-                  message: Text(selectedPlace?.subtitle ?? "Missing place information"),
-                  primaryButton: .default(Text("Ok")),
-                  secondaryButton: .default(Text("Edit")) {
-                    self.showingEditScreen = true
-            })
-        }
         .sheet(isPresented: $showingEditScreen, onDismiss: saveData){
             if self.selectedPlace != nil {
                 EditView(placemark: self.selectedPlace!)
@@ -72,12 +81,18 @@ struct ContentView: View {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        // Wrap up - Challenge 3 - Show errors when authentication fails
+                        self.errorTitle = "Authentication Error"
+                        self.errorMsg = "Authentication failed. Please try again"
+                        self.showingErrorMessage = true
                     }
                 }
             }
         } else {
-            // no biometrics
+            // Wrap up - Challenge 3 - Show errors when authentication fails
+            errorTitle = "Device Error"
+            errorMsg = "This device does not support biometric authentication"
+            showingErrorMessage = true
         }
     }
     
