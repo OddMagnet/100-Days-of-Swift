@@ -107,8 +107,5 @@ An app that lets the user track places to visit
 - one way to add conformance would be by subclassing and implementing the required `init(from:)` and `encode(to:)` functions
 - since a subclass can mostly be used whereever it's parent was used too, the only places where the type needs to be explicitely changed is for loading & saving
 
-## locking UI behind Touch/Face ID
-- 
-
 ## Wrap up - Challenges
 - 
