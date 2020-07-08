@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var selectedPlace: MKPointAnnotation?
     @State private var showingPlaceDetails = false
     @State private var showingEditScreen = false
-    @State private var locations = [MKPointAnnotation]()
+    @State private var locations = [CodableMKPointAnnotation]()
     
     var body: some View {
         ZStack {
@@ -33,7 +33,7 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        let newLocation = MKPointAnnotation()
+                        let newLocation = CodableMKPointAnnotation()
                         newLocation.coordinate = self.centerCoordinate
                         self.locations.append(newLocation)
                         self.selectedPlace = newLocation
@@ -50,6 +50,7 @@ struct ContentView: View {
                 }
             }
         }
+        .onAppear(perform: loadData)
         .alert(isPresented: $showingPlaceDetails) {
             Alert(title: Text(selectedPlace?.title ?? "Unknown"),
                   message: Text(selectedPlace?.subtitle ?? "Missing place information"),
@@ -58,10 +59,36 @@ struct ContentView: View {
                     self.showingEditScreen = true
             })
         }
-        .sheet(isPresented: $showingEditScreen){
+        .sheet(isPresented: $showingEditScreen, onDismiss: saveData){
             if self.selectedPlace != nil {
                 EditView(placemark: self.selectedPlace!)
             }
+        }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func loadData() {
+        let fileUrl = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
+        
+        do {
+            let data = try Data(contentsOf: fileUrl)
+            locations = try JSONDecoder().decode([CodableMKPointAnnotation].self, from: data)
+        } catch {
+            print("Unable to load saved data")
+        }
+    }
+    
+    func saveData() {
+        do {
+            let fileUrl = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
+            let data = try JSONEncoder().encode(self.locations)
+            try data.write(to: fileUrl, options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            print("Unable to save data")
         }
     }
 }
