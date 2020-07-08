@@ -102,9 +102,13 @@ An app that lets the user track places to visit
 - this function compared whatever is deemed relevant to sorting and returns a boolean based on whether the `lhs` value is smaller than the `rhs` value
 - after adding conformance the `sorted()` method can be called on an array of the models type
 
-## Later parts
- - Adding conformance to Codable for a third party class
- - locking UI behind Touch/Face ID
+## Adding conformance to Codable for a third party class
+- adding conformance for Codable to an existing class is not always possible via an Extension
+- one way to add conformance would be by subclassing and implementing the required `init(from:)` and `encode(to:)` functions
+- since a subclass can mostly be used whereever it's parent was used too, the only places where the type needs to be explicitely changed is for loading & saving
+
+## locking UI behind Touch/Face ID
+- 
 
 ## Wrap up - Challenges
 - 
