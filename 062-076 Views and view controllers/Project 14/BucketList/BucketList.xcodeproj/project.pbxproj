@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C16950924B60DCD00BD0E6C /* BucketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16950824B60DCD00BD0E6C /* BucketList.swift */; };
 		4C40F96424B4C4AB00840C6B /* MKPointAnnotation-ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40F96324B4C4AB00840C6B /* MKPointAnnotation-ObservableObject.swift */; };
 		4C40F96624B4C57A00840C6B /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40F96524B4C57A00840C6B /* EditView.swift */; };
 		4C40F96824B4CA5100840C6B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40F96724B4CA5100840C6B /* Result.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C16950824B60DCD00BD0E6C /* BucketList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketList.swift; sourceTree = "<group>"; };
 		4C40F96324B4C4AB00840C6B /* MKPointAnnotation-ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-ObservableObject.swift"; sourceTree = "<group>"; };
 		4C40F96524B4C57A00840C6B /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		4C40F96724B4CA5100840C6B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				4CDA334024B0BBBC005206D5 /* AppDelegate.swift */,
 				4CDA334224B0BBBC005206D5 /* SceneDelegate.swift */,
 				4CDA334424B0BBBC005206D5 /* ContentView.swift */,
+				4C16950824B60DCD00BD0E6C /* BucketList.swift */,
 				4C8690B124B206F100AE254C /* MapView.swift */,
 				4C40F96524B4C57A00840C6B /* EditView.swift */,
 				4C40F96724B4CA5100840C6B /* Result.swift */,
@@ -183,6 +186,7 @@
 				4C781AC224B5C63B0090C609 /* MKPointAnnotation-Codable.swift in Sources */,
 				4CDA335624B0BBE1005206D5 /* Examples.swift in Sources */,
 				4CDA335824B0BC30005206D5 /* Part1.swift in Sources */,
+				4C16950924B60DCD00BD0E6C /* BucketList.swift in Sources */,
 				4CDA334124B0BBBC005206D5 /* AppDelegate.swift in Sources */,
 				4C40F96624B4C57A00840C6B /* EditView.swift in Sources */,
 				4C40F96824B4CA5100840C6B /* Result.swift in Sources */,

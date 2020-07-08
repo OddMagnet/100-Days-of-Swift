@@ -21,46 +21,12 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             if isUnlocked {
-                MapView(centerCoordinate: $centerCoordinate,
-                        selectedPlace: $selectedPlace,
-                        showingPlaceDetails: $showingPlaceDetails,
-                        annotations: locations)
-                    .edgesIgnoringSafeArea(.all)
-                Circle()
-                    .fill(Color.blue)
-                    .opacity(0.3)
-                    .frame(width: 32, height: 32)
-                
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            let newLocation = CodableMKPointAnnotation()
-                            newLocation.coordinate = self.centerCoordinate
-                            self.locations.append(newLocation)
-                            self.selectedPlace = newLocation
-                            self.showingEditScreen = true
-                        }) {
-                            // Wrap up - Challenge 1 - Increase the tapable area of the button
-                            // everything in here will be the tapable area, so moving the modifiers in
-                            // will increase the tapable are of the '+'
-                            Image(systemName: "plus")
-                                .padding()
-                                .background(Color.black.opacity(0.75))
-                                .foregroundColor(.white)
-                                .font(.title)
-                                .clipShape(Circle())
-                                .padding(.trailing)
-                        }
-//                        .padding()
-//                        .background(Color.black.opacity(0.75))
-//                        .foregroundColor(.white)
-//                        .font(.title)
-//                        .clipShape(Circle())
-//                        .padding(.trailing)
-                    }
-                }
+                // Wrap up - Challenge 2 - Refactor main UI into it's own view
+                BucketList(centerCoordinate: $centerCoordinate,
+                           selectedPlace: $selectedPlace,
+                           showingPlaceDetails: $showingPlaceDetails,
+                           showingEditScreen: $showingEditScreen,
+                           locations: $locations)
             } else {
                 Button("Unlock Places") {
                     self.authenticate()
