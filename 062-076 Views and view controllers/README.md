@@ -33,7 +33,9 @@ Learning goals:
 - locking UI behind Touch/Face ID
 
 ## [Project 15 - Accessibility](Project%2015)
-SHORT DESCRIPTION
+A technique project to learn about adding accessibility features
 
 Learning goals:
-- 
+- identifying views
+- hiding and grouping accessibility data
+- reading the value of controls
