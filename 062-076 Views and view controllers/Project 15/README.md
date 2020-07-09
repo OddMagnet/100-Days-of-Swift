@@ -11,7 +11,14 @@ A technique project to learn about adding accessibility features
 - some other useful argument are `addTraits` and `removeTraits` which are used to tell VoiceOver that something does or does not have specific traits (e.g. an image also being a button)
 
 ## Hiding and grouping accessibility data
-- 
+- often times there are elements of the UI that are irrelevant to VoiceOver users
+- for examples: decorative images, grouped views or off-screen views
+- to mark an image as decorative `Image(decorative:)` should be used, this stops the filename from being read
+- it's still possible to add traits to decorative images, these will be read when it's highlighted
+- using the `hidden` argument makes the view complete insivible to VoiceOver, this is especially useful for off-screen views
+- when multiple views are combined in a group, e.g. a V-/HStack with multiple Text views, it's useful to use the `accessibilityElement(children:)` modifier
+- this can be used to let VoiceOver know that the views in the group should be combined with `.combine` or ignored with `.ignore`
+- when using `.ignore` it's recommended to provide a custom label
 
 ## Reading the value of controls
 - 
