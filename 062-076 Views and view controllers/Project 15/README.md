@@ -21,7 +21,14 @@ A technique project to learn about adding accessibility features
 - when using `.ignore` it's recommended to provide a custom label
 
 ## Reading the value of controls
-- 
+- another important use of VoiceOver is reading the value of control elements
+- by default VoiceOver would read a percentage for e.g. `Slider`
+- to circumvent this, the `value` argument can be used
+
+    ```swift
+    Slider(value: $estimate, in: 0...50)
+        .accessibility(value: Text("\(Int(estimate))"))
+    ```
 
 ## Wrap up - Challenges
 - 
