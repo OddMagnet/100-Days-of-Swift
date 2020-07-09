@@ -1,13 +1,16 @@
-# PROJECT NAME
-SHORT DESCRIPTION
+# Accessability
+A technique project to learn about adding accessibility features
 
-![App screenshot](PROJECT_NAME.png)
+![App screenshot](_fixed.png)
 
 
-## OVERVIEW_NAME
+## Identifying views with labels
 - 
 
-## REPEAT_H2_FOR_EVERY_STEP
+## Hiding and grouping accessibility data
+- 
+
+## Reading the value of controls
 - 
 
 ## Wrap up - Challenges
