@@ -1,4 +1,4 @@
-# Accessability
+# Accessibility
 A technique project to learn about adding accessibility features
 
 ![App screenshot](_fixed.png)
