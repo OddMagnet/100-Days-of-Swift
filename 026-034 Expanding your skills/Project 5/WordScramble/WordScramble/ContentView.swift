@@ -28,9 +28,13 @@ struct ContentView: View {
                     .padding()
                     .autocapitalization(.none)
 
-                List(usedWords, id: \.self) {
-                    Image(systemName: "\($0.count).circle") // show length of each word
-                    Text($0)
+                List(usedWords, id: \.self) { word in
+                    HStack {
+                        Image(systemName: "\(word.count).circle") // show length of each word
+                        Text(word)
+                    }
+                    .accessibilityElement(children: .ignore)
+                    .accessibility(label: Text("\(word), \(word.count) letters"))
                 }
                 Text("Score: \(score)")     // Challenge 3 - add and show user score
             }
