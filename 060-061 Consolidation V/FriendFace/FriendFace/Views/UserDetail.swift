@@ -25,7 +25,7 @@ struct UserDetail: View {
                 detailItem(title: "Address", description: user.address)
                 detailItem(title: "Company", description: user.company)
                 detailItem(title: "Email", description: user.email)
-                detailItem(title: "Interests", description: user.tags)
+                detailItem(title: "Interests", description: user.wrappedTags.joined(separator: ", "))
             }
             
             Section(header: Text("About")) {

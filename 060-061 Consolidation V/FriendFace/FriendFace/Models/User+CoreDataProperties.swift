@@ -26,7 +26,7 @@ extension User {
     @NSManaged public var address: String
     @NSManaged public var about: String
     @NSManaged public var registered: Date
-    @NSManaged public var tags: String
+    @NSManaged public var tags: [String]?
     @NSManaged public var friends: NSSet
 
     public var registeredShortDate: String {
@@ -39,6 +39,9 @@ extension User {
         return set.sorted {
             $0.name < $1.name
         }
+    }
+    public var wrappedTags: [String] {
+        tags ?? [String]()
     }
 }
 

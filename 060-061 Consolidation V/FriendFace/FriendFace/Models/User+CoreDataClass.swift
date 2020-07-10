@@ -67,8 +67,7 @@ public class User: NSManagedObject, Identifiable, Decodable {
         self.address = try container.decode(String.self, forKey: .address)
         self.about = try container.decode(String.self, forKey: .about)
         self.registered = try container.decode(Date.self, forKey: .registered)
-        let tagArray = try container.decode([String].self, forKey: .tags)       // decode tags
-        self.tags = tagArray.joined(separator: ", ")                            // and join them
+        self.tags = try container.decode([String]?.self, forKey: .tags)
         let friendArray = try container.decode([Friend].self, forKey: .friends) // get friends
         self.friends = NSSet(array: friendArray)                                // and convert to NSSet
     }
