@@ -31,9 +31,9 @@ A technique project to learn about adding accessibility features
     ```
 
 ## Adding accessibility to
-- ![https://github.com/OddMagnet/100-Days-of-Swift/blob/master/016-024%20Starting%20SwiftUI/Project%202](Project 2 - GuessTheFlag)
-- ![https://github.com/OddMagnet/100-Days-of-Swift/tree/master/026-034%20Expanding%20your%20skills/Project%205](Project 5 - Word Scramble)
-- ![https://github.com/OddMagnet/100-Days-of-Swift/tree/master/049-059%20Focus%20on%20data/Project%2011](Project 11 - Bookworm)
+[https://github.com/OddMagnet/100-Days-of-Swift/blob/master/016-024%20Starting%20SwiftUI/Project%202](Project 2 - GuessTheFlag)
+[https://github.com/OddMagnet/100-Days-of-Swift/tree/master/026-034%20Expanding%20your%20skills/Project%205](Project 5 - Word Scramble)
+[https://github.com/OddMagnet/100-Days-of-Swift/tree/master/049-059%20Focus%20on%20data/Project%2011](Project 11 - Bookworm)
 
 ## Wrap up - Challenges
 - 
