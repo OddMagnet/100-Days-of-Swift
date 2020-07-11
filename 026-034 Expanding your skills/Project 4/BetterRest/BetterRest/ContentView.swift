@@ -46,6 +46,11 @@ struct ContentView: View {
             return "Calculation error"
         }
     }
+    var sleepAmountVoiceOver: String {
+        let hours = Int(sleepAmount)
+        let minutes = Int((sleepAmount - Double(hours)) * 60)
+        return "\(hours) hours\(minutes > 0 ? "and \(minutes) minutes" : "")"
+    }
     
     var body: some View {
         NavigationView {
@@ -62,6 +67,7 @@ struct ContentView: View {
                     Stepper(value: $sleepAmount, in: 4...12, step: 0.25) {
                         Text("\(sleepAmount, specifier: "%g") hours")
                     }
+                    .accessibility(label: Text(sleepAmountVoiceOver))
                 }
                 
                 Section(header: Text("Daily coffee intake")) {
@@ -69,6 +75,7 @@ struct ContentView: View {
                     Picker("Daily coffee intake (cups)", selection: $coffeeAmount) {
                         ForEach(0 ..< 21) {
                             Text("\($0)")
+                            .accessibility(label: Text("\($0) cups"))
                         }
                     }
                 }
