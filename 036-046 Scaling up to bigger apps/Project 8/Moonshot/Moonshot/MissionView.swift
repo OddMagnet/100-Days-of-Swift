@@ -83,6 +83,8 @@ struct MissionView: View {
                                 Spacer()
                             }
                             .padding(.horizontal)
+                            .accessibilityElement(children: .ignore)
+                            .accessibility(label: Text("\(crewMember.astronaut.name), role: \(crewMember.role)"))
                         }
                         .buttonStyle(PlainButtonStyle())
                     }

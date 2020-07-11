@@ -34,6 +34,11 @@ struct ContentView: View {
                                 Text(mission.formattedLaunchDate)
                             }
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibility(label: Text(mission.displayName))
+                        .accessibility(hint: Text(self.showCrewInsteadOfLaunchDate
+                            ? "Crew: \(mission.crewList)"
+                            : "Launchdate \(mission.formattedLaunchDate)"))
                     }
                 }
             }
@@ -43,6 +48,9 @@ struct ContentView: View {
                 self.showCrewInsteadOfLaunchDate.toggle()
             }) {
                 Text(showCrewInsteadOfLaunchDate ? "Launch" : "Crew")
+                    .accessibility(label: Text(self.showCrewInsteadOfLaunchDate
+                        ? "Show launch date instead of crew"
+                        : "Show crew instead of launch date"))
             })
         }
     }
