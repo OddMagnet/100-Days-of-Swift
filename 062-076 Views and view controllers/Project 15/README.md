@@ -1,9 +1,6 @@
 # Accessibility
 A technique project to learn about adding accessibility features
 
-![App screenshot](_fixed.png)
-
-
 ## Identifying views with labels
 - to make use of the VoiceOver feature, views need to be provided with the `.accessibility()` modifier
 - this modifier takes a variety of (single) arguments, for example `label` which is a string that will be read when the view is selected
