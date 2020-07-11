@@ -36,4 +36,6 @@ A technique project to learn about adding accessibility features
 - [Project 11 - Bookworm](https://github.com/OddMagnet/100-Days-of-Swift/tree/master/049-059%20Focus%20on%20data/Project%2011)
 
 ## Wrap up - Challenges
-- 
+- mark the decorative image in [Cupcake Corner](https://github.com/OddMagnet/100-Days-of-Swift/tree/master/049-059%20Focus%20on%20data/Project%2010) so it doesn't get read out 
+- fix the steppers in [BetterRest](https://github.com/OddMagnet/100-Days-of-Swift/tree/master/026-034%20Expanding%20your%20skills/Project%204) so that the read information is useful
+- review and add accessibility to [Moonshot](https://github.com/OddMagnet/100-Days-of-Swift/tree/master/036-046%20Scaling%20up%20to%20bigger%20apps/Project%208)
