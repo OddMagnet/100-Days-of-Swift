@@ -5,7 +5,15 @@ Consolidation/Review of Days 62 to 76, notes in this readme, challenge completed
 
 
 ## What I learned
--
+- how property wrappers work behind the scenes
+- custom bindings
+- **action sheets**
+- **Core Image**
+- integrating UIViews, namely **UIImagePickerController** and **MKMapView**
+- writing **coordinator** classes for UIViews
+- using above mentioned views
+- adding **Comparable** conformance to custom types
+- using the documents directory, enabling encryption when writing and biometric authentication
 
 ## Key points
 ###
