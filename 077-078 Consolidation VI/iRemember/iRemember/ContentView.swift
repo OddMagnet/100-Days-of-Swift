@@ -14,6 +14,10 @@ struct ContentView: View {
     @State private var newFirstName: String = ""
     @State private var newLastName: String = ""
     
+    @State private var showingAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    
     @State private var people = [Person]()
 
     var body: some View {
@@ -42,23 +46,55 @@ struct ContentView: View {
         .sheet(isPresented: $showingAddPersonSheet, onDismiss: addPerson) {
             AddPersonView(firstName: self.$newFirstName, lastName: self.$newLastName, image: self.$newImage)
         }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("Ok")))
+        }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
     func loadData() {
-        // load stuff
+        let fileUrl = getDocumentsDirectory().appendingPathComponent("People")
+        
+        // if data is available, try loading it
+        if let data = try? Data(contentsOf: fileUrl) {
+            do {
+                people = try JSONDecoder().decode([Person].self, from: data)
+            } catch {
+                alertTitle = "Loading error"
+                alertMessage = "Could not load data"
+                self.showingAlert = true
+            }
+        }
     }
     
     func saveData() {
-        // save stuff
+        do {
+            let fileUrl = getDocumentsDirectory().appendingPathComponent("People")
+            let data = try JSONEncoder().encode(self.people)
+            try data.write(to: fileUrl, options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            alertTitle = "Saving error"
+            alertMessage = "Could not save data"
+            self.showingAlert = true
+        }
     }
     
     func addPerson() {
+        // create and add a new person
         let newPerson = Person(firstName: newFirstName, lastName: newLastName, image: newImage!)
         people.append(newPerson)
         
+        // reset state variable
         newFirstName = ""
         newLastName = ""
         newImage = nil
+        
+        // save the data
+        saveData()
     }
 }
 
