@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingImagePicker = false
+    @State private var showingAddPersonView = false
+    @State private var newImage: UIImage?
+    
     var body: some View {
         NavigationView {
             List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
@@ -22,12 +26,16 @@ struct ContentView: View {
             }
             .navigationBarTitle("iRemember")
             .navigationBarItems(trailing: Button(action: {
-                self.addPerson()
+                self.showingImagePicker = true
             }){
                 Image(systemName: "plus")
+                    .padding(5)
             })
         }
         .onAppear(perform: loadData)
+        .sheet(isPresented: $showingImagePicker, onDismiss: addPerson) {
+            ImagePicker(image: self.$newImage)
+        }
     }
     
     func loadData() {
@@ -39,7 +47,10 @@ struct ContentView: View {
     }
     
     func addPerson() {
-        // add new person
+        // only continue if an image was selected
+        if let newImage = newImage {
+            showingAddPersonView = true
+        }
     }
 }
 
