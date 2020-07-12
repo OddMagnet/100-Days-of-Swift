@@ -44,7 +44,7 @@ struct Person: Codable, Comparable, Identifiable {
         
         try container.encode(id, forKey: .id)
         try container.encode(firstName, forKey: .firstName)
-        try container.encode(lastName, forKey: .firstName)
+        try container.encode(lastName, forKey: .lastName)
         let imageData = image.jpegData(compressionQuality: 0.8)
         try container.encode(imageData!, forKey: .image)
     }
