@@ -9,32 +9,38 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingImagePicker = false
-    @State private var showingAddPersonView = false
+    @State private var showingAddPersonSheet = false
     @State private var newImage: UIImage?
+    @State private var newFirstName: String = ""
+    @State private var newLastName: String = ""
     
+    @State private var people = [Person]()
+
     var body: some View {
         NavigationView {
-            List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+            List(people.sorted()) { person in
                 NavigationLink(destination: Text("DetailView")) {
                     HStack {
-                        Image(systemName: "camera")
-                        Text("Hello, World!")
+                        Image(uiImage: person.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 50)
+                        Text("\(person.firstName) \(person.lastName)")
                             .font(.headline)
                     }
                 }
             }
             .navigationBarTitle("iRemember")
             .navigationBarItems(trailing: Button(action: {
-                self.showingImagePicker = true
+                self.showingAddPersonSheet = true
             }){
                 Image(systemName: "plus")
                     .padding(5)
             })
         }
         .onAppear(perform: loadData)
-        .sheet(isPresented: $showingImagePicker, onDismiss: addPerson) {
-            ImagePicker(image: self.$newImage)
+        .sheet(isPresented: $showingAddPersonSheet, onDismiss: addPerson) {
+            AddPersonView(firstName: self.$newFirstName, lastName: self.$newLastName, image: self.$newImage)
         }
     }
     
@@ -47,10 +53,12 @@ struct ContentView: View {
     }
     
     func addPerson() {
-        // only continue if an image was selected
-        if let newImage = newImage {
-            showingAddPersonView = true
-        }
+        let newPerson = Person(firstName: newFirstName, lastName: newLastName, image: newImage!)
+        people.append(newPerson)
+        
+        newFirstName = ""
+        newLastName = ""
+        newImage = nil
     }
 }
 
