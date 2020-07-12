@@ -13,6 +13,7 @@
 		4C87BF2024BB88D5009D6A0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C87BF1F24BB88D5009D6A0C /* Assets.xcassets */; };
 		4C87BF2324BB88D6009D6A0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C87BF2224BB88D6009D6A0C /* Preview Assets.xcassets */; };
 		4C87BF2624BB88D6009D6A0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C87BF2424BB88D6009D6A0C /* LaunchScreen.storyboard */; };
+		4C87BF2E24BB8AAC009D6A0C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BF2D24BB8AAC009D6A0C /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4C87BF2224BB88D6009D6A0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C87BF2524BB88D6009D6A0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C87BF2724BB88D6009D6A0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C87BF2D24BB8AAC009D6A0C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				4C87BF1924BB88D4009D6A0C /* AppDelegate.swift */,
 				4C87BF1B24BB88D4009D6A0C /* SceneDelegate.swift */,
 				4C87BF1D24BB88D4009D6A0C /* ContentView.swift */,
+				4C87BF2D24BB8AAC009D6A0C /* Person.swift */,
 				4C87BF1F24BB88D5009D6A0C /* Assets.xcassets */,
 				4C87BF2424BB88D6009D6A0C /* LaunchScreen.storyboard */,
 				4C87BF2724BB88D6009D6A0C /* Info.plist */,
@@ -148,6 +151,7 @@
 			files = (
 				4C87BF1A24BB88D4009D6A0C /* AppDelegate.swift in Sources */,
 				4C87BF1C24BB88D4009D6A0C /* SceneDelegate.swift in Sources */,
+				4C87BF2E24BB8AAC009D6A0C /* Person.swift in Sources */,
 				4C87BF1E24BB88D4009D6A0C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
