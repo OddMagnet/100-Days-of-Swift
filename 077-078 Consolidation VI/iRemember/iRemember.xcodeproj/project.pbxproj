@@ -16,6 +16,7 @@
 		4C87BF2E24BB8AAC009D6A0C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BF2D24BB8AAC009D6A0C /* Person.swift */; };
 		4C87BF3024BB8E21009D6A0C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BF2F24BB8E21009D6A0C /* ImagePicker.swift */; };
 		4C87BF3224BB904C009D6A0C /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BF3124BB904C009D6A0C /* AddPersonView.swift */; };
+		4C87BF3424BBA034009D6A0C /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BF3324BBA034009D6A0C /* PersonDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4C87BF2D24BB8AAC009D6A0C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		4C87BF2F24BB8E21009D6A0C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		4C87BF3124BB904C009D6A0C /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
+		4C87BF3324BBA034009D6A0C /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				4C87BF1924BB88D4009D6A0C /* AppDelegate.swift */,
 				4C87BF1B24BB88D4009D6A0C /* SceneDelegate.swift */,
 				4C87BF1D24BB88D4009D6A0C /* ContentView.swift */,
+				4C87BF3324BBA034009D6A0C /* PersonDetailView.swift */,
 				4C87BF3124BB904C009D6A0C /* AddPersonView.swift */,
 				4C87BF2D24BB8AAC009D6A0C /* Person.swift */,
 				4C87BF2F24BB8E21009D6A0C /* ImagePicker.swift */,
@@ -160,6 +163,7 @@
 				4C87BF3024BB8E21009D6A0C /* ImagePicker.swift in Sources */,
 				4C87BF2E24BB8AAC009D6A0C /* Person.swift in Sources */,
 				4C87BF1E24BB88D4009D6A0C /* ContentView.swift in Sources */,
+				4C87BF3424BBA034009D6A0C /* PersonDetailView.swift in Sources */,
 				4C87BF3224BB904C009D6A0C /* AddPersonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

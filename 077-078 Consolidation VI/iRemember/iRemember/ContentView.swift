@@ -23,7 +23,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(people.sorted()) { person in
-                NavigationLink(destination: Text("DetailView")) {
+                NavigationLink(destination: PersonDetailView(person: person)) {
                     HStack {
                         Image(uiImage: person.image)
                             .resizable()
