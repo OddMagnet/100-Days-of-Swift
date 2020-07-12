@@ -46,4 +46,8 @@ struct NonNegative<Value: BinaryInteger> {
 
 
 ## Challenge
-
+Build an app that helps remembering peoples name.
+- import a picture from the photo library and attach a name to it
+- display the collection of pictures and names in a list
+- show a details screen on tapping a list item
+- save the data
