@@ -54,3 +54,4 @@ Build an app that helps remembering peoples name.
 **Day 78**
 - add a way to save the location where the person was met, alongside the other data
 - show the location in the detail view
+- add ability to take a photo directly
