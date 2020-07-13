@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2F557324BC4A7800EBF080 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F557224BC4A7800EBF080 /* LocationFetcher.swift */; };
 		4C87BF1A24BB88D4009D6A0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BF1924BB88D4009D6A0C /* AppDelegate.swift */; };
 		4C87BF1C24BB88D4009D6A0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BF1B24BB88D4009D6A0C /* SceneDelegate.swift */; };
 		4C87BF1E24BB88D4009D6A0C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87BF1D24BB88D4009D6A0C /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C2F557224BC4A7800EBF080 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		4C87BF1624BB88D4009D6A0C /* iRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C87BF1924BB88D4009D6A0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C87BF1B24BB88D4009D6A0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				4C87BF3124BB904C009D6A0C /* AddPersonView.swift */,
 				4C87BF2D24BB8AAC009D6A0C /* Person.swift */,
 				4C87BF2F24BB8E21009D6A0C /* ImagePicker.swift */,
+				4C2F557224BC4A7800EBF080 /* LocationFetcher.swift */,
 				4C87BF1F24BB88D5009D6A0C /* Assets.xcassets */,
 				4C87BF2424BB88D6009D6A0C /* LaunchScreen.storyboard */,
 				4C87BF2724BB88D6009D6A0C /* Info.plist */,
@@ -160,6 +163,7 @@
 			files = (
 				4C87BF1A24BB88D4009D6A0C /* AppDelegate.swift in Sources */,
 				4C87BF1C24BB88D4009D6A0C /* SceneDelegate.swift in Sources */,
+				4C2F557324BC4A7800EBF080 /* LocationFetcher.swift in Sources */,
 				4C87BF3024BB8E21009D6A0C /* ImagePicker.swift in Sources */,
 				4C87BF2E24BB8AAC009D6A0C /* Person.swift in Sources */,
 				4C87BF1E24BB88D4009D6A0C /* ContentView.swift in Sources */,
