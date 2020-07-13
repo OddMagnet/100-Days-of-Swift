@@ -87,6 +87,11 @@ struct ContentView: View {
     
     func addPerson() {
         // create and add a new person
+        guard !newFirstName.isEmpty
+            && !newLastName.isEmpty
+            && newImage != nil
+            else { return }
+        
         let newPerson = Person(firstName: newFirstName, lastName: newLastName, image: newImage!, location: Coordinate(newFirstMeetingLocation))
         people.append(newPerson)
         
