@@ -51,3 +51,6 @@ Build an app that helps remembering peoples name.
 - display the collection of pictures and names in a list
 - show a details screen on tapping a list item
 - save the data
+**Day 78**
+- add a way to save the location where the person was met, alongside the other data
+- show the location in the detail view
