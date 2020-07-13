@@ -7,12 +7,14 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
     @State private var showingAddPersonSheet = false
     @State private var newImage: UIImage?
     @State private var newFirstName: String = ""
     @State private var newLastName: String = ""
+    @State private var newFirstMeetingLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
     @State private var showingAlert = false
     @State private var alertTitle = ""
@@ -44,7 +46,7 @@ struct ContentView: View {
         }
         .onAppear(perform: loadData)
         .sheet(isPresented: $showingAddPersonSheet, onDismiss: addPerson) {
-            AddPersonView(firstName: self.$newFirstName, lastName: self.$newLastName, image: self.$newImage)
+            AddPersonView(firstName: self.$newFirstName, lastName: self.$newLastName, image: self.$newImage, location: self.$newFirstMeetingLocation)
         }
         .alert(isPresented: $showingAlert) {
             Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("Ok")))
@@ -85,13 +87,14 @@ struct ContentView: View {
     
     func addPerson() {
         // create and add a new person
-        let newPerson = Person(firstName: newFirstName, lastName: newLastName, image: newImage!)
+        let newPerson = Person(firstName: newFirstName, lastName: newLastName, image: newImage!, location: Coordinate(newFirstMeetingLocation))
         people.append(newPerson)
         
         // reset state variable
         newFirstName = ""
         newLastName = ""
         newImage = nil
+        newFirstMeetingLocation = CLLocationCoordinate2D()
         
         // save the data
         saveData()

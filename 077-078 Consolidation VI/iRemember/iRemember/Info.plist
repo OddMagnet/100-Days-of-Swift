@@ -58,5 +58,9 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We&apos;d like to save the location for this person</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We&apos;d like to use a photo from your library</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We&apos;d like to use your camera to take a photo</string>
 </dict>
 </plist>
