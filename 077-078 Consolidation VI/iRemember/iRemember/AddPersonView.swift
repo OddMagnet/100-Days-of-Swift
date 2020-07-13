@@ -14,6 +14,7 @@ struct AddPersonView: View {
     @Binding var lastName: String
     @Binding var image: UIImage?
     @State private var showingImagePicker = false
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     
     var canSave: Bool {
         image != nil && !firstName.isEmpty && !lastName.isEmpty
@@ -28,8 +29,20 @@ struct AddPersonView: View {
                             .resizable()
                             .scaledToFit()
                     } else {
-                        Button("Add image") {
-                            self.showingImagePicker = true
+                        HStack {
+                            Button("Select photo") {
+                                self.sourceType = .photoLibrary
+                                self.showingImagePicker = true
+                            }
+                            .padding()
+                            
+                            Spacer()
+                            
+                            Button("Take photo") {
+                                self.sourceType = .camera
+                                self.showingImagePicker = true
+                            }
+                            .padding()
                         }
                     }
                 }
@@ -47,7 +60,7 @@ struct AddPersonView: View {
             .disabled(!canSave)
         }
         .sheet(isPresented: $showingImagePicker) {
-            ImagePicker(image: self.$image)
+            ImagePicker(image: self.$image, sourceType: self.sourceType)
         }
     }
 }
