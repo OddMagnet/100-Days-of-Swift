@@ -13,6 +13,7 @@ struct PersonDetailView: View {
     var person: Person
     
     @State private var selectedSubView = "Image"
+    @State private var location = CLLocationCoordinate2D()
     private let subViews = ["Image", "Location"]
     
     var body: some View {
@@ -34,8 +35,7 @@ struct PersonDetailView: View {
                     .transition(.asymmetric(insertion: .slide, removal: .move(edge: .leading)))
             } else {
                 VStack {
-                    Text("Longitude: \(person.location.longitude)")
-                    Text("Latitude: \(person.location.latitude)")
+                    MapView(location: person.CLLocation, title: "\(person.firstName) \(person.lastName)");
                 }
                 .padding()
                 .animation(.linear)
@@ -43,6 +43,7 @@ struct PersonDetailView: View {
             }
             Spacer()
         }
+        .onAppear(perform: { self.location = self.person.CLLocation})
         .navigationBarTitle("\(person.firstName) \(person.lastName)")
     }
 }
