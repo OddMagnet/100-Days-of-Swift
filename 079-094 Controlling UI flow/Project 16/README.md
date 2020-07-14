@@ -1,14 +1,22 @@
-# PROJECT NAME
-SHORT DESCRIPTION
+# Hot Prospects
+An app to track who the users meets as conferences
 
-![App screenshot](PROJECT_NAME.png)
+![App screenshot](HotProspects1.png) ![App screenshot](HotProspects2.png) ![App screenshot](HotProspects3.png)
 
-
-## OVERVIEW_NAME
+## Reading custom values from the environment 
 - 
 
-## REPEAT_H2_FOR_EVERY_STEP
+## Creating tabs with TabView and tabItem()  
 - 
+
+## Later parts
+- understanding Swift's Result type
+- manually publishing ObservableObject changes
+- controlling image interpolation
+- creating context menus
+- scheduling local notifications
+- adding Swift package dependencies in Xcode
+- dynamically filtering a SwiftUI List
 
 ## Wrap up - Challenges
 - 
