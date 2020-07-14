@@ -30,6 +30,7 @@ struct DisplayView: View {
 
 struct Part1: View {
     let user = User()
+    @State private var selectedTab = "Tab A"
     
     var body: some View {
         Section(header: Text("Part 1")) {
@@ -45,6 +46,32 @@ struct Part1: View {
                 .padding()
                 .environmentObject(user)
             )
+            
+            NavigationLink("Creating tabs with TabView and tabItem()", destination:
+                TabView(selection: $selectedTab) {
+                    Text("Tab A")
+                        .onTapGesture {
+                            self.selectedTab = "Tab B"
+                        }
+                        .tabItem {
+                            // This is done via 'Label' in SwiftUI 2.0
+                            Image(systemName: "star")
+                            Text("A")
+                        }
+                        .tag("Tab A")
+                    
+                    Text("Tab B")
+                        .onTapGesture {
+                            self.selectedTab = "Tab A"
+                        }
+                        .tabItem {
+                            Image(systemName: "star.fill")
+                            Text("B")
+                        }
+                        .tag("Tab B")
+                }
+            )
+            
         }
     }
 }
