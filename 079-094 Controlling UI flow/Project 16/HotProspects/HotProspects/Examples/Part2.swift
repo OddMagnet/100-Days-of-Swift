@@ -21,6 +21,10 @@ struct Part2: View {
 
 struct Part2_Previews: PreviewProvider {
     static var previews: some View {
-        Part2()
+        NavigationView {
+            List {
+                Part2()
+            }
+        }
     }
 }
