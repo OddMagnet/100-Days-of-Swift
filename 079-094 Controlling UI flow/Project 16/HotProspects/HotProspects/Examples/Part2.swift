@@ -12,8 +12,26 @@ enum NetworkError: Error {
     case badURL, requestFailed, unknown
 }
 
+class DelayedUpdater: ObservableObject {
+    /*@Published*/ var value = 0 {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+
+    func countUp() {
+        value = 0
+        for i in 1...10 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)) {
+                self.value += 1
+            }
+        }
+    }
+}
+
 struct Part2: View {
     @State private var returnValue = ""
+    @ObservedObject var updater = DelayedUpdater()
     
     var body: some View {
         Section(header: Text("Part 2")) {
@@ -40,8 +58,9 @@ struct Part2: View {
                 }
             )
             
-            NavigationLink("Placeholder", destination:
-                Text("Placeholder")
+            NavigationLink("Manually publishing ObservableObject changes", destination:
+                Text("Value is: \(updater.value)")
+                    .onAppear{ self.updater.countUp() }
             )
 
             NavigationLink("Placeholder", destination:
