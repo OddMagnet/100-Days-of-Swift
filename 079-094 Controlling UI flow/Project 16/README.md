@@ -36,7 +36,10 @@ An app to track who the users meets as conferences
 - inside an asynchronous function, instead of returning a Result case, the completion closure is called and supplied with either `.success(theData)` or `.failure(.someErrorCase)`
 
 ## Manually publishing ObservableObject changes
-- 
+- it's possible to manually publish changes in an ObserableObject
+- for this, the `@Published` wrapper is removed from the property that should be manually published
+- it is then changed into a computed property and inside its `willSet` `objectWillChange.send()` is called
+- this allows for additional code before the change is published, e.g. for logging purposes
 
 ## Controlling image interpolation
 - 
