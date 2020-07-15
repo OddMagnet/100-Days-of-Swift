@@ -42,7 +42,9 @@ An app to track who the users meets as conferences
 - this allows for additional code before the change is published, e.g. for logging purposes
 
 ## Controlling image interpolation
-- 
+- when Image views are stretched bigger than the source image, SwiftUI applies image interpolation by default
+- usually this works well enough to not worry about, but for especially small images or pixel art the interpolation might be unwanted
+- to disable the interpolation simply applying the `.interpolation(.none)` modifier is enough
 
 ## Later parts
 - creating context menus
