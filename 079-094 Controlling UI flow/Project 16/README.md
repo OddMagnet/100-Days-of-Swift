@@ -23,10 +23,16 @@ An app to track who the users meets as conferences
     - use the `.tag()` modifier to tag the views inside the TabView
     - set the @State property to whatever tag should be switched too
 
+## Uunderstanding Swift's Result type
+- 
+
+## Manually publishing ObservableObject changes
+- 
+
+## Controlling image interpolation
+- 
+
 ## Later parts
-- understanding Swift's Result type
-- manually publishing ObservableObject changes
-- controlling image interpolation
 - creating context menus
 - scheduling local notifications
 - adding Swift package dependencies in Xcode
