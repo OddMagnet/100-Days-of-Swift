@@ -63,8 +63,14 @@ struct Part2: View {
                     .onAppear{ self.updater.countUp() }
             )
 
-            NavigationLink("Placeholder", destination:
-                Text("Placeholder")
+            NavigationLink("Controlling image interpolation in SwiftUI", destination:
+                Image("example")
+                    .interpolation(.none)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: .infinity)
+                    .background(Color.black)
+                    .edgesIgnoringSafeArea(.all)
             )
 
         }
