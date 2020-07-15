@@ -24,7 +24,16 @@ An app to track who the users meets as conferences
     - set the @State property to whatever tag should be switched too
 
 ## Uunderstanding Swift's Result type
-- 
+- often functions either return data or an error, usually via throwing, but this is not possible when the function doesn't return immediately
+- to resolve this, Swifts **Result** type is used, it will either hold a value or an error, but never both or neither
+- behind the scenes it's an Enum with associated values and two cases `.success(Data)` and `.failure(Error)`
+- a custom enum that conforms to the `Error` protocol is used for the `failure(Error)` case
+- to make use of the Result type, the function simply has to use it as its return value: `func someFunction() -> Result<String, SomeErrorEnum> { ... }`
+- inside the function either `return .success(theData)` or `.failure(.someErrorEnumCase)` is used
+- since this type is usually used for asynchronous functions, the function should have an argument for a completion closure
+- `func fetchData(from urlString: String, completion: @escaping (Result<String, NetworkError>) -> Void) { ... }`
+- the `@escaping` is needed for an asynchronous function to retain whatever called the function in memory, so the closure can run later on
+- inside an asynchronous function, instead of returning a Result case, the completion closure is called and supplied with either `.success(theData)` or `.failure(.someErrorCase)`
 
 ## Manually publishing ObservableObject changes
 - 
