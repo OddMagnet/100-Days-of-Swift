@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct Part3: View {
     @State private var backgroundColor = Color.red
@@ -40,6 +41,42 @@ struct Part3: View {
                     }
                 }
             )
+            
+            NavigationLink("Scheduling local notifications", destination:
+                VStack {
+                    Button("Request Permission") {
+                        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                            if success {
+                                print("All set!")
+                            } else if let error = error {
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }
+
+                    Button("Schedule Notification") {
+                        let content = UNMutableNotificationContent()
+                        content.title = "Feed the dog"
+                        content.subtitle = "It looks hungry"
+                        content.sound = UNNotificationSound.default
+                        
+                        // show notification 5s from now
+                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                        
+                        // don't care about identifier -> use a random one
+                        let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                                            content: content,
+                                                            trigger: trigger)
+                        
+                        UNUserNotificationCenter.current().add(request)
+                    }
+                }
+            )
+
+            NavigationLink("Placeholder", destination:
+                Text("Placeholder")
+            )
+
         }
     }
 }
