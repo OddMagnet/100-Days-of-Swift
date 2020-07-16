@@ -8,9 +8,17 @@
 
 import SwiftUI
 import UserNotifications
+import SamplePackage
 
 struct Part3: View {
     @State private var backgroundColor = Color.red
+    let possibleNumbers = Array(1...60)
+    var results: String {
+        let selected = possibleNumbers.random(7).sorted()
+        let strings = selected.map(String.init)
+        return strings.joined(separator: ", ")
+    }
+    
     var body: some View {
         Section(header: Text("Part 3")) {
             
@@ -73,8 +81,8 @@ struct Part3: View {
                 }
             )
 
-            NavigationLink("Placeholder", destination:
-                Text("Placeholder")
+            NavigationLink("Adding Swift package dependencies in Xcode", destination:
+                Text(results)
             )
 
         }
