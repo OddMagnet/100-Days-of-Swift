@@ -46,10 +46,16 @@ An app to track who the users meets as conferences
 - usually this works well enough to not worry about, but for especially small images or pixel art the interpolation might be unwanted
 - to disable the interpolation simply applying the `.interpolation(.none)` modifier is enough
 
+## Creating context menus
+- 
+
+## Scheduling local notifications
+- 
+
+## Adding Swift package dependencies in Xcode
+- 
+
 ## Later parts
-- creating context menus
-- scheduling local notifications
-- adding Swift package dependencies in Xcode
 - dynamically filtering a SwiftUI List
 
 ## Wrap up - Challenges
