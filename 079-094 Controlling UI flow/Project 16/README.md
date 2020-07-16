@@ -55,7 +55,15 @@ An app to track who the users meets as conferences
     - options already displayed in the UI should not be repeated
 
 ## Scheduling local notifications
-- 
+- to schedule local notifictions `UserNotifications` must be imported
+- before notifications can be scheduled, first the user needs to give permission
+- this is done via `UNUserNotificationCenter.current().requestAuthorization(options:, completion:)`
+- which takes an array of possible options (e.g. `.alert`, `.badge`, `.sound`) and a completion closure, which is used to check for success
+- once permission was granted, a notification can be scheduled, this requires 3 steps:
+    - creating the content `let content = UNMutableNotificationContent()` and setting it's `title`, `subtitle` and `sound` properties
+    - creating a trigger, e.g. via `let trigger = UNTimeIntervalNotificationTrigger(timeInterval:, repeats)` which takes a time interval and a boolean whether or not it should repeat
+    - combining content and trigger in a request `let request = UNNotificationRequest(identifier:, content:, trigger:)`
+- after creating the request, it can be added to the Notification Center `UNUserNotificationCenter.current().add(request)`
 
 ## Adding Swift package dependencies in Xcode
 - 
