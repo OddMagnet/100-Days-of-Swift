@@ -66,7 +66,9 @@ An app to track who the users meets as conferences
 - after creating the request, it can be added to the Notification Center `UNUserNotificationCenter.current().add(request)`
 
 ## Adding Swift package dependencies in Xcode
-- 
+- adding a dependency is as simple as clicking __File__ -> __Swift Packages__ -> __Add Package Dependency__
+- then configuring some options, like up to which version should be used
+- and finally just using it where it's needed: `import TheImportedPackage` 
 
 ## Later parts
 - dynamically filtering a SwiftUI List
