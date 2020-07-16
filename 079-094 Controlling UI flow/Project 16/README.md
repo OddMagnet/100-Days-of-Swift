@@ -47,7 +47,12 @@ An app to track who the users meets as conferences
 - to disable the interpolation simply applying the `.interpolation(.none)` modifier is enough
 
 ## Creating context menus
-- 
+- to add a context menu - a menu that appears on long pressing - to something, the `.contextMenu()` modifier is used
+- inside the modifier buttons can be placed and like tabItem they can have a Text and an Image view (or just Label in SwiftUI 2.0)
+- a few rule of thumbs for context menus:
+    - if they're used, they should be used often to avoid user frustration
+    - the list of options should be kept short, ideally 3 or under
+    - options already displayed in the UI should not be repeated
 
 ## Scheduling local notifications
 - 
