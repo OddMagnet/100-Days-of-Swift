@@ -94,5 +94,8 @@ if let outputImage = filter.outputImage {
 - since the image will only contain as many pixels as needed to display the code, it needs to be upscaled
 - for this the `.interpolation(.none)` modifier should be applied to the image, so it isn't blurred
 
+## Scanning QR codes with SwiftUI
+- for the scanning of QR codes the **CodeScanner** package of __Paul Hudson / @TwoStraws__ is used
+
 ## Wrap up - Challenges
 - 
