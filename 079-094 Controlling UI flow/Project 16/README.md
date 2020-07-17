@@ -70,8 +70,12 @@ An app to track who the users meets as conferences
 - then configuring some options, like up to which version should be used
 - and finally just using it where it's needed: `import TheImportedPackage` 
 
-## Later parts
-- dynamically filtering a SwiftUI List
+## Dynamically filtering a SwiftUI List
+- since List views are also able to take computed properties, adding a dynamically filtered list is easy
+- first a computed property is needed, that returns a filtered array, e.g. based on an enum state
+- the `.filter()` method takes a closure that needs to return a boolean, which determines whether or not the current element is included
+- the computed property can be used just like any other array in a List view
+- if the initial array is a `@State` variable or an `@ObservedObject` changes to it will also update the filtered list
 
 ## Wrap up - Challenges
 - 
