@@ -9,6 +9,15 @@
           "revision": "9d902dec616bd70b1a2a1b1e6d821c10c392ba9f",
           "version": "1.0.6"
         }
+      },
+      {
+        "package": "SamplePackage",
+        "repositoryURL": "https://github.com/twostraws/SamplePackage",
+        "state": {
+          "branch": null,
+          "revision": "f34f8498db05cf519000a9e5a6a14872ccc69ada",
+          "version": "1.0.0"
+        }
       }
     ]
   },
