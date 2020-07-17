@@ -77,5 +77,22 @@ An app to track who the users meets as conferences
 - the computed property can be used just like any other array in a List view
 - if the initial array is a `@State` variable or an `@ObservedObject` changes to it will also update the filtered list
 
+## Generating and scaling up a QR code
+- to generate a QR code `import CoreImage.CIFilterBuiltins` is needed
+- as usual a context is created `let context = CIContext()` and a filter `let filter = CIFilter.qrCodeGenerator`
+- next the data for the generator needs to be set, this requires the `Data`type: `filter.setValue(data, forKey: "inputMessage")`
+- finally the output image can be from the filter and converted to e.g. an UIImage
+
+```swift
+if let outputImage = filter.outputImage {
+    if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
+        let uiImage = UIImage(cgImage: cgImage)
+        // do something with the UI image
+    }
+}
+```
+- since the image will only contain as many pixels as needed to display the code, it needs to be upscaled
+- for this the `.interpolation(.none)` modifier should be applied to the image, so it isn't blurred
+
 ## Wrap up - Challenges
 - 
