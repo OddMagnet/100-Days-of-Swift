@@ -46,11 +46,21 @@ struct ProspectsView: View {
         NavigationView {
             List {
                 ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
+                    HStack {
+                        // Wrap up - Challenge 1 - contact status indicator
+                        Image(systemName: prospect.isContacted
+                            ? "checkmark.seal.fill"
+                            : "xmark.seal.fill"
+                        )
+                            .font(.title)
+                            .foregroundColor(prospect.isContacted ? .green : .red)
+                        
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
                     }
                     .contextMenu {
                         Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted") {
