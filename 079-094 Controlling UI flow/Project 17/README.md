@@ -34,7 +34,30 @@ Text("Pinch me")
 - finally, it's also possible to sequence gestures by calling `.sequenced()` on a gesture and passing another gesture
 
 ## Making vibrations with UINotificationFeedbackGenerator and Core Haptics
-- 
+- one of the easiest ways to give haptic feedback is by simply using `UINotificationFeedbackGenerator`
+- after creating an instance, simply calling `.notificationOccured()` on it is enough to get the haptic feedback
+- for more advanced haptic feedback the **CoreHaptics** framework is needed `import CoreHaptics`
+- to make use of it a `CHHapticEngine` is needed `@State private var hapticEngine: CHHapticEngine?`
+- which should be created as soon as the view appears
+
+```swift
+guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return  }
+do {
+    self.hapticsEngine = try CHHapticEngine()
+    try engine?.start()
+} catch {
+    /* handle errors */
+}
+```
+- to make use of the engine, parameters for intensity and sharpness are needed, an event needs to be created and passed to the pattern which is then used to create a players with said pattern
+    - both intensity and sharpness are created by using `CHHapticEventParameter(parameterID:, value)`
+    - the event is created via `CHHapticEvent(eventType:, parameters:, relativeTime)` 
+    - where `parameters` expects an array of `CHHapticEventParameter`, most commonly the intensity and sharpness values
+    - and `relativeTime` is used to create events in a sequence
+    - next a pattern is created `CHHapticPattern(events:, parameters)`, where `events` expects an array of events and `parameters` an array of parameters to apply to all events
+    - to create the player `makePlayer(with: )` is called on the haptics engine instance with the pattern for the player
+    - finally, to use the player `start(atTime:)` is called on it
+- it's possible to add multiple different events with different parameters to the array that is passed to the pattern
 
 ## Disabling user interactivity with allowsHitTesting()
 - 
