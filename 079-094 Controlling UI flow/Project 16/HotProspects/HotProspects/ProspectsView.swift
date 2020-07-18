@@ -14,9 +14,19 @@ enum FilterType {
     case none, contacted, uncontacted
 }
 
+// Wrap up - challenge 3 - add sorting
+enum SortingType: String, CaseIterable {
+    case none = "None"
+    case name = "Name"
+    case recent = "Recent"
+}
+
 struct ProspectsView: View {
     @EnvironmentObject var prospects: Prospects
     @State private var isShowingScanner = false
+    // Wrap up - challenge 3 - add sorting
+    @State private var isShowingSortingSheet = false
+    @State var sortType: SortingType = .none
 
     let filter: FilterType
     
@@ -39,6 +49,18 @@ struct ProspectsView: View {
             return prospects.people.filter { $0.isContacted }
         case .uncontacted:
             return prospects.people.filter { !$0.isContacted }
+        }
+    }
+    
+    // Wrap up - challenge 3 - add sorting
+    var sortedProspects: [Prospect] {
+        switch sortType {
+        case .none:
+            return filteredProspects
+        case .name:
+            return filteredProspects.sorted { $0.name < $1.name }
+        case .recent:
+            return filteredProspects.sorted { $0.createdOn > $1.createdOn }
         }
     }
     
@@ -75,7 +97,16 @@ struct ProspectsView: View {
                 }
             }
             .navigationBarTitle(title)
-            .navigationBarItems(trailing: Button(action: {
+            // Wrap up - challenge 3 - add sorting
+            .navigationBarItems(leading: Button(action: {
+                self.isShowingSortingSheet = true
+            }) {
+                Image(systemName: self.sortType == .none
+                    ? "line.horizontal.3.decrease.circle"
+                    : "line.horizontal.3.decrease.circle.fill"
+                )
+                Text("Sort")
+            }, trailing: Button(action: {
                 self.isShowingScanner = true
             }) {
                 Image(systemName: "qrcode.viewfinder")
@@ -83,6 +114,17 @@ struct ProspectsView: View {
             })
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "Odd Magnet\noddmagnet@gmail.com", completion: self.handleScan)
+            }
+            // Wrap up - challenge 3 - add sorting
+            .actionSheet(isPresented: $isShowingSortingSheet) {
+                ActionSheet(title: Text("Sort by: "), message: nil, buttons:
+                    SortingType.allCases.map { type in
+                        ActionSheet.Button.default(Text(type.rawValue)) {
+                            self.sortType = type
+                        }
+                    }
+                    + [.cancel()]
+                )
             }
         }
     }
@@ -98,6 +140,7 @@ struct ProspectsView: View {
             let person = Prospect()
             person.name = details[0]
             person.emailAddress = details[1]
+            person.createdOn = Date()
             
             self.prospects.add(person)
 
