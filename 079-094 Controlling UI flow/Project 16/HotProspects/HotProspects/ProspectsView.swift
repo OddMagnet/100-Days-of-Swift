@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 import CodeScanner
 
 enum FilterType {
@@ -55,6 +56,11 @@ struct ProspectsView: View {
                         Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted") {
                             self.prospects.toggle(prospect)
                         }
+                        if !prospect.isContacted {
+                            Button("Remind me") {
+                                self.addNotification(for: prospect)
+                            }
+                        }
                     }
                 }
             }
@@ -91,6 +97,44 @@ struct ProspectsView: View {
                 print("No camera available")
             case .badOutput:
                 print("Could not read code")
+            }
+        }
+    }
+    
+    func addNotification(for prospect: Prospect) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        // create a closure that can be called later
+        let addRequest = {
+            // create the content
+            let content = UNMutableNotificationContent()
+            content.title = "Contact \(prospect.name)"
+            content.subtitle = prospect.emailAddress
+            content.sound = UNNotificationSound.default
+            
+            // set a trigger
+            var dateComponents = DateComponents()
+            dateComponents.hour = 9
+            //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            // testing trigger:
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            // finish request creation and add it to the notification center
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            notificationCenter.add(request)
+        }
+        
+        notificationCenter.getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                addRequest()
+            } else {
+                notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    if success {
+                        addRequest()
+                    } else {
+                        print("Can't add notification, authorization was denied")
+                    }
+                }
             }
         }
     }
