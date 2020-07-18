@@ -1,5 +1,5 @@
 # Hot Prospects
-An app to track who the users meets as conferences
+An app to track who the users meets at conferences
 
 ![App screenshot](HotProspects1.png) ![App screenshot](HotProspects2.png) ![App screenshot](HotProspects3.png)
 
