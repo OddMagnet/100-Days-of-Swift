@@ -60,7 +60,12 @@ do {
 - it's possible to add multiple different events with different parameters to the array that is passed to the pattern
 
 ## Disabling user interactivity with allowsHitTesting()
-- 
+- to change what a user can tap the `.allowsHitTesting()` modifier can be used
+- setting it to false makes the view it is attached to unresponsive to tap events
+- if there's a view behind it, that view will instead receive the tap event
+- it's also possible to change the shape of the tap-able area of a view with `.contentShape()`
+- which takes a `Shape` struct, such as `Rectangle()` or `Circle()`
+- this is useful when a view contains spacers but the whole view should be tap-able
 
 ## Triggering events repeatedly using a timer
 - 
