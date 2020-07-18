@@ -20,6 +20,7 @@ struct Part1: View {
     @State private var isDragable = false
     @State private var dragOffset = CGSize.zero
     @State private var hapticEngine: CHHapticEngine?
+    @State private var lastTapped = ""
     
     var body: some View {
         let dragGesture = DragGesture()
@@ -119,8 +120,32 @@ struct Part1: View {
                 .onAppear(perform: prepareHaptics)
             )
 
-            NavigationLink("Placeholder 3", destination:
-                Text("Placeholder 3")
+            NavigationLink("Disabling user interactivity with allowsHitTesting()", destination:
+                VStack {
+                    ZStack {
+                        Rectangle()
+                            .fill(Color.blue)
+                            .frame(width: 300, height: 300)
+                            .onTapGesture {
+                                self.lastTapped = "Rectangle tapped!"
+                            }
+
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 300, height: 300)
+                            //.contentShape(Rectangle())
+                            .onTapGesture {
+                                self.lastTapped = "Circle tapped!"
+                            }
+                            //.allowsHitTesting(false)
+                    }
+                    Spacer()
+                    Text(lastTapped)
+                }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    self.lastTapped = "Spacer tapped!"
+                }
             )
         }
     }
