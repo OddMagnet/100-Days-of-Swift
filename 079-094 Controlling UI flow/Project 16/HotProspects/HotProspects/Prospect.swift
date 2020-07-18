@@ -17,10 +17,17 @@ class Prospect: Identifiable, Codable {
 
 class Prospects: ObservableObject {
     static let saveKey = "SavedProspects"
+    // Wrap up - Challenge 2 - save data to documents directory
+    private static var documentsUrl: URL {
+        var url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        url.appendPathComponent(Self.saveKey)
+        return url
+    }
     @Published private(set) var people: [Prospect]
     
     init() {
-        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
+        // Wrap up - Challenge 2 - save data to documents directory
+        if let data = try? Data(contentsOf: Self.documentsUrl) {
             if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
                 self.people = decoded
                 return
@@ -36,8 +43,9 @@ class Prospects: ObservableObject {
     }
     
     private func save() {
-        if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+        if let encodedData = try? JSONEncoder().encode(people) {
+            // Wrap up - Challenge 2 - save data to documents directory
+            try? encodedData.write(to: Self.documentsUrl, options: [.atomicWrite])
         }
     }
     
