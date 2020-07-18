@@ -67,7 +67,7 @@ struct ProspectsView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(filteredProspects) { prospect in
+                ForEach(sortedProspects) { prospect in
                     HStack {
                         // Wrap up - Challenge 1 - contact status indicator
                         Image(systemName: prospect.isContacted
