@@ -18,7 +18,13 @@ Learning goals:
 An app that helps the user learn things using __flashcards__
 
 Learning goals:
-- 
+- how to use gestures in SwiftUI
+- making vibrations with UINotificationFeedbackGenerator and Core Haptics
+- disabling user interactivity with allowsHitTesting()
+- triggering events repeatedly using a timer
+- getting notified when the app moves to the background
+- supporting specific accessibility needs with SwiftUI
+- moving views with DragGesture and offset()
 
 ## [Project 18 - Layout and Geometry](Project%2018)
 A technique project to explore how SwiftUI handles layout
