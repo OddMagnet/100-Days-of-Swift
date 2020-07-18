@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct Part1: View {
     @State private var doubleTapped = false
@@ -18,6 +19,7 @@ struct Part1: View {
     @State private var finalRotationAmount: Angle = .degrees(0)
     @State private var isDragable = false
     @State private var dragOffset = CGSize.zero
+    @State private var hapticEngine: CHHapticEngine?
     
     var body: some View {
         let dragGesture = DragGesture()
@@ -100,13 +102,63 @@ struct Part1: View {
                 }
             )
 
-            NavigationLink("Placeholder 2", destination:
-                Text("Placeholder 2")
+            NavigationLink("Making vibrations with UINotificationFeedbackGenerator and Core Haptics", destination:
+                VStack {
+                    Text("Simple Success Haptics")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.green)
+                        .onTapGesture(perform: simpleSuccess)
+                    Spacer()
+                    Text("Complex Success Haptics")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.green)
+                        .onTapGesture(perform: complexSuccess)
+                }
+                .onAppear(perform: prepareHaptics)
             )
 
             NavigationLink("Placeholder 3", destination:
                 Text("Placeholder 3")
             )
+        }
+    }
+    
+    func simpleSuccess() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    
+    func prepareHaptics() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+
+        do {
+            self.hapticEngine = try CHHapticEngine()
+            try hapticEngine?.start()
+        } catch {
+            print("There was an error creating the haptics engine: \(error.localizedDescription)")
+        }
+    }
+    
+    func complexSuccess() {
+        // make sure that the device supports haptics
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        var events = [CHHapticEvent]()
+
+        // create one intense, sharp tap
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
+        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
+        events.append(event)
+
+        // convert those events into a pattern and play it immediately
+        do {
+            let pattern = try CHHapticPattern(events: events, parameters: [])
+            let player = try hapticEngine?.makePlayer(with: pattern)
+            try player?.start(atTime: 0)
+        } catch {
+            print("Failed to play pattern: \(error.localizedDescription).")
         }
     }
 }
