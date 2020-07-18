@@ -98,4 +98,6 @@ if let outputImage = filter.outputImage {
 - for the scanning of QR codes the **CodeScanner** package of __Paul Hudson / @TwoStraws__ is used
 
 ## Wrap up - Challenges
-- 
+- add an icon to the "Everyone" screen, indicating whether a prospect has been contacted or not
+- save user data
+- add sorting of users
