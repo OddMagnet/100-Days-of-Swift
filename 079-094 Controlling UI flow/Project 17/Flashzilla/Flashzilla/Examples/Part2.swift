@@ -11,6 +11,7 @@ import SwiftUI
 struct Part2: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var timerCount = ""
+    @State private var backgroundMessage = ""
     
     var body: some View {
         Section(header: Text("Part 2")) {
@@ -27,8 +28,17 @@ struct Part2: View {
                 }
             )
 
-            NavigationLink("Placeholder 2", destination:
-                Text("Placeholder 2")
+            NavigationLink("How to be notified when your SwiftUI app moves to the background", destination:
+                Text(backgroundMessage)
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                        self.backgroundMessage += "Moving to the background\n"
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                        self.backgroundMessage += "Moving back to the foreground\n"
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.userDidTakeScreenshotNotification)) { _ in
+                        self.backgroundMessage += "User took a screenshot!\n"
+                    }
             )
 
             NavigationLink("Placeholder 3", destination:
