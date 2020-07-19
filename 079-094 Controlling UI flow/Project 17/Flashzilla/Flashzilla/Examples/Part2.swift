@@ -9,11 +9,22 @@
 import SwiftUI
 
 struct Part2: View {
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timerCount = ""
+    
     var body: some View {
         Section(header: Text("Part 2")) {
             
-            NavigationLink("Placeholder 1", destination:
-                Text("Placeholder 1")
+            NavigationLink("Triggering events repeatedly using a timer", destination:
+                VStack {
+                    Button("Stop timer") {
+                        self.timer.upstream.connect().cancel()
+                    }
+                    Text(timerCount)
+                        .onReceive(timer) { time in
+                            self.timerCount = "\(time)"
+                    }
+                }
             )
 
             NavigationLink("Placeholder 2", destination:
