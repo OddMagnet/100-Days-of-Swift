@@ -89,7 +89,16 @@ do {
     - `UIApplication.keyboardDidShowNotification`, when the keyboard shows
 
 ## Supporting specific accessibility needs with SwiftUI
-- 
+- can be accomplished via environment properties, such as:
+- `@Environment(\.accessibilityDifferentiateWithoutColor)`
+    - which is either true or false and should be used to adapt the UI for color blind people
+- `@Environment(\.accessibilityReduceMotion)`
+    - which is either true or false and should be used to adapt the UI for less motion
+    - to easily accomplish this a wrapper around `withAnimation` could be writtent
+    - `func withOptionalAnimation<Result>(_ animation: Animation? = .default, _ body: () throws -> Result) rethrows -> Result { ... }`
+    - inside the wrapper a simple check on `UIAccessibility.isReduceMotionEnabled` can be used to either return the body with or without `withAnimation`
+- `@Environment(\.accessibilityReduceTransparency)`
+    - which is either true or false and should be used to adapt the UI to use less blue and translucency and more solid backgrounds/colors
 
 ## Moving views with DragGesture and offset()
 - 
