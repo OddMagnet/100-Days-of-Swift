@@ -68,7 +68,14 @@ do {
 - this is useful when a view contains spacers but the whole view should be tap-able
 
 ## Triggering events repeatedly using a timer
-- 
+- since the `Combine` framework adds an extension on `Timer` that allows them to become __publishers__, it's possible to use them as such
+- to create a timer publisher  `Timer`'s `.publish(every:, tolerance:, on:, in:)` method is called, followed by `.autoconnect()`
+    - `every` is used to specify the interval that the timer fires on in seconds
+    - `on` specifies the thread the timer should run, using an enum value
+    - `tolerance` is optional and specifies the tolerance in seconds that the timer can be off, this allows iOS to optimize efficiency
+    - `in` takes an enum value specifying the run loop, most commonly `.common`
+- a timer publisher can then be used for example in the `.onReceive()` modifier, so that it executes some code every time the timer fires
+- stopping a autoconnected timer is a bit complicated since its __upstream__ publisher needs to be connected and called `cancel()` on: `self.timer.upstream.connect().cancel()`
 
 ## Getting notified when the app moves to the background
 - 
