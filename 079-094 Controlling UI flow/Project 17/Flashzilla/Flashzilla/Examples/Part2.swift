@@ -12,6 +12,10 @@ struct Part2: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var timerCount = ""
     @State private var backgroundMessage = ""
+    @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
+    @State private var scale: CGFloat = 1
+    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
     
     var body: some View {
         Section(header: Text("Part 2")) {
@@ -41,9 +45,49 @@ struct Part2: View {
                     }
             )
 
-            NavigationLink("Placeholder 3", destination:
-                Text("Placeholder 3")
+            NavigationLink("Supporting specific accessibility needs with SwiftUI", destination:
+                VStack {
+                    HStack {
+                        if differentiateWithoutColor {
+                            Image(systemName: "checkmark.circle")
+                        }
+
+                        Text("Differentiate without color")
+                    }
+                    .padding()
+                    .background(differentiateWithoutColor ? Color.black : Color.green)
+                    .foregroundColor(Color.white)
+                    .clipShape(Capsule())
+                    
+                    Text("Reduce motion, tap me")
+                        .padding()
+                        .scaleEffect(scale)
+                        .onTapGesture {
+                            self.withOptionalAnimation {
+                                    self.scale *= 1.5
+                                }
+                        }
+                        .onLongPressGesture {
+                            self.withOptionalAnimation {
+                                self.scale = 1
+                            }
+                        }
+                    
+                    Text("Reduced Transparency")
+                        .padding()
+                        .background(reduceTransparency ? Color.black : Color.black.opacity(0.5))
+                        .foregroundColor(Color.white)
+                        .clipShape(Capsule())
+                }
             )
+        }
+    }
+    
+    func withOptionalAnimation<Result>(_ animation: Animation? = .default, _ body: () throws -> Result) rethrows -> Result {
+        if UIAccessibility.isReduceMotionEnabled {
+            return try body()
+        } else {
+            return try withAnimation(animation, body)
         }
     }
 }
