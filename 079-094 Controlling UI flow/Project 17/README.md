@@ -78,7 +78,15 @@ do {
 - stopping a autoconnected timer is a bit complicated since its __upstream__ publisher needs to be connected and called `cancel()` on: `self.timer.upstream.connect().cancel()`
 
 ## Getting notified when the app moves to the background
-- 
+- thanks to the **Notification Center** framework it's possible to receive all kinds of event messages
+- most commonly `.onReceive()` is used to act on them
+- to receive them `NotificationCenter.default.publisher(for:)` is used
+- some possible arguments are (and are sent when:)
+    - `UIApplication.willResignActiveNotification`, when the app goes into the background
+    - `UIApplication.willEnterForeGroundNotificaion`, when the app goes into the foreground again
+    - `UIApplication.userDidTakeScreenshotNotification`, when the user took a screenshot
+    - `UIApplication.significantTimeChangeNotification`, when the user changes their clock or daylight savings time changes
+    - `UIApplication.keyboardDidShowNotification`, when the keyboard shows
 
 ## Supporting specific accessibility needs with SwiftUI
 - 
