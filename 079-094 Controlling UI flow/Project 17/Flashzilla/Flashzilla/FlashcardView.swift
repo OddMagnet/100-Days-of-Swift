@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct FlashcardView: View {
+    @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
     let card: Flashcard
@@ -16,9 +17,22 @@ struct FlashcardView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 25, style: .circular)
-                .fill(Color.white)
+            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                .fill(
+                    // Accessibility for color blind people
+                    differentiateWithoutColor
+                        ? Color.white
+                        : Color.white
+                            .opacity(1 - Double(abs(offset.width / 50)))
+                )
                 .shadow(radius: 10)
+                .background(
+                    // Accessibility for color blind people
+                    differentiateWithoutColor
+                        ? nil
+                        : RoundedRectangle(cornerRadius: 25, style: .continuous)
+                            .fill(offset.width > 0 ? Color.green : Color.red)
+                )
             
             VStack {
                 Text(card.prompt)
