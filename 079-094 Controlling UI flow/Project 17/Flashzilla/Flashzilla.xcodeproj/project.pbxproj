@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C52D35E24C5BF3000BFC330 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52D35D24C5BF3000BFC330 /* Flashcard.swift */; };
+		4C52D36024C5C06100BFC330 /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C52D35F24C5C06100BFC330 /* FlashcardView.swift */; };
 		4C84E6AE24C2FE6B00C3E312 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84E6AD24C2FE6B00C3E312 /* AppDelegate.swift */; };
 		4C84E6B024C2FE6B00C3E312 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84E6AF24C2FE6B00C3E312 /* SceneDelegate.swift */; };
 		4C84E6B224C2FE6B00C3E312 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84E6B124C2FE6B00C3E312 /* ContentView.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C52D35D24C5BF3000BFC330 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		4C52D35F24C5C06100BFC330 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
 		4C84E6AA24C2FE6B00C3E312 /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C84E6AD24C2FE6B00C3E312 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C84E6AF24C2FE6B00C3E312 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 				4C84E6AD24C2FE6B00C3E312 /* AppDelegate.swift */,
 				4C84E6AF24C2FE6B00C3E312 /* SceneDelegate.swift */,
 				4C84E6B124C2FE6B00C3E312 /* ContentView.swift */,
+				4C52D35F24C5C06100BFC330 /* FlashcardView.swift */,
+				4C52D35D24C5BF3000BFC330 /* Flashcard.swift */,
 				4C84E6C124C2FE9300C3E312 /* Examples */,
 				4C84E6B324C2FE6F00C3E312 /* Assets.xcassets */,
 				4C84E6B824C2FE6F00C3E312 /* LaunchScreen.storyboard */,
@@ -168,10 +174,12 @@
 			files = (
 				4C84E6C924C2FF3500C3E312 /* Part3.swift in Sources */,
 				4C84E6C324C2FEAD00C3E312 /* Examples.swift in Sources */,
+				4C52D35E24C5BF3000BFC330 /* Flashcard.swift in Sources */,
 				4C84E6C524C2FF1A00C3E312 /* Part1.swift in Sources */,
 				4C84E6AE24C2FE6B00C3E312 /* AppDelegate.swift in Sources */,
 				4C84E6C724C2FF2700C3E312 /* Part2.swift in Sources */,
 				4C84E6B024C2FE6B00C3E312 /* SceneDelegate.swift in Sources */,
+				4C52D36024C5C06100BFC330 /* FlashcardView.swift in Sources */,
 				4C84E6B224C2FE6B00C3E312 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
