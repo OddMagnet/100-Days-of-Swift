@@ -100,8 +100,5 @@ do {
 - `@Environment(\.accessibilityReduceTransparency)`
     - which is either true or false and should be used to adapt the UI to use less blue and translucency and more solid backgrounds/colors
 
-## Moving views with DragGesture and offset()
-- 
-
 ## Wrap up - Challenges
 - 
