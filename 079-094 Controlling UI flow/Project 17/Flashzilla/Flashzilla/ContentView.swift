@@ -44,6 +44,15 @@ struct ContentView: View {
                             .stacked(at: index, in: self.cards.count, by: 10)
                     }
                 }
+                .allowsHitTesting(timeRemaining > 0)
+                
+                if cards.isEmpty {
+                    Button("Start Again", action: resetCards)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .clipShape(Capsule())
+                }
             }
             
             // Accessibility for color blind people
@@ -78,12 +87,23 @@ struct ContentView: View {
             self.timerIsActive = false
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            self.timerIsActive = true
+            if self.cards.isEmpty == false {
+                self.timerIsActive = true
+            }
         }
     }
     
     func removeCard(at index: Int) {
         cards.remove(at: index)
+        if cards.isEmpty {
+            self.timerIsActive = false
+        }
+    }
+    
+    func resetCards() {
+        cards = [Flashcard](repeating: Flashcard.example, count: 10)
+        timeRemaining = 100
+        timerIsActive = true
     }
 }
 
