@@ -15,6 +15,9 @@ struct ContentView: View {
     @State private var timeRemaining = 100
     @State private var timerIsActive = true
     @State private var showingEditScreen = false
+    // Wrap up - Challenge 2 - Add a settings menu with an option to put wrong cards back
+    @State private var showingSettingsScreen = false
+    @State private var reAppendWrongCards = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -43,9 +46,9 @@ struct ContentView: View {
                 
                 ZStack {
                     ForEach(0 ..< cards.count, id: \.self) { index in
-                        FlashcardView(card: self.cards[index], removal: {
+                        FlashcardView(card: self.cards[index], removal: { wasWrong in
                             withAnimation {
-                                self.removeCard(at: index)
+                                self.removeCard(at: index, cardWasWrong: wasWrong)
                             }
                         })
                             .stacked(at: index, in: self.cards.count, by: 10)
@@ -67,6 +70,16 @@ struct ContentView: View {
             // Edit menu
             VStack {
                 HStack {
+                    // Wrap up - Challenge 2 - Add a settings menu
+                    Button(action: {
+                        self.showingSettingsScreen = true
+                    }) {
+                        Image(systemName: "gear")
+                            .padding()
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                    }
+                    
                     Spacer()
 
                     Button(action: {
@@ -93,7 +106,7 @@ struct ContentView: View {
                     HStack {
                         Button(action: {
                             withAnimation {
-                                self.removeCard(at: self.cards.count - 1)
+                                self.removeCard(at: self.cards.count - 1, cardWasWrong: true)
                             }
                         }) {
                             Image(systemName: "xmark.circle")
@@ -107,7 +120,7 @@ struct ContentView: View {
                         Spacer()
                         Button(action: {
                             withAnimation {
-                                self.removeCard(at: self.cards.count - 1)
+                                self.removeCard(at: self.cards.count - 1, cardWasWrong: false)
                             }
                         }) {
                             Image(systemName: "checkmark.circle")
@@ -123,6 +136,20 @@ struct ContentView: View {
                     .padding()
                 }
             }
+        }
+        .actionSheet(isPresented: $showingSettingsScreen) {
+            // Wrap up - Challenge 2 - Add a settings menu
+            ActionSheet(title: Text("Settings"),
+                        message: Text("Put wrong cards back in?"),
+                        buttons: [
+                            .default(Text("Yes\(reAppendWrongCards ? " ⦻" : "")")) {
+                                self.reAppendWrongCards = true
+                            },
+                            .default(Text("No\(reAppendWrongCards ? "" : " ⦻")")) {
+                                self.reAppendWrongCards = false
+                            }
+                        ]
+                    )
         }
         .sheet(isPresented: $showingEditScreen, onDismiss: resetCards) {
             EditCardsView()
@@ -152,9 +179,17 @@ struct ContentView: View {
         }
     }
     
-    func removeCard(at index: Int) {
+    func removeCard(at index: Int, cardWasWrong: Bool) {
         guard index >= 0 else { return }
-        cards.remove(at: index)
+        
+        let card = cards.remove(at: index)
+        // Wrap up - Challenge 2 - re-append wrong cards when it's enabled in settings
+        if reAppendWrongCards && cardWasWrong {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.cards.insert(card, at: 0)
+            }
+        }
+        
         if cards.isEmpty {
             self.timerIsActive = false
         }

@@ -15,7 +15,7 @@ struct FlashcardView: View {
     @State private var offset = CGSize.zero
     @State private var hapticFeedback = UINotificationFeedbackGenerator()
     let card: Flashcard
-    var removal: (() -> Void)? = nil
+    var removal: ((Bool) -> Void)? = nil
     
     var body: some View {
         ZStack {
@@ -82,7 +82,7 @@ struct FlashcardView: View {
                             self.hapticFeedback.notificationOccurred(.error)
                         }
                         
-                        self.removal?()
+                        self.removal?(self.offset.width < 0)
                     } else {
                         self.offset = .zero
                     }
