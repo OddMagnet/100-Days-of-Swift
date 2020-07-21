@@ -23,6 +23,8 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
+                .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height)
+                //frame to fix layout issues on older phones, e.g. iPhone 6s and 6s plus
             
             VStack {
                 Text("Time remaining: \(timeRemaining)s")
