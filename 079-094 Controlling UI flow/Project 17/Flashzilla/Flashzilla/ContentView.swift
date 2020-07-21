@@ -37,6 +37,9 @@ struct ContentView: View {
                             .fill(Color.black)
                             .opacity(0.75)
                     )
+                    .shaking(shakes: timeRemaining == 0 ? 4 : 0)
+                    .animation(.easeInOut)
+                    // ^ Wrap up - Challenge 1 - Shake the text on timer ending
                 
                 ZStack {
                     ForEach(0 ..< cards.count, id: \.self) { index in
