@@ -11,9 +11,10 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityEnabled) var accessibilityEnabled
-    @State private var cards = [Flashcard](repeating: Flashcard.example, count: 10)
+    @State private var cards = [Flashcard]()
     @State private var timeRemaining = 100
     @State private var timerIsActive = true
+    @State private var showingEditScreen = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -58,6 +59,27 @@ struct ContentView: View {
                 }
             }
             
+            // Edit menu
+            VStack {
+                HStack {
+                    Spacer()
+
+                    Button(action: {
+                        self.showingEditScreen = true
+                    }) {
+                        Image(systemName: "plus.circle")
+                            .padding()
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                    }
+                }
+
+                Spacer()
+            }
+            .foregroundColor(.white)
+            .font(.largeTitle)
+            .padding()
+            
             // Accessibility for color blind people
             if differentiateWithoutColor || accessibilityEnabled {
                 VStack {
@@ -97,6 +119,10 @@ struct ContentView: View {
                 }
             }
         }
+        .sheet(isPresented: $showingEditScreen, onDismiss: resetCards) {
+            EditCardsView()
+        }
+        .onAppear(perform: resetCards)
         .onReceive(timer) { time in
             guard self.timerIsActive else { return }
             if self.timeRemaining > 0 {
@@ -113,6 +139,14 @@ struct ContentView: View {
         }
     }
     
+    func loadData() {
+        if let data = UserDefaults.standard.data(forKey: "Cards") {
+            if let decoded = try? JSONDecoder().decode([Flashcard].self, from: data) {
+                self.cards = decoded
+            }
+        }
+    }
+    
     func removeCard(at index: Int) {
         guard index >= 0 else { return }
         cards.remove(at: index)
@@ -122,15 +156,15 @@ struct ContentView: View {
     }
     
     func resetCards() {
-        cards = [Flashcard](repeating: Flashcard.example, count: 10)
         timeRemaining = 100
         timerIsActive = true
+        loadData()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewLayout(.fixed(width: 568, height: 320))
+            .previewLayout(.fixed(width: 896, height: 414))
     }
 }
