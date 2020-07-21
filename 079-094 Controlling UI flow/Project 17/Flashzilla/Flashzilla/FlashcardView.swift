@@ -10,10 +10,10 @@ import SwiftUI
 
 struct FlashcardView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
+    @Environment(\.accessibilityEnabled) var accessibilityEnabled
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
     @State private var hapticFeedback = UINotificationFeedbackGenerator()
-    @Environment(\.accessibilityEnabled) var accessibilityEnabled
     let card: Flashcard
     var removal: (() -> Void)? = nil
     
@@ -94,6 +94,6 @@ struct FlashcardView: View {
 struct FlashcardView_Previews: PreviewProvider {
     static var previews: some View {
         FlashcardView(card: Flashcard.example)
-            .previewLayout(.fixed(width: 568, height: 320))
+            .previewLayout(.fixed(width: 896, height: 414))
     }
 }
