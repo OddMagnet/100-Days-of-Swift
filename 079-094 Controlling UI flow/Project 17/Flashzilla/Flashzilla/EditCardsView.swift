@@ -35,12 +35,12 @@ struct EditCardsView: View {
                     .onDelete(perform: removeCards)
                 }
             }
-            .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("Edit Cards")
             .navigationBarItems(trailing: Button("Done", action: dismiss))
             .listStyle(GroupedListStyle())
             .onAppear(perform: loadData)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func dismiss() {
