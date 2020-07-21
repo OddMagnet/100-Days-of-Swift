@@ -51,7 +51,7 @@ struct FlashcardView: View {
         }
         .frame(width: 450, height: 250)
         .rotationEffect(.degrees(Double(offset.width / 5))) // rotate slowly, 1/5 of the actual movement
-        .offset(x: offset.width * 5, y: 0)                  // move fast horiziontally, 5x the movement
+        .offset(x: offset.width * 2, y: 0)                  // move fast horiziontally, 2x the movement
         .opacity(opacity(for: offset, after: 100))          // opacity goes down after 50 units
         .onTapGesture {
             self.isShowingAnswer.toggle()
@@ -64,9 +64,7 @@ struct FlashcardView: View {
                 }
                 .onEnded { _ in
                     if abs(self.offset.width) > 100 {
-                        if self.offset.width > 0 {          // decide which haptic to play
-                            self.hapticFeedback.notificationOccurred(.success)
-                        } else {
+                        if self.offset.width < 0 {          // only play feedback on wrong answers
                             self.hapticFeedback.notificationOccurred(.error)
                         }
                         
