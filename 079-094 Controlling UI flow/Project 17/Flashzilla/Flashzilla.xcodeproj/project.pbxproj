@@ -20,6 +20,7 @@
 		4C84E6C524C2FF1A00C3E312 /* Part1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84E6C424C2FF1A00C3E312 /* Part1.swift */; };
 		4C84E6C724C2FF2700C3E312 /* Part2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84E6C624C2FF2700C3E312 /* Part2.swift */; };
 		4C84E6C924C2FF3500C3E312 /* Part3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84E6C824C2FF3500C3E312 /* Part3.swift */; };
+		4CF4D8B224C7235A00E56D45 /* EditCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4D8B124C7235A00E56D45 /* EditCardsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4C84E6C424C2FF1A00C3E312 /* Part1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part1.swift; sourceTree = "<group>"; };
 		4C84E6C624C2FF2700C3E312 /* Part2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part2.swift; sourceTree = "<group>"; };
 		4C84E6C824C2FF3500C3E312 /* Part3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3.swift; sourceTree = "<group>"; };
+		4CF4D8B124C7235A00E56D45 /* EditCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				4C84E6AD24C2FE6B00C3E312 /* AppDelegate.swift */,
 				4C84E6AF24C2FE6B00C3E312 /* SceneDelegate.swift */,
 				4C84E6B124C2FE6B00C3E312 /* ContentView.swift */,
+				4CF4D8B124C7235A00E56D45 /* EditCardsView.swift */,
 				4C52D35F24C5C06100BFC330 /* FlashcardView.swift */,
 				4C52D35D24C5BF3000BFC330 /* Flashcard.swift */,
 				4C52D36124C5C48200BFC330 /* View+Stacked.swift */,
@@ -179,6 +182,7 @@
 				4C84E6C924C2FF3500C3E312 /* Part3.swift in Sources */,
 				4C84E6C324C2FEAD00C3E312 /* Examples.swift in Sources */,
 				4C52D35E24C5BF3000BFC330 /* Flashcard.swift in Sources */,
+				4CF4D8B224C7235A00E56D45 /* EditCardsView.swift in Sources */,
 				4C84E6C524C2FF1A00C3E312 /* Part1.swift in Sources */,
 				4C84E6AE24C2FE6B00C3E312 /* AppDelegate.swift in Sources */,
 				4C84E6C724C2FF2700C3E312 /* Part2.swift in Sources */,
