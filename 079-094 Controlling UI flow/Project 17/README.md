@@ -101,4 +101,6 @@ do {
     - which is either true or false and should be used to adapt the UI to use less blue and translucency and more solid backgrounds/colors
 
 ## Wrap up - Challenges
-- 
+- add some text/haptic when the timer ends
+- add a settings screen with an option to put wrong cards to the back of the stack
+- fix the red flashing of cards that are dragged to the right and then released
