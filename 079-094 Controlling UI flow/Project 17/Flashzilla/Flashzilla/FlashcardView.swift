@@ -13,6 +13,7 @@ struct FlashcardView: View {
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
     @State private var hapticFeedback = UINotificationFeedbackGenerator()
+    @Environment(\.accessibilityEnabled) var accessibilityEnabled
     let card: Flashcard
     var removal: (() -> Void)? = nil
     
@@ -36,14 +37,20 @@ struct FlashcardView: View {
                 )
             
             VStack {
-                Text(card.prompt)
-                    .font(.largeTitle)
-                    .foregroundColor(.black)
-                
-                if isShowingAnswer {
-                    Text(card.answer)
-                        .font(.title)
-                        .foregroundColor(.gray)
+                if accessibilityEnabled {
+                    Text(isShowingAnswer ? card.answer : card.prompt)
+                        .font(.largeTitle)
+                        .foregroundColor(.black)
+                } else {
+                    Text(card.prompt)
+                        .font(.largeTitle)
+                        .foregroundColor(.black)
+                    
+                    if isShowingAnswer {
+                        Text(card.answer)
+                            .font(.title)
+                            .foregroundColor(.gray)
+                    }
                 }
             }
             .padding(20)
@@ -53,9 +60,11 @@ struct FlashcardView: View {
         .rotationEffect(.degrees(Double(offset.width / 5))) // rotate slowly, 1/5 of the actual movement
         .offset(x: offset.width * 2, y: 0)                  // move fast horiziontally, 2x the movement
         .opacity(opacity(for: offset, after: 100))          // opacity goes down after 50 units
+        .accessibility(addTraits: .isButton)
         .onTapGesture {
             self.isShowingAnswer.toggle()
         }
+        .animation(.spring())
         .gesture(
             DragGesture()
                 .onChanged { gesture in
