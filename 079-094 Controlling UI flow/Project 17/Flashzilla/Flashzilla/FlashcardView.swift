@@ -12,6 +12,7 @@ struct FlashcardView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
+    @State private var hapticFeedback = UINotificationFeedbackGenerator()
     let card: Flashcard
     var removal: (() -> Void)? = nil
     
@@ -59,9 +60,16 @@ struct FlashcardView: View {
             DragGesture()
                 .onChanged { gesture in
                     self.offset = gesture.translation
+                    self.hapticFeedback.prepare()           // prepare haptic engine
                 }
                 .onEnded { _ in
                     if abs(self.offset.width) > 100 {
+                        if self.offset.width > 0 {          // decide which haptic to play
+                            self.hapticFeedback.notificationOccurred(.success)
+                        } else {
+                            self.hapticFeedback.notificationOccurred(.error)
+                        }
+                        
                         self.removal?()
                     } else {
                         self.offset = .zero
