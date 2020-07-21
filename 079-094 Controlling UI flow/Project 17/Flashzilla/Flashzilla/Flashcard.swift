@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Flashcard {
+struct Flashcard: Codable {
     let prompt: String
     let answer: String
 
