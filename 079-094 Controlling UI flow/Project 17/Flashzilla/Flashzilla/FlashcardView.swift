@@ -33,7 +33,12 @@ struct FlashcardView: View {
                     differentiateWithoutColor
                         ? nil
                         : RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(offset.width > 0 ? Color.green : Color.red)
+                            .fill(offset.width == 0 // if offset is exactly 0
+                                ? Color.white       // then use white color
+                                : offset.width > 0  // if offset is greater than 0
+                                ? Color.green       // then use green color
+                                : Color.red)        // else use red color
+                            // ^ Wrap up - Challenge 3 - Fix cards flashing red ^
                 )
             
             VStack {
