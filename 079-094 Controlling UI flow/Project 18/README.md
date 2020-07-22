@@ -29,7 +29,30 @@ ForEach(0 ..< 10) { position in
 - this will create 10 text views in a tiered effect
 
 ## How to create custom alignment guides
-- 
+- to align views that are in different parts of the UI custom alignment guides are used
+- to create a custom layout guide an extension on either `VerticalAlignment` or `HorizontalAlignment` and a custom type conforming to the `AlignmentID` protocol is needed
+- the custom type is best implemented as an Enum, so it can't be instantiated
+- to conform to `AlignmentID` a static `defaultValut(in:)` method needs to be implemented, which accepts a `ViewDimensions` object and returns a CGFloat
+- the CGFloat specifies how a view should be aligned if it doesn't have an `alignmentGuide()` modifier
+- for ease of use a static property can be added, so the custom alignment guide can be used like the standard ones: `static let customAlignment = VerticalAlignment(CustomAlignment.self)`
+- by using the custom guide as the alignment for the containing view it's possible to align items in different container views via the `alignmentGuide()` modifier
+- the modifier still needs its closure so it knows where on the line to align the items
+
+```swift
+HStack(alignment: .customAlignment) {
+    VStack {
+        Text("Some Line")
+        Text("These lines")
+            .alignmentGuide(.customAlignment) { d in d[VerticalAlignment.center] } 
+    }
+
+    VStack {
+        Text("Are Aligned")
+            .alignmentGuide(.customAlignment) { d in d[VerticalAlignment.center] }
+        Text("Another Line")
+    }
+}
+```
 
 ## Absolute positioning for SwiftUI views
 - 
