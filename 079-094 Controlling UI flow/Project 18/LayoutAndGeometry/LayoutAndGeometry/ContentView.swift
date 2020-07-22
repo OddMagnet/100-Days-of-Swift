@@ -14,6 +14,7 @@ struct ContentView: View {
             List {
                 NavigationLink("How layout works in SwiftUI", destination: Layout())
                 NavigationLink("Alignment and alignment guides", destination: Alignment())
+                NavigationLink("How to create a custom alignment guide", destination: AlignmentGuides())
             }
             .navigationBarTitle("Layout and Geometry")
         }
