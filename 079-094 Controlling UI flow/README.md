@@ -30,4 +30,9 @@ Learning goals:
 A technique project to explore how SwiftUI handles layout
 
 Learning goals:
-- 
+- How layout works in SwiftUI
+- Alignment and alignment guides
+- How to create custom alignment guides
+- Absolute positioning for SwiftUI views
+- Understanding frames and coordinates inside GeometryReader
+- ScrollView effects using GeometryReader
