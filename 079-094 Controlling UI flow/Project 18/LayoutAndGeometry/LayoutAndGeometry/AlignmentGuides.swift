@@ -27,9 +27,19 @@ struct AlignmentGuides: View {
                 Image("FlowerAndBee")
                     .resizable()
                     .frame(width: 64, height: 64)
+                
+                ForEach(0 ..< 9) { _ in
+                    Text("Test")
+                        .padding()
+                }
             }
             
             VStack {
+                ForEach(0 ..< 5) { _ in
+                    Text("Test")
+                        .padding()
+                }
+
                 Text("Full Name:")
                 Text("Michael Brünen")
                     .alignmentGuide(.midAccountAndName) { d in d[VerticalAlignment.center] }
