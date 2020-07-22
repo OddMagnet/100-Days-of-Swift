@@ -10,7 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            List {
+                NavigationLink("How layout works in SwiftUI", destination: Layout())
+            }
+            .navigationBarTitle("Layout and Geometry")
+        }
     }
 }
 
