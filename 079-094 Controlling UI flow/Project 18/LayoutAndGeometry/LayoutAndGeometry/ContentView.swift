@@ -16,6 +16,8 @@ struct ContentView: View {
                 NavigationLink("Alignment and alignment guides", destination: Alignment())
                 NavigationLink("How to create a custom alignment guide", destination: AlignmentGuides())
                 NavigationLink("Absolute positioning for SwiftUI views", destination: Absolute())
+                NavigationLink("Understanding frames and coordinates inside GeometryReader", destination: FramesCoordinates())
+                
             }
             .navigationBarTitle("Layout and Geometry")
         }
