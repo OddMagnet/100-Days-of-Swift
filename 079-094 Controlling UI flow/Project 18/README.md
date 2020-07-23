@@ -71,6 +71,10 @@ HStack(alignment: .customAlignment) {
 - there are two special spaces, the `.global` (which refers to the whole screen) and the `.local` (which refers to the parents frame)
 - it's possible to create a custom coordinate space by attaching the `coordinateSpace(name:)` modifier to a view, so any children of that view can read its frame relative to that space
 - for a visual see the example in `FramesCoordinates.swift`
+- to decide on which coordinate space to use:
+    - to know where a view is on the screen -> global space
+    - to know where a view is relative to its parent -> local space
+    - to know where a view is relative to another view -> custom spaces
 
 ## ScrollView effects using GeometryReader
 - 
