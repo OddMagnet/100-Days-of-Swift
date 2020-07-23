@@ -64,7 +64,13 @@ HStack(alignment: .customAlignment) {
 - for `.offset`, modifiers before it will be moved, modifiers after it stay in the original position with the original size
 
 ## Understanding frames and coordinates inside GeometryReader
-- 
+- GeometryReader allows for determination of the size/coordinates of views, thanks to its own size that it gets by taking all the space its parent offers
+- the property passed into GeometryReader is a `GeometryProxy` which contains from the parent proposed size, safe area insets that have been applied and a method for reading frame values
+- the size can be accessed by simply using the proxy's `size` property (which contains `width` and `height` since they make up the size of a view)
+- the `frame(in:)` method of the proxy allows for reading X and Y coordinates in regards to a certain **coordinate space**
+- there are two special spaces, the `.global` (which refers to the whole screen) and the `.local` (which refers to the parents frame)
+- it's possible to create a custom coordinate space by attaching the `coordinateSpace(name:)` modifier to a view, so any children of that view can read its frame relative to that space
+- for a visual see the example in `FramesCoordinates.swift`
 
 ## ScrollView effects using GeometryReader
 - 
