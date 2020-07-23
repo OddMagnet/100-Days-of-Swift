@@ -55,7 +55,13 @@ HStack(alignment: .customAlignment) {
 ```
 
 ## Absolute positioning for SwiftUI views
-- 
+- when using the `.position()` modifier for absolute position, a few things need to be kept in mind
+- compared to `.offset()`, which does not change the actual geometry, `.position does`
+- that means any modifiers applied before it will also change their position
+- modifiers after it will take up all of the size the parent view provides
+- this behaviour is directly related to how layout works in SwiftUI
+- for `.offset`, modifiers before it will be moved, modifiers after it stay in the original position with the original siz layout works in SwiftUI
+- for `.offset`, modifiers before it will be moved, modifiers after it stay in the original position with the original size
 
 ## Understanding frames and coordinates inside GeometryReader
 - 
