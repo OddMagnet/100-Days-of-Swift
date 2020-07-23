@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C4172D824C9B05B0028128D /* Absolute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4172D724C9B05B0028128D /* Absolute.swift */; };
 		4C4172DA24C9B8060028128D /* FramesCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4172D924C9B8060028128D /* FramesCoordinates.swift */; };
+		4C4172DC24C9C6270028128D /* ScrollViewEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4172DB24C9C6270028128D /* ScrollViewEffects.swift */; };
 		4C6E9F4F24C86B0300D284E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E9F4E24C86B0300D284E5 /* AppDelegate.swift */; };
 		4C6E9F5124C86B0300D284E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E9F5024C86B0300D284E5 /* SceneDelegate.swift */; };
 		4C6E9F5324C86B0300D284E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E9F5224C86B0300D284E5 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		4C4172D724C9B05B0028128D /* Absolute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Absolute.swift; sourceTree = "<group>"; };
 		4C4172D924C9B8060028128D /* FramesCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramesCoordinates.swift; sourceTree = "<group>"; };
+		4C4172DB24C9C6270028128D /* ScrollViewEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewEffects.swift; sourceTree = "<group>"; };
 		4C6E9F4B24C86B0300D284E5 /* LayoutAndGeometry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutAndGeometry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6E9F4E24C86B0300D284E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C6E9F5024C86B0300D284E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				4C6E9F6624C89B9200D284E5 /* AlignmentGuides.swift */,
 				4C4172D724C9B05B0028128D /* Absolute.swift */,
 				4C4172D924C9B8060028128D /* FramesCoordinates.swift */,
+				4C4172DB24C9C6270028128D /* ScrollViewEffects.swift */,
 				4C6E9F5424C86B0800D284E5 /* Assets.xcassets */,
 				4C6E9F5924C86B0800D284E5 /* LaunchScreen.storyboard */,
 				4C6E9F5C24C86B0800D284E5 /* Info.plist */,
@@ -163,6 +166,7 @@
 			files = (
 				4C6E9F6524C8757D00D284E5 /* Alignment.swift in Sources */,
 				4C6E9F4F24C86B0300D284E5 /* AppDelegate.swift in Sources */,
+				4C4172DC24C9C6270028128D /* ScrollViewEffects.swift in Sources */,
 				4C6E9F6324C8743F00D284E5 /* Layout.swift in Sources */,
 				4C4172DA24C9B8060028128D /* FramesCoordinates.swift in Sources */,
 				4C6E9F5124C86B0300D284E5 /* SceneDelegate.swift in Sources */,
