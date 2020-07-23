@@ -77,7 +77,10 @@ HStack(alignment: .customAlignment) {
     - to know where a view is relative to another view -> custom spaces
 
 ## ScrollView effects using GeometryReader
-- 
+- thanks to GeometryReaders proxy object and it's `size` property and `frame(in:)` method its easy to create nice scrolling effects
+- by wrapping the ScrollView in a GeometryReader it's possible to control the size of the elements inside the ScrollView
+- by using a GeometryReader inside the ScrollView, its elements can be manipulated based on their position on the screen
+- for a visual example see `ScrollViewEffects.swift`   
 
 ## Wrap up - Challenges
 - 
