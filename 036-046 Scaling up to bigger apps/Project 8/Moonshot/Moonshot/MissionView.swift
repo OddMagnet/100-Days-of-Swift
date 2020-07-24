@@ -48,11 +48,17 @@ struct MissionView: View {
         GeometryReader { geo in
             ScrollView(.vertical) {
                 VStack {
-                    Image(self.mission.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: geo.size.width * 0.7)
-                        .padding(.top)
+                    GeometryReader { imgGeo in
+                        VStack(alignment: .center) {
+                            Image(self.mission.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: imgGeo.size.width)
+                                .padding(.vertical)
+                        }
+                            // Day 94 - Challenge 1 - Add a scaling effect to the mission badge
+                            .scaleEffect(imgGeo.frame(in: .global).maxY / imgGeo.size.height)
+                    }
                     
                     // Wrap up - Challenge 1 - Add launch date
                     Text("Launch: \(self.mission.formattedLaunchDate)")
