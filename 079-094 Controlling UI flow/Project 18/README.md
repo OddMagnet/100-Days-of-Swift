@@ -83,4 +83,6 @@ HStack(alignment: .customAlignment) {
 - for a visual example see `ScrollViewEffects.swift`   
 
 ## Wrap up - Challenges
-- 
+- change [Moonshot](Project%208) so that the badges in the MissionView get smaller when scrolling down
+- change [Word Scramble](Project%205) so that words toward the bottom of the list slide in from the right when scrolling
+- change [Word Scramble](Project%205) so that the letter count images change color when scrolling
