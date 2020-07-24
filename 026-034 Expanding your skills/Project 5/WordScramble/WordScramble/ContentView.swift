@@ -28,15 +28,17 @@ struct ContentView: View {
                     .padding()
                     .autocapitalization(.none)
 
-                // Day 94 - Wrap up - Challenge 2
                 GeometryReader { outerGeo in
                     List(self.usedWords, id: \.self) { word in
                         GeometryReader { innerGeo in
                             HStack {
                                 Image(systemName: "\(word.count).circle") // show length of each word
+                                    // Day 94 - Wrap up - Challenge 3
+                                    .foregroundColor(self.getColorForItemIn(innerGeo, with: outerGeo))
                                 Text(word)
                             }
-                            .offset(x: self.getOffsetForItem(in: innerGeo, with: outerGeo))
+                            // Day 94 - Wrap up - Challenge 2
+                            .offset(x: self.getOffsetForItemIn(innerGeo, with: outerGeo))
                             .frame(width: innerGeo.size.width, alignment: .leading)
                             .accessibilityElement(children: .ignore)
                             .accessibility(label: Text("\(word), \(word.count) letters"))
@@ -57,12 +59,12 @@ struct ContentView: View {
     }
     
     // Day 94 - Wrap up - Challenge 2
-    func getOffsetForItem(in innerProxy: GeometryProxy,
+    func getOffsetForItemIn(_ innerProxy: GeometryProxy,
                           with outerProxy: GeometryProxy,
                           thresholdPercentage: CGFloat = 60,
                           indent: CGFloat = 9) -> CGFloat {
         
-        let itemPercent = getItemPercentForItemIn(innerProxy: innerProxy, with: outerProxy)
+        let itemPercent = getItemPercentForItemIn(innerProxy, with: outerProxy)
         
         if itemPercent > thresholdPercentage {
             return (itemPercent - (thresholdPercentage - 1)) * indent
@@ -70,8 +72,17 @@ struct ContentView: View {
 
         return 0
     }
+    
+    func getColorForItemIn(_ itemProxy: GeometryProxy, with listProxy: GeometryProxy) -> Color {
+        let itemPercent = getItemPercentForItemIn(itemProxy, with: listProxy)
         
-    func getItemPercentForItemIn(innerProxy: GeometryProxy, with outerProxy: GeometryProxy) -> CGFloat {
+        let colorValue = Double(itemPercent / 100)
+        
+        return Color(hue: colorValue, saturation: 0.9, brightness: 0.9)
+    }
+    
+    // Day 94 - Wrap up - Challenge 3
+    func getItemPercentForItemIn(_ innerProxy: GeometryProxy, with outerProxy: GeometryProxy) -> CGFloat {
         let outerHeight = outerProxy.size.height
         let outerStart = outerProxy.frame(in: .global).minY
         let itemStart = innerProxy.frame(in: .global).minY
@@ -141,7 +152,7 @@ struct ContentView: View {
                 
                 // make sure the list is empty
                 usedWords = [String]()
-                usedWords = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Test 14", "Test 15", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Test 14", "Test 15"]
+//                usedWords = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Test 14", "Test 15", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Test 14", "Test 15"]
 
                 return
             }
