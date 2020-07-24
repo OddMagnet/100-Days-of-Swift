@@ -28,13 +28,20 @@ struct ContentView: View {
                     .padding()
                     .autocapitalization(.none)
 
-                List(usedWords, id: \.self) { word in
-                    HStack {
-                        Image(systemName: "\(word.count).circle") // show length of each word
-                        Text(word)
+                // Day 94 - Wrap up - Challenge 2
+                GeometryReader { outerGeo in
+                    List(self.usedWords, id: \.self) { word in
+                        GeometryReader { innerGeo in
+                            HStack {
+                                Image(systemName: "\(word.count).circle") // show length of each word
+                                Text(word)
+                                 .offset(x: self.getOffsetForItem(in: innerGeo, with: outerGeo))
+                            }
+                            .frame(width: innerGeo.size.width, alignment: .leading)
+                            .accessibilityElement(children: .ignore)
+                            .accessibility(label: Text("\(word), \(word.count) letters"))
+                        }
                     }
-                    .accessibilityElement(children: .ignore)
-                    .accessibility(label: Text("\(word), \(word.count) letters"))
                 }
                 Text("Score: \(score)")     // Challenge 3 - add and show user score
             }
@@ -47,6 +54,25 @@ struct ContentView: View {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }
         }
+    }
+    
+    // Day 94 - Wrap up - Challenge 2
+    func getOffsetForItem(in innerGeo: GeometryProxy,
+                          with outerGeo: GeometryProxy,
+                          thresholdPercentage: CGFloat = 60,
+                          indent: CGFloat = 9) -> CGFloat {
+        
+        let outerHeight = outerGeo.size.height
+        let outerStart = outerGeo.frame(in: .global).minY
+        let itemStart = innerGeo.frame(in: .global).minY
+
+        let itemPercent =  (itemStart - outerStart) / outerHeight * 100
+
+        if itemPercent > thresholdPercentage {
+            return (itemPercent - (thresholdPercentage - 1)) * indent
+        }
+
+        return 0
     }
     
     // add user input to the list
@@ -109,6 +135,7 @@ struct ContentView: View {
                 
                 // make sure the list is empty
                 usedWords = [String]()
+//                usedWords = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Test 14", "Test 15", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Test 14", "Test 15"]
 
                 return
             }
