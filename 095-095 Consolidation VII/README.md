@@ -63,3 +63,4 @@ Create an app that lets the user roll dice and store the results they had.
 - add haptic feedback on roll
 - let the dices 'flick' through some values before settling
 - add accessibility
+- **Note**: no haptic feedback since I can't test it on a real device at the time of doing this challenge
