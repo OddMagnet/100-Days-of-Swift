@@ -14,6 +14,8 @@
 		4C1A516024CC1C45000C43BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1A515F24CC1C45000C43BD /* Assets.xcassets */; };
 		4C1A516324CC1C45000C43BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1A516224CC1C45000C43BD /* Preview Assets.xcassets */; };
 		4C1A516624CC1C45000C43BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1A516424CC1C45000C43BD /* LaunchScreen.storyboard */; };
+		4CFAC0A924CC22880015C326 /* DiceRoll+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAC0A724CC22880015C326 /* DiceRoll+CoreDataClass.swift */; };
+		4CFAC0AA24CC22880015C326 /* DiceRoll+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAC0A824CC22880015C326 /* DiceRoll+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		4C1A516224CC1C45000C43BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C1A516524CC1C45000C43BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C1A516724CC1C45000C43BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CFAC0A724CC22880015C326 /* DiceRoll+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceRoll+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4CFAC0A824CC22880015C326 /* DiceRoll+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceRoll+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				4C1A515F24CC1C45000C43BD /* Assets.xcassets */,
 				4C1A516424CC1C45000C43BD /* LaunchScreen.storyboard */,
 				4C1A516724CC1C45000C43BD /* Info.plist */,
+				4CFAC0A724CC22880015C326 /* DiceRoll+CoreDataClass.swift */,
+				4CFAC0A824CC22880015C326 /* DiceRoll+CoreDataProperties.swift */,
 				4C1A515A24CC1C44000C43BD /* iRoll.xcdatamodeld */,
 				4C1A516124CC1C45000C43BD /* Preview Content */,
 			);
@@ -150,9 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1A515724CC1C44000C43BD /* AppDelegate.swift in Sources */,
+				4CFAC0AA24CC22880015C326 /* DiceRoll+CoreDataProperties.swift in Sources */,
 				4C1A515C24CC1C44000C43BD /* iRoll.xcdatamodeld in Sources */,
 				4C1A515E24CC1C44000C43BD /* ContentView.swift in Sources */,
 				4C1A515924CC1C44000C43BD /* SceneDelegate.swift in Sources */,
+				4CFAC0A924CC22880015C326 /* DiceRoll+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
