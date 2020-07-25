@@ -17,6 +17,7 @@
 		4CFAC0A924CC22880015C326 /* DiceRoll+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAC0A724CC22880015C326 /* DiceRoll+CoreDataClass.swift */; };
 		4CFAC0AA24CC22880015C326 /* DiceRoll+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAC0A824CC22880015C326 /* DiceRoll+CoreDataProperties.swift */; };
 		4CFAC0AC24CC2B890015C326 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAC0AB24CC2B880015C326 /* SettingsView.swift */; };
+		4CFAC0AE24CC38CB0015C326 /* NewRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFAC0AD24CC38CB0015C326 /* NewRollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4CFAC0A724CC22880015C326 /* DiceRoll+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceRoll+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4CFAC0A824CC22880015C326 /* DiceRoll+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceRoll+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4CFAC0AB24CC2B880015C326 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4CFAC0AD24CC38CB0015C326 /* NewRollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				4C1A515624CC1C44000C43BD /* AppDelegate.swift */,
 				4C1A515824CC1C44000C43BD /* SceneDelegate.swift */,
 				4C1A515D24CC1C44000C43BD /* ContentView.swift */,
+				4CFAC0AD24CC38CB0015C326 /* NewRollView.swift */,
 				4CFAC0AB24CC2B880015C326 /* SettingsView.swift */,
 				4C1A515F24CC1C45000C43BD /* Assets.xcassets */,
 				4C1A516424CC1C45000C43BD /* LaunchScreen.storyboard */,
@@ -160,6 +163,7 @@
 			files = (
 				4CFAC0AC24CC2B890015C326 /* SettingsView.swift in Sources */,
 				4C1A515724CC1C44000C43BD /* AppDelegate.swift in Sources */,
+				4CFAC0AE24CC38CB0015C326 /* NewRollView.swift in Sources */,
 				4CFAC0AA24CC22880015C326 /* DiceRoll+CoreDataProperties.swift in Sources */,
 				4C1A515C24CC1C44000C43BD /* iRoll.xcdatamodeld in Sources */,
 				4C1A515E24CC1C44000C43BD /* ContentView.swift in Sources */,

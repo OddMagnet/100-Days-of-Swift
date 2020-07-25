@@ -8,16 +8,19 @@
 
 import SwiftUI
 
+class Settings: ObservableObject {
+    @Published var diceSides: Int = 6
+    @Published var diceAmount: Int = 1
+}
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: DiceRoll.entity(), sortDescriptors: []) var diceRolls: FetchedResults<DiceRoll>
-    
-    @State private var diceSides: Int = 6
-    @State private var diceAmount: Int = 1
+    @ObservedObject var settings = Settings()
     
     var body: some View {
         TabView {
-            Text("\(diceAmount) x \(diceSides)-sided dice")
+            Text("\(settings.diceAmount) x \(settings.diceSides)-sided dice")
                 .tabItem {
                     Image(systemName: "hexagon")
                     Text("New Roll")
@@ -29,7 +32,7 @@ struct ContentView: View {
                     Text("Past Rolls")
             }
             
-            SettingsView(sides: $diceSides, amount: $diceAmount)
+            SettingsView().environmentObject(settings)
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")
