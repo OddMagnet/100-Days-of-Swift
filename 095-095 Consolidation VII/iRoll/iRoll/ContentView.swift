@@ -17,7 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            Text("New")
+            Text("\(diceAmount) x \(diceSides)-sided dice")
                 .tabItem {
                     Image(systemName: "hexagon")
                     Text("New Roll")
@@ -29,7 +29,7 @@ struct ContentView: View {
                     Text("Past Rolls")
             }
             
-            Text("Settings")
+            SettingsView(sides: $diceSides, amount: $diceAmount)
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")
