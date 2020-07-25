@@ -28,8 +28,12 @@ struct NewRollView: View {
                     .font(.title)
                 
                 List {
-                    ForEach(0 ..< settings.diceAmount) { dice in
-                        Text("Dice #\(dice): \(self.results[dice])")
+                    ForEach(0 ..< settings.diceAmount, id: \.self) { dice in
+                        HStack {
+                            Spacer()
+                            Text("\(self.results[dice])")
+                            Spacer()
+                        }
                     }
                 }
                 
@@ -55,6 +59,7 @@ struct NewRollView: View {
         }
         let newRoll = DiceRoll(context: self.moc)
         newRoll.rolls = results
+        newRoll.sides = Int16(settings.diceSides)
         do {
             try self.moc.save()
         } catch {
