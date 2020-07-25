@@ -56,4 +56,10 @@ The other way around is also possible, **Result** offers an initializer that acc
 `let result = Result { try String(contentsOf: someURL) }` would result in a `Result<String, Error>` type variable.
 
 ## Challenge
-- 
+Create an app that lets the user roll dice and store the results they had.
+- add options for how many dices are roled and how many sides they have
+- show the total rolled
+- store results using Core Data
+- add haptic feedback on roll
+- let the dices 'flick' through some values before settling
+- add accessibility
