@@ -9,18 +9,17 @@
 import SwiftUI
 
 class Settings: ObservableObject {
+    static let maxDiceAmount = 6
     @Published var diceSides: Int = 6
     @Published var diceAmount: Int = 1
 }
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: DiceRoll.entity(), sortDescriptors: []) var diceRolls: FetchedResults<DiceRoll>
     @ObservedObject var settings = Settings()
     
     var body: some View {
         TabView {
-            Text("\(settings.diceAmount) x \(settings.diceSides)-sided dice")
+            NewRollView().environmentObject(settings)
                 .tabItem {
                     Image(systemName: "hexagon")
                     Text("New Roll")
