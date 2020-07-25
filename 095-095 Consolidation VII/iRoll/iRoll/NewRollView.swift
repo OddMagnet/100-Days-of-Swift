@@ -54,17 +54,33 @@ struct NewRollView: View {
     }
     
     func rollDice() {
+        // dispatch group so saving can be done after dices have stopped rolling
+        let group = DispatchGroup()
+        
+        // roll the dices, each dice roll has a random amount of rotations
+        // every rotation is a block that enters the group and exits after the rotation is done
         for dice in 0 ..< settings.diceAmount {
-            results[dice] = Int.random(in: 1...settings.diceSides)
+            let rotations = Int.random(in: 2...12)
+            for i in 0 ..< rotations {
+                group.enter()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds((rotations - i) * 200)) {
+                    self.results[dice] = Int.random(in: 1...self.settings.diceSides)
+                    group.leave()
+                }
+            }
         }
-        let newRoll = DiceRoll(context: self.moc)
-        newRoll.rolls = results
-        newRoll.sides = Int16(settings.diceSides)
-        do {
-            try self.moc.save()
-        } catch {
-            print("Error saving new roll")
-            print(error.localizedDescription)
+        
+        // after all blocks have left the group (all rotations are done, rolls are final), the rolls will be saved
+        group.notify(queue: .main) {
+            let newRoll = DiceRoll(context: self.moc)
+            newRoll.rolls = self.results
+            newRoll.sides = Int16(self.settings.diceSides)
+            do {
+                try self.moc.save()
+            } catch {
+                print("Error saving new roll")
+                print(error.localizedDescription)
+            }
         }
     }
 }
