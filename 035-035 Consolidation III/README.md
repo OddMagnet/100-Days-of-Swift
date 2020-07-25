@@ -30,7 +30,7 @@ like the base thumbs-up emoji is followed by a modifier for skin tone.
 This also is the reason why it's **not** possible to use access letters like this `str[0]`
 Luckily SwiftUI does most of the heavy lifting when it comes to such strings.
 
-###Flat app bundles
+### Flat app bundles
 **Asset catalogs** can handle a variety of things, like vectors, colors, textures, pictures and more.
 When Xcode builds the project, it goes through the asset catalog and optimizes them for the target devices, 
 then puts the results into a so-called compiled asset catalog that can be loaded especially efficient.
