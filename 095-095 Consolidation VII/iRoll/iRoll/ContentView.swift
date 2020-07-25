@@ -9,7 +9,7 @@
 import SwiftUI
 
 class Settings: ObservableObject {
-    static let maxDiceAmount = 6
+    static let maxDiceAmount = 12
     @Published var diceSides: Int = 6
     @Published var diceAmount: Int = 1
 }
