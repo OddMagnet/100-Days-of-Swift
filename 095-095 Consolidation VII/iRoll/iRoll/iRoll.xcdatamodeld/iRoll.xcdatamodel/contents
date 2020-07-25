@@ -2,8 +2,9 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DiceRoll" representedClassName="DiceRoll" syncable="YES">
         <attribute name="rolls" attributeType="Transformable" customClassName="[Int]"/>
+        <attribute name="sides" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="DiceRoll" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="DiceRoll" positionX="-63" positionY="-18" width="128" height="73"/>
     </elements>
 </model>

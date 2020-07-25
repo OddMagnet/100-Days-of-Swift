@@ -18,9 +18,14 @@ extension DiceRoll {
     }
 
     @NSManaged public var rolls: [Int]?
+    @NSManaged public var sides: Int16
     
     var wrappedRolls: [Int] {
         rolls ?? []
+    }
+    
+    var wrappedSides: Int {
+        Int(sides)
     }
 
 }
