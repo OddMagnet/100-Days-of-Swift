@@ -12,8 +12,29 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: DiceRoll.entity(), sortDescriptors: []) var diceRolls: FetchedResults<DiceRoll>
     
+    @State private var diceSides: Int = 6
+    @State private var diceAmount: Int = 1
+    
     var body: some View {
-        Text("Hello, World!")
+        TabView {
+            Text("New")
+                .tabItem {
+                    Image(systemName: "hexagon")
+                    Text("New Roll")
+            }
+            
+            Text("Past Rolls")
+                .tabItem {
+                    Image(systemName: "hexagon.fill")
+                    Text("Past Rolls")
+            }
+            
+            Text("Settings")
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+            }
+        }
     }
 }
 
