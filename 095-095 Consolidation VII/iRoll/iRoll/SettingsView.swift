@@ -44,8 +44,8 @@ struct SettingsView: View {
                     .pickerStyle(SegmentedPickerStyle())
                 }
                 
-                Section(header: Text("Amount of dice")) {
-                    Stepper("\(amountSelection)", value: amountBinding, in: 1...6)
+                Section(header: Text("Amount of dice (1...\(Settings.maxDiceAmount))")) {
+                    Stepper("\(amountSelection)", value: amountBinding, in: 1...Settings.maxDiceAmount)
                 }
             }
             .navigationBarTitle("Settings")
