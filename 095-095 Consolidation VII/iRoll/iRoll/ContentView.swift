@@ -25,7 +25,7 @@ struct ContentView: View {
                     Text("New Roll")
             }
             
-            Text("Past Rolls")
+            PastRollsView()
                 .tabItem {
                     Image(systemName: "hexagon.fill")
                     Text("Past Rolls")
