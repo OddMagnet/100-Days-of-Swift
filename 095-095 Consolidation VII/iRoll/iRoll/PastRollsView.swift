@@ -17,6 +17,13 @@ struct PastRollsView: View {
         NavigationView {
             List {
                 if !diceRolls.isEmpty {
+                    HStack {
+                        Text("Sides")
+                            .frame(minWidth: 50)
+                        Text("Results")
+                    }
+                    .font(.headline)
+
                     ForEach(diceRolls) { roll in
                         HStack {
                             Text("\(roll.sides)")
@@ -25,9 +32,9 @@ struct PastRollsView: View {
                                     Circle()
                                         .stroke(Color.black, lineWidth: 2)
                                 )
+                                .frame(minWidth: 50)
                             
                             Text("\(roll.wrappedRolls.map{ String($0) }.joined(separator: ", "))")
-                                .padding(.leading)
                         }
                     }
                 } else {
