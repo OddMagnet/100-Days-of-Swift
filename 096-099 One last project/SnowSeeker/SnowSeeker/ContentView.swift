@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(resorts) { resort in
-                NavigationLink(destination: Text(resort.name)) {
+                NavigationLink(destination: ResortView(resort: resort)) {
                     Image(resort.country)
                         .resortImage(width: 40, height: 25, cornerRadius: 5)
                     
