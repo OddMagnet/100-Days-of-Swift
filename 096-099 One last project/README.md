@@ -51,9 +51,6 @@ Group {
 - for the condition it's common to use size classes `@Environment(\.horizontalSizeClass) var sizeClass`
 
 ## Other notes
-### Building a primary list of items
-### Making a NavigationView work in landscape
-### Creating a secondary view for NavigationView
 ### Changing a view's layout in response to size classes
 ### Binding an alert to an optional string
 ### Letting the user mark favorites
