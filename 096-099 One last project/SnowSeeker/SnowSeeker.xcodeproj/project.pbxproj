@@ -14,6 +14,7 @@
 		4CB99E5E24CDA16500306D83 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CB99E5D24CDA16500306D83 /* Preview Assets.xcassets */; };
 		4CB99E6124CDA16500306D83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB99E5F24CDA16500306D83 /* LaunchScreen.storyboard */; };
 		4CB9E3F924CDD26900597A1F /* resorts.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CB9E3F824CDD26900597A1F /* resorts.json */; };
+		4CB9E3FC24CDD2B900597A1F /* Resort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB9E3FB24CDD2B900597A1F /* Resort.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4CB99E6024CDA16500306D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CB99E6224CDA16500306D83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CB9E3F824CDD26900597A1F /* resorts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resorts.json; sourceTree = "<group>"; };
+		4CB9E3FB24CDD2B900597A1F /* Resort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resort.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				4CB99E5424CDA16300306D83 /* AppDelegate.swift */,
 				4CB99E5624CDA16300306D83 /* SceneDelegate.swift */,
 				4CB99E5824CDA16300306D83 /* ContentView.swift */,
+				4CB9E3FA24CDD2AC00597A1F /* Model */,
 				4CB99E5A24CDA16500306D83 /* Assets.xcassets */,
 				4CB9E3F824CDD26900597A1F /* resorts.json */,
 				4CB99E5F24CDA16500306D83 /* LaunchScreen.storyboard */,
@@ -76,6 +79,14 @@
 				4CB99E5D24CDA16500306D83 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4CB9E3FA24CDD2AC00597A1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CB9E3FB24CDD2B900597A1F /* Resort.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 			files = (
 				4CB99E5524CDA16300306D83 /* AppDelegate.swift in Sources */,
 				4CB99E5724CDA16300306D83 /* SceneDelegate.swift in Sources */,
+				4CB9E3FC24CDD2B900597A1F /* Resort.swift in Sources */,
 				4CB99E5924CDA16300306D83 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
