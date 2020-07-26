@@ -23,7 +23,12 @@ An app that lets the user browse ski resorts around the world.
     - it's not possible to make the primary view show by default in landscape, SwiftUI always chooses the detail view
 
 ## Using alert() and sheet() with optionals
-- 
+- aside from using a binding to a Boolean it's also possible to use alerts and sheets with optional **Identifiable** objects
+- by passing the alert/sheet modifier an optional item whose type conforms to the Identifiable protocol, the alert/sheet will show once it gets a value
+- after dismissing the alert/sheet the variable gets set back to nil
+- `@State private var selectedUser: User? = nil` where user conforms to `Identifiable`
+- then `.alert(item: $selectedUser) { user in /*...*/ }` can be used
+- inside the closure the variable can be used like any other non-optional variable
 
 ## Using groups as transparent layout containers
 - 
