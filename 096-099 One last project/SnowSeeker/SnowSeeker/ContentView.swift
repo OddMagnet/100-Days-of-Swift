@@ -10,24 +10,37 @@ import SwiftUI
 
 struct User: Identifiable {
     var id = "OddMagnet"
+    var name = "Michael Brünen"
+    var country = "Germany"
+    var pets = ["Motty, Muckel"]
+}
+
+struct UserView: View {
+    var user: User
+    
+    var body: some View {
+        Group {
+            Text("Name: \(user.name)")
+            Text("Country: \(user.country)")
+            Text("Pets: \(user.pets.joined(separator: ", "))")
+        }
+    }
 }
 
 struct ContentView: View {
-    @State private var selectedUser: User? = nil
+    @Environment(\.horizontalSizeClass) var sizeClass
+
     var body: some View {
-        NavigationView {
-            NavigationLink(destination: Text("New Secondary")) {
-                Text("Hello, World!")
-                    .onTapGesture {
-                        self.selectedUser = User()
+        Group {
+            if sizeClass == .compact {
+                VStack {
+                    UserView(user: User())
                 }
-                .alert(item: $selectedUser) { user in
-                    Alert(title: Text(user.id))
+            } else {
+                HStack {
+                    UserView(user: User())
                 }
             }
-            .navigationBarTitle("Primary")
-            
-            Text("Hello, Secondary")
         }
     }
 }

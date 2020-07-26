@@ -31,7 +31,24 @@ An app that lets the user browse ski resorts around the world.
 - inside the closure the variable can be used like any other non-optional variable
 
 ## Using groups as transparent layout containers
-- 
+- when creating layouts for both portrait and landscape (or just smaller and bigger devices) often a change between vertical and horizontal layout is needed
+- this is where **Group** views are practical, they act as a transparent layout container, meaning their children just adopt the layout of the stacks that surround it
+- for example it's possible to do the following
+```swift
+Group {
+    if layoutVertically {
+        VStack {
+            SomeGroupView()
+        }
+    } else {
+        HStack {
+            SomeGroupView()
+        }            
+    }
+}
+```
+- depending on the condition `SomeGroupView`'s content will either show vertically or horizontally
+- for the condition it's common to use size classes `@Environment(\.horizontalSizeClass) var sizeClass`
 
 ## Other notes
 ###Building a primary list of items
