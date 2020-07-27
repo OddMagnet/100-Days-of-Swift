@@ -14,7 +14,7 @@ struct FilterView: View {
     @Binding var priceFilter: Resort.PriceTypes
     
     var body: some View {
-        Group {
+        VStack {
             Text("Filter by")
                 .font(.headline)
             Picker("Country", selection: $countryFilter) {
