@@ -12,9 +12,10 @@ struct ResortDetailsView: View {
     let resort: Resort
     
     var body: some View {
-        VStack {
-            Text("Size: \(resort.sizeString)")
-            Text("Price: \(resort.priceString)")
+        Group {
+            Text("Size: \(resort.sizeString)").layoutPriority(1)
+            Spacer().frame(height: 0)
+            Text("Price: \(resort.priceString)").layoutPriority(1)
         }
     }
 }
