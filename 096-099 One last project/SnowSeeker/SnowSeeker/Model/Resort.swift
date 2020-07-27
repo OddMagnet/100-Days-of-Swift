@@ -29,6 +29,10 @@ struct Resort: Codable, Identifiable {
         String(repeating: "$", count: price)
     }
     
+    var facilityTypes: [Facility] {
+        facilities.map(Facility.init)
+    }
+    
     let id: String
     let name: String
     let country: String

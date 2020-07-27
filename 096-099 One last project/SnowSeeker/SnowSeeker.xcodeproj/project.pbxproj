@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C5BFA5D24CEBC0A00D0E377 /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5BFA5C24CEBC0A00D0E377 /* Facility.swift */; };
 		4CB99E5524CDA16300306D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB99E5424CDA16300306D83 /* AppDelegate.swift */; };
 		4CB99E5724CDA16300306D83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB99E5624CDA16300306D83 /* SceneDelegate.swift */; };
 		4CB99E5924CDA16300306D83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB99E5824CDA16300306D83 /* ContentView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C5BFA5C24CEBC0A00D0E377 /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 		4CB99E5124CDA16300306D83 /* SnowSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB99E5424CDA16300306D83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CB99E5624CDA16300306D83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				4CB9E3FB24CDD2B900597A1F /* Resort.swift */,
+				4C5BFA5C24CEBC0A00D0E377 /* Facility.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			files = (
 				4CB9E40B24CDDF1100597A1F /* ResortDetailsView.swift in Sources */,
 				4CB99E5524CDA16300306D83 /* AppDelegate.swift in Sources */,
+				4C5BFA5D24CEBC0A00D0E377 /* Facility.swift in Sources */,
 				4CB9E40324CDD6A200597A1F /* ResortImageModifier.swift in Sources */,
 				4CB99E5724CDA16300306D83 /* SceneDelegate.swift in Sources */,
 				4CB9E3FF24CDD3FB00597A1F /* Bundle-Decodable.swift in Sources */,
