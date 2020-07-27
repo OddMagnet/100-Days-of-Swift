@@ -92,6 +92,7 @@ struct ContentView: View {
                                         ? "arrow.up.arrow.down.circle.fill"
                                         : "arrow.up.arrow.down.circle"
                                     )
+                                        .font(.title)
                                 },
                                 trailing: Button(action: {
                                     self.isShowingFilterView.toggle()
@@ -100,6 +101,7 @@ struct ContentView: View {
                                         ? "line.horizontal.3.decrease.circle.fill"
                                         : "line.horizontal.3.decrease.circle"
                                     )
+                                        .font(.title)
                                 })
             
             WelcomeView()
