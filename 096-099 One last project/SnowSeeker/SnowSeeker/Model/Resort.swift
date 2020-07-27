@@ -11,9 +11,40 @@ import Foundation
 struct Resort: Codable, Identifiable {
     static private let allResorts: [Resort] = Bundle.main.decode("resorts.json")
     static let example = allResorts[0]
+
+    enum CountryTypes: String, CaseIterable, Hashable {
+        case all = "All"
+        case austria = "Austria"
+        case canada = "Canada"
+        case france = "France"
+        case italy = "Italy"
+        case usa = "United States"
+    }
+    
+    enum SizeTypes: Int, CaseIterable, Hashable {
+        case all = 0
+        case small = 1
+        case medium = 2
+        case large = 3
+    }
+    
+    enum PriceTypes: Int, CaseIterable, Hashable {
+        case all = 0
+        case cheap = 1
+        case normal = 2
+        case expensive = 3
+    }
     
     var sizeString: String {
+        // calling a function here, so that there is no code duplication
+        // the function is used in FilterView
+        Self.stringForSize(size)
+    }
+    
+    static func stringForSize(_ size: Int) -> String{
         switch size {
+        case 0:
+            return "All"
         case 1:
             return "Small"
         case 2:
@@ -26,7 +57,16 @@ struct Resort: Codable, Identifiable {
     }
     
     var priceString: String {
-        String(repeating: "$", count: price)
+        // calling a function here, so that there is no code duplication
+        // the function is used in FilterView
+        Self.stringForPrice(price)
+    }
+    
+    static func stringForPrice(_ price: Int) -> String {
+        if price > 0 {
+            return String(repeating: "$", count: price)
+        }
+        return "All"
     }
     
     var facilityTypes: [Facility] {
