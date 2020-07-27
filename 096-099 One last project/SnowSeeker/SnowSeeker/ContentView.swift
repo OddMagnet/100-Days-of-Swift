@@ -10,15 +10,31 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var favorites = Favorites()
-    @State private var isShowingSortView = false
+    @State private var isShowingSortView = true
     @State private var isShowingFilterView = true
+    @State private var sortingOption: Resort.SortingOptions = .standard
     @State private var countryFilter: Resort.CountryTypes = .all
     @State private var sizeFilter: Resort.SizeTypes = .all
     @State private var priceFilter: Resort.PriceTypes = .all
     let resorts: [Resort] = Bundle.main.decode("resorts.json")
     
+    var sortedResorts: [Resort] {
+        var sorted = resorts
+        
+        switch sortingOption {
+        case .alphabetical:
+            sorted.sort(by: { $0.name < $1.name })
+        case .country:
+            sorted.sort(by: { $0.country < $1.country })
+        default:
+            break
+        }
+        
+        return sorted
+    }
+    
     var filteredResorts: [Resort] {
-        var filtered: [Resort] = resorts
+        var filtered = sortedResorts
         
         if countryFilter != .all {
             filtered = filtered.filter({ $0.country == countryFilter.rawValue})
@@ -39,7 +55,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 if self.isShowingSortView {
-                    
+                    SortingView(sortBy: $sortingOption)
                 }
                 if self.isShowingFilterView {
                     FilterView(countryFilter: $countryFilter,
