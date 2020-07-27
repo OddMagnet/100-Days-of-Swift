@@ -1,7 +1,7 @@
 # SnowSeeker
 An app that lets the user browse ski resorts around the world.
 
-![App screenshot](SnowSeeker.png)
+![App screenshot](SnowSeeker.gif)
 
 
 ## Working with two side by side views in SwiftUI
