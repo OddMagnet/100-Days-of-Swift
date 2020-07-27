@@ -50,10 +50,5 @@ Group {
 - depending on the condition `SomeGroupView`'s content will either show vertically or horizontally
 - for the condition it's common to use size classes `@Environment(\.horizontalSizeClass) var sizeClass`
 
-## Other notes
-### Changing a view's layout in response to size classes
-### Binding an alert to an optional string
-### Letting the user mark favorites
-
 ## Wrap up - Challenges
 - 
