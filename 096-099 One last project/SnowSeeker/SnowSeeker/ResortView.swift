@@ -17,6 +17,12 @@ struct ResortView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
+                // Wrap up - Challenge 1
+                HStack {
+                    Spacer()
+                    Text("Image by \(resort.imageCredit)")
+                    Spacer()
+                }
                 Image(decorative: resort.id)
                     .resizable()
                     .scaledToFit()
