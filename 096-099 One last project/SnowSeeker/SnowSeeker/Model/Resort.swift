@@ -11,6 +11,12 @@ import Foundation
 struct Resort: Codable, Identifiable {
     static private let allResorts: [Resort] = Bundle.main.decode("resorts.json")
     static let example = allResorts[0]
+    
+    enum SortingOptions: String, CaseIterable, Hashable {
+        case standard = "Default"
+        case alphabetical = "Alphabetical"
+        case country = "Country"
+    }
 
     enum CountryTypes: String, CaseIterable, Hashable {
         case all = "All"
