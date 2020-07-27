@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var favorites = Favorites()
-    @State private var isShowingSortView = true
-    @State private var isShowingFilterView = true
+    @State private var isShowingSortView = false
+    @State private var isShowingFilterView = false
     @State private var sortingOption: Resort.SortingOptions = .standard
     @State private var countryFilter: Resort.CountryTypes = .all
     @State private var sizeFilter: Resort.SizeTypes = .all
@@ -85,6 +85,22 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("Resorts")
+            .navigationBarItems(leading: Button(action: {
+                                    self.isShowingSortView.toggle()
+                                }) {
+                                    Image(systemName: self.isShowingSortView
+                                        ? "arrow.up.arrow.down.circle.fill"
+                                        : "arrow.up.arrow.down.circle"
+                                    )
+                                },
+                                trailing: Button(action: {
+                                    self.isShowingFilterView.toggle()
+                                }){
+                                    Image(systemName: self.isShowingFilterView
+                                        ? "line.horizontal.3.decrease.circle.fill"
+                                        : "line.horizontal.3.decrease.circle"
+                                    )
+                                })
             
             WelcomeView()
         }
