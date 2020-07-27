@@ -50,5 +50,10 @@ Group {
 - depending on the condition `SomeGroupView`'s content will either show vertically or horizontally
 - for the condition it's common to use size classes `@Environment(\.horizontalSizeClass) var sizeClass`
 
+## Other
+- to format an array of strings into a single string with natural wording, `ListFormatter.localizedString(byJoining:)` can be used
+
 ## Wrap up - Challenges
-- 
+- add photo credit to the ResortView images
+- add loading/saving for favorites
+- add a sorting menu for the list of resorts in ContentView
