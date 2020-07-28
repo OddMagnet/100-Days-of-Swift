@@ -1,7 +1,21 @@
 # 100 Days of Swift UI
 
 ## Section Overview
-### Add H3 and bullet points for each section
+### Introduction
+
+### Starting SwiftUI
+
+### Expanding your skills
+
+### Scaling up to bigger apps
+
+### Focus on data
+
+### Views and View controllers
+
+### Controlling UI Flow
+
+### One last project
 
 ## Day 100: Final Exam
 ![Certificate](certificate.jpg)
