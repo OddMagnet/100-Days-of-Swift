@@ -1,5 +1,16 @@
 # 100 Days of Swift UI
 
+- [Section Overview](#section-overview)
+  * [Introduction](#introduction)
+  * [Starting SwiftUI](#starting-swiftui)
+  * [Expanding your skills](#expanding-your-skills)
+  * [Scaling up to bigger apps](#scaling-up-to-bigger-apps)
+  * [Focus on data](#focus-on-data)
+  * [Views and View controllers](#views-and-view-controllers)
+  * [Controlling UI Flow](#controlling-ui-flow)
+  * [One last project](#one-last-project)
+- [Day 100: Final Exam](#day-100--final-exam)
+
 ## Section Overview
 ### Introduction
 - This section was mostly centered on learning the basics of the Swift programming language
