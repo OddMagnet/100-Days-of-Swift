@@ -4,4 +4,4 @@
 ### Add H3 and bullet points for each section
 
 ## Day 100: Final Exam
-[Certificate](certificate.jpg)
+![Certificate](certificate.jpg)
