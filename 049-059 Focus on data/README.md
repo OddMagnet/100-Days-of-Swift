@@ -19,7 +19,7 @@ Learning goals:
 - building lists with **@FetchRequest**
 - sorting fetch requests with **NSSortDescriptor**
 - deleting from a Core Data fetch request
-- poping a Navigationink programmatically
+- poping a Navigationlink programmatically
 
 ## [Project 12 - CoreDataProject](Project%2012)
 A technique project to explore how Core Data and SwiftUI work together
