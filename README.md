@@ -36,6 +36,10 @@
 - Additionally I learned about __GeometryReader__, __ScrollView__ and how to create custom __Paths__ and __Shapes__ in SwiftUI
 
 ### Focus on data
+- The focus of this section, like the title says, was on data, sending and receiving it, and using __Core Data__ with SwiftUI
+- I learned how to add __Codable__ conformance to __@Published__ properties, using __URLSession__ to receive and send data
+- For Core Data I learned about __@FetchRequest__, how to sort and filter those requests and how to delete data, how to create custom __NSManagedObject__ subclasses, using constraints and relationships
+- Additionally I practiced using more custom components, size classes and type erasure
 
 ### Views and View controllers
 
