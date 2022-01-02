@@ -27,10 +27,7 @@ struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
     @State private var scoreMessage = ""
-    @State private var countries = [
-        "Estonia", "France", "Germany", "Ireland", "Italy",
-        "Nigeria", "Poland", "Russia", "Spain", "UK", "US"
-        ].shuffled()                                            // randomize flag order
+    @State private var countries = allCountries.shuffled()      // randomize flag order
     @State private var correctAnswer = Int.random(in: 0...2)    // correct flag is chosen randomly
     // Game over
     @State private var questionCounter = 1
@@ -51,6 +48,11 @@ struct ContentView: View {
         "US": "Flag with red and white stripes of equal size, with white stars on a blue background in the top-left corner"
     ]
     let needsThe = ["UK", "US"]
+    static let allCountries = [
+        "Estonia", "France", "Germany", "Ireland", "Italy",
+        "Nigeria", "Poland", "Russia", "Spain", "UK", "US"
+    ]
+
     
     // Project 6 - Wrap up challenge variables
     @State private var rotationAngle: Double = 0.0
@@ -90,7 +92,7 @@ struct ContentView: View {
                             ? 0.5
                             : 1.0
                     )
-                    .animation(.easeInOut(duration: 1.25))
+                    .animation(.easeInOut, value: 1.25)
                 }
                 Text("Your score: \(score)")
                     .foregroundColor(.white)
@@ -136,6 +138,9 @@ struct ContentView: View {
     
     // randomize for the next question
     func askQuestion() {
+        // remove previous correct answer before resetting state
+        countries.remove(at: correctAnswer)
+
         // reset states used for animations
         rotationAngle = 0
         wrongFlagTapped = false
@@ -150,6 +155,7 @@ struct ContentView: View {
     func newGame() {
         questionCounter = 0
         score = 0
+        countries = Self.allCountries.shuffled()
         askQuestion()
     }
 }
