@@ -8,74 +8,71 @@
 
 import SwiftUI
 
-
-struct UnitSelection: View {
-    let name: String
-    let units: [String]
-    var unitSelection: Binding<Int>
-    
-    var body: some View {
-        Picker("aaa\(name)", selection: unitSelection) {
-            ForEach(0 ..< units.count) {
-                Text(self.units[$0])
-            }
-        }
-        .pickerStyle(SegmentedPickerStyle())
-    }
-}
-
 struct ContentView: View {
     // State variables
-    @State private var lengthValue = ""
-    @State private var inputUnit = 0
-    @State private var outputUnit = 0
-    
+    @State private var input = 100.0
+    @State private var inputUnit = UnitLength.meters
+    @State private var outputUnit = UnitLength.kilometers
+    @FocusState private var inputIsFocused: Bool
+
     // properties
-    let units = [
-        UnitLength.meters,
-        UnitLength.kilometers,
-        UnitLength.feet,
-        UnitLength.yards,
-        UnitLength.miles
-    ]
-    let unitsAsStrings = [
-        "meters",
-        "kilometers",
-        "feet",
-        "yards",
-        "miles"
-    ]
+    let units: [UnitLength] = [.meters, .kilometers, .feet, .miles, .yards]
+    let formatter: MeasurementFormatter
 
     // computed properties
-    var convertedUnit: Double {
-        let length = Double(lengthValue) ?? 0.0
-        let inputValue = Measurement(value: length, unit: units[inputUnit])
-        let outputValue = inputValue.converted(to: units[outputUnit])
-        return outputValue.value    // only return the value, not the Measurement type
+    var result: String {
+        let inputMeasurement = Measurement(value: input, unit: inputUnit)
+        let outputMeasurement = inputMeasurement.converted(to: outputUnit)
+        return formatter.string(from: outputMeasurement)
+    }
+
+    init() {
+        formatter = MeasurementFormatter()
+        formatter.unitOptions = .providedUnit
+        formatter.unitStyle = .long
     }
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Input")) {
-                    TextField("Length value", text: $lengthValue)
+                    TextField("Amount", value: $input, format: .number)
                         .keyboardType(.decimalPad)
+                        .focused($inputIsFocused)
                     
                     // custom views to keep code DRY
-                    UnitSelection(name: "Input unit", units: unitsAsStrings, unitSelection: $inputUnit)
+                    UnitSelection(name: "Convert from", units: units, unitSelection: $inputUnit)
                 }
                 .font(.headline)
                 
-                Section(header: Text("Output")) {
+                Section(header: Text("Result")) {
                     // custom views to keep code DRY
-                    UnitSelection(name: "Output unit", units: unitsAsStrings, unitSelection: $outputUnit)
-                    
-                    Text("\(convertedUnit, specifier: "%.2f") \(unitsAsStrings[outputUnit])")
+                    UnitSelection(name: "Convert to", units: units, unitSelection: $outputUnit)
+
+                    Text(result)
                 }
                 .font(.headline)
             }
             .navigationBarTitle("LengthConversion")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+
+                    Button("Done") {
+                        inputIsFocused = false
+                    }
+                }
+            }
         }
+    }
+
+    func UnitSelection(name: String, units: [UnitLength], unitSelection: Binding<UnitLength>) -> some View {
+        Picker("\(name)", selection: unitSelection) {
+            ForEach(units, id: \.self) {
+                Text(formatter.string(from: $0))
+            }
+        }
+        .pickerStyle(SegmentedPickerStyle())
     }
 }
 
