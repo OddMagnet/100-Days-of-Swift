@@ -32,6 +32,9 @@ struct ContentView: View {
         "Nigeria", "Poland", "Russia", "Spain", "UK", "US"
         ].shuffled()                                            // randomize flag order
     @State private var correctAnswer = Int.random(in: 0...2)    // correct flag is chosen randomly
+    // Game over
+    @State private var questionCounter = 1
+    @State private var showingResults = false
     
     // Adding accessibilitay
     let labels = [
@@ -96,10 +99,15 @@ struct ContentView: View {
                 Spacer()
             }
         }
-        .alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text(scoreMessage), dismissButton: .default(Text("Continue")) {
-                self.askQuestion()
-            })
+        .alert(scoreTitle, isPresented: $showingScore) {
+            Button("Continue", action: askQuestion)
+        } message: {
+            Text(scoreMessage)
+        }
+        .alert("Game over!", isPresented: $showingResults) {
+            Button("Start Again", action: newGame)
+        } message: {
+            Text("Your final score was \(score).")
         }
     }
     
@@ -118,7 +126,12 @@ struct ContentView: View {
             self.score -= 1
             self.scoreMessage = "That was the flag of\(needsThe.contains(userAnswer) ? "the " : " ")\(countries[number]).\n Your score is: \(score)"
         }
-        showingScore = true
+
+        if questionCounter == 8 {
+            showingResults = true
+        } else {
+            showingScore = true
+        }
     }
     
     // randomize for the next question
@@ -130,6 +143,14 @@ struct ContentView: View {
         // reset the game
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        questionCounter += 1
+    }
+
+    // starts a new game
+    func newGame() {
+        questionCounter = 0
+        score = 0
+        askQuestion()
     }
 }
 
