@@ -47,6 +47,7 @@ struct ContentView: View {
         "UK": "Flag with overlapping red and white crosses, both straight and diagonally, on a blue background",
         "US": "Flag with red and white stripes of equal size, with white stars on a blue background in the top-left corner"
     ]
+    let needsThe = ["UK", "US"]
     
     // Project 6 - Wrap up challenge variables
     @State private var rotationAngle: Double = 0.0
@@ -104,16 +105,18 @@ struct ContentView: View {
     
     // set alert title after flag was tapped, then show it
     func flagTapped(_ number: Int) {
+        let userAnswer = countries[number]
+
         if number == correctAnswer {
             rotationAngle += 360
             self.scoreTitle = "Correct"
             self.score += 2
-            self.scoreMessage = "That is the flag of \(countries[number]).\n Your score is: \(score)"
+            self.scoreMessage = "That is the flag of\(needsThe.contains(userAnswer) ? "the " : " ")\(countries[number]).\n Your score is: \(score)"
         } else {
             wrongFlagTapped = true
             self.scoreTitle = "Wrong"
             self.score -= 1
-            self.scoreMessage = "That was the flag of \(countries[number]).\n Your score is: \(score)"
+            self.scoreMessage = "That was the flag of\(needsThe.contains(userAnswer) ? "the " : " ")\(countries[number]).\n Your score is: \(score)"
         }
         showingScore = true
     }
