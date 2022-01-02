@@ -11,34 +11,23 @@ import SwiftUI
 
 struct ContentView: View {
     // state properties
-    @State private var currentChoice = Int.random(in: 0 ..< 3)
+    @State private var computerChoice = Int.random(in: 0 ..< 3)
     @State private var shouldWin = Bool.random()
     @State private var currentRound = 1
     @State private var playerScore = 0
-    @State private var showGameOver = false
+    @State private var showingGameOver = false
     
     // properties
     enum Play: String {
-        case Rock = "Rock"
-        case Paper = "Paper"
-        case Scissors = "Scissors"
+        case Rock = "✊"
+        case Paper = "✋"
+        case Scissors = "✌️"
     }
-    let choices: [Play] = [.Rock, .Paper, .Scissors]
+    let possibleChoices: [Play] = [.Rock, .Paper, .Scissors]
     
     // methods
-    func didPlayerWin(with choice: Play) -> Bool {
-        switch choice {
-        case .Rock:
-            return currentChoice == 2 ? true : false
-        case .Paper:
-            return currentChoice == 0 ? true : false
-        case .Scissors:
-            return currentChoice == 1 ? true : false
-        }
-    }
-    
     func newRound() {
-        currentChoice = Int.random(in: 0 ..< 3)
+        computerChoice = Int.random(in: 0 ..< 3)
         shouldWin = Bool.random()
     }
     
@@ -48,6 +37,33 @@ struct ContentView: View {
         newRound()
     }
 
+    func play(choice: Int) {
+        let winningMoves = [1, 2, 0]
+        let didWin: Bool
+
+        // check if the player made the correct choice
+        if shouldWin {
+            didWin = choice == winningMoves[computerChoice]
+        } else {
+            didWin = winningMoves[choice] == computerChoice
+        }
+
+        // adjust the score accordingly
+        if didWin {
+            playerScore += 1
+        } else {
+            playerScore -= 1
+        }
+
+        // check if the game is over
+        if currentRound == 10 {
+            showingGameOver = true
+        } else {
+            currentRound += 1
+            newRound()
+        }
+    }
+
     
     var body: some View {
         NavigationView {
@@ -55,7 +71,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Current round: \(currentRound)/10")
-                Text(choices[currentChoice].rawValue)
+                Text(possibleChoices[computerChoice].rawValue)
                     .font(.title)
                 
                 HStack {
@@ -65,31 +81,13 @@ struct ContentView: View {
                 }
                 
                 ForEach(0 ..< 3){ choice in
-                    Button(self.choices[choice].rawValue) {
-                        // increase score if player did as told
-                        if self.didPlayerWin(with: self.choices[choice]) == self.shouldWin{
-                            self.playerScore += 1
-                        } else {
-                            self.playerScore -= 1
-                        }
-                        
-                        // show game over after 10 rounds
-                        if self.currentRound == 10 {
-                            self.showGameOver = true
-                        } else {
-                            // increase round counter and start new round
-                            self.currentRound += 1
-                            self.newRound()
-                        }
+                    Button(possibleChoices[choice].rawValue) {
+                        play(choice: choice)
                     }
-                    .alert(isPresented: self.$showGameOver) {
-                        Alert(
-                            title: Text("Game over"),
-                            message: Text("You scored \(self.playerScore)/10"),
-                            dismissButton: .default(Text("New round"), action: {
-                                self.newGame()
-                            })
-                        )
+                    .alert("Game over", isPresented: $showingGameOver) {
+                        Button("New round", action: newGame)
+                    } message: {
+                        Text("You scored \(self.playerScore)/10")
                     }
                     .font(.title)
                     .padding()
