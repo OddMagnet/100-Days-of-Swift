@@ -19,6 +19,9 @@ struct ContentView: View {
     let tipPercentages = [10, 15, 20, 25, 0]    // holds values for the tip picker
     
     // Computed properties
+    // Returns the local currency
+    var localCurrency: FloatingPointFormatStyle<Double>.Currency = .currency(code: Locale.current.currencyCode ?? "USD")
+
     // calculates the grand total
     var grandTotal: Double {
         let tipSelection = Double(tipPercentages[tipPercentage])
@@ -54,24 +57,34 @@ struct ContentView: View {
                 Section(header: Text("How much tip do you want to leave?")) {
                     // Picker view for the tip percentage selection
                     Picker("Tip percentage", selection: $tipPercentage) {
-                        ForEach(0 ..< tipPercentages.count) {
-                            // create a 'row' for every tip percentage option
-                            Text("\(self.tipPercentages[$0])%")
+                        ForEach(0 ..< 101) {
+                            if #available(iOS 15.0, *) {
+                                Text($0, format: .percent)
+                            } else {
+                                Text("\(self.tipPercentages[$0])%")
+                            }
                         }
                     }
-                    .pickerStyle(SegmentedPickerStyle())    // best suited for fewer items
                 }
                 
-                Section(header: Text("Total amoount")) {
+                Section(header: Text("Total amount")) {
                     // display the total amount of the check
-                    Text("$\(grandTotal, specifier: "%.2f")")
+                    if #available(iOS 15.0, *) {
+                        Text(grandTotal, format: localCurrency)
+                            .foregroundColor(tipPercentage == 4 ? .red : .primary)
+                    } else {
+                        Text("$\(grandTotal, specifier: "%.2f")")
                         // Project 3 Wrap up - Challenge 2
-                        .foregroundColor(tipPercentage == 4 ? .red : .primary)
+                            .foregroundColor(tipPercentage == 4 ? .red : .primary)
+                    }
                 }
                 
                 Section(header: Text("Amount per person")) {
-                    // display the total amount per person, specifier reduces digits after comma to 2
-                    Text("$\(totalPerPerson, specifier: "%.2f")")
+                    if #available(iOS 15.0, *) {
+                        Text(totalPerPerson, format: localCurrency)
+                    } else {
+                        Text("$\(totalPerPerson, specifier: "%.2f")")
+                    }
                 }
             }
             .navigationBarTitle("WeSplit")
