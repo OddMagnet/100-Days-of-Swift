@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4CEE2691247E2A0000365117 /* LengthConversion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LengthConversion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CEE2691247E2A0000365117 /* Conversion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conversion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEE2694247E2A0000365117 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEE2696247E2A0000365117 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4CEE2698247E2A0000365117 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		4CEE2692247E2A0000365117 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CEE2691247E2A0000365117 /* LengthConversion.app */,
+				4CEE2691247E2A0000365117 /* Conversion.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,9 +78,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4CEE2690247E2A0000365117 /* LengthConversion */ = {
+		4CEE2690247E2A0000365117 /* Conversion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CEE26A5247E2A0200365117 /* Build configuration list for PBXNativeTarget "LengthConversion" */;
+			buildConfigurationList = 4CEE26A5247E2A0200365117 /* Build configuration list for PBXNativeTarget "Conversion" */;
 			buildPhases = (
 				4CEE268D247E2A0000365117 /* Sources */,
 				4CEE268E247E2A0000365117 /* Frameworks */,
@@ -90,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = LengthConversion;
+			name = Conversion;
 			productName = LengthConversion;
-			productReference = 4CEE2691247E2A0000365117 /* LengthConversion.app */;
+			productReference = 4CEE2691247E2A0000365117 /* Conversion.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4CEE268C247E2A0000365117 /* Build configuration list for PBXProject "LengthConversion" */;
+			buildConfigurationList = 4CEE268C247E2A0000365117 /* Build configuration list for PBXProject "Conversion" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CEE2690247E2A0000365117 /* LengthConversion */,
+				4CEE2690247E2A0000365117 /* Conversion */,
 			);
 		};
 /* End PBXProject section */
@@ -323,7 +323,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4CEE268C247E2A0000365117 /* Build configuration list for PBXProject "LengthConversion" */ = {
+		4CEE268C247E2A0000365117 /* Build configuration list for PBXProject "Conversion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CEE26A3247E2A0200365117 /* Debug */,
@@ -332,7 +332,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CEE26A5247E2A0200365117 /* Build configuration list for PBXNativeTarget "LengthConversion" */ = {
+		4CEE26A5247E2A0200365117 /* Build configuration list for PBXNativeTarget "Conversion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CEE26A6247E2A0200365117 /* Debug */,
