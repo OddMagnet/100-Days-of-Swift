@@ -8,6 +8,19 @@
 
 import SwiftUI
 
+struct TitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.white)
+    }
+}
+extension View {
+    func title() -> some View {
+        modifier(TitleModifier())
+    }
+}
+
 // Project 3 Wrap up - Challenge 3
 struct FlagImage: View {
     let name: String
@@ -65,7 +78,7 @@ struct ContentView: View {
                 Spacer()
                 VStack {
                     Text("Tap the flag of")
-                        .foregroundColor(.white)
+                        .title()
                     Text(countries[correctAnswer])
                         .foregroundColor(.white)
                         .font(.largeTitle)
