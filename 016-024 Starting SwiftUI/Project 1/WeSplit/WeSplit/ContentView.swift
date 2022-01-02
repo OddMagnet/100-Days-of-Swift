@@ -71,11 +71,11 @@ struct ContentView: View {
                     // display the total amount of the check
                     if #available(iOS 15.0, *) {
                         Text(grandTotal, format: localCurrency)
-                            .foregroundColor(tipPercentage == 4 ? .red : .primary)
+                            .foregroundColor(tipPercentage == 0 ? .red : .primary)
                     } else {
                         Text("$\(grandTotal, specifier: "%.2f")")
                         // Project 3 Wrap up - Challenge 2
-                            .foregroundColor(tipPercentage == 4 ? .red : .primary)
+                            .foregroundColor(tipPercentage == 0 ? .red : .primary)
                     }
                 }
                 
