@@ -10,9 +10,13 @@ import SwiftUI
 
 struct CheckoutView: View {
     @ObservedObject var model: Model
+    // Confirmation
     @State private var confirmationTitle = ""
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+    // Error
+    @State private var errorMessage = ""
+    @State private var showingError = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -35,8 +39,15 @@ struct CheckoutView: View {
             }
         }
         .navigationBarTitle("Check out", displayMode: .inline)
-        .alert(isPresented: $showingConfirmation) {
-            Alert(title: Text(confirmationTitle), message: Text(confirmationMessage), dismissButton: .default(Text("OK")))
+        .alert(confirmationTitle, isPresented: $showingConfirmation) {
+            Button("OK") { }
+        } message: {
+            Text(confirmationMessage)
+        }
+        .alert("Oops!", isPresented: $showingError) {
+            Button("OK") {}
+        } message: {
+            Text(errorMessage)
         }
     }
     
@@ -74,7 +85,8 @@ struct CheckoutView: View {
                 self.confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
                 self.showingConfirmation = true
             } else {
-                print("Invalid response from server")
+                errorMessage = "Sorry, checkoutfailed. \n\nMessage: \(String(describing: error?.localizedDescription))"
+                showingError = true
             }
             
         }.resume()
@@ -83,6 +95,6 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(model: Model(order: Order()))
+        CheckoutView(model: Model())
     }
 }

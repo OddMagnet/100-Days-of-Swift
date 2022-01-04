@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Part2: View {
-    @ObservedObject var model = Model(order: Order())
+    @ObservedObject var model = Model()
     
     var body: some View {
         Section(header: Text("Part 2")) {

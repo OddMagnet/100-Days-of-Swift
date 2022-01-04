@@ -38,6 +38,6 @@ struct AddressView: View {
 
 struct AddressView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressView(model: Model(order: Order()))
+        AddressView(model: Model())
     }
 }

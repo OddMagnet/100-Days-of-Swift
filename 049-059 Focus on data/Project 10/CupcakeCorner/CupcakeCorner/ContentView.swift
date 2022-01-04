@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var model = Model(order: Order())
+    @ObservedObject var model = Model()
     
     var body: some View {
         //        ExamplesView()
@@ -17,7 +17,7 @@ struct ContentView: View {
             Form {
                 Section {
                     Picker("Select your cake type", selection: $model.order.type) {
-                        ForEach(0..<Order.types.count) {
+                        ForEach(0 ..< Order.types.count) {
                             Text(Order.types[$0])
                         }
                     }

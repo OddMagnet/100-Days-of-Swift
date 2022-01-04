@@ -11,6 +11,7 @@
 		4C318854249FAFBE0006019F /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C318853249FAFBE0006019F /* Order.swift */; };
 		4C318856249FB53B0006019F /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C318855249FB53B0006019F /* AddressView.swift */; };
 		4C318858249FB67B0006019F /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C318857249FB67B0006019F /* CheckoutView.swift */; };
+		4C5552362784EABA00E4D32B /* String-EmptyChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5552352784EABA00E4D32B /* String-EmptyChecking.swift */; };
 		4CB2BD8224A0D55500E0247C /* Part3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2BD8124A0D55500E0247C /* Part3.swift */; };
 		4CCBC300249E31E70038723D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBC2FF249E31E70038723D /* AppDelegate.swift */; };
 		4CCBC302249E31E70038723D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBC301249E31E70038723D /* SceneDelegate.swift */; };
@@ -27,6 +28,7 @@
 		4C318853249FAFBE0006019F /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		4C318855249FB53B0006019F /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		4C318857249FB67B0006019F /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		4C5552352784EABA00E4D32B /* String-EmptyChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-EmptyChecking.swift"; sourceTree = "<group>"; };
 		4CB2BD8124A0D55500E0247C /* Part3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part3.swift; sourceTree = "<group>"; };
 		4CCBC2FC249E31E70038723D /* CupcakeCorner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupcakeCorner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCBC2FF249E31E70038723D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C5552322784EA7B00E4D32B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C5552352784EABA00E4D32B /* String-EmptyChecking.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C5552342784EA9B00E4D32B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C318853249FAFBE0006019F /* Order.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4CCBC2F3249E31E70038723D = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +93,8 @@
 				4CCBC303249E31E70038723D /* ContentView.swift */,
 				4C318855249FB53B0006019F /* AddressView.swift */,
 				4C318857249FB67B0006019F /* CheckoutView.swift */,
-				4C318853249FAFBE0006019F /* Order.swift */,
+				4C5552342784EA9B00E4D32B /* Model */,
+				4C5552322784EA7B00E4D32B /* Extensions */,
 				4CCBC313249E31FC0038723D /* Examples */,
 				4CCBC305249E31E80038723D /* Assets.xcassets */,
 				4CCBC30A249E31E80038723D /* LaunchScreen.storyboard */,
@@ -131,7 +150,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Michael Brünen";
 				TargetAttributes = {
 					4CCBC2FB249E31E70038723D = {
@@ -175,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5552362784EABA00E4D32B /* String-EmptyChecking.swift in Sources */,
 				4CCBC300249E31E70038723D /* AppDelegate.swift in Sources */,
 				4CCBC302249E31E70038723D /* SceneDelegate.swift in Sources */,
 				4CCBC315249E32D80038723D /* Part1.swift in Sources */,
@@ -228,6 +248,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -252,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -288,6 +309,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -306,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -325,7 +347,7 @@
 				DEVELOPMENT_TEAM = K5ZJLTFVCL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CupcakeCorner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,7 +368,7 @@
 				DEVELOPMENT_TEAM = K5ZJLTFVCL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CupcakeCorner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

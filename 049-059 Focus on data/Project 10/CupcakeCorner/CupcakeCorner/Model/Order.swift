@@ -9,11 +9,7 @@
 import SwiftUI
 
 class Model: ObservableObject {
-    @Published var order: Order
-    
-    init(order: Order) {
-        self.order = order
-    }
+    @Published var order = Order()
 }
 
 // Wrap up - Challenge 3 - change model from class to struct
@@ -91,9 +87,10 @@ struct Order: Codable {
     var hasValidAddress: Bool {
 
         // check for empty fields
-        if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+        if name.isReallyEmpty || streetAddress.isReallyEmpty || city.isReallyEmpty || zip.isReallyEmpty {
             return false
         }
+        
         // check each field
         if !hasValidStreetAddress || !hasValidCity || !hasValidZip {
             return false
