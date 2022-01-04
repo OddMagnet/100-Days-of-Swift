@@ -10,14 +10,14 @@ import SwiftUI
 
 struct AddView: View {
     @State private var name = ""
-    @State private var type = "Personal"
+    @State private var type = ExpenseType.personal
     @State private var cost = ""
     // Wrap up - Challenge 3 - validate cost field input
     @State private var showingNotIntegerAlert = false
     @ObservedObject var expenses: Expenses
     @Environment(\.presentationMode) var presentationMode
     
-    static let types = ["Business", "Personal"]
+    static let types = [ExpenseType.personal, ExpenseType.business]
     
     var body: some View {
         NavigationView {
@@ -25,20 +25,21 @@ struct AddView: View {
                 TextField("Name", text: $name)
                 Picker("Type", selection: $type) {
                     ForEach(Self.types, id: \.self) {
-                        Text($0)
+                        Text($0.rawValue)
                     }
                 }
+                .pickerStyle(SegmentedPickerStyle())
                 TextField("Cost", text: $cost)
                     .keyboardType(.numberPad)
             }
             .navigationBarTitle("Add new expense")
             .navigationBarItems(trailing: Button("Save") {
-                if let actualCost = Double(self.cost) {
-                    let item = ExpenseItem(name: self.name, type: self.type, cost: actualCost)
-                    self.expenses.items.append(item)
-                    self.presentationMode.wrappedValue.dismiss()
+                if let actualCost = Double(cost) {
+                    let item = ExpenseItem(name: name, type: type, cost: actualCost)
+                    expenses.items.append(item)
+                    presentationMode.wrappedValue.dismiss()
                 } else {
-                    self.showingNotIntegerAlert = true
+                    showingNotIntegerAlert = true
                 }
             })
             // Wrap up - Challenge 3 - validate cost field input
@@ -47,8 +48,9 @@ struct AddView: View {
                     title: Text("Not a number"),
                     message: Text("Only numbers can be entered as the cost"),
                     dismissButton: .cancel(Text("Okay")) {
-                        self.cost = ""
-                    })
+                        cost = ""
+                    }
+                )
             }
         }
     }

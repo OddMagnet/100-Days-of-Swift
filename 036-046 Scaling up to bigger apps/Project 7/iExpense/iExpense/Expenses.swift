@@ -17,6 +17,13 @@ class Expenses: ObservableObject {
             }
         }
     }
+
+    var personalItems: [ExpenseItem] {
+        items.filter { $0.type == .personal }
+    }
+    var businessItems: [ExpenseItem] {
+        items.filter { $0.type == .business }
+    }
     
     init() {
         if let items = UserDefaults.standard.data(forKey: "Items") {

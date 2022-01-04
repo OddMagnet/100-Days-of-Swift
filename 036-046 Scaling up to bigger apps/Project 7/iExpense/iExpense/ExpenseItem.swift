@@ -8,9 +8,14 @@
 
 import Foundation
 
-struct ExpenseItem: Identifiable, Codable {
+enum ExpenseType: String, Codable {
+    case business = "Business"
+    case personal = "Personal"
+}
+
+struct ExpenseItem: Identifiable, Codable, Equatable {
     var id = UUID()
     let name: String
-    let type: String
+    let type: ExpenseType
     let cost: Double
 }
