@@ -82,6 +82,7 @@ struct ContentView: View {
                 
                 Section(header: Text("Ideal bedtime")) {
                     Text(idealBedtime)
+                        .font(.title3)
                 }
             }
             .navigationBarTitle("BetterRest")

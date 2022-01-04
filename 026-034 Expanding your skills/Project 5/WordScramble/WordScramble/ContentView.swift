@@ -45,15 +45,23 @@ struct ContentView: View {
                         }
                     }
                 }
-                Text("Score: \(score)")     // Challenge 3 - add and show user score
             }
             .navigationBarTitle(rootWord)
-            .navigationBarItems(leading:    // Challenge 2 - allow the user to request a new word
-                Button("New word", action: startGame)
-            )
+            .toolbar {
+                // Challenge 2 - allow the user to request a new word
+                Button("New game", action: startGame)
+            }
             .onAppear(perform: startGame)
             .alert(isPresented: $showingError) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+            }
+            .safeAreaInset(edge: .bottom) {
+                Text("Score: \(score)")     // Challenge 3 - add and show user score
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .font(.title)
             }
         }
     }
@@ -98,7 +106,8 @@ struct ContentView: View {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
 
         // ensure the input was not empty
-        guard answer.count > 0 else {
+        guard answer.count > 2 else {
+            wordError(title: "Word too short", message: "Words must be at least 3 letters long.")
             return
         }
 
@@ -140,6 +149,11 @@ struct ContentView: View {
     
     // load data on launch
     func startGame() {
+        // reset game state
+        newWord = ""
+        score = 0
+        usedWords.removeAll()
+
         // find URL for start.txt in the app bundle
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             // load content into a string
@@ -152,7 +166,6 @@ struct ContentView: View {
                 
                 // make sure the list is empty
                 usedWords = [String]()
-//                usedWords = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Test 14", "Test 15", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Test 14", "Test 15"]
 
                 return
             }

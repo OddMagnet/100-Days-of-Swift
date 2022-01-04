@@ -23,7 +23,7 @@ struct ContentView: View {
                             Text(item.type)
                         }
                         Spacer()
-                        Text("$\(item.cost)")
+                        Text(item.cost, format: .localCurrency)
                             // Wrap up - Challenge 2 - Style the expense cost
                             .foregroundColor(self.getColor(for: item.cost))
                     }
@@ -50,7 +50,7 @@ struct ContentView: View {
     }
     
     // Wrap up - Challenge 2 - Style the expense cost
-    func getColor(for value: Int) -> Color {
+    func getColor(for value: Double) -> Color {
         switch value {
         case 0..<10:
             return .green

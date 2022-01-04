@@ -9,8 +9,8 @@
 import Foundation
 
 struct ExpenseItem: Identifiable, Codable {
-    let id = UUID()
+    var id = UUID()
     let name: String
     let type: String
-    let cost: Int
+    let cost: Double
 }
