@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C5552302784E16F00E4D32B /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C55522F2784E16F00E4D32B /* Activities.swift */; };
 		4C821BF0249CF6E5002F8BD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C821BEF249CF6E5002F8BD4 /* AppDelegate.swift */; };
 		4C821BF2249CF6E5002F8BD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C821BF1249CF6E5002F8BD4 /* SceneDelegate.swift */; };
 		4C821BF4249CF6E5002F8BD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C821BF3249CF6E5002F8BD4 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C55522F2784E16F00E4D32B /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		4C821BEC249CF6E5002F8BD4 /* iTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C821BEF249CF6E5002F8BD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C821BF1249CF6E5002F8BD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C55522E2784E16000E4D32B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C821C03249CF720002F8BD4 /* Activity.swift */,
+				4C55522F2784E16F00E4D32B /* Activities.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C5552312784E22900E4D32B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C821C05249CFD90002F8BD4 /* AddActivityView.swift */,
+				4C821C07249D076C002F8BD4 /* ActivityDetailView.swift */,
+				4C821BF3249CF6E5002F8BD4 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4C821BE3249CF6E5002F8BD4 = {
 			isa = PBXGroup;
 			children = (
@@ -64,10 +85,8 @@
 			children = (
 				4C821BEF249CF6E5002F8BD4 /* AppDelegate.swift */,
 				4C821BF1249CF6E5002F8BD4 /* SceneDelegate.swift */,
-				4C821C03249CF720002F8BD4 /* Activity.swift */,
-				4C821C05249CFD90002F8BD4 /* AddActivityView.swift */,
-				4C821C07249D076C002F8BD4 /* ActivityDetailView.swift */,
-				4C821BF3249CF6E5002F8BD4 /* ContentView.swift */,
+				4C55522E2784E16000E4D32B /* Model */,
+				4C5552312784E22900E4D32B /* Views */,
 				4C821BF5249CF6E6002F8BD4 /* Assets.xcassets */,
 				4C821BFA249CF6E6002F8BD4 /* LaunchScreen.storyboard */,
 				4C821BFD249CF6E6002F8BD4 /* Info.plist */,
@@ -111,7 +130,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Michael Brünen";
 				TargetAttributes = {
 					4C821BEB249CF6E5002F8BD4 = {
@@ -161,6 +180,7 @@
 				4C821C04249CF720002F8BD4 /* Activity.swift in Sources */,
 				4C821BF4249CF6E5002F8BD4 /* ContentView.swift in Sources */,
 				4C821C06249CFD90002F8BD4 /* AddActivityView.swift in Sources */,
+				4C5552302784E16F00E4D32B /* Activities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +224,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -228,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -264,6 +285,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -282,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -301,7 +323,7 @@
 				DEVELOPMENT_TEAM = K5ZJLTFVCL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iTrack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,7 +344,7 @@
 				DEVELOPMENT_TEAM = K5ZJLTFVCL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iTrack/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
