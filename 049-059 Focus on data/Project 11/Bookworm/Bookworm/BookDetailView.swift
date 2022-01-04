@@ -18,11 +18,8 @@ struct BookDetailView: View {
     
     // Wrap up - Challenge 3 - Add a date to the book entity
     var dateString: String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        
         if let date = book.date {
-            return formatter.string(from: date)
+            return date.formatted(date: .abbreviated, time: .omitted)
         } else {
             return "Unknown"
         }
