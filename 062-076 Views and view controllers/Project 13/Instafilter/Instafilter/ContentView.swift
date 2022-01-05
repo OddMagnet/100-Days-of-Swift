@@ -90,18 +90,25 @@ struct ContentView: View {
                 
                 // Wrap up - Challenge 3
                 Group {
-                    HStack {
-                        Text("Intensity")
-                        Slider(value: intensity)
-                    }.disabled(!currentFilter.inputKeys.contains(kCIInputIntensityKey))
-                    HStack {
-                        Text("Radius   ")
-                        Slider(value: radius)
-                    }.disabled(!currentFilter.inputKeys.contains(kCIInputRadiusKey))
-                    HStack {
-                        Text("Scale    ")
-                        Slider(value: scale)
-                    }.disabled(!currentFilter.inputKeys.contains(kCIInputScaleKey))
+                    if (currentFilter.inputKeys.contains(kCIInputIntensityKey)) {
+                        HStack {
+                            Text("Intensity")
+                            Slider(value: intensity)
+                        }
+                    }
+
+                    if (currentFilter.inputKeys.contains(kCIInputRadiusKey)) {
+                        HStack {
+                            Text("Radius   ")
+                            Slider(value: radius)
+                        }
+                    }
+                    if (currentFilter.inputKeys.contains(kCIInputScaleKey)) {
+                        HStack {
+                            Text("Scale    ")
+                            Slider(value: scale)
+                        }
+                    }
                 }
                 .padding(.vertical)
                 
@@ -109,24 +116,11 @@ struct ContentView: View {
                     Button(filterName) {    // Wrap up - Challenge 2
                         self.showingFilterSheet = true
                     }
-                    Spacer()
-                    Button("Save") {
-                        guard let processedImage = self.processedImage else {
-                            // Wrap up - Challenge 1
-                            self.showingNoImageError = true
-                            return
-                        }
-                        
-                        let imageSaver = ImageSaver()
-                        imageSaver.successHandler = {
-                            print("Success!")
-                        }
 
-                        imageSaver.errorHandler = {
-                            print("Oops: \($0.localizedDescription)")
-                        }
-                        imageSaver.writeToPhotoAlbum(image: processedImage)
-                    }
+                    Spacer()
+
+                    Button("Save", action: save)
+                        .disabled(inputImage == nil)
                 }
             }
             .padding([.horizontal, .bottom])
@@ -134,17 +128,23 @@ struct ContentView: View {
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }
-            .actionSheet(isPresented: $showingFilterSheet) {
-                ActionSheet(title: Text("Select a filter"), buttons: [
-                    .default(Text("Crystallize")) { self.setFilter(CIFilter.crystallize())},
-                    .default(Text("Edges")) { self.setFilter(CIFilter.edges())},
-                    .default(Text("Gaussian Blur")) { self.setFilter(CIFilter.gaussianBlur())},
-                    .default(Text("Pixellate")) { self.setFilter(CIFilter.pixellate())},
-                    .default(Text("Sepia Tone")) { self.setFilter(CIFilter.sepiaTone())},
-                    .default(Text("Unsharp Mask")) { self.setFilter(CIFilter.unsharpMask())},
-                    .default(Text("Vignette")) { self.setFilter(CIFilter.vignette())},
-                    .cancel()
-                ])
+            .confirmationDialog("Select a filter", isPresented: $showingFilterSheet) {
+                Group {
+                    Button("Bloom") { setFilter(CIFilter.bloom()) }
+                    Button("Crystallize") { setFilter(CIFilter.crystallize()) }
+                    Button("Edges") { setFilter(CIFilter.edges()) }
+                    Button("Gaussian Blur") { setFilter(CIFilter.gaussianBlur()) }
+                    Button("Noir") { setFilter(CIFilter.photoEffectNoir()) }
+                    Button("Pixellate") { setFilter(CIFilter.pixellate()) }
+                    Button("Pointillize") { setFilter(CIFilter.pointillize()) }
+                    Button("Sepia Tone") { setFilter(CIFilter.sepiaTone()) }
+                    Button("Unsharp Mask") { setFilter(CIFilter.unsharpMask()) }
+                    Button("Vignette") { setFilter(CIFilter.vignette()) }
+                }
+
+                Group {
+                    Button("Cancel", role: .cancel) { }
+                }
             }
             // Wrap up - Challenge 1
             .alert(isPresented: $showingNoImageError) {
@@ -182,6 +182,24 @@ struct ContentView: View {
             image = Image(uiImage: uiImage)
             processedImage = uiImage
         }
+    }
+
+    func save() {
+        guard let processedImage = self.processedImage else {
+            // Wrap up - Challenge 1
+            self.showingNoImageError = true
+            return
+        }
+
+        let imageSaver = ImageSaver()
+        imageSaver.successHandler = {
+            print("Success!")
+        }
+
+        imageSaver.errorHandler = {
+            print("Oops: \($0.localizedDescription)")
+        }
+        imageSaver.writeToPhotoAlbum(image: processedImage)
     }
 }
 
