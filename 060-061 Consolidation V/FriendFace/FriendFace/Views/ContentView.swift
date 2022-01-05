@@ -34,11 +34,13 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("FriendFace")
-            .onAppear(perform: loadData)
+            .task {
+                await loadData()
+            }
         }
     }
     
-    func loadData() {
+    func loadData() async {
         // only load date the first time
         if users.isEmpty {
             print("Loading user data...")
